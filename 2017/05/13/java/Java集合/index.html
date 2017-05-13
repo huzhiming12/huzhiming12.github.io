@@ -20,24 +20,24 @@
     
     
     <meta name="keywords" content="Collection,HashMap,ArrayList">
-    <meta name="description" content="集合继承关系Collection集合的类继承关系图：                                                                                              集合/pic11.jpg              Map集合继承关系图：">
+    <meta name="description" content="集合继承关系Collection集合的类继承关系图：                                                                                                            Map集合继承关系图：">
 <meta name="keywords" content="Collection,HashMap,ArrayList">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java集合（一）">
 <meta property="og:url" content="https://huzhiming12.github.io/2017/05/13/java/Java集合/index.html">
 <meta property="og:site_name" content="huzhiming的博客">
-<meta property="og:description" content="集合继承关系Collection集合的类继承关系图：                                                                                              集合/pic11.jpg              Map集合继承关系图：">
-<meta property="og:image" content="https://huzhiming12.github.io/2017/05/13/java/Java集合/Java">
-<meta property="og:image" content="https://huzhiming12.github.io/2017/05/13/java/Java集合/Java">
+<meta property="og:description" content="集合继承关系Collection集合的类继承关系图：                                                                                                            Map集合继承关系图：">
+<meta property="og:image" content="https://huzhiming12.github.io/2017/05/13/java/Java集合/pic11.jpg">
+<meta property="og:image" content="https://huzhiming12.github.io/2017/05/13/java/Java集合/pic12.jpg">
 <meta property="og:image" content="https://huzhiming12.github.io/2017/05/13/java/Java集合/pic13.png">
 <meta property="og:image" content="https://huzhiming12.github.io/2017/05/13/java/Java集合/pic14.png">
 <meta property="og:image" content="https://huzhiming12.github.io/2017/05/13/java/Java集合/pic15.png">
 <meta property="og:image" content="https://huzhiming12.github.io/2017/05/13/java/Java集合/pic16.png">
-<meta property="og:updated_time" content="2017-05-13T14:16:37.000Z">
+<meta property="og:updated_time" content="2017-05-13T14:25:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java集合（一）">
-<meta name="twitter:description" content="集合继承关系Collection集合的类继承关系图：                                                                                              集合/pic11.jpg              Map集合继承关系图：">
-<meta name="twitter:image" content="https://huzhiming12.github.io/2017/05/13/java/Java集合/Java">
+<meta name="twitter:description" content="集合继承关系Collection集合的类继承关系图：                                                                                                            Map集合继承关系图：">
+<meta name="twitter:image" content="https://huzhiming12.github.io/2017/05/13/java/Java集合/pic11.jpg">
     
     <link rel="shortcut icon" href="/img/favicon.jpg">
     <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
@@ -190,17 +190,17 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/2017/05/13/java/Java集合/Java" alt="集合/pic11.jpg" title="">
+                    <img src="/2017/05/13/java/Java集合/pic11.jpg" alt="" title="">
                 </div>
-                <div class="image-caption">集合/pic11.jpg</div>
+                <div class="image-caption"></div>
             </figure>
 <p>Map集合继承关系图：</p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/2017/05/13/java/Java集合/Java" alt="集合/pic12.jpg" title="">
+                    <img src="/2017/05/13/java/Java集合/pic12.jpg" alt="" title="">
                 </div>
-                <div class="image-caption">集合/pic12.jpg</div>
+                <div class="image-caption"></div>
             </figure>
 <h4 id="常用的API"><a href="#常用的API" class="headerlink" title="常用的API"></a>常用的API</h4><p>ArrayList：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//List尾部添加元素</span></div><div class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">add</span><span class="params">(E e)</span></span>;</div><div class="line"><span class="comment">//在index位置添加元素</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> index,E element)</span></span>;</div><div class="line"><span class="comment">//移除元素o</span></div><div class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">remove</span><span class="params">(Object o)</span></span>;</div><div class="line"><span class="comment">//移除下标index的元素</span></div><div class="line"><span class="function"><span class="keyword">public</span> E <span class="title">remove</span><span class="params">(<span class="keyword">int</span> index)</span></span>;</div><div class="line"><span class="comment">//清空列表</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">clear</span><span class="params">()</span></span>;</div><div class="line"><span class="comment">//添加集合中的全部元素</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">addAll</span><span class="params">(Collection&lt;? extends E&gt; c)</span></span>;</div><div class="line"><span class="comment">//返回list的遍历</span></div><div class="line"><span class="function"><span class="keyword">public</span> Iterator&lt;E&gt; <span class="title">iterator</span><span class="params">()</span></span>;</div><div class="line"><span class="comment">//是否包含元素</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">contains</span><span class="params">(Object o)</span></span>;</div><div class="line"><span class="comment">//将下标为index元素替换</span></div><div class="line"><span class="function"><span class="keyword">public</span> E <span class="title">set</span><span class="params">(<span class="keyword">int</span> index,E element)</span></span></div></pre></td></tr></table></figure>
@@ -299,7 +299,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2017-05-13T14:16:37.000Z" itemprop="dateUpdated">2017-05-13 22:16:37</time>
+    最后更新时间：<time datetime="2017-05-13T14:25:48.000Z" itemprop="dateUpdated">2017-05-13 22:25:48</time>
 </span><br>
 
 
@@ -382,18 +382,18 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/2017/05/13/操作系统/操作系统知识点/" id="post-prev" class="post-nav-link">
+      <a href="/2017/05/13/hexo/hexo-个人博客配置安装教程/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">操作系统知识点</h4>
+        <h4 class="title">hexo-theme-indigo-card主题安装及常见问题解决</h4>
       </a>
     </div>
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2017/05/13/hexo/hexo-个人博客配置安装教程/" id="post-next" class="post-nav-link">
+      <a href="/2017/05/13/布隆过滤器/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">hexo-theme-indigo-card主题安装及常见问题解决</h4>
+        <h4 class="title">布隆过滤器</h4>
       </a>
     </div>
   
