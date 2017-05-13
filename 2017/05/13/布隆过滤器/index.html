@@ -20,17 +20,17 @@
     
     
     <meta name="keywords" content="爬虫 过滤器">
-    <meta name="description" content="简介  布隆过滤器主要用于判断一个元素是否在集合中，常见的如垃圾邮件过滤的黑白名单方法、爬虫的网址判重模块等。 Hash表也可以用于判断元素是否在集合中，但是布隆过滤器只要Hash表的1/4或1/8甚至更少的空间复杂度就能完成同样的问题。 布隆过滤器存在一定的误报率，通过设计bitArray的大小可以将误报率控制在极低水平。使用布隆过滤器一定是在有一定容错概率的情况下。  布隆过滤器的设计 假设数">
+    <meta name="description" content="简介 布隆过滤器主要用于判断一个元素是否在集合中，常见的如垃圾邮件过滤的黑白名单方法、爬虫的网址判重模块等。 Hash表也可以用于判断元素是否在集合中，但是布隆过滤器只要Hash表的1/4或1/8甚至更少的空间复杂度就能完成同样的问题。 布隆过滤器存在一定的误报率，通过设计bitArray的大小可以将误报率控制在极低水平。使用布隆过滤器一定是在有一定容错概率的情况下。  布隆过滤器的设计假设数据查">
 <meta name="keywords" content="爬虫 过滤器">
 <meta property="og:type" content="article">
 <meta property="og:title" content="布隆过滤器">
 <meta property="og:url" content="https://huzhiming12.github.io/2017/05/13/布隆过滤器/index.html">
 <meta property="og:site_name" content="Snow">
-<meta property="og:description" content="简介  布隆过滤器主要用于判断一个元素是否在集合中，常见的如垃圾邮件过滤的黑白名单方法、爬虫的网址判重模块等。 Hash表也可以用于判断元素是否在集合中，但是布隆过滤器只要Hash表的1/4或1/8甚至更少的空间复杂度就能完成同样的问题。 布隆过滤器存在一定的误报率，通过设计bitArray的大小可以将误报率控制在极低水平。使用布隆过滤器一定是在有一定容错概率的情况下。  布隆过滤器的设计 假设数">
+<meta property="og:description" content="简介 布隆过滤器主要用于判断一个元素是否在集合中，常见的如垃圾邮件过滤的黑白名单方法、爬虫的网址判重模块等。 Hash表也可以用于判断元素是否在集合中，但是布隆过滤器只要Hash表的1/4或1/8甚至更少的空间复杂度就能完成同样的问题。 布隆过滤器存在一定的误报率，通过设计bitArray的大小可以将误报率控制在极低水平。使用布隆过滤器一定是在有一定容错概率的情况下。  布隆过滤器的设计假设数据查">
 <meta property="og:updated_time" content="2017-05-13T04:40:55.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="布隆过滤器">
-<meta name="twitter:description" content="简介  布隆过滤器主要用于判断一个元素是否在集合中，常见的如垃圾邮件过滤的黑白名单方法、爬虫的网址判重模块等。 Hash表也可以用于判断元素是否在集合中，但是布隆过滤器只要Hash表的1/4或1/8甚至更少的空间复杂度就能完成同样的问题。 布隆过滤器存在一定的误报率，通过设计bitArray的大小可以将误报率控制在极低水平。使用布隆过滤器一定是在有一定容错概率的情况下。  布隆过滤器的设计 假设数">
+<meta name="twitter:description" content="简介 布隆过滤器主要用于判断一个元素是否在集合中，常见的如垃圾邮件过滤的黑白名单方法、爬虫的网址判重模块等。 Hash表也可以用于判断元素是否在集合中，但是布隆过滤器只要Hash表的1/4或1/8甚至更少的空间复杂度就能完成同样的问题。 布隆过滤器存在一定的误报率，通过设计bitArray的大小可以将误报率控制在极低水平。使用布隆过滤器一定是在有一定容错概率的情况下。  布隆过滤器的设计假设数据查">
     
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
@@ -157,7 +157,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#undefined"><span class="post-toc-number">1.</span> <span class="post-toc-text">简介</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#undefined"><span class="post-toc-number">2.</span> <span class="post-toc-text">布隆过滤器的设计</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#undefined"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">添加元素</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#undefined"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">查询元素是否在集合中</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#undefined"><span class="post-toc-number">3.</span> <span class="post-toc-text">n k m p 之间的关系</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">简介</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#布隆过滤器的设计"><span class="post-toc-number">2.</span> <span class="post-toc-text">布隆过滤器的设计</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#添加元素"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">添加元素</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#查询元素是否在集合中"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">查询元素是否在集合中</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#n-k-m-p-之间的关系"><span class="post-toc-number">3.</span> <span class="post-toc-text">n k m p 之间的关系</span></a></li></ol>
         </nav>
     </aside>
     
@@ -182,51 +182,35 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h4>简介</h4>
-<ul>
+            <h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><ul>
 <li>布隆过滤器主要用于判断一个元素是否在集合中，常见的如垃圾邮件过滤的黑白名单方法、爬虫的网址判重模块等。</li>
 <li>Hash表也可以用于判断元素是否在集合中，但是布隆过滤器只要Hash表的1/4或1/8甚至更少的空间复杂度就能完成同样的问题。</li>
 <li>布隆过滤器存在一定的误报率，通过设计bitArray的大小可以将误报率控制在极低水平。使用布隆过滤器一定是在有一定容错概率的情况下。</li>
 </ul>
-<h4>布隆过滤器的设计</h4>
-<p>假设数据查询的数据量为n，允许的失误率p</p>
+<h4 id="布隆过滤器的设计"><a href="#布隆过滤器的设计" class="headerlink" title="布隆过滤器的设计"></a>布隆过滤器的设计</h4><p>假设数据查询的数据量为n，允许的失误率p</p>
 <ol>
 <li>长度为m的BitArray，二进制数组，里面存放的数据都是0和1</li>
 <li>k个相互独立的hash函数</li>
 </ol>
-<h5>添加元素</h5>
-<ol>
+<h5 id="添加元素"><a href="#添加元素" class="headerlink" title="添加元素"></a>添加元素</h5><ol>
 <li>初始时将BitArray中的元素全部置为0</li>
 <li>将单条数据str，分别用k个hash函数计算出对应的hash值，将这k个hash值再对m进行取模运算，得到数据h1,h2,……hk.</li>
 <li>将BitArray h1、h2、……hk位置上的值置为1</li>
 <li>每条数据都重复2、3步骤。</li>
 </ol>
-<h5>查询元素是否在集合中</h5>
-<ol>
+<h5 id="查询元素是否在集合中"><a href="#查询元素是否在集合中" class="headerlink" title="查询元素是否在集合中"></a>查询元素是否在集合中</h5><ol>
 <li>将要查询的数据分别用k个hash函数计算出对应的hash值，然后对m进行取模运算，得到数据h1 h2 …… hk.</li>
 <li>判断BitArray h1、h2、……、hk位置上的值是否全部都是1，如果全为1则表示数据已经在集合中，如果不全为1则表示数据不在集合中。</li>
 </ol>
-<h4>n k m p 之间的关系</h4>
-<ul>
+<h4 id="n-k-m-p-之间的关系"><a href="#n-k-m-p-之间的关系" class="headerlink" title="n k m p 之间的关系"></a>n k m p 之间的关系</h4><ul>
 <li>样本个数n和允许失误概率p可以求出m</li>
 </ul>
-<p>$$
-m= -  \frac{n*lnp}{(ln)^2}
-$$</p>
+<p>$$<br>m= -  \frac{n*lnp}{(ln)^2}<br>$$</p>
 <ul>
-<li>
-<p>根据m可以求出k，hash函数的个数</p>
-<p>​
-$$
-k =ln2  *  \frac{m}{n} = 0.7 * \frac{m}{n}
-$$</p>
+<li><p>根据m可以求出k，hash函数的个数</p>
+<p>​<br>$$<br>k =ln2  <em>  \frac{m}{n} = 0.7 </em> \frac{m}{n}<br>$$</p>
 </li>
-<li>
-<p>由于在计算m和k的过程中都是向上取整的，失误率会降低，可以根据下面的公式计算出具体的失误率：
-$$
-p=(1- e ^-(\frac{nk}{m}))^k
-$$
-求出真实的失误率p</p>
+<li><p>由于在计算m和k的过程中都是向上取整的，失误率会降低，可以根据下面的公式计算出具体的失误率：<br>$$<br>p=(1- e ^-(\frac{nk}{m}))^k<br>$$<br>求出真实的失误率p</p>
 </li>
 </ul>
 
