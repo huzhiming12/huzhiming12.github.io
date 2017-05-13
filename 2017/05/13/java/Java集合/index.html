@@ -24,20 +24,20 @@
 <meta name="keywords" content="Collection,HashMap,ArrayList">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java集合（一）">
-<meta property="og:url" content="https://huzhiming12.github.io/2017/05/13/java/Java 集合/index.html">
+<meta property="og:url" content="https://huzhiming12.github.io/2017/05/13/java/Java集合/index.html">
 <meta property="og:site_name" content="huzhiming的博客">
 <meta property="og:description" content="集合继承关系Collection集合的类继承关系图：                                                                                              集合/pic11.jpg              Map集合继承关系图：">
-<meta property="og:image" content="https://huzhiming12.github.io/2017/05/13/java/Java%20集合/Java">
-<meta property="og:image" content="https://huzhiming12.github.io/2017/05/13/java/Java%20集合/Java">
-<meta property="og:image" content="https://huzhiming12.github.io/2017/05/13/java/Java%20集合/pic13.png">
-<meta property="og:image" content="https://huzhiming12.github.io/2017/05/13/java/Java%20集合/pic14.png">
-<meta property="og:image" content="https://huzhiming12.github.io/2017/05/13/java/Java%20集合/pic15.png">
-<meta property="og:image" content="https://huzhiming12.github.io/2017/05/13/java/Java%20集合/pic16.png">
+<meta property="og:image" content="https://huzhiming12.github.io/2017/05/13/java/Java集合/Java">
+<meta property="og:image" content="https://huzhiming12.github.io/2017/05/13/java/Java集合/Java">
+<meta property="og:image" content="https://huzhiming12.github.io/2017/05/13/java/Java集合/pic13.png">
+<meta property="og:image" content="https://huzhiming12.github.io/2017/05/13/java/Java集合/pic14.png">
+<meta property="og:image" content="https://huzhiming12.github.io/2017/05/13/java/Java集合/pic15.png">
+<meta property="og:image" content="https://huzhiming12.github.io/2017/05/13/java/Java集合/pic16.png">
 <meta property="og:updated_time" content="2017-05-13T14:16:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java集合（一）">
 <meta name="twitter:description" content="集合继承关系Collection集合的类继承关系图：                                                                                              集合/pic11.jpg              Map集合继承关系图：">
-<meta name="twitter:image" content="https://huzhiming12.github.io/2017/05/13/java/Java%20集合/Java">
+<meta name="twitter:image" content="https://huzhiming12.github.io/2017/05/13/java/Java集合/Java">
     
     <link rel="shortcut icon" href="/img/favicon.jpg">
     <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
@@ -163,7 +163,7 @@
         </nav>
     </aside>
     
-<article id="post-java/Java 集合"
+<article id="post-java/Java集合"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
@@ -190,7 +190,7 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/2017/05/13/java/Java 集合/Java" alt="集合/pic11.jpg" title="">
+                    <img src="/2017/05/13/java/Java集合/Java" alt="集合/pic11.jpg" title="">
                 </div>
                 <div class="image-caption">集合/pic11.jpg</div>
             </figure>
@@ -198,7 +198,7 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/2017/05/13/java/Java 集合/Java" alt="集合/pic12.jpg" title="">
+                    <img src="/2017/05/13/java/Java集合/Java" alt="集合/pic12.jpg" title="">
                 </div>
                 <div class="image-caption">集合/pic12.jpg</div>
             </figure>
@@ -242,9 +242,9 @@
 <li><p>实现了Queue 接口</p>
 <ul>
 <li><p>offer(E e) 操作调用add方法，将元素插入队列的尾部</p>
-<p><img src="/2017/05/13/java/Java 集合/pic13.png" alt=""></p>
+<p><img src="/2017/05/13/java/Java集合/pic13.png" alt=""></p>
 <p>添加元素e之后</p>
-<p><img src="/2017/05/13/java/Java 集合/pic14.png" alt=""></p>
+<p><img src="/2017/05/13/java/Java集合/pic14.png" alt=""></p>
 </li>
 <li><p>poll操作删除队列头元素，删除的是first结点</p>
 </li>
@@ -257,7 +257,7 @@
 <li><p>实现了Stack功能</p>
 <ul>
 <li><p>push添加元素，注意是在链表的头结点处插入元素</p>
-<p><img src="/2017/05/13/java/Java 集合/pic15.png" alt=""></p>
+<p><img src="/2017/05/13/java/Java集合/pic15.png" alt=""></p>
 </li>
 <li><p>pop 操作是删除链表的头结点</p>
 </li>
@@ -270,7 +270,7 @@
 <li><h4 id="HashMap（非线程安全）"><a href="#HashMap（非线程安全）" class="headerlink" title="HashMap（非线程安全）"></a>HashMap（非线程安全）</h4><ul>
 <li><p>HashMap底层由一个EntrySet数组构成，每个EntrySet都是一个链表</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Entry</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; <span class="keyword">implements</span> <span class="title">Map</span>.<span class="title">Entry</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; </span>&#123;</div><div class="line">       <span class="keyword">final</span> K key;</div><div class="line">       V value;</div><div class="line">       Entry&lt;K,V&gt; next;</div><div class="line">       <span class="keyword">int</span> hash;</div><div class="line">  		Entry(<span class="keyword">int</span> h, K k, V v, Entry&lt;K,V&gt; n) &#123;</div><div class="line">           value = v;</div><div class="line">           next = n;</div><div class="line">           key = k;</div><div class="line">           hash = h;</div><div class="line">       &#125;</div><div class="line">		 ……</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><img src="/2017/05/13/java/Java 集合/pic16.png" alt=""></p>
+<p><img src="/2017/05/13/java/Java集合/pic16.png" alt=""></p>
 </li>
 <li><p>loadFactor，加载因子，默认值是0.75。当map中的元素个数size&gt;=table.length*loadFactor时，hashMap 会进行扩容。如果loadFactor过小，则空间浪费比较严重；若loadFactor过大，则hashmap冲突的概率会加大，造成一些EntrySet链表过长。</p>
 </li>
@@ -304,7 +304,7 @@
 
 
         
-        原始链接：<a href="/2017/05/13/java/Java 集合/" target="_blank" rel="external">https://huzhiming12.github.io/2017/05/13/java/Java 集合/</a>
+        原始链接：<a href="/2017/05/13/java/Java集合/" target="_blank" rel="external">https://huzhiming12.github.io/2017/05/13/java/Java集合/</a>
         
     </div>
     <footer>
@@ -334,7 +334,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://huzhiming12.github.io/2017/05/13/java/Java 集合/&title=《Java集合（一）》 — huzhiming的博客&pic=https://huzhiming12.github.io/img/head.jpeg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://huzhiming12.github.io/2017/05/13/java/Java集合/&title=《Java集合（一）》 — huzhiming的博客&pic=https://huzhiming12.github.io/img/head.jpeg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -344,22 +344,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://huzhiming12.github.io/2017/05/13/java/Java 集合/&title=《Java集合（一）》 — huzhiming的博客&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://huzhiming12.github.io/2017/05/13/java/Java集合/&title=《Java集合（一）》 — huzhiming的博客&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://huzhiming12.github.io/2017/05/13/java/Java 集合/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://huzhiming12.github.io/2017/05/13/java/Java集合/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Java集合（一）》 — huzhiming的博客&url=https://huzhiming12.github.io/2017/05/13/java/Java 集合/&via=https://huzhiming12.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Java集合（一）》 — huzhiming的博客&url=https://huzhiming12.github.io/2017/05/13/java/Java集合/&via=https://huzhiming12.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://huzhiming12.github.io/2017/05/13/java/Java 集合/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://huzhiming12.github.io/2017/05/13/java/Java集合/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -483,7 +483,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://huzhiming12.github.io/2017/05/13/java/Java 集合/&title=《Java集合（一）》 — huzhiming的博客&pic=https://huzhiming12.github.io/img/head.jpeg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://huzhiming12.github.io/2017/05/13/java/Java集合/&title=《Java集合（一）》 — huzhiming的博客&pic=https://huzhiming12.github.io/img/head.jpeg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -493,22 +493,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://huzhiming12.github.io/2017/05/13/java/Java 集合/&title=《Java集合（一）》 — huzhiming的博客&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://huzhiming12.github.io/2017/05/13/java/Java集合/&title=《Java集合（一）》 — huzhiming的博客&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://huzhiming12.github.io/2017/05/13/java/Java 集合/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://huzhiming12.github.io/2017/05/13/java/Java集合/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Java集合（一）》 — huzhiming的博客&url=https://huzhiming12.github.io/2017/05/13/java/Java 集合/&via=https://huzhiming12.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Java集合（一）》 — huzhiming的博客&url=https://huzhiming12.github.io/2017/05/13/java/Java集合/&via=https://huzhiming12.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://huzhiming12.github.io/2017/05/13/java/Java 集合/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://huzhiming12.github.io/2017/05/13/java/Java集合/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -519,7 +519,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://huzhiming12.github.io/2017/05/13/java/Java 集合/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://huzhiming12.github.io/2017/05/13/java/Java集合/" alt="微信分享二维码">
 </div>
 
 
