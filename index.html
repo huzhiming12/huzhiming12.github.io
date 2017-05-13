@@ -182,16 +182,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>1.首先确认<code>_config.yml</code> 中有 <code>post_asset_folder:true</code>。<br>Hexo 提供了一种更方便管理 Asset 的设定：<code>post_asset_folder</code><br>当您设置<code>post_asset_folder</code>为<code>true</code>参数后，在建立文件时，<code>Hexo</code><br>会自动建立一个与文章同名的文件夹，您可以把与该文章相关的所有资源都放到那个文件夹，如此一来，您便可以更方便的使用资源。</p>
-<p>2.在hexo的目录下执行<code>npm install https://github.com/CodeFalling/hexo-asset-image --save</code>（需要等待一段时间）。</p>
-<p>3.完成安装后用<code>hexo</code>新建文章的时候会发现<code>_posts</code>目录下面会多出一个和文章名字一样的文件夹。图片就可以放在文件夹下面。结构如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">本地图片测试</div><div class="line">├── apppicker.jpg</div><div class="line">├── logo.jpg</div><div class="line">└── rules.jpg</div><div class="line">本地图片测试.md</div></pre></td></tr></table></figure>
-<p>这样的目录结构（目录名和文章名一致），只要使用 <code>![logo](本地图片测试/logo.jpg)</code>就可以插入图片。其中<code>[]</code>里面不写文字则没有图片标题。<br>生成的结构为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">public/2016/3/9/本地图片测试</div><div class="line">├── apppicker.jpg</div><div class="line">├── index.html</div><div class="line">├── logo.jpg</div><div class="line">└── rules.jpg</div></pre></td></tr></table></figure>
-<p>同时，生成的 html 是</p>
-<p><code>&lt;img src=&quot;/2016/3/9/本地图片测试/logo.jpg&quot; alt=&quot;logo&quot;&gt;</code></p>
-<p>而不是愚蠢的</p>
-<p><code>&lt;img src=&quot;本地图片测试/logo.jpg&quot; alt=&quot;logo&quot;&gt;</code></p>
-
+        
+          <a class="article-more-a" href="/2017/05/13/hexo-文章中插入图片问题/#more">more >></a>
+        
       
 
       
