@@ -27,7 +27,7 @@
 <meta property="og:url" content="https://huzhiming12.github.io/2017/05/13/布隆过滤器/index.html">
 <meta property="og:site_name" content="Snow">
 <meta property="og:description" content="简介 布隆过滤器主要用于判断一个元素是否在集合中，常见的如垃圾邮件过滤的黑白名单方法、爬虫的网址判重模块等。 Hash表也可以用于判断元素是否在集合中，但是布隆过滤器只要Hash表的1/4或1/8甚至更少的空间复杂度就能完成同样的问题。 布隆过滤器存在一定的误报率，通过设计bitArray的大小可以将误报率控制在极低水平。使用布隆过滤器一定是在有一定容错概率的情况下。  布隆过滤器的设计假设数据查">
-<meta property="og:updated_time" content="2017-05-13T04:28:20.000Z">
+<meta property="og:updated_time" content="2017-05-13T04:40:55.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="布隆过滤器">
 <meta name="twitter:description" content="简介 布隆过滤器主要用于判断一个元素是否在集合中，常见的如垃圾邮件过滤的黑白名单方法、爬虫的网址判重模块等。 Hash表也可以用于判断元素是否在集合中，但是布隆过滤器只要Hash表的1/4或1/8甚至更少的空间复杂度就能完成同样的问题。 布隆过滤器存在一定的误报率，通过设计bitArray的大小可以将误报率控制在极低水平。使用布隆过滤器一定是在有一定容错概率的情况下。  布隆过滤器的设计假设数据查">
@@ -118,7 +118,7 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -208,7 +208,7 @@
 <p>$$<br>m= -  \frac{n*lnp}{(ln)^2}<br>$$</p>
 <ul>
 <li><p>根据m可以求出k，hash函数的个数</p>
-<p>​<br>$$<br>k =ln2<em>\frac{m}{n} = 0.7</em>\frac{m}{n}<br>$$</p>
+<p>​<br>$$<br>k =ln2  <em>  \frac{m}{n} = 0.7 </em> \frac{m}{n}<br>$$</p>
 </li>
 <li><p>由于在计算m和k的过程中都是向上取整的，失误率会降低，可以根据下面的公式计算出具体的失误率：<br>$$<br>p=(1- e ^-(\frac{nk}{m}))^k<br>$$<br>求出真实的失误率p</p>
 </li>
@@ -220,7 +220,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2017-05-13T04:28:20.000Z" itemprop="dateUpdated">2017-05-13 12:28:20</time>
+    Last updated: <time datetime="2017-05-13T04:40:55.000Z" itemprop="dateUpdated">2017-05-13 12:40:55</time>
 </span><br>
 
 
@@ -377,7 +377,7 @@
 
         <p>
             
-            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
         </p>
     </div>
     <div class="bottom">
