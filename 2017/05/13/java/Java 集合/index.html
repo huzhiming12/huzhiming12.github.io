@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    
+    
+    
+    <title>Java集合（一） | huzhiming的博客 | 一切皆有可能</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Collection,HashMap,ArrayList">
+    <meta name="description" content="集合继承关系Collection集合的类继承关系图：                                                                                              集合/pic11.jpg              Map集合继承关系图：">
+<meta name="keywords" content="Collection,HashMap,ArrayList">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java集合（一）">
+<meta property="og:url" content="https://huzhiming12.github.io/2017/05/13/java/Java 集合/index.html">
+<meta property="og:site_name" content="huzhiming的博客">
+<meta property="og:description" content="集合继承关系Collection集合的类继承关系图：                                                                                              集合/pic11.jpg              Map集合继承关系图：">
+<meta property="og:image" content="https://huzhiming12.github.io/2017/05/13/java/Java%20集合/Java">
+<meta property="og:image" content="https://huzhiming12.github.io/2017/05/13/java/Java%20集合/Java">
+<meta property="og:image" content="https://huzhiming12.github.io/2017/05/13/java/Java%20集合/pic13.png">
+<meta property="og:image" content="https://huzhiming12.github.io/2017/05/13/java/Java%20集合/pic14.png">
+<meta property="og:image" content="https://huzhiming12.github.io/2017/05/13/java/Java%20集合/pic15.png">
+<meta property="og:image" content="https://huzhiming12.github.io/2017/05/13/java/Java%20集合/pic16.png">
+<meta property="og:updated_time" content="2017-05-13T14:16:37.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java集合（一）">
+<meta name="twitter:description" content="集合继承关系Collection集合的类继承关系图：                                                                                              集合/pic11.jpg              Map集合继承关系图：">
+<meta name="twitter:image" content="https://huzhiming12.github.io/2017/05/13/java/Java%20集合/Java">
+    
+    <link rel="shortcut icon" href="/img/favicon.jpg">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/head.jpeg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Huzhiming</h5>
+          <a href="mailto:ouc_hzm@sina.com" title="ouc_hzm@sina.com" class="mail">ouc_hzm@sina.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/huzhiming12" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Java集合（一）</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Java集合（一）</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-05-13T06:37:43.000Z" itemprop="datePublished" class="page-time">
+  2017-05-13
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Java/">Java</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#集合继承关系"><span class="post-toc-number">1.</span> <span class="post-toc-text">集合继承关系</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#常用的API"><span class="post-toc-number">2.</span> <span class="post-toc-text">常用的API</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#集合类介绍"><span class="post-toc-number">3.</span> <span class="post-toc-text">集合类介绍</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#ArrayList（非线程安全）"><span class="post-toc-number">4.</span> <span class="post-toc-text">ArrayList（非线程安全）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Vector（线程安全）"><span class="post-toc-number">5.</span> <span class="post-toc-text">Vector（线程安全）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#LinkedList（非线程安全）"><span class="post-toc-number">6.</span> <span class="post-toc-text">LinkedList（非线程安全）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#HashMap（非线程安全）"><span class="post-toc-number">7.</span> <span class="post-toc-text">HashMap（非线程安全）</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-java/Java 集合"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Java集合（一）</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-05-13 14:37:43" datetime="2017-05-13T06:37:43.000Z"  itemprop="datePublished">2017-05-13</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Java/">Java</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h4 id="集合继承关系"><a href="#集合继承关系" class="headerlink" title="集合继承关系"></a>集合继承关系</h4><p>Collection集合的类继承关系图：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/05/13/java/Java 集合/Java" alt="集合/pic11.jpg" title="">
+                </div>
+                <div class="image-caption">集合/pic11.jpg</div>
+            </figure>
+<p>Map集合继承关系图：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/05/13/java/Java 集合/Java" alt="集合/pic12.jpg" title="">
+                </div>
+                <div class="image-caption">集合/pic12.jpg</div>
+            </figure>
+<h4 id="常用的API"><a href="#常用的API" class="headerlink" title="常用的API"></a>常用的API</h4><p>ArrayList：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//List尾部添加元素</span></div><div class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">add</span><span class="params">(E e)</span></span>;</div><div class="line"><span class="comment">//在index位置添加元素</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> index,E element)</span></span>;</div><div class="line"><span class="comment">//移除元素o</span></div><div class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">remove</span><span class="params">(Object o)</span></span>;</div><div class="line"><span class="comment">//移除下标index的元素</span></div><div class="line"><span class="function"><span class="keyword">public</span> E <span class="title">remove</span><span class="params">(<span class="keyword">int</span> index)</span></span>;</div><div class="line"><span class="comment">//清空列表</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">clear</span><span class="params">()</span></span>;</div><div class="line"><span class="comment">//添加集合中的全部元素</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">addAll</span><span class="params">(Collection&lt;? extends E&gt; c)</span></span>;</div><div class="line"><span class="comment">//返回list的遍历</span></div><div class="line"><span class="function"><span class="keyword">public</span> Iterator&lt;E&gt; <span class="title">iterator</span><span class="params">()</span></span>;</div><div class="line"><span class="comment">//是否包含元素</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">contains</span><span class="params">(Object o)</span></span>;</div><div class="line"><span class="comment">//将下标为index元素替换</span></div><div class="line"><span class="function"><span class="keyword">public</span> E <span class="title">set</span><span class="params">(<span class="keyword">int</span> index,E element)</span></span></div></pre></td></tr></table></figure>
+<p>Queue：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//添加元素</span></div><div class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">add</span><span class="params">(E e)</span></span>;</div><div class="line"><span class="comment">//获取并移除队列头,此队列为空时将抛出一个异常。</span></div><div class="line"><span class="function">E <span class="title">remove</span><span class="params">()</span></span>;</div><div class="line"><span class="comment">//获取并移除此队列的头，如果此队列为空，则返回 null。</span></div><div class="line"><span class="function">E <span class="title">poll</span><span class="params">()</span></span>;</div><div class="line"><span class="comment">//获取，但是不移除此队列的头。此方法与 peek 唯一的不同在于：此队列为空时将抛出一个异常。</span></div><div class="line"><span class="function">E <span class="title">element</span><span class="params">()</span></span>;</div><div class="line"><span class="comment">//获取但不移除此队列的头；如果此队列为空，则返回 null。</span></div><div class="line"><span class="function">E <span class="title">peek</span><span class="params">()</span></span>;</div></pre></td></tr></table></figure>
+<p>Set:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//添加元素</span></div><div class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">add</span><span class="params">(E e)</span></span>;</div><div class="line"><span class="comment">//移除元素</span></div><div class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">remove</span><span class="params">(Object o)</span></span>;</div><div class="line"><span class="comment">//添加所有集合元素</span></div><div class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">addAll</span><span class="params">(Collection&lt;? extends E&gt; c)</span></span>;</div><div class="line"><span class="comment">//清空集合</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">clear</span><span class="params">()</span></span>;</div><div class="line"><span class="comment">//返回set的迭代器</span></div><div class="line"><span class="function">Iterator&lt;E&gt; <span class="title">iterator</span><span class="params">()</span></span>;</div></pre></td></tr></table></figure>
+<p>Stack: 继承自vector，是线程安全的</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//把项压入堆栈顶部。</span></div><div class="line"><span class="function"><span class="keyword">public</span> E <span class="title">push</span><span class="params">(E item)</span></span>;</div><div class="line"><span class="comment">//移除栈顶元素</span></div><div class="line"><span class="function"><span class="keyword">public</span> E <span class="title">pop</span><span class="params">()</span></span>;</div><div class="line"><span class="comment">//返回栈顶元素，但是不删除</span></div><div class="line"><span class="function"><span class="keyword">public</span> E <span class="title">peek</span><span class="params">()</span></span>;</div><div class="line"><span class="comment">//测试栈是否为空</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">empty</span><span class="params">()</span></span>;</div><div class="line"><span class="comment">//返回元素在栈中的位置，以1为基数，-1表示不存在</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">search</span><span class="params">(Object o)</span></span>;</div></pre></td></tr></table></figure>
+<h4 id="集合类介绍"><a href="#集合类介绍" class="headerlink" title="集合类介绍"></a>集合类介绍</h4><ul>
+<li><h4 id="ArrayList（非线程安全）"><a href="#ArrayList（非线程安全）" class="headerlink" title="ArrayList（非线程安全）"></a>ArrayList（非线程安全）</h4><ul>
+<li><p>ArrayList底层采用数组存放数据</p>
+</li>
+<li><p>创建时可以指定初始容量的大小，若不指定则默认是10.</p>
+</li>
+<li><p>ArrayList扩容是1.5倍的增长</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> newCapacity = oldCapacity + (oldCapacity &gt;&gt; <span class="number">1</span>);</div><div class="line"><span class="comment">//将数组内容拷贝到新创建的数组中，并返回新创建数组的引用</span></div><div class="line">elementData = Arrays.copyOf(elementData, newCapacity);</div></pre></td></tr></table></figure>
+</li>
+<li><p>arrayList不是线程安全的容器</p>
+</li>
+<li><p>当数组元素已经达到数组容量时才会发生扩容</p>
+</li>
+</ul>
+</li>
+<li><h4 id="Vector（线程安全）"><a href="#Vector（线程安全）" class="headerlink" title="Vector（线程安全）"></a>Vector（线程安全）</h4><ul>
+<li><p>Vector与ArrayList实现基本相同，当时Vector是线程安全的，每个操作方法中加了synchronized关键字，属于线程安全的容器</p>
+</li>
+<li><p>创建Vector时可以指定初始容量，也可以指定发生扩容时扩容的大小。若没指定初始容量大小默认是10；若没有指定扩容的大小，默认是两倍增长，否则</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> newCapacity = oldCapacity + ((capacityIncrement &gt; <span class="number">0</span>) ?</div><div class="line">                                         capacityIncrement : oldCapacity);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><h4 id="LinkedList（非线程安全）"><a href="#LinkedList（非线程安全）" class="headerlink" title="LinkedList（非线程安全）"></a>LinkedList（非线程安全）</h4><ul>
+<li><p>LinkedList底层实现是通过链表，每个元素是一个Node结点</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span>&lt;<span class="title">E</span>&gt; </span>&#123;</div><div class="line">        E item;</div><div class="line">        Node&lt;E&gt; next;</div><div class="line">        Node&lt;E&gt; prev;</div><div class="line"></div><div class="line">        Node(Node&lt;E&gt; prev, E element, Node&lt;E&gt; next) &#123;</div><div class="line">            <span class="keyword">this</span>.item = element;</div><div class="line">            <span class="keyword">this</span>.next = next;</div><div class="line">            <span class="keyword">this</span>.prev = prev;</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>定义两个变量first、last分别指向链表的头结点和尾结点</p>
+</li>
+<li><p>实现了Queue 接口</p>
+<ul>
+<li><p>offer(E e) 操作调用add方法，将元素插入队列的尾部</p>
+<p><img src="/2017/05/13/java/Java 集合/pic13.png" alt=""></p>
+<p>添加元素e之后</p>
+<p><img src="/2017/05/13/java/Java 集合/pic14.png" alt=""></p>
+</li>
+<li><p>poll操作删除队列头元素，删除的是first结点</p>
+</li>
+<li><p>element操作返回队列头结点，即first结点，如果first==null 抛出异常</p>
+</li>
+<li><p>peek操作返回队列头结点，即first结点，如果first==null 则返回null</p>
+</li>
+</ul>
+</li>
+<li><p>实现了Stack功能</p>
+<ul>
+<li><p>push添加元素，注意是在链表的头结点处插入元素</p>
+<p><img src="/2017/05/13/java/Java 集合/pic15.png" alt=""></p>
+</li>
+<li><p>pop 操作是删除链表的头结点</p>
+</li>
+<li><p>peek 操作返回链表的头结点</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><h4 id="HashMap（非线程安全）"><a href="#HashMap（非线程安全）" class="headerlink" title="HashMap（非线程安全）"></a>HashMap（非线程安全）</h4><ul>
+<li><p>HashMap底层由一个EntrySet数组构成，每个EntrySet都是一个链表</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Entry</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; <span class="keyword">implements</span> <span class="title">Map</span>.<span class="title">Entry</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; </span>&#123;</div><div class="line">       <span class="keyword">final</span> K key;</div><div class="line">       V value;</div><div class="line">       Entry&lt;K,V&gt; next;</div><div class="line">       <span class="keyword">int</span> hash;</div><div class="line">  		Entry(<span class="keyword">int</span> h, K k, V v, Entry&lt;K,V&gt; n) &#123;</div><div class="line">           value = v;</div><div class="line">           next = n;</div><div class="line">           key = k;</div><div class="line">           hash = h;</div><div class="line">       &#125;</div><div class="line">		 ……</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="/2017/05/13/java/Java 集合/pic16.png" alt=""></p>
+</li>
+<li><p>loadFactor，加载因子，默认值是0.75。当map中的元素个数size&gt;=table.length*loadFactor时，hashMap 会进行扩容。如果loadFactor过小，则空间浪费比较严重；若loadFactor过大，则hashmap冲突的概率会加大，造成一些EntrySet链表过长。</p>
+</li>
+<li><p>创建hashMap时可以指定初始容量和加载因子，默认初始容量为16，加载因子为0.75</p>
+</li>
+<li><p>计算元素o 在table数组中的下标，其中h是根据o.key计算的hash值，length是指数组的长度</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">indexFor</span><span class="params">(<span class="keyword">int</span> h, <span class="keyword">int</span> length)</span> </span>&#123;</div><div class="line">      <span class="keyword">return</span> h &amp; (length-<span class="number">1</span>);</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>hashMap中的key和value都可以为null，当key==null时，该元素会放在table下标为0的位置上。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (key == <span class="keyword">null</span>)</div><div class="line">    <span class="keyword">return</span> putForNullKey(value);</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> V <span class="title">putForNullKey</span><span class="params">(V value)</span> </span>&#123;</div><div class="line">    <span class="keyword">for</span> (Entry&lt;K,V&gt; e = table[<span class="number">0</span>]; e != <span class="keyword">null</span>; e = e.next) &#123;</div><div class="line">      		<span class="comment">//如果map中原来已经存在key值为null的元素，则更新value值</span></div><div class="line">            <span class="keyword">if</span> (e.key == <span class="keyword">null</span>) &#123;</div><div class="line">                V oldValue = e.value;</div><div class="line">                e.value = value;</div><div class="line">                e.recordAccess(<span class="keyword">this</span>);</div><div class="line">                <span class="keyword">return</span> oldValue;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        modCount++;</div><div class="line">  		<span class="comment">// hash值为0，key=null  value=value  在table中位置index=0</span></div><div class="line">        addEntry(<span class="number">0</span>, <span class="keyword">null</span>, value, <span class="number">0</span>);</div><div class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>map中添加新元素时，是将元素添加在链表头。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">addEntry</span><span class="params">(<span class="keyword">int</span> hash, K key, V value, <span class="keyword">int</span> bucketIndex)</span> </span>&#123;</div><div class="line">     	<span class="comment">//threshold = table.length * loadFactor  判断是否需要扩容</span></div><div class="line">       <span class="keyword">if</span> ((size &gt;= threshold) &amp;&amp; (<span class="keyword">null</span> != table[bucketIndex])) &#123;</div><div class="line">           resize(<span class="number">2</span> * table.length);</div><div class="line">           hash = (<span class="keyword">null</span> != key) ? hash(key) : <span class="number">0</span>;</div><div class="line">           bucketIndex = indexFor(hash, table.length);</div><div class="line">       &#125;</div><div class="line">       createEntry(hash, key, value, bucketIndex);</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//创建一个新的结点，插入链表头。即创建新元素时是插入链表头的。</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">createEntry</span><span class="params">(<span class="keyword">int</span> hash, K key, V value, <span class="keyword">int</span> bucketIndex)</span> </span>&#123;</div><div class="line">       Entry&lt;K,V&gt; e = table[bucketIndex];</div><div class="line">     	<span class="comment">//table[bucketIndex]表示的是链表头，链表头指向了新建的结点，同时新节点的next指针指向			了原来的链表头结点。</span></div><div class="line">       table[bucketIndex] = <span class="keyword">new</span> Entry&lt;&gt;(hash, key, value, e);</div><div class="line">       size++;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>map扩容是原来table长度的2倍。扩容时，需要遍历原来的map，将每个元素重新计算hash值和在新table的中位置，再放入新的table中。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">transfer</span><span class="params">(Entry[] newTable, <span class="keyword">boolean</span> rehash)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> newCapacity = newTable.length;</div><div class="line">        <span class="keyword">for</span> (Entry&lt;K,V&gt; e : table) &#123;</div><div class="line">            <span class="keyword">while</span>(<span class="keyword">null</span> != e) &#123;</div><div class="line">                Entry&lt;K,V&gt; next = e.next;</div><div class="line">                <span class="keyword">if</span> (rehash) &#123;</div><div class="line">                    e.hash = <span class="keyword">null</span> == e.key ? <span class="number">0</span> : hash(e.key);</div><div class="line">                &#125;</div><div class="line">              	<span class="comment">//计算元素在新table中的位置</span></div><div class="line">                <span class="keyword">int</span> i = indexFor(e.hash, newCapacity);</div><div class="line">              	<span class="comment">//newTable[i]是其中一个链表的链表头</span></div><div class="line">                e.next = newTable[i];</div><div class="line">                newTable[i] = e;</div><div class="line">                e = next;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-05-13T14:16:37.000Z" itemprop="dateUpdated">2017-05-13 22:16:37</time>
+</span><br>
+
+
+        
+        原始链接：<a href="/2017/05/13/java/Java 集合/" target="_blank" rel="external">https://huzhiming12.github.io/2017/05/13/java/Java 集合/</a>
+        
+    </div>
+    <footer>
+        <a href="https://huzhiming12.github.io">
+            <img src="/img/head.jpeg" alt="Huzhiming">
+            Huzhiming
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ArrayList/">ArrayList</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Collection/">Collection</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HashMap/">HashMap</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://huzhiming12.github.io/2017/05/13/java/Java 集合/&title=《Java集合（一）》 — huzhiming的博客&pic=https://huzhiming12.github.io/img/head.jpeg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://huzhiming12.github.io/2017/05/13/java/Java 集合/&title=《Java集合（一）》 — huzhiming的博客&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://huzhiming12.github.io/2017/05/13/java/Java 集合/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Java集合（一）》 — huzhiming的博客&url=https://huzhiming12.github.io/2017/05/13/java/Java 集合/&via=https://huzhiming12.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://huzhiming12.github.io/2017/05/13/java/Java 集合/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/05/13/操作系统/操作系统知识点/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">操作系统知识点</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/05/13/hexo/hexo-个人博客配置安装教程/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">hexo-theme-indigo-card主题安装及常见问题解决</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechatimg.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipayimg.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>Huzhiming &copy; 2015 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://huzhiming12.github.io/2017/05/13/java/Java 集合/&title=《Java集合（一）》 — huzhiming的博客&pic=https://huzhiming12.github.io/img/head.jpeg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://huzhiming12.github.io/2017/05/13/java/Java 集合/&title=《Java集合（一）》 — huzhiming的博客&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://huzhiming12.github.io/2017/05/13/java/Java 集合/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Java集合（一）》 — huzhiming的博客&url=https://huzhiming12.github.io/2017/05/13/java/Java 集合/&via=https://huzhiming12.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://huzhiming12.github.io/2017/05/13/java/Java 集合/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://huzhiming12.github.io/2017/05/13/java/Java 集合/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+
+</body>
+</html>
