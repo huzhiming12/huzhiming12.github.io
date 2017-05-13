@@ -89,13 +89,6 @@
               </a>
             </li>
         
-            <li class="waves-block waves-effect">
-              <a href="http://www.weibo.com/ysweb" target="_blank" >
-                <i class="icon icon-lg icon-weibo"></i>
-                Weibo
-              </a>
-            </li>
-        
       </ul>
     </div>
   </div>
@@ -459,6 +452,113 @@ Hash表也可以用于判断元素是否在集合中，但是布隆过滤器只�
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/爬虫/">爬虫</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/过滤器/">过滤器</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-数据库/SQL优化策略"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-03-16 16:21:47" datetime="2017-03-16T08:21:47.000Z"  itemprop="datePublished">2017-03-16</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/数据库/">数据库</a></li></ul>
+
+
+
+        
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/03/16/数据库/SQL优化策略/">sql优化策略</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        
+尽量少用IN操作，基本上所有的IN操作都可以用Exists代替
+不用Not IN操作，可以用Not Exists代替
+不用“!=”、或者“&lt;&gt;”操作符，不等操作会造成全表扫面，可以用&gt;或者&lt;代替
+尽量不使用IS NULL或者IS NOT NULL操作，数据表设计时，对索引列设置为NOT NULL，查找的时候就可以避免使用IS  NULL操作
+通配符“%”、“_”作为...
+    
+
+        <a href="/2017/03/16/数据库/SQL优化策略/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL/">SQL</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-数据库/数据库知识点"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-02-13 12:21:47" datetime="2017-02-13T04:21:47.000Z"  itemprop="datePublished">2017-02-13</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/数据库/">数据库</a></li></ul>
+
+
+
+        
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/02/13/数据库/数据库知识点/">数据库相关知识点</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        数据库相关概念：​    数据库是长期存储在计算机内、有组织的、可共享的大量数据的集合。数据库数据具有永久存储、有组织和可共享三个基本特点。
+候选码若关系中的某一属性组的值能唯一的标识一个元组，则该属性组成为候选码
+主码若一个关系中有多个候选码，选其中一个作为主码。
+主属性候选码的诸属性成为主属性
+外码若F是基本关系R中的属性（不是R的码），K是基本关系S的主码，如果F和K相对应，则陈F是R...
+    
+
+        <a href="/2017/02/13/数据库/数据库知识点/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL/">SQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据库/">数据库</a></li></ul>
 
     </div>
     
