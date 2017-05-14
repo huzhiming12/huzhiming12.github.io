@@ -117,7 +117,7 @@
 <meta property="og:url" content="https://huzhiming12.github.io/2017/03/16/数据库/SQL优化策略/index.html">
 <meta property="og:site_name" content="huzhiming的博客">
 <meta property="og:description" content="尽量少用IN操作，基本上所有的IN操作都可以用Exists代替 不用Not IN操作，可以用Not Exists代替 不用“!=”、或者“&amp;lt;&amp;gt;”操作符，不等操作会造成全表扫面，可以用&amp;gt;或者&amp;lt;代替 尽量不使用IS NULL或者IS NOT NULL操作，数据表设计时，对索引列设置为NOT NULL，查找的时候就可以避免使用IS  NULL操作 通配符“%”、“_”作为第一个">
-<meta property="og:updated_time" content="2017-05-13T13:45:26.000Z">
+<meta property="og:updated_time" content="2017-05-14T06:26:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="sql优化策略">
 <meta name="twitter:description" content="尽量少用IN操作，基本上所有的IN操作都可以用Exists代替 不用Not IN操作，可以用Not Exists代替 不用“!=”、或者“&amp;lt;&amp;gt;”操作符，不等操作会造成全表扫面，可以用&amp;gt;或者&amp;lt;代替 尽量不使用IS NULL或者IS NOT NULL操作，数据表设计时，对索引列设置为NOT NULL，查找的时候就可以避免使用IS  NULL操作 通配符“%”、“_”作为第一个">
@@ -378,6 +378,7 @@
 <li>通配符“%”、“_”作为第一个字符时索引会失效，因此一般不要作为第一个字符出现</li>
 <li>where子句中避免在索引列上使用计算，否则将导致索引失效而进行权标扫描</li>
 </ol>
+<a id="more"></a>
 <p><strong>MySQL SQL基本原则</strong></p>
 <ul>
 <li>尽量少使用join</li>

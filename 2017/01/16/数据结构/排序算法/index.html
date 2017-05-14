@@ -117,7 +117,7 @@
 <meta property="og:url" content="https://huzhiming12.github.io/2017/01/16/数据结构/排序算法/index.html">
 <meta property="og:site_name" content="huzhiming的博客">
 <meta property="og:description" content="1、冒泡排序3, 1, 8, -4, 20, 9, 2, 0, 12, 4, 7, 6 1, 3, 8, -4, 20, 9, 2, 0, 12, 4, 7, 6 1, 3, 8, -4, 20, 9, 2, 0, 12, 4, 7, 6 1, 3, -4, 8, 20, 9, 2, 0, 12, 4, 7, 6 1, 3, -4, 8, 20, 9, 2, 0, 12, 4, 7, 6 1, 3">
-<meta property="og:updated_time" content="2017-05-13T13:55:34.000Z">
+<meta property="og:updated_time" content="2017-05-14T06:25:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="经典排序算法">
 <meta name="twitter:description" content="1、冒泡排序3, 1, 8, -4, 20, 9, 2, 0, 12, 4, 7, 6 1, 3, 8, -4, 20, 9, 2, 0, 12, 4, 7, 6 1, 3, 8, -4, 20, 9, 2, 0, 12, 4, 7, 6 1, 3, -4, 8, 20, 9, 2, 0, 12, 4, 7, 6 1, 3, -4, 8, 20, 9, 2, 0, 12, 4, 7, 6 1, 3">
@@ -383,6 +383,7 @@
 <p>1, 3, -4, 8, 9, 2, 0, 12, 4, 7,<code>20</code>, 6</p>
 <p>1, 3, -4, 8, 9, 2, 0, 12, 4, 7, 6,<code>20</code></p>
 <p>这是一趟比较，每次比较两个前后两个数，前面的大则向后移动</p>
+<a id="more"></a>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">bubbleSort</span><span class="params">(<span class="keyword">int</span>[] arr)</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">int</span> len = arr.length;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len - <span class="number">1</span>; i++)</div><div class="line">	&#123;</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; len - i - <span class="number">1</span>; j++)</div><div class="line">		&#123;</div><div class="line">			<span class="keyword">if</span> (arr[j] &gt; arr[j + <span class="number">1</span>])</div><div class="line">			&#123;</div><div class="line">				<span class="keyword">int</span> temp = arr[j];</div><div class="line">				arr[j] = arr[j + <span class="number">1</span>];</div><div class="line">				arr[j + <span class="number">1</span>] = temp;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	System.out.println(Arrays.toString(arr));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h4 id="2、插入排序"><a href="#2、插入排序" class="headerlink" title="2、插入排序"></a>2、插入排序</h4><p>方法一：从第二个元素开始，将元素arr[i]插入前面排好序的数组中。首先找到arr[i]在0——(i-1)这些元素中的位置j，然后将(j+1)到(i-1)中的元素往后移动一位，最后将arr[i]插入arr[j]中。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">insertSort</span><span class="params">(<span class="keyword">int</span>[] arr)</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">int</span> len = arr.length;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; len; i++)</div><div class="line">	&#123;</div><div class="line">		<span class="keyword">int</span> j = <span class="number">0</span>;</div><div class="line">         	<span class="comment">//找到元素arr[i]要插入的位置j</span></div><div class="line">		<span class="keyword">while</span> (j &lt; i &amp;&amp; arr[j] &lt; arr[i])</div><div class="line">			j++;</div><div class="line">		<span class="keyword">int</span> temp = arr[i];</div><div class="line">         	<span class="comment">//将数组元素 j到 i-1 的元素向后移动一位</span></div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> n = i - <span class="number">1</span>; n &gt;= j; n--)</div><div class="line">			arr[n + <span class="number">1</span>] = arr[n];</div><div class="line">         	<span class="comment">//将arr[i]元素插入位置j</span></div><div class="line">		arr[j] = temp;</div><div class="line">	&#125;</div><div class="line">	System.out.println(Arrays.toString(arr));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -458,14 +459,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/01/16/数据结构/数据结构知识点/" rel="next" title="数据结构知识点">
+                <i class="fa fa-chevron-left"></i> 数据结构知识点
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/01/16/数据结构/数据结构知识点/" rel="prev" title="数据结构知识点">
-                数据结构知识点 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/02/13/数据库/数据库知识点/" rel="prev" title="数据库相关知识点">
+                数据库相关知识点 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

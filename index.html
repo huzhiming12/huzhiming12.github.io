@@ -511,72 +511,20 @@
 
       
         
-          
-            <p>http协议是未加密的传输，即采用明文的方式发送内容，如果攻击者截取了web浏览器和网站服务器之间的传输报文，就很容易直接读取其中的信息。https就是在http的基础之上加入了SSL协议，SSL用于对http协议传输的数据进行加密。</p>
+          <p>http协议是未加密的传输，即采用明文的方式发送内容，如果攻击者截取了web浏览器和网站服务器之间的传输报文，就很容易直接读取其中的信息。https就是在http的基础之上加入了SSL协议，SSL用于对http协议传输的数据进行加密。</p>
 <ul>
 <li>https协议需要到ca申请证书，一般需要一定的费用</li>
 <li>http是超文本传输协议，信息是明文传输。https则是具有安全性的ssl加密协议</li>
 <li>http和HTTPS使用不同的连接方式，用的端口也不同，前者是80端口，后者是443端口</li>
 <li>http的连接是简单无状态的，HTTPS协议是由ssl+http协议构成的可进行加密传输、身份认证的网络协议，比http协议安全。</li>
 </ul>
-<h4 id="HTTP1-0-与HTTP1-1的区别"><a href="#HTTP1-0-与HTTP1-1的区别" class="headerlink" title="HTTP1.0 与HTTP1.1的区别"></a>HTTP1.0 与HTTP1.1的区别</h4><ul>
-<li>引入持久化连接，即TCP连接默认不关闭，可以被多个请求复用，不用声明<code>Connection: keep-alive</code>。</li>
-<li>引入管道机制，即在同一个TCP连接里面，客户端可以同时发送多个请求。这样就进一步改进了HTTP协议的效率。</li>
-</ul>
-<h4 id="Http状态码："><a href="#Http状态码：" class="headerlink" title="Http状态码："></a>Http状态码：</h4><ul>
-<li>1xx：指示信息，表示请求已经接收，继续处理</li>
-<li>2xx：成功，表示请求已经被成功接收、理解、接受</li>
-<li>3xx：重定向，表示完成请求必须进行更进一步的操作</li>
-<li>4xx：客户端错误，请求有语法错误或者请求无法实现</li>
-<li>5xx：服务器端错误，服务器未能实现合法的请求</li>
-</ul>
-<p><strong>常见的状态码：</strong></p>
-<ul>
-<li>200：OK——客户端请求成功</li>
-<li>400：Bad request——客户端请求有语法错误，不能被服务器解析</li>
-<li>401：unauthorized——请求未经授权，这个状态代码必须和WWW-Authenticate报头域一起使用 </li>
-<li>403：Forbidden——服务器收到请求，但是拒绝提供服务</li>
-<li>404：Not found——请求资源不存在  如URL输入错误</li>
-<li>500：Internal Server Error——服务器发生了不可预料的错误</li>
-<li>503：Server Unavailable——服务器当前不能处理客户端的请求，一段时间后可能恢复正常</li>
-</ul>
-<h4 id="Http-Request请求头常见字段："><a href="#Http-Request请求头常见字段：" class="headerlink" title="Http Request请求头常见字段："></a>Http Request请求头常见字段：</h4><ul>
-<li><p>Http请求方式</p>
-<p>​</p>
-</li>
-<li><p>Host：请求的web服务器域名地址</p>
-</li>
-<li><p>User-Agent：Http客户端浏览器类型的详细信息</p>
-</li>
-<li><p>Accept：指定客户端能够接收的内容类型 text/xml、text/html</p>
-</li>
-<li><p>Accept-Language：指定客户端浏览器用来显示返回信息所优先选择的语言</p>
-</li>
-<li><p>Accept-Encoding：指定客户端浏览器可以支持服务器返回内容的压缩编码类型，表示客户端浏览器所能支持的返回压缩格式</p>
-</li>
-<li><p>Accept-CharSet：浏览器可以接受的字符编码集</p>
-</li>
-<li><p>Content-type：此请求提交的内容类型，一般只有post提交时才需要设置该属性</p>
-</li>
-<li><p>Connection：表示是否需要持久连接，如果值是keep-Alive或者协议版本是HTTP1.1，就会进行持久连接</p>
-</li>
-<li><p>Cookie：http请求发送时，会把保存在该请求域名下的所有cookie值一起发送给web服务器</p>
-</li>
-<li><p>Date：请求发送的日期时间</p>
-</li>
-</ul>
-<h4 id="Http-Response响应头字段："><a href="#Http-Response响应头字段：" class="headerlink" title="Http Response响应头字段："></a>Http Response响应头字段：</h4><ul>
-<li>Cache-Control：缓存机制,no-cache,private,public,</li>
-<li>Connection:是否要保持持久连接</li>
-<li>Content-Encoding：返回来数据的压缩格式</li>
-<li>Content-Language：相应体的语言</li>
-<li>Content-type：返回资源文件的类型</li>
-<li>Date：服务器发送资源时的服务器时间</li>
-<li>Expiers:告诉客户端在这个时间前可以直接访问缓冲副本，相应过期时间</li>
-<li>Last-Modifed:请求资源的最后修改时间</li>
-</ul>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/13/计算机网络/http和https的区别/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -845,363 +793,20 @@
 
       
         
-          
-            <h3 id="1-进程管理"><a href="#1-进程管理" class="headerlink" title="1. 进程管理"></a>1. 进程管理</h3><h4 id="1-1-进程基本概念"><a href="#1-1-进程基本概念" class="headerlink" title="1.1 进程基本概念"></a>1.1 进程基本概念</h4><h5 id="程序顺序执行的特征"><a href="#程序顺序执行的特征" class="headerlink" title="程序顺序执行的特征"></a>程序顺序执行的特征</h5><ul>
+          <h3 id="1-进程管理"><a href="#1-进程管理" class="headerlink" title="1. 进程管理"></a>1. 进程管理</h3><h4 id="1-1-进程基本概念"><a href="#1-1-进程基本概念" class="headerlink" title="1.1 进程基本概念"></a>1.1 进程基本概念</h4><h5 id="程序顺序执行的特征"><a href="#程序顺序执行的特征" class="headerlink" title="程序顺序执行的特征"></a>程序顺序执行的特征</h5><ul>
 <li>顺序性：每一个操作必须在下一个操作开始之前结束</li>
 </ul>
 <ul>
 <li>封闭性：程序运行时独占全机资源，资源的状态只有本程序才能改变</li>
 <li>可在现性</li>
 </ul>
-<h5 id="前趋图"><a href="#前趋图" class="headerlink" title="前趋图"></a>前趋图</h5><p>有向无环图</p>
-<ul>
-<li><strong>作用：</strong>用于描述程序段或进程间执行的前后顺序。</li>
-<li><strong>结点：</strong>表示程序段或进程，或一条语句**</li>
-<li><strong>有向边：</strong>表示结点之间的偏序(前驱)关系</li>
-</ul>
-<h5 id="并发执行时的特征"><a href="#并发执行时的特征" class="headerlink" title="并发执行时的特征"></a>并发执行时的特征</h5><ul>
-<li>间断性<strong>——“</strong>停停走走<strong>”</strong></li>
-<li>失去封闭性<strong>——</strong>原因：多个程序共享资源</li>
-<li>不可再现性</li>
-</ul>
-<h5 id="进程的定义与特征"><a href="#进程的定义与特征" class="headerlink" title="进程的定义与特征"></a>进程的定义与特征</h5><ul>
-<li><p>结构性（PCB）</p>
-<p>进程实体 = 程序 + 进程控制块(PCB)</p>
-<p>程序=数据段+程序段</p>
-</li>
-<li><p>动态性</p>
-</li>
-</ul>
-<ul>
-<li><ul>
-<li>进程实质是进程实体的一次执行过程</li>
-<li>体现在 “由创建而生，由调度而执行，由撤销而亡”</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>并发性</li>
-<li>独立性</li>
-<li>异步性</li>
-</ul>
-<h6 id="进程的定义"><a href="#进程的定义" class="headerlink" title="进程的定义"></a>进程的定义</h6><p><em>进程是进程实体的运行过程，是系统进行资源分配和调度的一个独立单位。</em></p>
-<h6 id="进程和程序的区别与联系"><a href="#进程和程序的区别与联系" class="headerlink" title="进程和程序的区别与联系"></a>进程和程序的区别与联系</h6><ul>
-<li>区别<ul>
-<li>进程是动态概念，强调的是执行，有创建、有撤销，存在是暂时的。程序是一静态概念，程序是指令的有序集合，“永远”存在；</li>
-<li>进程具有并发性，而程序没有；</li>
-<li>进程是接受计算机资源的基本单位，程序不是。</li>
-</ul>
-</li>
-<li>联系<ul>
-<li>进程是程序在数据集上的一次执行</li>
-<li>一个程序可对应多个进程，一个进程可包括多个程序。</li>
-</ul>
-</li>
-</ul>
-<h6 id="进程的三种状态"><a href="#进程的三种状态" class="headerlink" title="进程的三种状态"></a>进程的三种状态</h6><ul>
-<li>就绪状态</li>
-<li>执行状态</li>
-<li>阻塞状态</li>
-</ul>
-<h4 id="1-2-进程控制"><a href="#1-2-进程控制" class="headerlink" title="1.2 进程控制"></a>1.2 进程控制</h4><p>进程控制是进程管理中最基本的功能</p>
-<ul>
-<li>用于创建新进程</li>
-<li>终止一个已完成的进程</li>
-<li>终止一个无法运行下去的进程 (Kill)</li>
-<li>负责进程的状态转换 (就绪执行)</li>
-</ul>
-<h4 id="1-3进程图"><a href="#1-3进程图" class="headerlink" title="1.3进程图"></a>1.3进程图</h4><p>描述一个进程家族关系的有向树</p>
-<h4 id="1-4-经典进程同步问题"><a href="#1-4-经典进程同步问题" class="headerlink" title="1.4 经典进程同步问题"></a>1.4 经典进程同步问题</h4><h5 id="生产者消费者问题"><a href="#生产者消费者问题" class="headerlink" title="生产者消费者问题"></a>生产者消费者问题</h5><h6 id="记录型信号量方法"><a href="#记录型信号量方法" class="headerlink" title="记录型信号量方法"></a>记录型信号量方法</h6><ul>
-<li><p>生产者</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"> var  mutex,empty,full:semaphore:=<span class="number">1</span>,n,<span class="number">0</span>；<span class="comment">// 定义信号量</span></div><div class="line">        buffer:<span class="built_in">array</span>[<span class="number">0</span>,…,n<span class="number">-1</span>] of item;    <span class="comment">// 定义缓冲区</span></div><div class="line">        in, out : integer :=<span class="number">0</span>,<span class="number">0</span>;                <span class="comment">// 定义下标指示变量</span></div><div class="line">begin  <span class="comment">//生产者如何执行(如何往缓冲区放东西)</span></div><div class="line">      repeat</div><div class="line">         产生一个商品放入nextp中;</div><div class="line">         wait(empty); <span class="comment">//等待缓冲区有地方</span></div><div class="line">         wait(mutex); <span class="comment">//等待可以使用缓冲区</span></div><div class="line">         buffer[in] := nextp;</div><div class="line">         in := (in + <span class="number">1</span>) mod n;</div><div class="line">         signal(mutex); <span class="comment">//告诉其他进程：缓冲区可以使用了</span></div><div class="line">         signal(full);     <span class="comment">//告诉其他进程：缓冲区中多了一个商品</span></div><div class="line">      until <span class="literal">false</span>;</div><div class="line"> end</div></pre></td></tr></table></figure>
-</li>
-<li><p>生产者</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">begin <span class="comment">//消费者如何执行(如何从缓冲区取东西)</span></div><div class="line">   <span class="function">repeat</span></div><div class="line">       <span class="title">wait</span><span class="params">(full)</span>; <span class="comment">//等待缓冲区有商品</span></div><div class="line">       wait(mutex); <span class="comment">//等待可以使用缓冲区</span></div><div class="line">       nextc := buffer[out];</div><div class="line">       out := (out + <span class="number">1</span>) mod n;</div><div class="line">       signal(mutex); <span class="comment">//告诉其他进程: 缓冲区可以使用了</span></div><div class="line">       signal(empty); <span class="comment">//告诉其他进程: 缓冲区空出一个地方</span></div><div class="line">       消费商品 nextc; </div><div class="line">   until <span class="literal">false</span>;</div><div class="line">end;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>注意<br>wait(mutex)和signal(mutex)必须成对出现<br>empty、full的wait、signal也要成对出现<br>注意多个wait的顺序不能颠倒。</p>
-</blockquote>
-</li>
-</ul>
-<h6 id="利用and信号量解决"><a href="#利用and信号量解决" class="headerlink" title="利用and信号量解决"></a>利用and信号量解决</h6><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">生产者:</div><div class="line">      …</div><div class="line">     Swait(empty,mutex);</div><div class="line">     buffer[in] := nextp;</div><div class="line">     in := (in + <span class="number">1</span>) mod n;</div><div class="line">     Ssignal(mutex,full);</div><div class="line">消费者:</div><div class="line">    Swait(full,mutex); </div><div class="line">    nextc := buffer[out];</div><div class="line">    out := (out + <span class="number">1</span>) mod n;</div><div class="line">    Ssignal(mutex,empty); </div><div class="line">    …</div></pre></td></tr></table></figure>
-<h5 id="哲学家进餐问题"><a href="#哲学家进餐问题" class="headerlink" title="哲学家进餐问题"></a>哲学家进餐问题</h5><h6 id="利用记录型信号量"><a href="#利用记录型信号量" class="headerlink" title="利用记录型信号量"></a>利用记录型信号量</h6><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var chopstick:<span class="built_in">array</span>[<span class="number">0</span>,…,<span class="number">4</span>] of semaphore;</div><div class="line">    所有信号量初始值为<span class="number">1</span>；</div><div class="line">    repeat   <span class="comment">//第i个哲学家的活动</span></div><div class="line">       wait(chopstick[i]);                   <span class="comment">//拿左筷子</span></div><div class="line">       wait(chopstick[(i+<span class="number">1</span>) mod <span class="number">5</span>]); <span class="comment">//拿右筷子</span></div><div class="line">       吃饭;</div><div class="line">       signal(chopstick[i]);                <span class="comment">//放左筷子</span></div><div class="line">       signal(chopstick[(i+<span class="number">1</span>) mod <span class="number">5</span>]); <span class="comment">//放右筷子</span></div><div class="line">       思考;</div><div class="line">    until <span class="literal">false</span>;</div></pre></td></tr></table></figure>
-<p><strong>缺点：</strong></p>
-<p>如果每个人开始都先拿自己左边的筷子，可能导致人手一根筷子，而拿不到第二根筷子，从而全部阻塞，引起死锁。</p>
-<h6 id="and信号量"><a href="#and信号量" class="headerlink" title="and信号量"></a>and信号量</h6><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var chopstick: array[0,…,4] of semaphore;</div><div class="line">    所有信号量全部初始化为1;</div><div class="line">    repeat</div><div class="line">       Swait(chopstick[i], chopstick[(i+1) mod 5]);</div><div class="line">        吃饭;</div><div class="line">       Ssignal(chopstick[(i+1) mod 5], chopstick[i]);</div><div class="line">      思考；</div><div class="line">    until false;</div></pre></td></tr></table></figure>
-<h4 id="1-5-进程通信"><a href="#1-5-进程通信" class="headerlink" title="1.5 进程通信"></a>1.5 进程通信</h4><h5 id="进程通信类型"><a href="#进程通信类型" class="headerlink" title="进程通信类型"></a>进程通信类型</h5><ul>
-<li>共享存储系统</li>
-<li>消息传递系统</li>
-<li>管道通信系统</li>
-</ul>
-<h4 id="1-6-线程和进程的区别与联系"><a href="#1-6-线程和进程的区别与联系" class="headerlink" title="1.6 线程和进程的区别与联系"></a>1.6 线程和进程的区别与联系</h4><ul>
-<li><p>调度</p>
-<ul>
-<li>线程是调度的基本单位</li>
-<li>进程是资源拥有的基本单位</li>
-</ul>
-</li>
-<li><p>拥有资源</p>
-<ul>
-<li>线程不拥有系统资源，但是可以访问其隶属进程的系统资源，从而获得系统资源</li>
-</ul>
-</li>
-<li><p>并发性</p>
-<ul>
-<li>支持多进程的系统中，不仅不同进程之间可以并发，同一进程中的线程也支持多并发</li>
-</ul>
-</li>
-<li><p>系统开销</p>
-<ul>
-<li>进程切换时的时空开销大</li>
-<li>进程切换时，只需保存和设置少量信息，因此开销很小</li>
-</ul>
-<p>​</p>
-</li>
-</ul>
-<h3 id="2-处理机调度和死锁"><a href="#2-处理机调度和死锁" class="headerlink" title="2. 处理机调度和死锁"></a>2. 处理机调度和死锁</h3><h4 id="2-1-调度算法"><a href="#2-1-调度算法" class="headerlink" title="2.1 调度算法"></a>2.1 调度算法</h4><ul>
-<li>先来先服务（FIFS）调度算法</li>
-<li>短作业优先调度算法（SJF、SPF）</li>
-<li>高优先权调度算法（FPF）<ul>
-<li>静态优先权：创建进程时分配，保持不变</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>动态优先权：随进程的执行或等待时间的增加而改变（防止长进程长期霸占）</li>
-</ul>
-<ul>
-<li>高响应比优先权调度算法<ul>
-<li>动态优先权<ul>
-<li>优先权=（等待时间+要求服务时间）/要求服务时间</li>
-<li>响应比=响应时间/要求服务时间</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>基于时间片的轮转调度算法——分时系统</li>
-</ul>
-<h4 id="2-2-实时调度"><a href="#2-2-实时调度" class="headerlink" title="2.2 实时调度"></a>2.2 实时调度</h4><p>实时调度与其他系统的区别：处理和控制的正确性不仅取决于计算的结果，还取决于计算和处理结果产生的时间。</p>
-<h5 id="实时调度算法"><a href="#实时调度算法" class="headerlink" title="实时调度算法"></a>实时调度算法</h5><ul>
-<li><p>最早截止时间优先（EDF）</p>
-</li>
-<li><p>最低松弛度优先算法（LLF）</p>
-<p>松弛度=完成截止时间-剩余运行时间-当前时间</p>
-</li>
-</ul>
-<h4 id="2-3-产生死锁的原因和必要条件"><a href="#2-3-产生死锁的原因和必要条件" class="headerlink" title="2.3 产生死锁的原因和必要条件"></a>2.3 产生死锁的原因和必要条件</h4><p>死锁：多个进程在运行过程中，因争夺资源二造成的一种僵局。这种僵局若无外力作用无法再向前推进。</p>
-<p>产生死锁的原因：</p>
-<ul>
-<li>资源竞争</li>
-<li>进程推进顺序非法</li>
-</ul>
-<p>死锁产生的必要条件</p>
-<ul>
-<li>互斥条件</li>
-<li>请求和保持条件</li>
-<li>不剥夺条件</li>
-<li>环路等待条件</li>
-</ul>
-<h4 id="2-4-预防死锁的方法"><a href="#2-4-预防死锁的方法" class="headerlink" title="2.4 预防死锁的方法"></a>2.4 预防死锁的方法</h4><ul>
-<li>摒弃请求和保持条件，规定所有进程在开始之前，都必须一次性申请其在整个运行过程中所需的全部资源，只要有一种资源不够，便不分配。</li>
-<li>摒弃不剥夺条件，进程可以逐个申请资源，一旦申请的资源无法满足，立即释放已经保持的所有资源</li>
-<li>摈弃环路等待条件</li>
-</ul>
-<p>银行家算法：避免死锁 </p>
-<p>资源有序分配法：预防死锁 </p>
-<p>资源分配图化简法：检测死锁 </p>
-<p>撤销进程法：解决死锁</p>
-<h3 id="3-存储器管理"><a href="#3-存储器管理" class="headerlink" title="3. 存储器管理"></a>3. 存储器管理</h3><h4 id="3-1-程序的装入和链接"><a href="#3-1-程序的装入和链接" class="headerlink" title="3.1 程序的装入和链接"></a>3.1 程序的装入和链接</h4><h5 id="程序装入"><a href="#程序装入" class="headerlink" title="程序装入"></a>程序装入</h5><ul>
-<li><p>绝对装入方式</p>
-<p>程序中使用绝对地址，可编译时给出也可以有程序员直接赋予</p>
-</li>
-<li><p>可重定位装入方式</p>
-<p>在装入是对程序中的指令和数据进行修改</p>
-</li>
-<li><p>动态运行时装入方式</p>
-<p>执行代码是再进行地址转换</p>
-</li>
-</ul>
-<h5 id="程序的链接"><a href="#程序的链接" class="headerlink" title="程序的链接"></a>程序的链接</h5><ul>
-<li>静态链接</li>
-<li>装入时动态链接</li>
-<li>运行时动态链接</li>
-</ul>
-<h4 id="3-2-连续分配方式"><a href="#3-2-连续分配方式" class="headerlink" title="3.2 连续分配方式"></a>3.2 连续分配方式</h4><ul>
-<li><p>单一连续分配</p>
-<ul>
-<li>把内存分为系统区和用户区两部分</li>
-</ul>
-</li>
-<li><p>固定分区分配</p>
-<ul>
-<li>把用户区划分成若干个大小固定的分区，每个分区只放一个进程</li>
-<li>当一个分区空闲时，可以选择一个新的进程进入那里运行</li>
-</ul>
-</li>
-<li><p>动态分区分配：根据进程的实际需要，动态分配内存空间</p>
-<ul>
-<li><p>首次适应算法（FF）</p>
-<p>以地址递增次序链接空闲分区，从链首开始查找，找到第一个满足请求大小的分区，从中划出请求大小的空间，余下的仍留在链中。</p>
-</li>
-<li><p>循环首次适应算法</p>
-<p>由FF算法演变而成的。 从上次找到的空闲分区的下一个空闲分区查找。</p>
-</li>
-<li><p>最佳适应算法</p>
-<p>分区按容量大小递增顺序排列，找到能满足分配的最小空闲分区。</p>
-</li>
-</ul>
-</li>
-<li><p>动态重定位分区分配</p>
-</li>
-</ul>
-<h5 id="对换"><a href="#对换" class="headerlink" title="对换"></a>对换</h5><p>定义：吧暂时不用的程序及其数据的部分或全部从内存移到外存上，以便腾出必要的空间</p>
-<ul>
-<li>整体对换（进程对换）</li>
-<li>部分对换（页面对换、分段对换）</li>
-</ul>
-<h4 id="3-3-基本分页存储管理方式"><a href="#3-3-基本分页存储管理方式" class="headerlink" title="3.3 基本分页存储管理方式"></a>3.3 基本分页存储管理方式</h4><h5 id="页面与页表"><a href="#页面与页表" class="headerlink" title="页面与页表"></a>页面与页表</h5><h6 id="页面与物理块"><a href="#页面与物理块" class="headerlink" title="页面与物理块"></a>页面与物理块</h6><ul>
-<li>把进程的逻辑地址空间分成若干大小相等的片，称之为页面或页，编号从0开始。</li>
-<li>把内存的存储空间也划分成与页相同大小的片，这些片称为物理块或页框，编号从0开始</li>
-</ul>
-<p><img src="/2017/05/13/操作系统/操作系统知识点/pic.png" alt="pic"></p>
-<h4 id="3-4-基本分段存储管理方式"><a href="#3-4-基本分段存储管理方式" class="headerlink" title="3.4 基本分段存储管理方式"></a>3.4 基本分段存储管理方式</h4><h6 id="分页和分段的主要区别"><a href="#分页和分段的主要区别" class="headerlink" title="分页和分段的主要区别"></a>分页和分段的主要区别</h6><ul>
-<li>页是信息的物理单位，分页是为消减内存的碎片，提高内存的利用率。分页仅是由于系统管理的需要。 段则是信息的逻辑单位，它含有一组其意义相对完整的信息。分段的目的是为了能更好地满足用户的需要。 </li>
-</ul>
-<ul>
-<li>页的大小固定，由系统决定，由系统把逻辑地址划分为页号和页内地址两部分，是由机器硬件实现的，因而在系统中只能有一种大小的页面；段的长度不固定，决定于用户所编写的程序，由编译程序编译源程序时，根据信息的性质来划分。</li>
-</ul>
-<h4 id="3-5-页面置换算法"><a href="#3-5-页面置换算法" class="headerlink" title="3.5 页面置换算法"></a>3.5 页面置换算法</h4><p><strong>抖动：</strong>系统一直忙于页面的调入<strong>/</strong>调出，以致大部分<strong>CPU</strong>时间都用于处理缺页中断和页面淘汰上，很少能顾及到用户进程的实际执行的现象称为<strong>“</strong>抖动”</p>
-<p><strong><em>注意</em></strong>：缺页中断不一定引起页面淘汰。只有内存中没有空闲块时，缺页中断才会引起页面淘汰</p>
-<h5 id="最佳置换算法"><a href="#最佳置换算法" class="headerlink" title="最佳置换算法"></a>最佳置换算法</h5><p>从内存中移出永远不再需要的页面；如无这样的页面存在，则应选择最长时间不需要访问的页面</p>
-<h5 id="先进先出置换算法（FIFO）"><a href="#先进先出置换算法（FIFO）" class="headerlink" title="先进先出置换算法（FIFO）"></a>先进先出置换算法（FIFO）</h5><p>总是选择进程中驻留时间最长的页淘汰，即先进入内存的页面先淘汰出内存。</p>
-<h5 id="最近最久未使用置换算法（LRU）"><a href="#最近最久未使用置换算法（LRU）" class="headerlink" title="最近最久未使用置换算法（LRU）"></a>最近最久未使用置换算法（LRU）</h5><p>选择最近一段时间内最久不用的页面进行淘汰</p>
-<h3 id="4-设备管理"><a href="#4-设备管理" class="headerlink" title="4. 设备管理"></a>4. 设备管理</h3><h4 id="4-1-I-O控制方式"><a href="#4-1-I-O控制方式" class="headerlink" title="4.1 I/O控制方式"></a>4.1 I/O控制方式</h4><h5 id="程序控制方式"><a href="#程序控制方式" class="headerlink" title="程序控制方式"></a>程序控制方式</h5><p>忙——等待方式。</p>
-<h5 id="中断驱动方式"><a href="#中断驱动方式" class="headerlink" title="中断驱动方式"></a>中断驱动方式</h5><p>​       <strong>中断时以字节为单位进行控制的</strong></p>
-<ul>
-<li><ul>
-<li>进程要启动<strong>I/O</strong>设备工作时，由<strong>CPU</strong>向该设备控制器发出一条<strong>I/O</strong>命令，然后便可立即返回继续执行原来的任务。</li>
-<li>设备控制器按照命令要求去控制指定设备。此时，<strong>CPU</strong>与<strong>I/O</strong>设备并行操作。</li>
-<li>设备处理完数据后，便产生一个中断信号。此时，<strong>CPU</strong>便转而处理该信号。</li>
-</ul>
-</li>
-</ul>
-<h5 id="DMA方式"><a href="#DMA方式" class="headerlink" title="DMA方式"></a>DMA方式</h5><p>传输的基本单位是<strong>数据块</strong>，CPU与I/O设备之间每次传送至少一个数据块。仅在传送一个或多个数据块的开始或结束时才需要CPU干涉。</p>
-<ul>
-<li><strong>DMA</strong>工作过程</li>
-<li><ul>
-<li>以从磁盘读入数据为例：</li>
-</ul>
-</li>
-</ul>
-<ol>
-<li><ol>
-<li><ol>
-<li>从磁盘读入数据块时，<strong>CPU</strong>将一条读指令送至磁盘控制器的命令寄存器<strong>(CR)</strong>中。</li>
-<li>将数据读入的内存起始目标地址送入内存地址寄存器（<strong>MAR</strong>）中；将读数据的字<strong>(</strong>节<strong>)</strong>数送入数据计数器<strong>(DC)</strong>中</li>
-<li>将磁盘的源地址送至<strong>DMA</strong>控制器的<strong>I/O</strong>逻辑中。</li>
-<li>然后，启动<strong>DMA</strong>控制器进行数据传送，以后，<strong>CPU</strong>便可去处理其它任务。</li>
-<li>此后，整个数据传送过程便由<strong>DMA</strong>控制器进行控制。</li>
-<li>当<strong>DMA</strong>控制器已从磁盘读入一个字<strong>(</strong>节<strong>)</strong>的数据并送入数据寄存器<strong>(DR)</strong>后，将该字<strong>(</strong>节<strong>)</strong>传送到指定的内存单元中。</li>
-<li>接着便对<strong>MAR</strong>内容加<strong>1</strong>，将<strong>DC</strong>内容减<strong>1</strong>。</li>
-<li>若减<strong>1</strong>后<strong>DC</strong>内容不为<strong>0</strong>，表示传送未完，便继续传送下一个字<strong>(</strong>节<strong>)</strong>；</li>
-<li>否则，由<strong>DMA</strong>控制器发出中断请求。</li>
-</ol>
-</li>
-</ol>
-</li>
-<li>DR：数据寄存器，用于暂存数据</li>
-<li>MAR：内存地址寄存器，存放数据的源/起始目标地址</li>
-<li>DC：数据计数器，存放本次CPU要读或写的字节数</li>
-<li>CR：命令/状态寄存器，接收从CPU发来的I/O命令或有关控制信息或设备状态</li>
-</ol>
-<h5 id="I-O通道控制方式"><a href="#I-O通道控制方式" class="headerlink" title="I/O通道控制方式"></a>I/O通道控制方式</h5><ol>
-<li><ol>
-<li>指令类型单一，主要局限于对<strong>I/O</strong>操作</li>
-<li>没有自己的内存，通道程序放在内存里</li>
-</ol>
-</li>
-</ol>
-<ul>
-<li>在设置了通道后，<strong>CPU</strong>只需向通道发送一条<strong>I/O</strong>指令。通道在收到该指令后，便从内存中取出本次要执行的通道程序，然后执行该通道程序，仅当通道完成了规定的<strong>I/O</strong>任务后，才向<strong>CPU</strong>发中断信号</li>
-</ul>
-<h4 id="4-2-缓冲管理"><a href="#4-2-缓冲管理" class="headerlink" title="4.2 缓冲管理"></a>4.2 缓冲管理</h4><h5 id="引入缓冲"><a href="#引入缓冲" class="headerlink" title="引入缓冲"></a>引入缓冲</h5><ul>
-<li>缓和CPU与I/O设备间速度不匹配的矛盾</li>
-<li>减少对CPU的中断频率</li>
-<li>提高CPU和I/O设备之间的并行性</li>
-</ul>
-<h5 id="单缓冲和双缓冲"><a href="#单缓冲和双缓冲" class="headerlink" title="单缓冲和双缓冲"></a>单缓冲和双缓冲</h5><h6 id="单缓冲"><a href="#单缓冲" class="headerlink" title="单缓冲"></a>单缓冲</h6><p>每当用户进程发出一个I/O请求时，OS便在内存总位置分配一个缓冲区</p>
-<p><strong>max(磁盘到缓冲区，CPU处理) + 缓冲区到用户区 </strong></p>
-<h6 id="双缓冲区"><a href="#双缓冲区" class="headerlink" title="双缓冲区"></a>双缓冲区</h6><p>设备输入时，先将数据送入缓冲区1，装满后转向缓冲区2</p>
-<h5 id="循环缓冲"><a href="#循环缓冲" class="headerlink" title="循环缓冲"></a>循环缓冲</h5><p>在循环缓冲中包括多个缓冲区，每个缓冲区的大小相同</p>
-<p>作为输入的多缓冲区可分为三种类型：</p>
-<ul>
-<li>空缓冲区<strong>R</strong></li>
-<li>已装满数据的缓冲区<strong>G</strong></li>
-<li>计算进程正在使用的工作缓冲区<strong>C</strong></li>
-</ul>
-<p><img src="/2017/05/13/操作系统/操作系统知识点/pic1.png" alt="pic1"></p>
-<h5 id="缓冲池"><a href="#缓冲池" class="headerlink" title="缓冲池"></a>缓冲池</h5><p>公用缓冲池，池中设立多个缓冲区，为多个进程共享，以提高利用率</p>
-<h4 id="4-3-设备分配"><a href="#4-3-设备分配" class="headerlink" title="4.3 设备分配"></a>4.3 设备分配</h4><h5 id="SPOOLing技术"><a href="#SPOOLing技术" class="headerlink" title="SPOOLing技术"></a>SPOOLing技术</h5><ul>
-<li>脱机输入/输出技术是利用专门的外围控制机，将低速I/O设备上的数据传送到高速磁盘上，或者相反。</li>
-<li>SPOOLing技术的实质是模拟脱机输入、输出</li>
-</ul>
-<h6 id="基本方法"><a href="#基本方法" class="headerlink" title="基本方法"></a>基本方法</h6><ul>
-<li>用一个进程将设备输入的数据暂存到磁盘上</li>
-<li>用另一个进程把暂存在磁盘上的数据传送到设备上</li>
-</ul>
-<h6 id="spooling-系统组成部分"><a href="#spooling-系统组成部分" class="headerlink" title="spooling 系统组成部分"></a>spooling 系统组成部分</h6><ol>
-<li><p>输入井、输出井</p>
-<p>磁盘上的两块大存储区，用于暂存输入、输出的数据</p>
-</li>
-<li><p>输入缓冲区、输出缓冲区</p>
-<p>位于内存中，作用是缓和CPU和设备之间的速度差异</p>
-</li>
-<li><p>输入进程、输出进程</p>
-<ul>
-<li><p>输入进程：利用输入缓冲区为中介，吧输入设备的数据存入输入井</p>
-</li>
-<li><p>输出进程：将用户数据存入输出井，设备空闲时再将输出井中的数据利用输出缓冲区送入设备</p>
-<p><img src="/2017/05/13/操作系统/操作系统知识点/pic2.png" alt="pic2"></p>
-</li>
-</ul>
-<p>​</p>
-</li>
-</ol>
-<h4 id="4-4-磁盘存储器管理"><a href="#4-4-磁盘存储器管理" class="headerlink" title="4.4 磁盘存储器管理"></a>4.4 磁盘存储器管理</h4><h5 id="磁盘调度算法"><a href="#磁盘调度算法" class="headerlink" title="磁盘调度算法"></a>磁盘调度算法</h5><ol>
-<li><p>先来先服务（FCFS）</p>
-<p>根据进程请求访问磁盘的先后次序进行调度</p>
-<p><img src="/2017/05/13/操作系统/操作系统知识点/pic3.png" alt="pic3"></p>
-</li>
-<li><p>最短寻道时间优先（SSTF）</p>
-<p>首先满足访问的磁道与当前所在磁道之间距离最短的进程。但是这种算法不能保证平均寻道时间最短</p>
-<ul>
-<li>进程饥饿现象<ul>
-<li>因为只要不断有新进程的请求到达，且其所要访问的磁道与当前磁道之间的距离较近，新进程的I/O请求必然优先满足。致使老进程的请求长期无法得到满足</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>扫描算法（SCAN）</p>
-<ul>
-<li>当磁头正在自里向外移动时，<strong>SCAN</strong>算法所考虑的下一个访问对象，应是要访问的磁道既在当前磁道之外，又是距离最近的。</li>
-<li>这样自里向外地访问，直至再无更外的磁道需要访问时，才将磁头换向为自外向里移动</li>
-</ul>
-</li>
-<li><p>循环扫描算法（CSCAN）</p>
-<p>磁头只做单向移动。例如总是自里向外，当磁头移到最外的磁道并访问完后，磁头立即返回最里要访问的磁道。</p>
-</li>
-</ol>
-<h3 id="5-文件管理"><a href="#5-文件管理" class="headerlink" title="5. 文件管理"></a>5. 文件管理</h3><h4 id="5-1-文件逻辑结构"><a href="#5-1-文件逻辑结构" class="headerlink" title="5.1 文件逻辑结构"></a>5.1 文件逻辑结构</h4><h5 id="文件逻辑结构的类型"><a href="#文件逻辑结构的类型" class="headerlink" title="文件逻辑结构的类型"></a>文件逻辑结构的类型</h5><ol>
-<li><p>有结构文件</p>
-</li>
-<li><p>无结构文件（流式文件）</p>
-<p>Unix系统吧所有文件都看做流式文件</p>
-</li>
-</ol>
-<h5 id="顺序文件"><a href="#顺序文件" class="headerlink" title="顺序文件"></a>顺序文件</h5><p>记录可以任意顺序排列</p>
-<h5 id="索引文件"><a href="#索引文件" class="headerlink" title="索引文件"></a>索引文件</h5><h5 id="顺序索引文件"><a href="#顺序索引文件" class="headerlink" title="顺序索引文件"></a>顺序索引文件</h5><h5 id="直接文件和hash文件"><a href="#直接文件和hash文件" class="headerlink" title="直接文件和hash文件"></a>直接文件和hash文件</h5><h4 id="外存分配方式"><a href="#外存分配方式" class="headerlink" title="外存分配方式"></a>外存分配方式</h4><h5 id="连续分配方式"><a href="#连续分配方式" class="headerlink" title="连续分配方式"></a>连续分配方式</h5><p>文件存储于连续的盘块上</p>
-<h5 id="链接分配"><a href="#链接分配" class="headerlink" title="链接分配"></a>链接分配</h5><p>通过盘块上的链接指针，把保存在不同盘块上的各文件部分链接起来</p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/13/操作系统/操作系统知识点/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1332,123 +937,15 @@
 
       
         
-          
-            <h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>安装需确认你的 Hexo 版本在 3.0 以上，以及 Node 版本为 6.x 以上，在 Hexo 根目录，执行以下命令。</p>
+          <h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>安装需确认你的 Hexo 版本在 3.0 以上，以及 Node 版本为 6.x 以上，在 Hexo 根目录，执行以下命令。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone git@github.com:yscoder/hexo-theme-indigo.git themes/indigo</div></pre></td></tr></table></figure>
-<h2 id="切换主题"><a href="#切换主题" class="headerlink" title="切换主题"></a>切换主题</h2><p>执行 <code>git branch</code> 显示所有本地分支，如果只存在一个分支，可以执行下面的命令获取另一分支的主题。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># 获取远程 card 分支，并切换</div><div class="line">$ git checkout -b card origin/card</div><div class="line"></div><div class="line"># 获取远程 master 分支，并切换</div><div class="line">$ git checkout -b master origin/master</div></pre></td></tr></table></figure>
-<p>此命令只需执行一次，之后使用 <code>git checkout [branch]</code> 命令在两个主题之间切换。</p>
-<h2 id="依赖安装"><a href="#依赖安装" class="headerlink" title="依赖安装"></a>依赖安装</h2><p>还是在 Hexo 根目录，如果以下插件已安装过，无需再次安装。</p>
-<h3 id="Less"><a href="#Less" class="headerlink" title="Less"></a>Less</h3><p>主题默认使用 less 作为 css 预处理工具。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-renderer-less --save</div></pre></td></tr></table></figure>
-<h3 id="Feed"><a href="#Feed" class="headerlink" title="Feed"></a>Feed</h3><p>用于生成 rss。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-generator-feed --save</div></pre></td></tr></table></figure>
-<h3 id="Json-content"><a href="#Json-content" class="headerlink" title="Json-content"></a>Json-content</h3><p>用于生成静态站点数据，用作站内搜索的数据源。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-generator-json-content --save</div></pre></td></tr></table></figure>
-<h3 id="QRCode"><a href="#QRCode" class="headerlink" title="QRCode"></a>QRCode</h3><p>用于生成微信分享二维码。</p>
-<blockquote>
-<p>可选，不安装时会请求 jiathis Api 生成二维码。</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-helper-qrcode --save</div></pre></td></tr></table></figure>
-<h2 id="开启标签页"><a href="#开启标签页" class="headerlink" title="开启标签页"></a>开启标签页</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo new page tags</div></pre></td></tr></table></figure>
-<p>修改 <code>hexo/source/tags/index.md</code> 的元数据</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">layout: tags</div><div class="line">comments: false</div><div class="line">---</div></pre></td></tr></table></figure>
-<h2 id="开启分类页"><a href="#开启分类页" class="headerlink" title="开启分类页"></a>开启分类页</h2><p>仅 card theme 支持。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo new page categories</div></pre></td></tr></table></figure>
-<p>修改 <code>hexo/source/categories/index.md</code> 的元数据</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">layout: categories</div><div class="line">comments: false</div><div class="line">---</div></pre></td></tr></table></figure>
-<h1 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h1><h2 id="如何设置文章摘要"><a href="#如何设置文章摘要" class="headerlink" title="如何设置文章摘要"></a>如何设置文章摘要</h2><p>在 Markdown 中加 <code>&lt;!-- more --&gt;</code></p>
-<h2 id="文章如何添加多个标签"><a href="#文章如何添加多个标签" class="headerlink" title="文章如何添加多个标签"></a>文章如何添加多个标签</h2><p>有两种多标签格式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tags: [a, b, c]</div></pre></td></tr></table></figure>
-<p>或</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">tags: </div><div class="line">  - a</div><div class="line">  - b</div><div class="line">  - c</div></pre></td></tr></table></figure>
-<h2 id="修改-brand-图片（菜单上方背景图）"><a href="#修改-brand-图片（菜单上方背景图）" class="headerlink" title="修改 brand 图片（菜单上方背景图）"></a>修改 brand 图片（菜单上方背景图）</h2><p>替换 <code>themes\indigo\source\img\brand.jpg</code>，保持原文件名不变。</p>
-<h3 id="如何在文章中使用图标"><a href="#如何在文章中使用图标" class="headerlink" title="如何在文章中使用图标"></a>如何在文章中使用图标</h3><p>先到 <a href="http://fontawesome.io/icons/" target="_blank" rel="external">fontawesome</a> 找到你需要的图标名，比如：<code>book</code>，按以下格式使用：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;i class=&quot;icon icon-book&quot;&gt;&lt;/i&gt;</div></pre></td></tr></table></figure>
-<p>图标样式前缀均为 <code>icon</code>，此外还有 5 个图标大小调节类和 1 个间距类。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;!-- 1.3倍大小 --&gt;</div><div class="line">&lt;i class=&quot;icon icon-book icon-lg&quot;&gt;&lt;/i&gt;</div><div class="line">&lt;!-- 2倍大小 --&gt;</div><div class="line">&lt;i class=&quot;icon icon-book icon-2x&quot;&gt;&lt;/i&gt;</div><div class="line">&lt;!-- 3倍大小 --&gt;</div><div class="line">&lt;i class=&quot;icon icon-book icon-3x&quot;&gt;&lt;/i&gt;</div><div class="line">&lt;!-- 4倍大小 --&gt;</div><div class="line">&lt;i class=&quot;icon icon-book icon-4x&quot;&gt;&lt;/i&gt;</div><div class="line">&lt;!-- 5倍大小 --&gt;</div><div class="line">&lt;i class=&quot;icon icon-book icon-5x&quot;&gt;&lt;/i&gt;</div><div class="line">&lt;!-- 5px右边距 --&gt;</div><div class="line">&lt;i class=&quot;icon icon-book icon-pr&quot;&gt;&lt;/i&gt;</div><div class="line">&lt;!-- 5px左边距 --&gt;</div><div class="line">&lt;i class=&quot;icon icon-book icon-pl&quot;&gt;&lt;/i&gt;</div></pre></td></tr></table></figure>
-<h2 id="个别图标无法显示"><a href="#个别图标无法显示" class="headerlink" title="个别图标无法显示"></a>个别图标无法显示</h2><p>如果你的浏览器安装了 ADBlock，它会屏蔽 SNS 相关的内容，比如：Github。</p>
-<p>解决办法：可配置 ADBlock 不在你的站点运行。</p>
-<h2 id="生成站点后没有样式"><a href="#生成站点后没有样式" class="headerlink" title="生成站点后没有样式"></a>生成站点后没有样式</h2><p><a href="https://github.com/yscoder/hexo-theme-indigo/wiki/%E5%AE%89%E8%A3%85" target="_blank" rel="external">安装less</a></p>
-<h2 id="更改样式后网站没有生效"><a href="#更改样式后网站没有生效" class="headerlink" title="更改样式后网站没有生效"></a>更改样式后网站没有生效</h2><p>确认非缓存问题后，执行 <code>hexo clean</code> 再进行生成上传。</p>
-<h2 id="更改站点配色"><a href="#更改站点配色" class="headerlink" title="更改站点配色"></a>更改站点配色</h2><p>编辑 <code>themes\indigo\source\css\_partial\variable.less</code>，更改对应的颜色变量。</p>
-<p>配色参考：<a href="http://www.materialpalette.com/" target="_blank" rel="external">Material Design Color Palette Generator</a></p>
-<h2 id="添加404页面"><a href="#添加404页面" class="headerlink" title="添加404页面"></a>添加404页面</h2><p>在 <code>hexo/source</code> 目录内新建 <code>404.html</code>。</p>
-<p>设置元数据信息，如果不想套用主题布局可设置 <code>layout</code> 为 <code>false</code>。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">layout: false    </div><div class="line">title: &quot;My Blog Name | 404&quot;</div><div class="line">---</div></pre></td></tr></table></figure>
-<h2 id="在博客中使用-Emoji"><a href="#在博客中使用-Emoji" class="headerlink" title="在博客中使用 Emoji"></a>在博客中使用 Emoji</h2><p>参考 <a href="https://github.com/yscoder/hexo-theme-indigo/issues/90" target="_blank" rel="external">Can i use emoji in mypage?</a></p>
-<h2 id="多说"><a href="#多说" class="headerlink" title="多说"></a>多说</h2><ul>
-<li>多说配置，取你的多说后台网址二级域名。比如我的是：<code>http://ysblog.duoshuo.com/admin/</code>中的 <code>ysblog</code>。</li>
-<li>评论中如果显示 HTML 标签，你需要 <strong>进入多说设置 -&gt; 评论解析 -&gt; 解析HTML代码</strong> 勾选上。</li>
-<li>已本地化多说脚本和样式，有个人需求的可以自行修改相关样式 <code>source/css/_duoshuo/*</code> 和脚本 <code>source/css/js/embed.js</code>。</li>
-</ul>
-<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><h1 id="站点配置"><a href="#站点配置" class="headerlink" title="站点配置"></a>站点配置</h1><p>编辑站点配置文件，<code>hexo/_config.yml</code>。</p>
-<h2 id="启用主题"><a href="#启用主题" class="headerlink" title="启用主题"></a>启用主题</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">theme: indigo</div></pre></td></tr></table></figure>
-<h2 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h2><p>为了得到更好的使用体验，以下内容请务必填写完整，因为这些内容会在主题中得到展示。<a href="https://hexo.io/zh-cn/docs/configuration.html" target="_blank" rel="external">更多</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">title: your title</div><div class="line">subtitle: your subtitle</div><div class="line">description: your description</div><div class="line">keywords: your keywords</div><div class="line">author: your name</div><div class="line">email: your email</div><div class="line">url: your site url</div></pre></td></tr></table></figure>
-<h2 id="feed配置"><a href="#feed配置" class="headerlink" title="feed配置"></a>feed配置</h2><p>参考 <a href="https://github.com/hexojs/hexo-generator-feed" target="_blank" rel="external">hexo-generator-feed</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">feed:</div><div class="line">  type: atom</div><div class="line">  path: atom.xml</div><div class="line">  limit: 0</div></pre></td></tr></table></figure>
-<h2 id="jsonContent配置"><a href="#jsonContent配置" class="headerlink" title="jsonContent配置"></a>jsonContent配置</h2><p>为了节约资源，可以对 jsonContent 插件生成的数据字段进行配置，减少数据文件大小。参考 <a href="https://github.com/alexbruno/hexo-generator-json-content" target="_blank" rel="external">hexo-generator-json-content</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">jsonContent:</div><div class="line">  meta: false</div><div class="line">  pages: false</div><div class="line">  posts:</div><div class="line">    title: true</div><div class="line">    date: true</div><div class="line">    path: true</div><div class="line">    text: true</div><div class="line">    raw: false</div><div class="line">    content: false</div><div class="line">    slug: false</div><div class="line">    updated: false</div><div class="line">    comments: false</div><div class="line">    link: false</div><div class="line">    permalink: false</div><div class="line">    excerpt: false</div><div class="line">    categories: false</div><div class="line">    tags: true</div></pre></td></tr></table></figure>
-<h1 id="主题配置"><a href="#主题配置" class="headerlink" title="主题配置"></a>主题配置</h1><p>编辑主题配置文件，<code>themes/indigo/_config.yml</code>。</p>
-<h2 id="左侧菜单"><a href="#左侧菜单" class="headerlink" title="左侧菜单"></a>左侧菜单</h2><p>默认配置如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">menu:</div><div class="line">  home:</div><div class="line">    text: 主页</div><div class="line">    url: /</div><div class="line">  archives:</div><div class="line">    url: /archives</div><div class="line">  tags:</div><div class="line">    url: /tags</div><div class="line">  github:</div><div class="line">    url: https://github.com/yscoder</div><div class="line">    target: _blank</div><div class="line">  weibo:</div><div class="line">    url: http://www.weibo.com/ysweb</div><div class="line">    target: _blank</div><div class="line">  link:</div><div class="line">    text: 测试</div><div class="line">    url: /</div></pre></td></tr></table></figure>
-<p>添加新菜单项时，在 menu 下增加子属性即可。属性说明如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">menu:</div><div class="line"> link:               # fontawesome图标，省略前缀，本主题前缀为 icon-，必须</div><div class="line">   text: About       # 菜单显示的文字，如果省略即默认与图标一致，首字母会转大写</div><div class="line">   url: /about       # 链接，绝对或相对路径，必须</div><div class="line">   target: _blank    # 是否跳出，省略则在当前页面打开</div></pre></td></tr></table></figure>
-<p>fontawesome 图标已集成到主题中，你可以到 <a href="http://fontawesome.io/icons/" target="_blank" rel="external">这个页面</a> 挑选合适的图标。</p>
-<h2 id="rss"><a href="#rss" class="headerlink" title="rss"></a>rss</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rss: /atom.xml</div></pre></td></tr></table></figure>
-<h2 id="favicon"><a href="#favicon" class="headerlink" title="favicon"></a>favicon</h2><p>站点 logo，显示在浏览器当前标签页左上角。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">favicon: /favicon.ico</div></pre></td></tr></table></figure>
-<h2 id="头像"><a href="#头像" class="headerlink" title="头像"></a>头像</h2><p>位于左侧菜单上方</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">avatar: /img/logo.jpg</div></pre></td></tr></table></figure>
-<h2 id="email"><a href="#email" class="headerlink" title="email"></a>email</h2><p>头像下方</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">email: 634206017@qq.com</div></pre></td></tr></table></figure>
-<h2 id="color"><a href="#color" class="headerlink" title="color"></a>color</h2><p>设置 Android L Chrome 浏览器状态栏颜色，不需要可去除此项或设为 <code>false</code>。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">color: &apos;#3F51B5&apos;</div></pre></td></tr></table></figure>
-<h2 id="标签页-old"><a href="#标签页-old" class="headerlink" title="标签页 (old)"></a>标签页 (old)</h2><p>配置标签页标题</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">tags:</div><div class="line">  title: 标签</div></pre></td></tr></table></figure>
-<h2 id="页面标题-card-theme"><a href="#页面标题-card-theme" class="headerlink" title="页面标题 (card theme)"></a>页面标题 (card theme)</h2><p>自定义归档、标签、分类页的大标题。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">tags_title: Tags</div><div class="line">archives_title: Archives</div><div class="line">categories_title: Categories</div></pre></td></tr></table></figure>
-<h2 id="文章摘要"><a href="#文章摘要" class="headerlink" title="文章摘要"></a>文章摘要</h2><p>可以在 Markdown 文件中加 <code>&lt;!--more--&gt;</code>以分割摘要与文章正文。未设置时，按 <code>excerpt_length</code>设置截取。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># 文章摘要渲染方式: 为 true 时将渲染为 html，否则为文本</div><div class="line">excerpt_render: false</div><div class="line"># 截断长度</div><div class="line">excerpt_length: 200</div><div class="line"># 文字正文页链接文字</div><div class="line">excerpt_link: 阅读全文...</div></pre></td></tr></table></figure>
-<h2 id="mathjax"><a href="#mathjax" class="headerlink" title="mathjax"></a>mathjax</h2><p>开启后，使你的站点支持公式渲染，by <a href="https://www.mathjax.org/" target="_blank" rel="external">mathjax</a>。 请按需开启，因为此项需要加载额外的 js 文件。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mathjax: false</div></pre></td></tr></table></figure>
-<h2 id="分享"><a href="#分享" class="headerlink" title="分享"></a>分享</h2><p>文章分享开关，by <a href="http://www.jiathis.com/help/html/share-with-jiathis-api" target="_blank" rel="external">jiathis-api</a>。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">share: true</div></pre></td></tr></table></figure>
-<h2 id="文章打赏"><a href="#文章打赏" class="headerlink" title="文章打赏"></a>文章打赏</h2><p>默认开启</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">reward:</div><div class="line">  title: 谢谢大爷~             #显示的文字</div><div class="line">  wechat: /img/wechat.jpg     #微信，关闭设为 false</div><div class="line">  alipay: /img/alipay.jpg     #支付宝，关闭设为 false</div></pre></td></tr></table></figure>
-<p>此外在 crad theme 中，可以通过在 markdown 头部添加 <code>reward: false</code> 来控制某些不想开启打赏的页面。</p>
-<p>关闭</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">reward: false</div></pre></td></tr></table></figure>
-<blockquote>
-<p>二维码请自行从微信、支付宝中下载。当两个二维码同时存在时，为保持显示效果的一致性，注意截图时的边框留白保持一致。必要时可借助PS等图片处理工具进行图片大小裁剪、压缩等。</p>
-</blockquote>
-<h2 id="站内搜索"><a href="#站内搜索" class="headerlink" title="站内搜索"></a>站内搜索</h2><p>是否开启搜索</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">search: true</div></pre></td></tr></table></figure>
-<h2 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h2><p>开启后，文章页在大屏下会隐藏左侧菜单，专注阅读。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hideMenu: true</div></pre></td></tr></table></figure>
-<h2 id="Toc"><a href="#Toc" class="headerlink" title="Toc"></a>Toc</h2><p>开启文章内容导航。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#toc: false  #关闭</div><div class="line">toc:</div><div class="line">  list_number: false  # 决定导航使用的标签， true 为 ol， false 为 ul。</div></pre></td></tr></table></figure>
-<h2 id="copyright-card-theme"><a href="#copyright-card-theme" class="headerlink" title="copyright (card theme)"></a>copyright (card theme)</h2><p>文章页版权声明内容，hexo中所有变量及辅助函数等均可调用，具体请查阅 <a href="http://hexo.io/" target="_blank" rel="external">hexo.io</a>。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">copyright: 这里写留言或版权声明：&lt;a href=&quot;&lt;%- url_for(page.path) %&gt;&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;%- url %&gt;&lt;/a&gt;</div></pre></td></tr></table></figure>
-<h2 id="less"><a href="#less" class="headerlink" title="less"></a>less</h2><p>设置 less 编译时的入口文件路径，<a href="https://github.com/hexojs/hexo-renderer-less" target="_blank" rel="external">hexo-renderer-less</a>。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">less:</div><div class="line">  compress: true    # 是否压缩css</div><div class="line">  paths:</div><div class="line">    - source/css/style.less</div></pre></td></tr></table></figure>
-<h2 id="评论"><a href="#评论" class="headerlink" title="评论"></a>评论</h2><p>集成了<a href="http://duoshuo.com/" target="_blank" rel="external">多说</a>和 <a href="https://disqus.com/" target="_blank" rel="external">disqus</a>，开启其一即可。</p>
-<blockquote>
-<p>duoshuo-key 即多说创建站点时的二级域名。如：<code>abc.duoshuo.com</code>，就填 <code>abc</code>。</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">duoshuo: duoshuo-key</div></pre></td></tr></table></figure>
-<p>或</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">disqus_shortname: disqus_shortname</div></pre></td></tr></table></figure>
-<h2 id="数据统计"><a href="#数据统计" class="headerlink" title="数据统计"></a>数据统计</h2><p>集成的有谷歌和 CNZZ，请填写你的站点标识。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">google_analytics: key</div><div class="line">cnzz: 站点id</div></pre></td></tr></table></figure>
-<h2 id="谷歌站点验证-card-theme"><a href="#谷歌站点验证-card-theme" class="headerlink" title="谷歌站点验证 (card theme)"></a>谷歌站点验证 (card theme)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">google_site_verification: false</div></pre></td></tr></table></figure>
-<h2 id="规范网址-card-theme"><a href="#规范网址-card-theme" class="headerlink" title="规范网址 (card theme)"></a>规范网址 (card theme)</h2><p>让搜索引擎重定向你的不同域名、不同子域、同域不同目录的站点到你期望的路径。<a href="https://support.google.com/webmasters/answer/139066" target="_blank" rel="external">使用规范网址</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">canonical: http://imys.net</div></pre></td></tr></table></figure>
-<h2 id="版权起始年份"><a href="#版权起始年份" class="headerlink" title="版权起始年份"></a>版权起始年份</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">since_year: 2006</div></pre></td></tr></table></figure>
-<h2 id="自定义页面关于"><a href="#自定义页面关于" class="headerlink" title="自定义页面关于"></a>自定义页面关于</h2><p>用户页面中作者相关的描述性文字，如不需要设为 false</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">about: 用户页面中作者相关的描述性文字，如不需要设为 false</div></pre></td></tr></table></figure>
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/13/hexo/hexo-个人博客配置安装教程/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1579,103 +1076,15 @@
 
       
         
-          
-            <h4 id="集合继承关系"><a href="#集合继承关系" class="headerlink" title="集合继承关系"></a>集合继承关系</h4><p>Collection集合的类继承关系图：</p>
+          <h4 id="集合继承关系"><a href="#集合继承关系" class="headerlink" title="集合继承关系"></a>集合继承关系</h4><p>Collection集合的类继承关系图：</p>
 <p><img src="/2017/05/13/java/Java集合/pic11.jpg" alt=""></p>
-<p>Map集合继承关系图：</p>
-<p><img src="/2017/05/13/java/Java集合/pic12.jpg" alt=""></p>
-<h4 id="常用的API"><a href="#常用的API" class="headerlink" title="常用的API"></a>常用的API</h4><p>ArrayList：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//List尾部添加元素</span></div><div class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">add</span><span class="params">(E e)</span></span>;</div><div class="line"><span class="comment">//在index位置添加元素</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> index,E element)</span></span>;</div><div class="line"><span class="comment">//移除元素o</span></div><div class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">remove</span><span class="params">(Object o)</span></span>;</div><div class="line"><span class="comment">//移除下标index的元素</span></div><div class="line"><span class="function"><span class="keyword">public</span> E <span class="title">remove</span><span class="params">(<span class="keyword">int</span> index)</span></span>;</div><div class="line"><span class="comment">//清空列表</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">clear</span><span class="params">()</span></span>;</div><div class="line"><span class="comment">//添加集合中的全部元素</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">addAll</span><span class="params">(Collection&lt;? extends E&gt; c)</span></span>;</div><div class="line"><span class="comment">//返回list的遍历</span></div><div class="line"><span class="function"><span class="keyword">public</span> Iterator&lt;E&gt; <span class="title">iterator</span><span class="params">()</span></span>;</div><div class="line"><span class="comment">//是否包含元素</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">contains</span><span class="params">(Object o)</span></span>;</div><div class="line"><span class="comment">//将下标为index元素替换</span></div><div class="line"><span class="function"><span class="keyword">public</span> E <span class="title">set</span><span class="params">(<span class="keyword">int</span> index,E element)</span></span></div></pre></td></tr></table></figure>
-<p>Queue：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//添加元素</span></div><div class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">add</span><span class="params">(E e)</span></span>;</div><div class="line"><span class="comment">//获取并移除队列头,此队列为空时将抛出一个异常。</span></div><div class="line"><span class="function">E <span class="title">remove</span><span class="params">()</span></span>;</div><div class="line"><span class="comment">//获取并移除此队列的头，如果此队列为空，则返回 null。</span></div><div class="line"><span class="function">E <span class="title">poll</span><span class="params">()</span></span>;</div><div class="line"><span class="comment">//获取，但是不移除此队列的头。此方法与 peek 唯一的不同在于：此队列为空时将抛出一个异常。</span></div><div class="line"><span class="function">E <span class="title">element</span><span class="params">()</span></span>;</div><div class="line"><span class="comment">//获取但不移除此队列的头；如果此队列为空，则返回 null。</span></div><div class="line"><span class="function">E <span class="title">peek</span><span class="params">()</span></span>;</div></pre></td></tr></table></figure>
-<p>Set:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//添加元素</span></div><div class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">add</span><span class="params">(E e)</span></span>;</div><div class="line"><span class="comment">//移除元素</span></div><div class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">remove</span><span class="params">(Object o)</span></span>;</div><div class="line"><span class="comment">//添加所有集合元素</span></div><div class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">addAll</span><span class="params">(Collection&lt;? extends E&gt; c)</span></span>;</div><div class="line"><span class="comment">//清空集合</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">clear</span><span class="params">()</span></span>;</div><div class="line"><span class="comment">//返回set的迭代器</span></div><div class="line"><span class="function">Iterator&lt;E&gt; <span class="title">iterator</span><span class="params">()</span></span>;</div></pre></td></tr></table></figure>
-<p>Stack: 继承自vector，是线程安全的</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//把项压入堆栈顶部。</span></div><div class="line"><span class="function"><span class="keyword">public</span> E <span class="title">push</span><span class="params">(E item)</span></span>;</div><div class="line"><span class="comment">//移除栈顶元素</span></div><div class="line"><span class="function"><span class="keyword">public</span> E <span class="title">pop</span><span class="params">()</span></span>;</div><div class="line"><span class="comment">//返回栈顶元素，但是不删除</span></div><div class="line"><span class="function"><span class="keyword">public</span> E <span class="title">peek</span><span class="params">()</span></span>;</div><div class="line"><span class="comment">//测试栈是否为空</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">empty</span><span class="params">()</span></span>;</div><div class="line"><span class="comment">//返回元素在栈中的位置，以1为基数，-1表示不存在</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">search</span><span class="params">(Object o)</span></span>;</div></pre></td></tr></table></figure>
-<h4 id="集合类介绍"><a href="#集合类介绍" class="headerlink" title="集合类介绍"></a>集合类介绍</h4><ul>
-<li><h4 id="ArrayList（非线程安全）"><a href="#ArrayList（非线程安全）" class="headerlink" title="ArrayList（非线程安全）"></a>ArrayList（非线程安全）</h4><ul>
-<li><p>ArrayList底层采用数组存放数据</p>
-</li>
-<li><p>创建时可以指定初始容量的大小，若不指定则默认是10.</p>
-</li>
-<li><p>ArrayList扩容是1.5倍的增长</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> newCapacity = oldCapacity + (oldCapacity &gt;&gt; <span class="number">1</span>);</div><div class="line"><span class="comment">//将数组内容拷贝到新创建的数组中，并返回新创建数组的引用</span></div><div class="line">elementData = Arrays.copyOf(elementData, newCapacity);</div></pre></td></tr></table></figure>
-</li>
-<li><p>arrayList不是线程安全的容器</p>
-</li>
-<li><p>当数组元素已经达到数组容量时才会发生扩容</p>
-</li>
-</ul>
-</li>
-<li><h4 id="Vector（线程安全）"><a href="#Vector（线程安全）" class="headerlink" title="Vector（线程安全）"></a>Vector（线程安全）</h4><ul>
-<li><p>Vector与ArrayList实现基本相同，当时Vector是线程安全的，每个操作方法中加了synchronized关键字，属于线程安全的容器</p>
-</li>
-<li><p>创建Vector时可以指定初始容量，也可以指定发生扩容时扩容的大小。若没指定初始容量大小默认是10；若没有指定扩容的大小，默认是两倍增长，否则</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> newCapacity = oldCapacity + ((capacityIncrement &gt; <span class="number">0</span>) ?</div><div class="line">                                         capacityIncrement : oldCapacity);</div></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><h4 id="LinkedList（非线程安全）"><a href="#LinkedList（非线程安全）" class="headerlink" title="LinkedList（非线程安全）"></a>LinkedList（非线程安全）</h4><ul>
-<li><p>LinkedList底层实现是通过链表，每个元素是一个Node结点</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span>&lt;<span class="title">E</span>&gt; </span>&#123;</div><div class="line">        E item;</div><div class="line">        Node&lt;E&gt; next;</div><div class="line">        Node&lt;E&gt; prev;</div><div class="line"></div><div class="line">        Node(Node&lt;E&gt; prev, E element, Node&lt;E&gt; next) &#123;</div><div class="line">            <span class="keyword">this</span>.item = element;</div><div class="line">            <span class="keyword">this</span>.next = next;</div><div class="line">            <span class="keyword">this</span>.prev = prev;</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>定义两个变量first、last分别指向链表的头结点和尾结点</p>
-</li>
-<li><p>实现了Queue 接口</p>
-<ul>
-<li><p>offer(E e) 操作调用add方法，将元素插入队列的尾部</p>
-<p><img src="/2017/05/13/java/Java集合/pic13.png" alt=""></p>
-<p>添加元素e之后</p>
-<p><img src="/2017/05/13/java/Java集合/pic14.png" alt=""></p>
-</li>
-<li><p>poll操作删除队列头元素，删除的是first结点</p>
-</li>
-<li><p>element操作返回队列头结点，即first结点，如果first==null 抛出异常</p>
-</li>
-<li><p>peek操作返回队列头结点，即first结点，如果first==null 则返回null</p>
-</li>
-</ul>
-</li>
-<li><p>实现了Stack功能</p>
-<ul>
-<li><p>push添加元素，注意是在链表的头结点处插入元素</p>
-<p><img src="/2017/05/13/java/Java集合/pic15.png" alt=""></p>
-</li>
-<li><p>pop 操作是删除链表的头结点</p>
-</li>
-<li><p>peek 操作返回链表的头结点</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><h4 id="HashMap（非线程安全）"><a href="#HashMap（非线程安全）" class="headerlink" title="HashMap（非线程安全）"></a>HashMap（非线程安全）</h4><ul>
-<li><p>HashMap底层由一个EntrySet数组构成，每个EntrySet都是一个链表</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Entry</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; <span class="keyword">implements</span> <span class="title">Map</span>.<span class="title">Entry</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; </span>&#123;</div><div class="line">       <span class="keyword">final</span> K key;</div><div class="line">       V value;</div><div class="line">       Entry&lt;K,V&gt; next;</div><div class="line">       <span class="keyword">int</span> hash;</div><div class="line">  		Entry(<span class="keyword">int</span> h, K k, V v, Entry&lt;K,V&gt; n) &#123;</div><div class="line">           value = v;</div><div class="line">           next = n;</div><div class="line">           key = k;</div><div class="line">           hash = h;</div><div class="line">       &#125;</div><div class="line">		 ……</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><img src="/2017/05/13/java/Java集合/pic16.png" alt=""></p>
-</li>
-<li><p>loadFactor，加载因子，默认值是0.75。当map中的元素个数size&gt;=table.length*loadFactor时，hashMap 会进行扩容。如果loadFactor过小，则空间浪费比较严重；若loadFactor过大，则hashmap冲突的概率会加大，造成一些EntrySet链表过长。</p>
-</li>
-<li><p>创建hashMap时可以指定初始容量和加载因子，默认初始容量为16，加载因子为0.75</p>
-</li>
-<li><p>计算元素o 在table数组中的下标，其中h是根据o.key计算的hash值，length是指数组的长度</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">indexFor</span><span class="params">(<span class="keyword">int</span> h, <span class="keyword">int</span> length)</span> </span>&#123;</div><div class="line">      <span class="keyword">return</span> h &amp; (length-<span class="number">1</span>);</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>hashMap中的key和value都可以为null，当key==null时，该元素会放在table下标为0的位置上。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (key == <span class="keyword">null</span>)</div><div class="line">    <span class="keyword">return</span> putForNullKey(value);</div></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> V <span class="title">putForNullKey</span><span class="params">(V value)</span> </span>&#123;</div><div class="line">    <span class="keyword">for</span> (Entry&lt;K,V&gt; e = table[<span class="number">0</span>]; e != <span class="keyword">null</span>; e = e.next) &#123;</div><div class="line">      		<span class="comment">//如果map中原来已经存在key值为null的元素，则更新value值</span></div><div class="line">            <span class="keyword">if</span> (e.key == <span class="keyword">null</span>) &#123;</div><div class="line">                V oldValue = e.value;</div><div class="line">                e.value = value;</div><div class="line">                e.recordAccess(<span class="keyword">this</span>);</div><div class="line">                <span class="keyword">return</span> oldValue;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        modCount++;</div><div class="line">  		<span class="comment">// hash值为0，key=null  value=value  在table中位置index=0</span></div><div class="line">        addEntry(<span class="number">0</span>, <span class="keyword">null</span>, value, <span class="number">0</span>);</div><div class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>map中添加新元素时，是将元素添加在链表头。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">addEntry</span><span class="params">(<span class="keyword">int</span> hash, K key, V value, <span class="keyword">int</span> bucketIndex)</span> </span>&#123;</div><div class="line">     	<span class="comment">//threshold = table.length * loadFactor  判断是否需要扩容</span></div><div class="line">       <span class="keyword">if</span> ((size &gt;= threshold) &amp;&amp; (<span class="keyword">null</span> != table[bucketIndex])) &#123;</div><div class="line">           resize(<span class="number">2</span> * table.length);</div><div class="line">           hash = (<span class="keyword">null</span> != key) ? hash(key) : <span class="number">0</span>;</div><div class="line">           bucketIndex = indexFor(hash, table.length);</div><div class="line">       &#125;</div><div class="line">       createEntry(hash, key, value, bucketIndex);</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//创建一个新的结点，插入链表头。即创建新元素时是插入链表头的。</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">createEntry</span><span class="params">(<span class="keyword">int</span> hash, K key, V value, <span class="keyword">int</span> bucketIndex)</span> </span>&#123;</div><div class="line">       Entry&lt;K,V&gt; e = table[bucketIndex];</div><div class="line">     	<span class="comment">//table[bucketIndex]表示的是链表头，链表头指向了新建的结点，同时新节点的next指针指向			了原来的链表头结点。</span></div><div class="line">       table[bucketIndex] = <span class="keyword">new</span> Entry&lt;&gt;(hash, key, value, e);</div><div class="line">       size++;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>map扩容是原来table长度的2倍。扩容时，需要遍历原来的map，将每个元素重新计算hash值和在新table的中位置，再放入新的table中。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">transfer</span><span class="params">(Entry[] newTable, <span class="keyword">boolean</span> rehash)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> newCapacity = newTable.length;</div><div class="line">        <span class="keyword">for</span> (Entry&lt;K,V&gt; e : table) &#123;</div><div class="line">            <span class="keyword">while</span>(<span class="keyword">null</span> != e) &#123;</div><div class="line">                Entry&lt;K,V&gt; next = e.next;</div><div class="line">                <span class="keyword">if</span> (rehash) &#123;</div><div class="line">                    e.hash = <span class="keyword">null</span> == e.key ? <span class="number">0</span> : hash(e.key);</div><div class="line">                &#125;</div><div class="line">              	<span class="comment">//计算元素在新table中的位置</span></div><div class="line">                <span class="keyword">int</span> i = indexFor(e.hash, newCapacity);</div><div class="line">              	<span class="comment">//newTable[i]是其中一个链表的链表头</span></div><div class="line">                e.next = newTable[i];</div><div class="line">                newTable[i] = e;</div><div class="line">                e = next;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/13/java/Java集合/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1784,40 +1193,18 @@
 
       
         
-          
-            <h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><ul>
+          <h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><ul>
 <li>布隆过滤器主要用于判断一个元素是否在集合中，常见的如垃圾邮件过滤的黑白名单方法、爬虫的网址判重模块等。</li>
 <li>Hash表也可以用于判断元素是否在集合中，但是布隆过滤器只要Hash表的1/4或1/8甚至更少的空间复杂度就能完成同样的问题。</li>
 <li>布隆过滤器存在一定的误报率，通过设计bitArray的大小可以将误报率控制在极低水平。使用布隆过滤器一定是在有一定容错概率的情况下。</li>
 </ul>
-<h4 id="布隆过滤器的设计"><a href="#布隆过滤器的设计" class="headerlink" title="布隆过滤器的设计"></a>布隆过滤器的设计</h4><p>假设数据查询的数据量为n，允许的失误率p</p>
-<ol>
-<li>长度为m的BitArray，二进制数组，里面存放的数据都是0和1</li>
-<li>k个相互独立的hash函数</li>
-</ol>
-<h5 id="添加元素"><a href="#添加元素" class="headerlink" title="添加元素"></a>添加元素</h5><ol>
-<li>初始时将BitArray中的元素全部置为0</li>
-<li>将单条数据str，分别用k个hash函数计算出对应的hash值，将这k个hash值再对m进行取模运算，得到数据h1,h2,……hk.</li>
-<li>将BitArray h1、h2、……hk位置上的值置为1</li>
-<li>每条数据都重复2、3步骤。</li>
-</ol>
-<h5 id="查询元素是否在集合中"><a href="#查询元素是否在集合中" class="headerlink" title="查询元素是否在集合中"></a>查询元素是否在集合中</h5><ol>
-<li>将要查询的数据分别用k个hash函数计算出对应的hash值，然后对m进行取模运算，得到数据h1 h2 …… hk.</li>
-<li>判断BitArray h1、h2、……、hk位置上的值是否全部都是1，如果全为1则表示数据已经在集合中，如果不全为1则表示数据不在集合中。</li>
-</ol>
-<h4 id="n-k-m-p-之间的关系"><a href="#n-k-m-p-之间的关系" class="headerlink" title="n k m p 之间的关系"></a>n k m p 之间的关系</h4><ul>
-<li>样本个数n和允许失误概率p可以求出m</li>
-</ul>
-<p>$$<br>m= -  \frac{n*lnp}{(ln)^2}<br>$$</p>
-<ul>
-<li><p>根据m可以求出k，hash函数的个数</p>
-<p>​<br>$$<br>k =ln2    \frac{m}{n} = 0.7    \frac{m}{n}<br>$$</p>
-</li>
-<li><p>由于在计算m和k的过程中都是向上取整的，失误率会降低，可以根据下面的公式计算出具体的失误率：<br>$$<br>p=(1- e ^-(\frac{nk}{m}))^k<br>$$<br>求出真实的失误率p</p>
-</li>
-</ul>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/13/布隆过滤器/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1948,8 +1335,7 @@
 
       
         
-          
-            <ol>
+          <ol>
 <li>尽量少用IN操作，基本上所有的IN操作都可以用Exists代替</li>
 <li>不用Not IN操作，可以用Not Exists代替</li>
 <li>不用“!=”、或者“&lt;&gt;”操作符，不等操作会造成全表扫面，可以用&gt;或者&lt;代替</li>
@@ -1957,21 +1343,13 @@
 <li>通配符“%”、“_”作为第一个字符时索引会失效，因此一般不要作为第一个字符出现</li>
 <li>where子句中避免在索引列上使用计算，否则将导致索引失效而进行权标扫描</li>
 </ol>
-<p><strong>MySQL SQL基本原则</strong></p>
-<ul>
-<li>尽量少使用join</li>
-<li>尽量少排序</li>
-<li>尽量避免select*</li>
-<li>尽量用join代替子查询</li>
-<li>尽量少使用or</li>
-<li>尽量用union all 代替union</li>
-<li>尽早的过滤</li>
-<li>避免类型转换</li>
-<li>尽量优化高并发的sql，而不是执行频率低的某些”大“SQL</li>
-<li>从全局出发优化，而不是片面调整</li>
-</ul>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/03/16/数据库/SQL优化策略/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2102,294 +1480,16 @@
 
       
         
-          
-            <h3 id="数据库相关概念："><a href="#数据库相关概念：" class="headerlink" title="数据库相关概念："></a>数据库相关概念：</h3><p>​    数据库是长期存储在计算机内、有组织的、可共享的大量数据的集合。数据库数据具有永久存储、有组织和可共享三个基本特点。</p>
+          <h3 id="数据库相关概念："><a href="#数据库相关概念：" class="headerlink" title="数据库相关概念："></a>数据库相关概念：</h3><p>​    数据库是长期存储在计算机内、有组织的、可共享的大量数据的集合。数据库数据具有永久存储、有组织和可共享三个基本特点。</p>
 <h5 id="候选码"><a href="#候选码" class="headerlink" title="候选码"></a>候选码</h5><p>若关系中的某一属性组的值能唯一的标识一个元组，则该属性组成为候选码</p>
 <h5 id="主码"><a href="#主码" class="headerlink" title="主码"></a>主码</h5><p>若一个关系中有多个候选码，选其中一个作为主码。</p>
-<h5 id="主属性"><a href="#主属性" class="headerlink" title="主属性"></a>主属性</h5><p>候选码的诸属性成为主属性</p>
-<h5 id="外码"><a href="#外码" class="headerlink" title="外码"></a>外码</h5><p>若F是基本关系R中的属性（不是R的码），K是基本关系S的主码，如果F和K相对应，则陈F是R的外码</p>
-<h4 id="完整性约束"><a href="#完整性约束" class="headerlink" title="完整性约束"></a>完整性约束</h4><ul>
-<li><p>实体完整性：</p>
-<p>若属性A是基本关系R的主属性，则A取值不能为空。</p>
-</li>
-<li><p>参照完整性：</p>
-<p>若F是基本关系R的外码，F与基本关系S中的K相对应，则其取值要么为空要么是基本关系S中的主码值</p>
-</li>
-<li><p>用户定义完整性：</p>
-</li>
-</ul>
-<h3 id="关系数据库标准语言SQL"><a href="#关系数据库标准语言SQL" class="headerlink" title="关系数据库标准语言SQL"></a>关系数据库标准语言SQL</h3><h4 id="模式创建与删除"><a href="#模式创建与删除" class="headerlink" title="模式创建与删除"></a>模式创建与删除</h4><ul>
-<li><p>创建模式</p>
-<p>create schema   <strong>test</strong> authorization wang</p>
-</li>
-<li><p>删除模式</p>
-<p>drop schema   <strong>test</strong>  cascade|restrict</p>
-<p>cascade:级联删除（默认）</p>
-<p>restrict:限制删除，如果有数据的话不能删除</p>
-</li>
-</ul>
-<h4 id="基本表的创建、删除、修改"><a href="#基本表的创建、删除、修改" class="headerlink" title="基本表的创建、删除、修改"></a>基本表的创建、删除、修改</h4><ul>
-<li><p>创建表</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">table</span> Student(</div><div class="line">	Sno  <span class="built_in">char</span>(<span class="number">16</span>)  primary  <span class="keyword">key</span> ,  <span class="comment">/* Sno 是主码*/</span></div><div class="line">	<span class="keyword">name</span>  <span class="built_in">char</span>(<span class="number">32</span>)  <span class="keyword">unique</span>,  <span class="comment">/* 姓名唯一*/</span></div><div class="line">	age  <span class="built_in">smallint</span> <span class="keyword">default</span> <span class="number">0</span>, <span class="comment">/*默认值是0*/</span></div><div class="line">	Cpno <span class="built_in">int</span>,</div><div class="line">	foreign <span class="keyword">key</span> (Cpno) <span class="keyword">references</span> Coures(Cno)<span class="comment">/* 外键 */</span></div><div class="line">);</div></pre></td></tr></table></figure>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">table</span> SC(</div><div class="line">	Sno <span class="built_in">char</span>(<span class="number">16</span>),</div><div class="line">	Cno <span class="built_in">char</span>(<span class="number">16</span>) <span class="keyword">default</span> <span class="literal">null</span>,</div><div class="line">	grade <span class="built_in">smallint</span>,</div><div class="line">	primary <span class="keyword">key</span> (Sno,Cno), <span class="comment">/*sno和cno 两个属性作为主码*/</span></div><div class="line">	foreign <span class="keyword">key</span> (Sno) <span class="keyword">references</span> Student(Sno),</div><div class="line">	foreign <span class="keyword">key</span> (Cno) <span class="keyword">references</span> course(Cno)</div><div class="line">)</div></pre></td></tr></table></figure>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">table</span> sc(</div><div class="line">	sno <span class="built_in">char</span>(<span class="number">16</span>),</div><div class="line">	cno <span class="built_in">char</span>(<span class="number">16</span>),</div><div class="line">	grade <span class="built_in">smallint</span>,</div><div class="line">	primary <span class="keyword">key</span> (sno,cno),</div><div class="line">	foreign <span class="keyword">key</span> (sno) <span class="keyword">references</span> student(sno) <span class="keyword">on</span> <span class="keyword">delete</span> <span class="keyword">cascade</span> <span class="keyword">on</span> <span class="keyword">update</span> <span class="keyword">cascade</span>,</div><div class="line">	foreign <span class="keyword">key</span> (cno) <span class="keyword">references</span> course(cno) <span class="keyword">on</span> <span class="keyword">delete</span> <span class="keyword">cascade</span> <span class="keyword">on</span> <span class="keyword">update</span> <span class="keyword">cascade</span></div><div class="line">)</div></pre></td></tr></table></figure>
-</li>
-<li><p>修改表属性</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">alter</span> <span class="keyword">table</span> Student <span class="keyword">add</span> sex <span class="built_in">char</span>(<span class="number">2</span>)  <span class="comment">/*添加字段*/</span></div></pre></td></tr></table></figure>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">alter</span> <span class="keyword">table</span> Student <span class="keyword">drop</span> sex  <span class="comment">/*删除字段*/</span></div></pre></td></tr></table></figure>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">alter</span> <span class="keyword">table</span> Student <span class="keyword">modify</span> sex <span class="built_in">int</span>;  <span class="comment">/*字段sex修改为int 类型*/</span></div></pre></td></tr></table></figure>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">alter</span> <span class="keyword">table</span> student <span class="keyword">change</span> sex ses <span class="built_in">int</span>;<span class="comment">/*修改字段名称和类型*/</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>删除表</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">drop</span> <span class="keyword">table</span> se <span class="keyword">cascade</span>;<span class="comment">/*删除表*/</span></div></pre></td></tr></table></figure>
-<p>cascade：级联删除</p>
-<p>restrict：限制删除</p>
-</li>
-</ul>
-<h4 id="索引的创建于删除"><a href="#索引的创建于删除" class="headerlink" title="索引的创建于删除"></a>索引的创建于删除</h4><ul>
-<li><p>创建索引</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">unique</span> <span class="keyword">index</span> Sname <span class="keyword">on</span> Student (<span class="keyword">name</span>);</div></pre></td></tr></table></figure>
-<p>unique:唯一索引</p>
-<p>cluster:聚簇索引</p>
-</li>
-<li><p>删除索引</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">alter</span> <span class="keyword">table</span> student <span class="keyword">drop</span> <span class="keyword">index</span> Sname;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="数据查询"><a href="#数据查询" class="headerlink" title="数据查询"></a>数据查询</h4><h5 id="单表查询"><a href="#单表查询" class="headerlink" title="单表查询"></a>单表查询</h5><h6 id="查询指定列"><a href="#查询指定列" class="headerlink" title="查询指定列"></a>查询指定列</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> Sno,<span class="keyword">name</span> <span class="keyword">from</span> student; <span class="comment">/*查询某些属性列*/</span></div></pre></td></tr></table></figure>
-<h6 id="查询全部"><a href="#查询全部" class="headerlink" title="查询全部"></a>查询全部</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> student; <span class="comment">/*查询全部内容*/</span></div></pre></td></tr></table></figure>
-<h6 id="查询计算值"><a href="#查询计算值" class="headerlink" title="查询计算值"></a>查询计算值</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> <span class="keyword">name</span>,<span class="number">2004</span>-age <span class="keyword">from</span> student;</div></pre></td></tr></table></figure>
-<h6 id="消除重复的行"><a href="#消除重复的行" class="headerlink" title="消除重复的行"></a>消除重复的行</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> <span class="keyword">distinct</span> Sno <span class="keyword">from</span> SC</div></pre></td></tr></table></figure>
-<h6 id="查询满足条件的元组"><a href="#查询满足条件的元组" class="headerlink" title="查询满足条件的元组"></a>查询满足条件的元组</h6><ul>
-<li><p>比较大小(=、&gt; 、&lt;、&gt;=、&lt;=、!=、!&gt;不大于、!&lt;、不小于)</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> <span class="keyword">name</span> <span class="keyword">from</span> student <span class="keyword">where</span> Sdept=<span class="string">'CS'</span>;<span class="comment">/*比较大小*/</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>确定范围(between……  and……、not between…… and……)</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> <span class="keyword">name</span>,age <span class="keyword">from</span> student <span class="keyword">where</span> age <span class="keyword">between</span> <span class="number">20</span> <span class="keyword">and</span> <span class="number">23</span>;</div></pre></td></tr></table></figure>
-</li>
-<li><p>确定集合</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> <span class="keyword">name</span>,age <span class="keyword">from</span> student <span class="keyword">where</span> Sdept <span class="keyword">in</span> (<span class="string">'CS'</span>,<span class="string">'MA'</span>,<span class="string">'IS'</span>);</div></pre></td></tr></table></figure>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> student <span class="keyword">where</span> sdept <span class="keyword">not</span> <span class="keyword">in</span> (<span class="string">'CS'</span>,<span class="string">'IS'</span>,<span class="string">'MA'</span>);</div></pre></td></tr></table></figure>
-</li>
-<li><p>字符匹配like</p>
-<p>%：任意长度的字符串</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> student <span class="keyword">where</span> <span class="keyword">name</span> <span class="keyword">like</span> <span class="string">'张%'</span>;<span class="comment">/*查找名字是张的学生*/</span></div></pre></td></tr></table></figure>
-<p><em>：代表任意单个字符(其中汉字占两个字符，需要两个 </em> )</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> student <span class="keyword">where</span> <span class="keyword">name</span> <span class="keyword">like</span> <span class="string">'张_ _'</span>；<span class="comment">/*查询姓张的名字只有一个字的学生*/</span></div></pre></td></tr></table></figure>
-<p>/:转换字符，如果查询的字符中含有% 、_ 就需要用/进行转义</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> student <span class="keyword">where</span> sdept <span class="keyword">like</span> <span class="string">'*/_IS'</span>;<span class="comment">/*查询sdept 以'_IS'结尾的元组 */</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>空值查询</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span>* <span class="keyword">from</span> student <span class="keyword">where</span> <span class="keyword">name</span> <span class="keyword">is</span> <span class="literal">null</span>;</div></pre></td></tr></table></figure>
-</li>
-<li><p>多重条件查询(and |or)</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span>* <span class="keyword">from</span> student <span class="keyword">where</span> age=<span class="number">22</span> <span class="keyword">and</span> <span class="keyword">name</span> <span class="keyword">like</span> <span class="string">'张%'</span>；</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h6 id="order-by-排序"><a href="#order-by-排序" class="headerlink" title="order by 排序"></a>order by 排序</h6><p>asc:查询结果升序排列（默认）</p>
-<p>desc:查询结果将序排列</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span>* <span class="keyword">from</span> student <span class="keyword">where</span> age=<span class="number">22</span> <span class="keyword">order</span> <span class="keyword">by</span> <span class="keyword">name</span> <span class="keyword">desc</span>;</div></pre></td></tr></table></figure>
-<h6 id="聚合函数"><a href="#聚合函数" class="headerlink" title="聚合函数"></a>聚合函数</h6><p>distinct:表示去除重复的数据</p>
-<p>all:表示全部数据，可以重复（默认）</p>
-<p>count(distinct|all  *):统计元组个数</p>
-<p>count(distinct|all  列名):统计一列中值得个数（即一列中为空值得个数）</p>
-<p>sum(distinct|all  列名)：计算一列中值得总和（该列只能是数值型）</p>
-<p>avg(distinct|all  列名)：计算一列的平均值（该列只能是数值型）</p>
-<p>max(distinct|all  列名)：求一列中的最大值</p>
-<p>min(distinct|all  列名)：求一列中的最小值</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> <span class="keyword">count</span>(<span class="keyword">distinct</span> age)<span class="keyword">from</span> student;</div></pre></td></tr></table></figure>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> <span class="keyword">sum</span>(<span class="keyword">distinct</span> age)<span class="keyword">from</span> student;</div></pre></td></tr></table></figure>
-<h6 id="group-by查询结果分组，值相等的为一组"><a href="#group-by查询结果分组，值相等的为一组" class="headerlink" title="group by查询结果分组，值相等的为一组"></a>group by查询结果分组，值相等的为一组</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> Cno <span class="keyword">count</span>(Sno) <span class="keyword">from</span> Sc <span class="keyword">group</span> <span class="keyword">by</span> Cno;<span class="comment">/*按Cno分组*/</span></div></pre></td></tr></table></figure>
-<p>对分组进行筛选</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> Sno <span class="keyword">from</span> SC <span class="keyword">group</span> <span class="keyword">by</span> Sno <span class="keyword">having</span> <span class="keyword">count</span>(*)&gt;<span class="number">3</span>;<span class="comment">/*查询选修3门课以上的学生学号*/</span></div></pre></td></tr></table></figure>
-<p>where：作用于基本表或试图，从中选中满足条件的元组</p>
-<p>having：作用于组，从中选择满足条件的组。</p>
-<h5 id="连接查询"><a href="#连接查询" class="headerlink" title="连接查询"></a>连接查询</h5><h6 id="等值与非等值连接查询"><a href="#等值与非等值连接查询" class="headerlink" title="等值与非等值连接查询"></a>等值与非等值连接查询</h6><p>=、&gt;、&lt;、&gt;=、&lt;=、!=</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> student.*,sc.*<span class="keyword">from</span> student,sc <span class="keyword">where</span> student.sno = sc.sno</div></pre></td></tr></table></figure>
-<h6 id="自身连接"><a href="#自身连接" class="headerlink" title="自身连接"></a>自身连接</h6><p>查询先修课程cpno是指先修课</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> first.cno,second.cno <span class="keyword">from</span> course <span class="keyword">first</span>,course <span class="keyword">second</span> <span class="keyword">where</span> first.cpno=second.cno</div></pre></td></tr></table></figure>
-<h6 id="外连接"><a href="#外连接" class="headerlink" title="外连接"></a>外连接</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> student.sno,student.name,sc.cno,sc.grade <span class="keyword">from</span> student <span class="keyword">left</span> <span class="keyword">outer</span> <span class="keyword">join</span> sc <span class="keyword">on</span>(student.sno=sc.sno)；<span class="comment">/*左外连接*/</span></div></pre></td></tr></table></figure>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> student.sno,student.name,sc.cno,sc.grade <span class="keyword">from</span> student <span class="keyword">right</span> <span class="keyword">outer</span> <span class="keyword">join</span> sc <span class="keyword">on</span>(student.sno=sc.sno)；<span class="comment">/*右外连接查询*/</span></div></pre></td></tr></table></figure>
-<h6 id="复合条件连接"><a href="#复合条件连接" class="headerlink" title="复合条件连接"></a>复合条件连接</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> student.sno,student.name,sc.grade,course.cno,course.cname <span class="keyword">from</span> student,sc,course <span class="keyword">where</span> student.sno=sc.sno <span class="keyword">and</span> sc.cno = course.cno;</div></pre></td></tr></table></figure>
-<h5 id="嵌套查询"><a href="#嵌套查询" class="headerlink" title="嵌套查询"></a>嵌套查询</h5><p><strong>不相关子查询：</strong>子查询条件不依赖于父查询，称为不相关子查询</p>
-<p><strong>相关子查询</strong>：子查询条件依赖于父查询，称为相关子查询</p>
-<h6 id="带有in谓词的查询"><a href="#带有in谓词的查询" class="headerlink" title="带有in谓词的查询"></a>带有in谓词的查询</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> student.* <span class="keyword">from</span> student <span class="keyword">where</span> sdept <span class="keyword">in</span> (</div><div class="line">	<span class="keyword">select</span> sdept <span class="keyword">from</span> student <span class="keyword">where</span> <span class="keyword">name</span>=<span class="string">"张三"</span></div><div class="line">);<span class="comment">/*查询和张三同一个系的学生*/</span></div></pre></td></tr></table></figure>
-<h6 id="带有比较运算符的子查询"><a href="#带有比较运算符的子查询" class="headerlink" title="带有比较运算符的子查询"></a>带有比较运算符的子查询</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> sno,cno </div><div class="line"><span class="keyword">from</span> sc x</div><div class="line"><span class="keyword">where</span> grade&gt;(<span class="keyword">select</span> <span class="keyword">avg</span>(grade)</div><div class="line">	<span class="keyword">from</span> sc y</div><div class="line">	<span class="keyword">where</span> x.sno = y.sno</div><div class="line">	);<span class="comment">/*子查询一定要跟在比较符之后*/</span></div></pre></td></tr></table></figure>
-<h6 id="带有any-all谓词的子查询"><a href="#带有any-all谓词的子查询" class="headerlink" title="带有any|all谓词的子查询"></a>带有any|all谓词的子查询</h6><p>>any :大于子查询中的某个值</p>
-<p>>all :大于子查询中的全部值</p>
-<p>\&lt;any :小于子查询中的某个值</p>
-<p>\&lt;all :小于子查询中的全部值</p>
-<h6 id="带有exists谓语的子查询"><a href="#带有exists谓语的子查询" class="headerlink" title="带有exists谓语的子查询"></a>带有exists谓语的子查询</h6><p>带有exists谓语的子查询不返回任何数据，只产生逻辑真值true 或逻辑假值false</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> <span class="keyword">name</span></div><div class="line"><span class="keyword">from</span> student</div><div class="line"><span class="keyword">where</span> <span class="keyword">exists</span>(</div><div class="line">	<span class="keyword">select</span> * </div><div class="line">	<span class="keyword">from</span> sc           <span class="comment">/*子查询子产生true或false*/</span></div><div class="line">	<span class="keyword">where</span> sno=student.sno <span class="keyword">and</span> cno =<span class="string">'1'</span></div><div class="line">);<span class="comment">/*查询选了1号课程学生的姓名*/</span></div></pre></td></tr></table></figure>
-<h5 id="集合查询"><a href="#集合查询" class="headerlink" title="集合查询"></a>集合查询</h5><p><em>注意：参与集合操作的个查询结果列数必须相同，对应项的数据类型也必须相同，MySQL数据库中只有union</em></p>
-<p>union:并操作，默认是去掉重复数据，union all 保留重复数据</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*查询计算机系的学生或年纪不大于19岁的学生信息*/</span></div><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> student <span class="keyword">where</span> sdept=<span class="string">'cs'</span></div><div class="line"><span class="keyword">union</span></div><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> student <span class="keyword">where</span> age&lt;=<span class="string">'19'</span>;</div></pre></td></tr></table></figure>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*查询选了1号或2号课程的学生*/</span></div><div class="line"><span class="keyword">select</span> sno <span class="keyword">from</span> sc <span class="keyword">where</span> cno =<span class="string">'1'</span>;</div><div class="line">union</div><div class="line"><span class="keyword">select</span> sno rom sc <span class="keyword">where</span> cno=<span class="string">'2'</span>;</div></pre></td></tr></table></figure>
-<p>intersect:交集</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*查询选了1号和2号课程的学生*/</span></div><div class="line"><span class="keyword">select</span> sno <span class="keyword">from</span> sc <span class="keyword">where</span> cno =<span class="string">'1'</span>;</div><div class="line">intersect</div><div class="line"><span class="keyword">select</span> sno rom sc <span class="keyword">where</span> cno=<span class="string">'2'</span>;</div></pre></td></tr></table></figure>
-<p>except:差操作</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*查询计算机系的学生和年龄不大于19岁的学生的差集*/</span></div><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> student <span class="keyword">where</span> sdept=<span class="string">'cs'</span></div><div class="line">expect</div><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> student <span class="keyword">where</span> age&lt;=<span class="string">'19'</span>;</div></pre></td></tr></table></figure>
-<h4 id="数据更新"><a href="#数据更新" class="headerlink" title="数据更新"></a>数据更新</h4><h5 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h5><h6 id="插入元组"><a href="#插入元组" class="headerlink" title="插入元组"></a>插入元组</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> student (sno,<span class="keyword">name</span>,age,sdept)</div><div class="line"><span class="keyword">values</span> (<span class="string">'123'</span>,<span class="string">'bob'</span>,<span class="number">12</span>,<span class="string">'cs'</span>);</div></pre></td></tr></table></figure>
-<p>若未指定任何属性名，则插入的元组必须在每个属性上均有值</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> student </div><div class="line"><span class="keyword">values</span> (<span class="string">'345'</span>,<span class="string">'nick'</span>,<span class="number">12</span>,<span class="string">'in'</span>);</div></pre></td></tr></table></figure>
-<h6 id="插入子查询数据"><a href="#插入子查询数据" class="headerlink" title="插入子查询数据"></a>插入子查询数据</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*插入每个系学生的平均年龄*/</span></div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> sdept_age(dept,age)</div><div class="line"><span class="keyword">select</span> sdept,<span class="keyword">avg</span>(age) <span class="keyword">from</span> student <span class="keyword">group</span> <span class="keyword">by</span> sdept;</div></pre></td></tr></table></figure>
-<h5 id="修改数据"><a href="#修改数据" class="headerlink" title="修改数据"></a>修改数据</h5><h6 id="修改一个元组的值"><a href="#修改一个元组的值" class="headerlink" title="修改一个元组的值"></a>修改一个元组的值</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">update</span> student</div><div class="line"><span class="keyword">set</span> age =<span class="number">23</span></div><div class="line"><span class="keyword">where</span> sno =<span class="string">'244'</span>;</div></pre></td></tr></table></figure>
-<h6 id="修改多个元组的值"><a href="#修改多个元组的值" class="headerlink" title="修改多个元组的值"></a>修改多个元组的值</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*所有学生年龄加1*/</span></div><div class="line"><span class="keyword">update</span> student</div><div class="line"><span class="keyword">set</span> age =age+<span class="number">1</span>;</div></pre></td></tr></table></figure>
-<h5 id="删除数据"><a href="#删除数据" class="headerlink" title="删除数据"></a>删除数据</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">delete</span> <span class="keyword">from</span> student <span class="keyword">where</span> sno =<span class="string">'123'</span></div></pre></td></tr></table></figure>
-<h4 id="视图操作"><a href="#视图操作" class="headerlink" title="视图操作"></a>视图操作</h4><h5 id="创建视图"><a href="#创建视图" class="headerlink" title="创建视图"></a>创建视图</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">view</span> is_student </div><div class="line"><span class="keyword">as</span></div><div class="line"><span class="keyword">select</span> sno,<span class="keyword">name</span>,age </div><div class="line"><span class="keyword">from</span> student </div><div class="line"><span class="keyword">where</span> sdept=<span class="string">'is'</span>;</div></pre></td></tr></table></figure>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">view</span> cs_student </div><div class="line">(cs_no,cs_name,cs_age)</div><div class="line"><span class="keyword">as</span></div><div class="line"><span class="keyword">select</span> sno,<span class="keyword">name</span>,age </div><div class="line"><span class="keyword">from</span> student </div><div class="line"><span class="keyword">where</span> sdept=<span class="string">'cs'</span></div><div class="line"><span class="keyword">with</span> <span class="keyword">check</span> <span class="keyword">option</span>;<span class="comment">/*表示以后对视图进行插入删除修改时，自动加上sdpet='cs'*/</span></div></pre></td></tr></table></figure>
-<p>with check option:表示对视图进行修改插入和删除时，要保证更新的行满足视图定义中的谓词条件.就是当对视图进行插入和修改时，操作后该数据还能满足视图查询条件。</p>
-<h5 id="删除视图"><a href="#删除视图" class="headerlink" title="删除视图"></a>删除视图</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">drop</span> <span class="keyword">view</span> is_student</div></pre></td></tr></table></figure>
-<h3 id="数据库安全性"><a href="#数据库安全性" class="headerlink" title="数据库安全性"></a>数据库安全性</h3><h4 id="授权与回收"><a href="#授权与回收" class="headerlink" title="授权与回收"></a>授权与回收</h4><h5 id="grant"><a href="#grant" class="headerlink" title="grant"></a>grant</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">grant</span> 权限<span class="number">1</span>，权限<span class="number">2</span>，……</div><div class="line"><span class="keyword">on</span> 对象<span class="number">1</span>，对象<span class="number">2</span>，……</div><div class="line"><span class="keyword">to</span> user1，user2,……</div><div class="line"><span class="keyword">with</span> <span class="keyword">grant</span> <span class="keyword">option</span></div></pre></td></tr></table></figure>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">grant</span> <span class="keyword">select</span></div><div class="line"><span class="keyword">on</span> <span class="keyword">table</span> student</div><div class="line"><span class="keyword">to</span> u1;<span class="comment">/*给u1赋予查询student表的权限*/</span></div></pre></td></tr></table></figure>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">grant</span> all <span class="keyword">privileges</span></div><div class="line"><span class="keyword">on</span> <span class="keyword">table</span> student，course</div><div class="line"><span class="keyword">to</span> user1,user2；<span class="comment">/*赋予全部权限*/</span></div></pre></td></tr></table></figure>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">grant</span> <span class="keyword">select</span></div><div class="line"><span class="keyword">on</span> <span class="keyword">table</span> student，course</div><div class="line"><span class="keyword">to</span> <span class="keyword">public</span>;<span class="comment">/*查询权限赋予所有人*/</span></div></pre></td></tr></table></figure>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">grant</span> <span class="keyword">insert</span></div><div class="line"><span class="keyword">on</span> <span class="keyword">table</span> student</div><div class="line"><span class="keyword">to</span> user1</div><div class="line"><span class="keyword">with</span> <span class="keyword">grant</span> <span class="keyword">option</span>;<span class="comment">/*将插入权限赋予user1，并且user1还可以将这个权限赋予其他人*/</span></div></pre></td></tr></table></figure>
-<h5 id="revoke"><a href="#revoke" class="headerlink" title="revoke"></a>revoke</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">revoke</span> 权限<span class="number">1</span>，权限<span class="number">2</span>……</div><div class="line"><span class="keyword">on</span> 对象<span class="number">1</span>，对象<span class="number">2</span>……</div><div class="line"><span class="keyword">from</span> user1，user2；</div></pre></td></tr></table></figure>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">revoke</span> <span class="keyword">insert</span></div><div class="line"><span class="keyword">on</span> <span class="keyword">table</span> student</div><div class="line"><span class="keyword">from</span> user1 <span class="keyword">cascade</span>;<span class="comment">/*级联回收插入权限*/</span></div></pre></td></tr></table></figure>
-<h3 id="关系数据库理论"><a href="#关系数据库理论" class="headerlink" title="关系数据库理论"></a>关系数据库理论</h3><h4 id="规范化"><a href="#规范化" class="headerlink" title="规范化"></a>规范化</h4><h5 id="函数依赖"><a href="#函数依赖" class="headerlink" title="函数依赖"></a>函数依赖</h5><p>定义：对于R(U)的任意一个可能的关系r,r中不可能存在两个元组在X上的属性值相等，而在Y上的属性值不等，则称X函数确定Y或Y函数依赖于X，记作X—&gt;Y.</p>
-<ul>
-<li>X—&gt;Y,但Y不是X的子集，则称X—&gt;Y是非平凡的函数依赖。列如：（sno,cno）—&gt;grade</li>
-<li>X—&gt;Y,但Y是X的子集，则称X—&gt;Y是平凡的函数依赖。列如：（sno,cno）—&gt;sno</li>
-</ul>
-<h5 id="完全函数依赖"><a href="#完全函数依赖" class="headerlink" title="完全函数依赖"></a>完全函数依赖</h5><p>如果X—&gt;Y,并且对于X的任意一个真子集X‘，都有Y不函数依赖于X’，则称Y对X是完全函数依赖。(sno,cno)—&gt;grade</p>
-<p>若果X—&gt;Y,但是Y不完全依赖于X，则称Y对于X部分函数依赖。(sno,cno)—&gt;sdept，sno—&gt;sdept</p>
-<h5 id="传递函数依赖"><a href="#传递函数依赖" class="headerlink" title="传递函数依赖"></a>传递函数依赖</h5><p>如果X—&gt;Y，X不函数依赖于Y，Y—&gt;Z,则称Z 对于X传递函数依赖。X—&gt;Y,Y—&gt;Z  ==&gt; X—&gt;Z</p>
-<h5 id="范式"><a href="#范式" class="headerlink" title="范式"></a>范式</h5><h6 id="1NF（第一范式）"><a href="#1NF（第一范式）" class="headerlink" title="1NF（第一范式）"></a>1NF（第一范式）</h6><p>每一个分量必须是不可分的数据项。</p>
-<h6 id="2NF-第二范式"><a href="#2NF-第二范式" class="headerlink" title="2NF(第二范式)"></a>2NF(第二范式)</h6><p>若R属于第一范式，且每一个非主属性完全函数依赖于码，则R属于2NF。即消除了部分函数依赖。</p>
-<p>S-L-C(sno,sdept,sloc,cno,grade);  sno:学号  sdept:所属院系  sloc:院系住的位置  cno:课程号  grade:成绩</p>
-<p>(sno,cno)—&gt;grade  :完全函数依赖</p>
-<p>sno—&gt;sdept,  (sno,cno)—&gt;sdept:部分函数依赖</p>
-<p>sno—&gt;sloc,(sno,cno)—&gt;sloc:部分函数依赖。</p>
-<p>拆分：</p>
-<p>SC（sno,cno,grade）</p>
-<p>SL（sno,sdept,sloc）</p>
-<h6 id="3NF-第三范式"><a href="#3NF-第三范式" class="headerlink" title="3NF(第三范式)"></a>3NF(第三范式)</h6><p>关系模式R\<u,f\> 中若不存在这样的码X，属性组Y，及非主属性Z，使得X–&gt;Y,Y—&gt;Z成立，则称R属于3NF。</u,f\></p>
-<p>即消除了部分函数依赖和传递依赖。</p>
-<p>SL(sno,sdept,sloc)：每个院系学生住同一个位置</p>
-<p>sno—&gt;sdept,sdept—&gt;sloc  ==&gt; sno—&gt;sloc :属于传递函数依赖</p>
-<p>拆分</p>
-<p>SD(sno,sdept)</p>
-<p>SL(sdept,sloc)</p>
-<h6 id="BCNF"><a href="#BCNF" class="headerlink" title="BCNF"></a>BCNF</h6><p>关系R属于第一范式，若X—&gt;Y且Y不属于X时，X比含有码，则称R属于BCNF。</p>
-<p>即每个决定因素都包含码。</p>
-<h3 id="数据库恢复技术"><a href="#数据库恢复技术" class="headerlink" title="数据库恢复技术"></a>数据库恢复技术</h3><h4 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h4><p>定义：事务就是用户定义的数据库操作序列，这些操作要么全都做要么全都不做，是一个不可分割的工作单位</p>
-<h5 id="事务的特性"><a href="#事务的特性" class="headerlink" title="事务的特性"></a>事务的特性</h5><ul>
-<li><p>原子性：事务中的操作要么全都做要么全都不做</p>
-</li>
-<li><p>一致性：事务执行结果必须是使数据库从一个一致性状态变到另一个一致性状态</p>
-</li>
-<li><p>隔离性：一个事务的执行不能被其他事务干扰</p>
-</li>
-<li><p>持续性：一个事务一旦提交，他对数据库中的数据的改变就应该是永久性的。</p>
-<p>​</p>
-</li>
-</ul>
-<h3 id="并发控制"><a href="#并发控制" class="headerlink" title="并发控制"></a>并发控制</h3><h4 id="数据不一致性"><a href="#数据不一致性" class="headerlink" title="数据不一致性"></a>数据不一致性</h4><ul>
-<li><p>丢失修改</p>
-<p>两个事务T1和T2读入同一个数据并修改，T2提交的结果破坏了T1提交的结果，导致了T1的修改丢失</p>
-</li>
-<li><p>不可重复读</p>
-<p>指事务T1读取数据后，事务T2对数据执行了更新操作，使T1无法再现第一次读取的结果</p>
-</li>
-<li><p>读“脏”数据</p>
-<p>指事务T1修改数据后并将其写回数据库，同时事务T2读出修改后的数据，但T1因为某些原因被撤销，这时候T1修改的数据恢复原先的值，这时T2读取的数据就和数据库中的数据不一致，则T2读到的数据就是“脏”数据，即不正确的数据。</p>
-</li>
-</ul>
-<p>R(X):表示读取数据   W(X):表示写入数据</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">T1</th>
-<th style="text-align:center">T2</th>
-<th style="text-align:center">T1</th>
-<th style="text-align:center">T2</th>
-<th style="text-align:center">T1</th>
-<th style="text-align:center">T2</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">R(A)=16</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">R(A)=50 R(B)=100 求和=150</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">R(C)=100 C=C*2 W(C)=200</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:center">R(A)=16</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">R(B)=100 B=B*2 W(B)=200</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">R(C)=200</td>
-</tr>
-<tr>
-<td style="text-align:left">A=A-1 W(A)=15</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">R(A)=50 R(B)=200 和=250 (验算不正确)</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">ROLLBACK  C恢复为100</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:center">A=A-1 W(A)=15</td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:left">丢失修改</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">不可重复读</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">读脏数据</td>
-</tr>
-</tbody>
-</table>
-<h5 id="事务的隔离级别"><a href="#事务的隔离级别" class="headerlink" title="事务的隔离级别"></a>事务的隔离级别</h5><ul>
-<li><p>Read uncommitted(未授权读取、读未提交)</p>
-<p>如果一个事务已经开始写数据，则另外一个事务则不允许同时进行写操作，但允许其他事务读此行数据。该隔离级别可以通过“排他写锁”实现。</p>
-<p>避免了更新丢失，却可能出现脏读。也就是说事务B读取到了事务A未提交的数据。</p>
-</li>
-<li><p>Read committed（授权读取、读提交）</p>
-<p>读取数据的事务允许其他事务继续访问该行数据，但是未提交的写事务将会禁止其他事务访问该行。</p>
-<p>该隔离级别避免了脏读，但是却可能出现不可重复读。事务A事先读取了数据，事务B紧接了更新了数据，并提交了事务，而事务A再次读取该数据时，数据已经发生了改变。</p>
-</li>
-<li><p>Repeatable read（可重复读取）</p>
-<p>读取数据的事务将会禁止写事务（但允许读事务），写事务则禁止任何其他事务。</p>
-<p>避免了不可重复读取和脏读，但是有时可能出现幻读。这可以通过“共享读锁”和“排他写锁”实现。</p>
-</li>
-<li><p>Serializable（序列化）</p>
-<p>提供严格的事务隔离。它要求事务序列化执行，事务只能一个接着一个地执行，但不能并发执行。如果仅仅通过“行级锁”是无法实现事务序列化的，必须通过其他机制保证新插入的数据不会被刚执行查询操作的事务访问到。</p>
-<p>序列化是最高的事务隔离级别，同时代价也花费最高，性能很低，一般很少使用，在该级别下，事务顺序执行，不仅可以避免脏读、不可重复读，还避免了幻像读。</p>
-</li>
-</ul>
-<h4 id="封锁"><a href="#封锁" class="headerlink" title="封锁"></a>封锁</h4><h5 id="排它锁（写锁）"><a href="#排它锁（写锁）" class="headerlink" title="排它锁（写锁）"></a>排它锁（写锁）</h5><p>​    若事务T对数据对象A加上X锁，则只允许T读取和修改A，其他的任何事务都不能再对A加任何类型的锁，直到T    释放A上的锁。这就保证了其他事务在T释放A上的锁之前不能再读取和修改A</p>
-<h5 id="共享锁（读锁）"><a href="#共享锁（读锁）" class="headerlink" title="共享锁（读锁）"></a>共享锁（读锁）</h5><p>​    若事务T对数据对象A加上S锁，则事务T可以读A但不能修改A，其他事务只能在对A加S锁，而不能加X锁，直到T释放A上的S锁，这就保证了其他事务可以读取A，但在T释放A上的S锁之前不能对A做任何修改。 </p>
-<h4 id="活锁与死锁"><a href="#活锁与死锁" class="headerlink" title="活锁与死锁"></a>活锁与死锁</h4><h5 id="活锁"><a href="#活锁" class="headerlink" title="活锁"></a>活锁</h5><p>​    如果事务T1封锁了数据R，事务T2又请求封锁R，于是T2等待。T3也请求封锁R，当T1释放了R上的封锁之后系统首先批准了T3的请求，T2仍然等待。然后T4又请求封锁R，当T3释放了R上的请求后，系统又批准了T4的请求，这样有可能T2永远处于等待状态，这就是活锁。</p>
-<p>​    避免活锁的方法就是采用先来先服务的策略。</p>
-<h5 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h5><p>​    如果事务T1封锁了数据R1，事务T2封锁了数据R2，然后事务T1又请求封锁数据R2，因为T2已经封锁了R2，所以T1等事务T2释放数据R2上的锁。接着T2又请求封锁数据R1，由于T1已经封锁了R1，所以T2又等T1释放R1上的锁。这样就出现了T1等待T2，而T2有等待T1的现象，T1和T2两个事务永远无法结束，形成死锁。</p>
-<h6 id="死锁的预防"><a href="#死锁的预防" class="headerlink" title="死锁的预防"></a>死锁的预防</h6><ul>
-<li><p>一次封锁法</p>
-<p>要求每个事务一次性将所有要使用的数据全部加锁，否则不能继续进行。</p>
-</li>
-<li><p>顺序封锁法</p>
-</li>
-</ul>
-<h6 id="死锁的诊断和预防"><a href="#死锁的诊断和预防" class="headerlink" title="死锁的诊断和预防"></a>死锁的诊断和预防</h6><ul>
-<li><p>超时法</p>
-<p>如果事务的等待时间超过了规定的时限，就认为发生了死锁。</p>
-</li>
-<li><p>等待图法</p>
-<p>若T1等待T2，则T1T2之间画一条有向边，从T1指向T2。如果发现图中存在回路，则表示系统中出现了死锁。</p>
-</li>
-</ul>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/02/13/数据库/数据库知识点/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2431,7 +1531,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://huzhiming12.github.io/2017/01/16/数据结构/数据结构知识点/">
+    <link itemprop="mainEntityOfPage" href="https://huzhiming12.github.io/2017/01/16/数据结构/排序算法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Huzhiming">
@@ -2450,7 +1550,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/01/16/数据结构/数据结构知识点/" itemprop="url">数据结构知识点</a></h1>
+                <a class="post-title-link" href="/2017/01/16/数据结构/排序算法/" itemprop="url">经典排序算法</a></h1>
         
 
         <div class="post-meta">
@@ -2520,204 +1620,26 @@
 
       
         
-          
-            <h4 id="9-查找"><a href="#9-查找" class="headerlink" title="9.查找"></a>9.查找</h4><h5 id="折半查找-已排好序"><a href="#折半查找-已排好序" class="headerlink" title="折半查找(已排好序)"></a>折半查找(已排好序)</h5><p>平均查找长度ASL=log2(n+1)-1</p>
-<h5 id="顺序表查找"><a href="#顺序表查找" class="headerlink" title="顺序表查找"></a>顺序表查找</h5><p>平均查找长度（n+1）/2</p>
-<h5 id="二叉排序树（二叉搜索树、二叉查找树）"><a href="#二叉排序树（二叉搜索树、二叉查找树）" class="headerlink" title="二叉排序树（二叉搜索树、二叉查找树）"></a>二叉排序树（二叉搜索树、二叉查找树）</h5><ul>
-<li>若它的左子树不为空，则左子树上的所用结点的值都小于它的根节点的值</li>
-<li>若它的又子数不为空，则又子树上的所有结点的值都大于他的根节点的值</li>
-<li>他的左右子树也分别为二叉排序树。</li>
-</ul>
-<p>按中序遍历二叉排序树得到的一定是一个递增序列。</p>
-<h5 id="平衡二叉树（AVL数）（查找时间复杂度O-logn-）"><a href="#平衡二叉树（AVL数）（查找时间复杂度O-logn-）" class="headerlink" title="平衡二叉树（AVL数）（查找时间复杂度O(logn)）"></a>平衡二叉树（AVL数）（查找时间复杂度O(logn)）</h5><ul>
-<li>要么是空树</li>
-<li>它的左子树和右子树都是平衡二叉树，且左子树和右 子树的深度之差的绝对值不超过1</li>
-<li>平衡因子：该节点的左子树的深度减去它的右子树的深度，则平衡二叉树上的所有结点的平衡因子只能是-1、1、0</li>
-</ul>
-<h5 id="B-树"><a href="#B-树" class="headerlink" title="B-树"></a>B-树</h5><p>主要用作文件的索引</p>
-<p>一棵<strong> m</strong> 阶的B-树，或为空树，或为满足下列特性的m叉树：</p>
-<ul>
-<li>所有非叶结点均至少含有⎡<strong>m/2</strong>⎤棵子树，至多含有   <strong>m</strong> 棵子树；</li>
-<li>根结点或为叶子结点，或至少含有两棵子树；</li>
-</ul>
-<ul>
-<li><p>所有非终端结点含有下列信息数据：</p>
-<p>（n，A0，K1，A1，K2，A2，…Kn，An）   其中：<strong>K**</strong>i<strong>为</strong>关键字，<strong>且均自小至大有序排列，即：</strong>K1&lt; K2&lt; … &lt; Kn ； Ai为指向子树根结点的指针，且指针Ai-1所指子树上所有关键字均小于Ki  ； An 所指子树上所有关键字均大于Kn ；</p>
-</li>
-<li><p>树中所有叶子结点均不带信息，且在树中的同一层次上；</p>
-</li>
-</ul>
-<p><img src="/2017/01/16/数据结构/数据结构知识点/pic20.png" alt="pic20"></p>
-<h5 id="B-树-1"><a href="#B-树-1" class="headerlink" title="B+树"></a>B+树</h5><p>适用于文件系统，适合顺序查找和随机查找。</p>
-<h5 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h5><h6 id="处理冲突的方法"><a href="#处理冲突的方法" class="headerlink" title="处理冲突的方法"></a>处理冲突的方法</h6><ul>
-<li><p>开放地址法</p>
-<p>Hi=(H(key)+di)mod m</p>
-<ul>
-<li>线性探测再散列：di=1,2,3,4……  </li>
-<li>二次探测再散列：di=1^2,-1^2,2^2,-2^2 ……  </li>
-<li>伪随机探测在散列：di=伪随机数  </li>
-</ul>
-</li>
-<li><p>再哈希法</p>
-</li>
-<li><p>链接地址法</p>
-</li>
-<li><p>建立一个公共溢出区</p>
-</li>
-</ul>
-<h4 id="10-排序"><a href="#10-排序" class="headerlink" title="10.排序"></a>10.排序</h4><p><img src="/2017/01/16/数据结构/数据结构知识点/sort.png" alt="sort"></p>
-<h5 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">InsertionSort</span> <span class="params">( SqList &amp;L )</span> </span>&#123;</div><div class="line">  <span class="comment">// 对顺序表 L 作直接插入排序。</span></div><div class="line">   <span class="keyword">for</span> ( i=<span class="number">2</span>; i&lt;=L.length; ++i ) </div><div class="line">       <span class="keyword">if</span> (L.r[i].key &lt; L.r[i<span class="number">-1</span>].key) &#123;</div><div class="line">       L.r[<span class="number">0</span>] = L.r[i];            <span class="comment">// 复制为监视哨</span></div><div class="line">       <span class="keyword">for</span> ( j=i<span class="number">-1</span>; L.r[<span class="number">0</span>].key &lt; L.r[j].key;  -- j )</div><div class="line">           L.r[j+<span class="number">1</span>] = L.r[j];        <span class="comment">// 记录后移</span></div><div class="line">       L.r[j+<span class="number">1</span>] = L.r[<span class="number">0</span>];        <span class="comment">// 插入到正确位置   </span></div><div class="line">    &#125;</div><div class="line">&#125; <span class="comment">// InsertSort</span></div></pre></td></tr></table></figure>
-<h5 id="希尔排序"><a href="#希尔排序" class="headerlink" title="希尔排序"></a>希尔排序</h5><p><img src="/2017/01/16/数据结构/数据结构知识点/pic21.png" alt="pic21"></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">ShellInsert</span> <span class="params">( SqList &amp;L, <span class="keyword">int</span> dk )</span> </span>&#123;<span class="comment">//对顺序表L作一</span></div><div class="line"><span class="comment">//趟希尔插入排序，dk 为增量  </span></div><div class="line">   <span class="keyword">for</span> ( i=dk+<span class="number">1</span>; i&lt;=n; ++i )</div><div class="line">      <span class="keyword">if</span> ( L.r[i].key&lt; L.r[i-dk].key) &#123;</div><div class="line">        L.r[<span class="number">0</span>] = L.r[i];            <span class="comment">// 暂存在L.r[0]</span></div><div class="line">        <span class="keyword">for</span> (j=i-dk;  j&gt;<span class="number">0</span>&amp;&amp;(L.r[<span class="number">0</span>].key&lt;L.r[j].key); j-=dk)</div><div class="line">           L.r[j+dk] = L.r[j];  <span class="comment">// 记录后移，查找插入位置</span></div><div class="line">        L.r[j+dk] = L.r[<span class="number">0</span>];                <span class="comment">// 插入</span></div><div class="line">      &#125; <span class="comment">// if</span></div><div class="line">&#125; <span class="comment">// ShellInsert</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">ShellSort</span> <span class="params">(SqList &amp;L, <span class="keyword">int</span> dlta[], <span class="keyword">int</span> t)</span></span></div><div class="line">&#123;  <span class="comment">// 按增量序列dlta[0..t-1]对顺序表L作希尔排序</span></div><div class="line">     <span class="keyword">for</span> (k=<span class="number">0</span>; k&lt;t; ++t)</div><div class="line">         ShellInsert(L, dlta[k]);</div><div class="line">             <span class="comment">//一趟增量为dlta[k]的插入排序</span></div><div class="line">&#125; <span class="comment">// ShellSort</span></div></pre></td></tr></table></figure>
-<h5 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h5><p>堆： 根都大于等于左右子树  或者 根都小于等于左右子树</p>
-<ul>
-<li><p>ki&lt;=K(2<em>i)  and Ki&lt;=K(2</em>i+1)  ===&gt;小顶堆</p>
-</li>
-<li><p>ki&gt;=K(2<em>i)  and Ki&gt;=K(2</em>i+1)  ===&gt;大顶堆</p>
-<p>​    样例输入：{49，38，65，97，76，13，27，49}</p>
-</li>
-</ul>
-<p><img src="/2017/01/16/数据结构/数据结构知识点/pic22.png" alt="pic22"></p>
-<p>​                                  创建初始堆</p>
-<p><img src="/2017/01/16/数据结构/数据结构知识点/pic23.png" alt="pic23"></p>
-<p>​                            输出堆顶后创建新堆的过程</p>
-<h4 id="6-树和二叉树"><a href="#6-树和二叉树" class="headerlink" title="6.树和二叉树"></a>6.树和二叉树</h4><h5 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h5><p><strong>结点:</strong>数据元素及若干指向其子树的分支</p>
-<p><strong>结点的度:</strong>结点拥有的子树的数目</p>
-<p><strong>树的度:</strong>树中所有结点的度的最大值</p>
-<p><strong>叶子结点:</strong>度为零的结点</p>
-<p><strong>分支结点:</strong>度不为零的结点</p>
-<p><strong>孩子</strong>：结点子树的根节点称为该节点的孩子结点</p>
-<p><strong>双亲</strong>：该节点称为子树孩子的双亲</p>
-<p><strong>双亲</strong>：同一个双亲的孩子之间称为兄弟</p>
-<p><strong>祖先</strong>：从根节点到该节点所经分支上的所有结点</p>
-<p><strong>层次</strong>：从根开始定义，根为第一层，根的孩子为第二层</p>
-<p><strong>堂兄弟</strong>：其双亲在同一层的结点互为堂兄弟</p>
-<p><strong>树的深度</strong>：树中结点的最大层次称为树的深度或高度</p>
-<h5 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h5><p><strong>定义</strong>：二叉树或为<strong>空树</strong>，或是由一个<strong>根结点</strong>加上<strong>两棵</strong>分别称为<strong>左子树</strong>和右子树的、<strong>互不交的二叉树</strong>组成。</p>
-<h6 id="二叉树的性质"><a href="#二叉树的性质" class="headerlink" title="二叉树的性质"></a>二叉树的性质</h6><ul>
-<li>在二叉树的第i层上最多有2^(i-1)个结点</li>
-<li>深度为k的二叉树上最多含2^k - 1个结点</li>
-<li>对任何一棵二叉树，若它含有<strong>n0 </strong>个叶子结点、<strong>n2 </strong>个度为 2的结点，则必存在关系式：<strong>n0 = n2+1</strong>。</li>
-<li>二叉树的度数+1=二叉树的结点树</li>
-</ul>
-<p><strong>满二叉树</strong>：指的是深度为<strong>k</strong>且含有<strong>2^k-1</strong>个结点的二叉树。</p>
-<p><strong>完全二叉树</strong>：树中所含的 <strong>n </strong>个结点和满二叉树中编号为 1 至 n 的结点一一对应。</p>
-<p><img src="/2017/01/16/数据结构/数据结构知识点/pic2.png" alt="pic2"></p>
-<p>​                                            完全二叉树    </p>
-<p><img src="/2017/01/16/数据结构/数据结构知识点/pic1.png" alt="pic1"></p>
-<p>​                                                满二叉树</p>
-<h6 id="二叉树遍历"><a href="#二叉树遍历" class="headerlink" title="二叉树遍历"></a>二叉树遍历</h6><ul>
-<li><p>先根遍历：根左右</p>
-</li>
-<li><p>中序遍历：左根右</p>
-</li>
-<li><p>后续遍历：左右根</p>
-<p>  已知先序遍历和中序遍历可求出后序遍历，已知后序遍历和中序遍历可求出先序遍历</p>
-<p>  已知先序遍历和后序遍历不能求出先序遍历</p>
-</li>
-</ul>
-<h6 id="二叉树遍历算法"><a href="#二叉树遍历算法" class="headerlink" title="二叉树遍历算法"></a>二叉树遍历算法</h6><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">Status PreOrderTraverse( BiTreee T, Status ( * Visit)(TElemType e) ) &#123; //采用二叉链表存储结构， Visit是对数据元素操作的应用//函数，先序遍历二叉树T的递归算法，对每个数据元素调用//函数Visit。最简单的Visit函数是：</div><div class="line"> //       Status PrintElement(TElemType e)&#123;  //输出元素e的值</div><div class="line"> //             printf( e );                                     //实用时，加上格式串</div><div class="line"> //             return OK;</div><div class="line"> //   &#125;</div><div class="line"> //调用实例： PreOrderTraverse( T, PrintElement);</div><div class="line">if (T) &#123;</div><div class="line">  if (Visit(T-&gt;data ))</div><div class="line">    if (PreOrderTraverse(T-&gt;lchild, Visit))</div><div class="line">      if (PreOrderTraverse(T-&gt;rchild, Visit))     return OK;</div><div class="line">   return ERROR;</div><div class="line"> &#125;else  return OK;</div><div class="line">&#125;// PreOrderTraverse</div></pre></td></tr></table></figure>
-<h6 id="统计叶子结点个数"><a href="#统计叶子结点个数" class="headerlink" title="统计叶子结点个数"></a>统计叶子结点个数</h6><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">CountLeaf</span> <span class="params">(BiTree T,  <span class="keyword">int</span>&amp; count)</span></span>&#123;</div><div class="line">   <span class="keyword">if</span> ( T ) &#123;</div><div class="line">      <span class="keyword">if</span> ((!T-&gt;lchild)&amp;&amp; (!T-&gt;rchild))</div><div class="line">         count++;     <span class="comment">// 对叶子结点计数</span></div><div class="line">      CountLeaf( T-&gt;lchild, count);  </div><div class="line">      CountLeaf( T-&gt;rchild, count); </div><div class="line">   &#125; <span class="comment">// if</span></div><div class="line">&#125; <span class="comment">// CountLeaf</span></div></pre></td></tr></table></figure>
-<h6 id="计算二叉树的深度"><a href="#计算二叉树的深度" class="headerlink" title="计算二叉树的深度"></a>计算二叉树的深度</h6><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">Depth</span> <span class="params">(BiTree T )</span></span>&#123; <span class="comment">// 返回二叉树的深度</span></div><div class="line">   <span class="keyword">if</span> ( !T )    depthval = <span class="number">0</span>;</div><div class="line">   <span class="keyword">else</span>   &#123;</div><div class="line">     depthLeft = Depth( T-&gt;lchild );</div><div class="line">     depthRight= Depth( T-&gt;rchild );</div><div class="line">     depthval = <span class="number">1</span> + (depthLeft &gt; depthRight  ?</div><div class="line">                               depthLeft : depthRight);</div><div class="line">   &#125; </div><div class="line">   <span class="keyword">return</span> depthval;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h6 id="表达式与二叉树之间的关系"><a href="#表达式与二叉树之间的关系" class="headerlink" title="表达式与二叉树之间的关系"></a>表达式与二叉树之间的关系</h6><p><img src="/2017/01/16/数据结构/数据结构知识点/pic3.png" alt="pic3"></p>
-<h6 id="线索二叉树"><a href="#线索二叉树" class="headerlink" title="线索二叉树"></a>线索二叉树</h6><p>定义：线索二叉树就是在二叉树链表结构中添加两个标志位，LTag、RTag.</p>
-<ul>
-<li>LTag=0时，Lchild指针指向其左孩子，LTag=1时，Lchild指针指向其前驱</li>
-<li>RTag=0时，Rchild指针指向其右孩子   RTag=1时，Rchild指针指向其后继</li>
-</ul>
-<p><strong>线索化</strong>：以某种次序遍历使其变为线索二叉树的过程称为线索话。</p>
-<p><img src="/2017/01/16/数据结构/数据结构知识点/pic4.png" alt="pic4"></p>
-<h5 id="树和森林"><a href="#树和森林" class="headerlink" title="树和森林"></a>树和森林</h5><h6 id="树的存储结构"><a href="#树的存储结构" class="headerlink" title="树的存储结构"></a>树的存储结构</h6><p><strong>孩子兄弟表示法</strong>：以二叉链表作为树的存储结构，链表中的两个链域分别指向该节点的第一个孩子结点和下一个兄弟结点。</p>
-<p><img src="/2017/01/16/数据结构/数据结构知识点/pic5.png" alt="pic5"></p>
-<h6 id="森林和二叉树的转化"><a href="#森林和二叉树的转化" class="headerlink" title="森林和二叉树的转化"></a>森林和二叉树的转化</h6><p><img src="/2017/01/16/数据结构/数据结构知识点/pic6.png" alt="pic6"></p>
-<p>​    森林和二叉树转换采用孩子兄弟表示法，每棵树的根节点看作是兄弟。</p>
-<p><img src="/2017/01/16/数据结构/数据结构知识点/pic7.png" alt="pic7"></p>
-<p>​    二叉树转换成森林，从根节点出发，每个右结点分支断开，即做分支变成树。即AE之间断开，EG之间断开</p>
-<h5 id="哈夫曼树（最优二叉树）"><a href="#哈夫曼树（最优二叉树）" class="headerlink" title="哈夫曼树（最优二叉树）"></a>哈夫曼树（最优二叉树）</h5><h6 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h6><p><strong>路径长度</strong>：从树中的一个结点到另一个结点之间的分支构成这两个结点之间的路径，路径上的分支数目称为路径长度。</p>
-<p><strong>树的路径长度</strong>：是指从树的根到每一个结点的路径长度之和。</p>
-<p><strong>结点的带权路径长度</strong>：是该结点到树根之间的路径长度与结点上权的乘积。</p>
-<p><strong>树的带权路径长度：</strong>是树中所有叶子结点的带权路径长度之和</p>
-<p><strong>哈夫曼树：</strong>带权路径长度最小的二叉树称为哈夫曼树 </p>
-<p><img src="/2017/01/16/数据结构/数据结构知识点/pic10.png" alt="pic10"></p>
-<p>​                                    带权路径介绍</p>
-<h6 id="构造哈夫曼树"><a href="#构造哈夫曼树" class="headerlink" title="构造哈夫曼树"></a>构造哈夫曼树</h6><ul>
-<li>结点带权值和编号集合依次排开，选取权值最小的两个结点构造一颗二叉树，根节点为两个结点权值之和。两个结点分别为左右子树，并且子树权值大于右子树权值或者相反，但是每次得保持一致。</li>
-<li>将上面两个结点和放入集合中，并且将两个结点从集合中移除。</li>
-<li>重复第一个步骤。当集合中只剩一个结点时结束。</li>
-</ul>
-<p><img src="/2017/01/16/数据结构/数据结构知识点/pic8.png" alt="pic8"></p>
-<p><img src="/2017/01/16/数据结构/数据结构知识点/pic9.png" alt="pic9"></p>
-<h4 id="7、图"><a href="#7、图" class="headerlink" title="7、图"></a>7、图</h4><h5 id="定义-2"><a href="#定义-2" class="headerlink" title="定义"></a>定义</h5><p><strong>图</strong>：图是由一个顶点集 V 和一个弧集 R构成的数据结构</p>
-<p>\<v,w>表示从 v 到 w 的一条弧，并称 v 为<strong>弧尾</strong>，w 为<strong>弧头</strong>。</v,w></p>
-<p>假设图中有 <strong>n</strong> 个顶点，<strong>e</strong> 条边，则</p>
-<ul>
-<li>含有 <strong>e=n(n-1)/2 </strong>条边的无向图称作<strong>完全图</strong>；</li>
-<li>含有 <strong>e=n(n-1) </strong>条弧的有向图称作 <strong>有向完全图</strong>；</li>
-<li>若边或弧的个数 <strong>e&lt;nlogn</strong>，则称作<strong>稀疏图</strong>，否则称作<strong>稠密图</strong>。</li>
-</ul>
-<p>假若顶点<strong>v </strong>和顶点<strong>w </strong>之间存在一条边，则称顶点<strong>v</strong> 和<strong>w</strong> 互为<strong>邻接点</strong>，</p>
-<p>边<strong>(v,w)**</strong> <strong>和顶点</strong>v <strong>和</strong>w<strong> 相</strong>关联**。</p>
-<p><strong>度</strong>：和顶点<strong>v </strong>关联的<strong>边的数目</strong>定义为顶点v的<strong>度</strong>。</p>
-<p>有向图中：</p>
-<ul>
-<li>顶点的<strong>出度</strong>：以顶点v为弧尾的弧的数目；</li>
-<li>顶点的<strong>入度</strong>：以顶点v为弧头的弧的数目。</li>
-<li>顶点的度(TD)=出度(OD)+入度(ID)。</li>
-</ul>
-<p><strong>路径长度：</strong>路径长度是指路径上的边或弧的数目</p>
-<p><strong>回路或环</strong>：第一个顶点和最后一个顶点相同的路径称为环或回路</p>
-<p><strong>简单路劲：</strong>序列顶点不重复出现的路径称为简单路径</p>
-<p><strong>简单环或简单回路</strong>：除了第一个和最后一个顶点外，其余的顶点不重复出现的回路称为简单回路或简单环</p>
-<p><em>无向图中</em></p>
-<p><strong>连通图：</strong>对于图中的任意两个顶点都是连通的，称这个图是连通图</p>
-<p><strong>连通分量</strong>：无向图中的极大连通子图</p>
-<p><em>有向图中</em></p>
-<p><strong>强连通图</strong> ：对于图中每一对顶点vi和vj,从vi到vj和从vj到vi都存在路径，则称图是强连通图</p>
-<p><strong>强连通分量</strong>：有向图中的极大强连通子图</p>
-<h5 id="图的存储"><a href="#图的存储" class="headerlink" title="图的存储"></a>图的存储</h5><h6 id="数组表示法（邻接矩阵法）"><a href="#数组表示法（邻接矩阵法）" class="headerlink" title="数组表示法（邻接矩阵法）"></a>数组表示法（邻接矩阵法）</h6><p><img src="/2017/01/16/数据结构/数据结构知识点/pic11.png" alt="pic11"></p>
-<p><img src="/2017/01/16/数据结构/数据结构知识点/pic12.png" alt="pic12"></p>
-<p><img src="/2017/01/16/数据结构/数据结构知识点/pic13.png" alt="pic13"></p>
-<p><strong>无向图的邻接矩阵一定是对称矩阵，而有向图的邻接矩阵则不一定为非对称矩阵</strong> .</p>
-<h6 id="邻接表"><a href="#邻接表" class="headerlink" title="邻接表"></a>邻接表</h6><p><img src="/2017/01/16/数据结构/数据结构知识点/pic14.png" alt="pic14"></p>
-<p>​                                无向图的邻接矩阵</p>
-<p><img src="/2017/01/16/数据结构/数据结构知识点/pic15.png" alt="pic15"></p>
-<p>​                                有向图的邻接矩阵</p>
-<h5 id="图的遍历"><a href="#图的遍历" class="headerlink" title="图的遍历"></a>图的遍历</h5><h6 id="深度优先搜索"><a href="#深度优先搜索" class="headerlink" title="深度优先搜索"></a>深度优先搜索</h6><p>​    从图中某个顶点V0 出发，访问此顶点，然后依次从V0的各个未被访问的邻接点出发深度优先搜索遍历图，直至图中所有和V0有路径相通的顶点都被访问到；若此时图中尚有顶点未被访问，则另选图中一个未曾被访问的顶点作起始点，重复上述过程，直到图中所有顶点都被访问到为止。</p>
-<p><img src="/2017/01/16/数据结构/数据结构知识点/pic16.png" alt="pic16"></p>
-<p>​    访问次序：v1—&gt;v2—&gt;v4—&gt;v8—&gt;v5—&gt;v3—&gt;v6—&gt;v7</p>
-<p>深度优先算法：定义一个数组存放顶点是否被访问</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">void DFSTraverse(Graph G, Status (*Visit)(int v)) &#123;</div><div class="line">   // 对图 G 作深度优先遍历。</div><div class="line">  VisitFunc = Visit;   </div><div class="line">  for (v=0; v&lt;G.vexnum; ++v) </div><div class="line">     visited[v] = FALSE; // 访问标志数组初始化</div><div class="line">  for (v=0; v&lt;G.vexnum; ++v) </div><div class="line">     if (!visited[v])  DFS(G, v);</div><div class="line">              // 对尚未访问的顶点调用DFS</div><div class="line">&#125;</div><div class="line">void DFS(Graph G, int v) &#123;</div><div class="line">   // 从顶点v出发，深度优先遍历图 G</div><div class="line">    visited[v] = TRUE;   VisitFunc(v);//访问第v个顶点</div><div class="line">    for(w=FirstAdjVex(G, v);  w&gt;=0; w=NextAdjVex(G,v,w))</div><div class="line">        if (!visited[w])  DFS(G, w);     </div><div class="line">       // 对v的尚未访问的邻接顶点w， 递归调用DFS</div><div class="line">&#125; // DFS</div></pre></td></tr></table></figure>
-<h6 id="广度优先搜索"><a href="#广度优先搜索" class="headerlink" title="广度优先搜索"></a>广度优先搜索</h6><p>遍历类似于树的层次遍历</p>
-<ul>
-<li>从图中的某个顶点V0出发，并在访问此顶点之后依次访问V0的所有<strong>未被访问</strong>过的邻接点，之后<strong>按这些顶点被访问的先后次序依次访问它们的邻接点</strong>，直至图中所有和V0有路径相通的顶点都被访到。</li>
-<li>若此时图中尚有顶点未被访问，则另选图中一个未曾被访问的顶点作起始点，重复上述过程，直至图中所有顶点都被访问到为止。</li>
-</ul>
-<p><img src="/2017/01/16/数据结构/数据结构知识点/pic16.png" alt="pic16"></p>
-<p>​    广度优先搜索：V1—&gt;V2—&gt;V3—&gt;V4—&gt;V5—&gt;V6—&gt;V7—&gt;V8.</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">void BFSTraverse(Graph G,  Status (*Visit)(int v))</div><div class="line">&#123;</div><div class="line"> //按广度优先非递归遍历图G，使用辅助队列Q和</div><div class="line">//访问标志数组visited</div><div class="line">  for (v=0; v&lt;G.vexnum; ++v)</div><div class="line">      visited[v] = FALSE;  //初始化访问标志</div><div class="line">  InitQueue(Q);       // 置空的辅助队列Q</div><div class="line">  for ( v=0;  v&lt;G.vexnum;  ++v )</div><div class="line">     if ( !visited[v]) // v 尚未访问</div><div class="line">     &#123;          </div><div class="line">          visited[v] = TRUE;  Visit(v);    // 访问v</div><div class="line">       EnQueue(Q, v);             // v入队列</div><div class="line">       while (!QueueEmpty(Q))  </div><div class="line">       &#123;</div><div class="line">          DeQueue(Q, u);  // 队头元素出队并置为u</div><div class="line">          for(w=FirstAdjVex(G, u); w&gt;=0;w=NextAdjVex(G,u,w))</div><div class="line">             if ( ! visited[w])  </div><div class="line">             &#123;  //W为u的尚未访问的邻接顶点</div><div class="line">                visited[w]=TRUE;  Visit(w);</div><div class="line">                EnQueue(Q, w); // 访问的顶点w入队列</div><div class="line">             &#125; // if</div><div class="line">       &#125; // while</div><div class="line">     &#125; </div><div class="line"> &#125; // BFSTraverse</div></pre></td></tr></table></figure>
-<h5 id="最小生成树"><a href="#最小生成树" class="headerlink" title="最小生成树"></a>最小生成树</h5><p>最小生成树：构造网的一棵最小生成树，即：在 e 条带权的边中选取 n-1 条边（不构成回路），使“<strong>权值之和</strong>”为最小</p>
-<h6 id="普里姆算法"><a href="#普里姆算法" class="headerlink" title="普里姆算法"></a>普里姆算法</h6><p>取图中任意一个顶点 v 作为生成树的根，之后往生成树上添加新的顶点 w。在添加的顶点 w 和已经在生成树上的顶点v 之间必定存在一条边，并且该边的权值在所有连通顶点 v 和 w 之间的边中取值最小。之后继续往生成树上添加顶点，直至生成树上含有 n-1 条边为止。</p>
-<p><img src="/2017/01/16/数据结构/数据结构知识点/pic17.png" alt="pic17"></p>
-<p>算法的时间复杂度是O(n^2),与网中的边数无关，因此适合求边<strong>稠密的网的最小生成树</strong></p>
-<h6 id="克鲁斯卡算法"><a href="#克鲁斯卡算法" class="headerlink" title="克鲁斯卡算法"></a>克鲁斯卡算法</h6><p>先构造一个只含 n 个顶点的子图 SG，然后从权值最小的边开始，若它的添加不使SG 中产生回路，则在 SG 上加上这条边，如此重复，直至加上 n-1 条边为止。</p>
-<p><img src="/2017/01/16/数据结构/数据结构知识点/pic18.png" alt="pic18"></p>
-<p>算法的时间复杂度O(eloge),e为边的数目，适用于稀疏图。</p>
-<h5 id="有向无环图的应用"><a href="#有向无环图的应用" class="headerlink" title="有向无环图的应用"></a>有向无环图的应用</h5><p><strong>有向无环图</strong>：一个无环的有向图称为有向无环图。简称（DAG）</p>
-<h6 id="拓扑排序"><a href="#拓扑排序" class="headerlink" title="拓扑排序"></a>拓扑排序</h6><p>定义：由某个集合上的一个偏序得到该集合上的一个全序，这个操作称之为拓扑排序</p>
-<p>所谓偏序关系就是如果A–&gt;B成立 ， 但是从B–&gt;A 不成立</p>
-<ul>
-<li>从有向图中选取一个<strong>没有前驱</strong>的顶点，并输出之；</li>
-<li>从有向图中<strong>删去此顶点以及所有以它为尾的弧</strong>；</li>
-<li>重复上述两步，直至图空，或者图不空但找不到无前驱的顶点为止。后一种情况说明有向图中存在环。</li>
-</ul>
-<p><img src="/2017/01/16/数据结构/数据结构知识点/pic19.png" alt="pic19"></p>
-<h6 id="关键路径"><a href="#关键路径" class="headerlink" title="关键路径"></a>关键路径</h6><p>路径长度最长的路径就是关键路径。</p>
-<p><strong>最早发生时间</strong>：从v1到vi的最长路径长度叫做事件vi的最早发生时间</p>
-<p><strong>最迟发生时间</strong>：在不推迟项目进度的情况下，最晚发生的时间。</p>
-<p><strong>关键活动</strong>：最早发生时间和最迟发生时间相同的活动叫做关键活动。</p>
-<p>关键路径上的活动都是关键活动</p>
-<h5 id="最短路径"><a href="#最短路径" class="headerlink" title="最短路径"></a>最短路径</h5><h6 id="从某个顶点到其余各个顶点的最短路径。（迪杰斯特拉算法）"><a href="#从某个顶点到其余各个顶点的最短路径。（迪杰斯特拉算法）" class="headerlink" title="从某个顶点到其余各个顶点的最短路径。（迪杰斯特拉算法）"></a>从某个顶点到其余各个顶点的最短路径。（迪杰斯特拉算法）</h6>
-          
+          <h4 id="1、冒泡排序"><a href="#1、冒泡排序" class="headerlink" title="1、冒泡排序"></a>1、冒泡排序</h4><p><code>3</code>, 1, 8, -4, 20, 9, 2, 0, 12, 4, 7, 6</p>
+<p>1, <code>3</code>, 8, -4, 20, 9, 2, 0, 12, 4, 7, 6</p>
+<p>1, 3, <code>8</code>, -4, 20, 9, 2, 0, 12, 4, 7, 6</p>
+<p>1, 3, -4, <code>8</code>, 20, 9, 2, 0, 12, 4, 7, 6</p>
+<p>1, 3, -4, 8, <code>20</code>, 9, 2, 0, 12, 4, 7, 6</p>
+<p>1, 3, -4, 8, 9, <code>20</code>, 2, 0, 12, 4, 7, 6</p>
+<p>1, 3, -4, 8, 9, 2, <code>20</code>, 0, 12, 4, 7, 6</p>
+<p>1, 3, -4, 8, 9, 2, 0,<code>20</code>, 12, 4, 7, 6</p>
+<p>1, 3, -4, 8, 9, 2, 0, 12,<code>20</code>, 4, 7, 6</p>
+<p>1, 3, -4, 8, 9, 2, 0, 12, 4,<code>20</code>, 7, 6</p>
+<p>1, 3, -4, 8, 9, 2, 0, 12, 4, 7,<code>20</code>, 6</p>
+<p>1, 3, -4, 8, 9, 2, 0, 12, 4, 7, 6,<code>20</code></p>
+<p>这是一趟比较，每次比较两个前后两个数，前面的大则向后移动</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/01/16/数据结构/排序算法/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>

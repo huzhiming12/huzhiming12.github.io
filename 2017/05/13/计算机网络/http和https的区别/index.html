@@ -117,7 +117,7 @@
 <meta property="og:url" content="https://huzhiming12.github.io/2017/05/13/计算机网络/http和https的区别/index.html">
 <meta property="og:site_name" content="huzhiming的博客">
 <meta property="og:description" content="http协议是未加密的传输，即采用明文的方式发送内容，如果攻击者截取了web浏览器和网站服务器之间的传输报文，就很容易直接读取其中的信息。https就是在http的基础之上加入了SSL协议，SSL用于对http协议传输的数据进行加密。  https协议需要到ca申请证书，一般需要一定的费用 http是超文本传输协议，信息是明文传输。https则是具有安全性的ssl加密协议 http和HTTPS使用">
-<meta property="og:updated_time" content="2017-05-13T13:14:09.000Z">
+<meta property="og:updated_time" content="2017-05-14T06:23:22.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="http和https的区别">
 <meta name="twitter:description" content="http协议是未加密的传输，即采用明文的方式发送内容，如果攻击者截取了web浏览器和网站服务器之间的传输报文，就很容易直接读取其中的信息。https就是在http的基础之上加入了SSL协议，SSL用于对http协议传输的数据进行加密。  https协议需要到ca申请证书，一般需要一定的费用 http是超文本传输协议，信息是明文传输。https则是具有安全性的ssl加密协议 http和HTTPS使用">
@@ -377,6 +377,7 @@
 <li>http和HTTPS使用不同的连接方式，用的端口也不同，前者是80端口，后者是443端口</li>
 <li>http的连接是简单无状态的，HTTPS协议是由ssl+http协议构成的可进行加密传输、身份认证的网络协议，比http协议安全。</li>
 </ul>
+<a id="more"></a>
 <h4 id="HTTP1-0-与HTTP1-1的区别"><a href="#HTTP1-0-与HTTP1-1的区别" class="headerlink" title="HTTP1.0 与HTTP1.1的区别"></a>HTTP1.0 与HTTP1.1的区别</h4><ul>
 <li>引入持久化连接，即TCP连接默认不关闭，可以被多个请求复用，不用声明<code>Connection: keep-alive</code>。</li>
 <li>引入管道机制，即在同一个TCP连接里面，客户端可以同时发送多个请求。这样就进一步改进了HTTP协议的效率。</li>
