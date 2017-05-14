@@ -1,26 +1,96 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
 <head>
-    
-
-    
-
-    
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
 
 
-    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
     
     
+  
+
+  
+
+  
+
+  
+
+  
+
+  
     
-    <title>操作系统知识点 | huzhiming的博客 | 一切皆有可能</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="theme-color" content="#3F51B5">
-    
-    
-    <meta name="keywords" content="进程,线程,存储管理">
-    <meta name="description" content="1. 进程管理1.1 进程基本概念程序顺序执行的特征 顺序性：每一个操作必须在下一个操作开始之前结束   封闭性：程序运行时独占全机资源，资源的状态只有本程序才能改变 可在现性  前趋图有向无环图  作用：用于描述程序段或进程间执行的前后顺序。 结点：表示程序段或进程，或一条语句** 有向边：表示结点之间的偏序(前驱)关系  并发执行时的特征 间断性——“停停走走” 失去封闭性——原因：多个程序共">
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="进程,线程,存储管理," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="1. 进程管理1.1 进程基本概念程序顺序执行的特征 顺序性：每一个操作必须在下一个操作开始之前结束   封闭性：程序运行时独占全机资源，资源的状态只有本程序才能改变 可在现性  前趋图有向无环图  作用：用于描述程序段或进程间执行的前后顺序。 结点：表示程序段或进程，或一条语句** 有向边：表示结点之间的偏序(前驱)关系  并发执行时的特征 间断性——“停停走走” 失去封闭性——原因：多个程序共">
 <meta name="keywords" content="进程,线程,存储管理">
 <meta property="og:type" content="article">
 <meta property="og:title" content="操作系统知识点">
@@ -36,155 +106,246 @@
 <meta name="twitter:title" content="操作系统知识点">
 <meta name="twitter:description" content="1. 进程管理1.1 进程基本概念程序顺序执行的特征 顺序性：每一个操作必须在下一个操作开始之前结束   封闭性：程序运行时独占全机资源，资源的状态只有本程序才能改变 可在现性  前趋图有向无环图  作用：用于描述程序段或进程间执行的前后顺序。 结点：表示程序段或进程，或一条语句** 有向边：表示结点之间的偏序(前驱)关系  并发执行时的特征 间断性——“停停走走” 失去封闭性——原因：多个程序共">
 <meta name="twitter:image" content="https://huzhiming12.github.io/2017/05/13/操作系统/操作系统知识点/pic.png">
-    
-    <link rel="shortcut icon" href="/img/favicon.jpg">
-    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
-    <script>window.lazyScripts=[]</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://huzhiming12.github.io/2017/05/13/操作系统/操作系统知识点/"/>
+
+
+
+
+
+  <title>操作系统知识点 | huzhiming的博客</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
-<body>
-    <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="loading" class="active"></div>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
-    <aside id="menu" class="hide" >
-  <div class="inner flex-row-vertical">
-    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
-        <i class="icon icon-lg icon-close"></i>
-    </a>
-    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
-      <div class="brand">
-        <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/img/head.jpeg">
-        </a>
-        <hgroup class="introduce">
-          <h5 class="nickname">Huzhiming</h5>
-          <a href="mailto:ouc_hzm@sina.com" title="ouc_hzm@sina.com" class="mail">ouc_hzm@sina.com</a>
-        </hgroup>
-      </div>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">huzhiming的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
-    <div class="scroll-wrap flex-col">
-      <ul class="nav">
-        
-            <li class="waves-block waves-effect">
-              <a href="/"  >
-                <i class="icon icon-lg icon-home"></i>
-                主页
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/archives"  >
-                <i class="icon icon-lg icon-archives"></i>
-                归档
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/tags"  >
-                <i class="icon icon-lg icon-tags"></i>
-                标签
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/categories"  >
-                <i class="icon icon-lg icon-th-list"></i>
-                分类
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="https://github.com/huzhiming12" target="_blank" >
-                <i class="icon icon-lg icon-github"></i>
-                Github
-              </a>
-            </li>
-        
-      </ul>
-    </div>
+      
+        <p class="site-subtitle">一切皆有可能</p>
+      
   </div>
-</aside>
 
-    <main id="main">
-        <header class="top-header" id="header">
-    <div class="flex-row">
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
-          <i class="icon icon-lg icon-navicon"></i>
-        </a>
-        <div class="flex-col header-title ellipsis">操作系统知识点</div>
-        
-        <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-                <i class="icon icon-lg icon-chevron-left"></i>
-            </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-                <i class="icon icon-lg icon-search"></i>
-            </a>
-        </div>
-        
-        
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
-            <i class="icon icon-lg icon-share-alt"></i>
-        </a>
-        
-    </div>
-</header>
-<header class="content-header post-header">
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
 
-    <div class="container fade-scale">
-        <h1 class="title">操作系统知识点</h1>
-        <h5 class="subtitle">
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
             
-                <time datetime="2017-05-13T09:32:50.000Z" itemprop="datePublished" class="page-time">
-  2017-05-13
-</time>
-
-
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/操作系统/">操作系统</a></li></ul>
-
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-        </h5>
-    </div>
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
 
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
     
 
+  
 
-</header>
+  
+  
+  
 
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://huzhiming12.github.io/2017/05/13/操作系统/操作系统知识点/">
 
-<div class="container body-wrap">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Huzhiming">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="huzhiming的博客">
+    </span>
+
     
-    <aside class="post-widget">
-        <nav class="post-toc-wrap" id="post-toc">
-            <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-进程管理"><span class="post-toc-number">1.</span> <span class="post-toc-text">1. 进程管理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-1-进程基本概念"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1.1 进程基本概念</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#程序顺序执行的特征"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">程序顺序执行的特征</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#前趋图"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">前趋图</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#并发执行时的特征"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">并发执行时的特征</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#进程的定义与特征"><span class="post-toc-number">1.1.4.</span> <span class="post-toc-text">进程的定义与特征</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#进程的定义"><span class="post-toc-number">1.1.4.1.</span> <span class="post-toc-text">进程的定义</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#进程和程序的区别与联系"><span class="post-toc-number">1.1.4.2.</span> <span class="post-toc-text">进程和程序的区别与联系</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#进程的三种状态"><span class="post-toc-number">1.1.4.3.</span> <span class="post-toc-text">进程的三种状态</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-2-进程控制"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">1.2 进程控制</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-3进程图"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">1.3进程图</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-4-经典进程同步问题"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">1.4 经典进程同步问题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#生产者消费者问题"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">生产者消费者问题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#记录型信号量方法"><span class="post-toc-number">1.4.1.1.</span> <span class="post-toc-text">记录型信号量方法</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#利用and信号量解决"><span class="post-toc-number">1.4.1.2.</span> <span class="post-toc-text">利用and信号量解决</span></a></li></ol></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#哲学家进餐问题"><span class="post-toc-number">1.4.2.</span> <span class="post-toc-text">哲学家进餐问题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#利用记录型信号量"><span class="post-toc-number">1.4.2.1.</span> <span class="post-toc-text">利用记录型信号量</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#and信号量"><span class="post-toc-number">1.4.2.2.</span> <span class="post-toc-text">and信号量</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-5-进程通信"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">1.5 进程通信</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#进程通信类型"><span class="post-toc-number">1.5.1.</span> <span class="post-toc-text">进程通信类型</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-6-线程和进程的区别与联系"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">1.6 线程和进程的区别与联系</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-处理机调度和死锁"><span class="post-toc-number">2.</span> <span class="post-toc-text">2. 处理机调度和死锁</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-1-调度算法"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">2.1 调度算法</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-2-实时调度"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">2.2 实时调度</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#实时调度算法"><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">实时调度算法</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-3-产生死锁的原因和必要条件"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">2.3 产生死锁的原因和必要条件</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-4-预防死锁的方法"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">2.4 预防死锁的方法</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-存储器管理"><span class="post-toc-number">3.</span> <span class="post-toc-text">3. 存储器管理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-1-程序的装入和链接"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">3.1 程序的装入和链接</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#程序装入"><span class="post-toc-number">3.1.1.</span> <span class="post-toc-text">程序装入</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#程序的链接"><span class="post-toc-number">3.1.2.</span> <span class="post-toc-text">程序的链接</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-2-连续分配方式"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">3.2 连续分配方式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#对换"><span class="post-toc-number">3.2.1.</span> <span class="post-toc-text">对换</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-3-基本分页存储管理方式"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">3.3 基本分页存储管理方式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#页面与页表"><span class="post-toc-number">3.3.1.</span> <span class="post-toc-text">页面与页表</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#页面与物理块"><span class="post-toc-number">3.3.1.1.</span> <span class="post-toc-text">页面与物理块</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-4-基本分段存储管理方式"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">3.4 基本分段存储管理方式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#分页和分段的主要区别"><span class="post-toc-number">3.4.0.1.</span> <span class="post-toc-text">分页和分段的主要区别</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-5-页面置换算法"><span class="post-toc-number">3.5.</span> <span class="post-toc-text">3.5 页面置换算法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#最佳置换算法"><span class="post-toc-number">3.5.1.</span> <span class="post-toc-text">最佳置换算法</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#先进先出置换算法（FIFO）"><span class="post-toc-number">3.5.2.</span> <span class="post-toc-text">先进先出置换算法（FIFO）</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#最近最久未使用置换算法（LRU）"><span class="post-toc-number">3.5.3.</span> <span class="post-toc-text">最近最久未使用置换算法（LRU）</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-设备管理"><span class="post-toc-number">4.</span> <span class="post-toc-text">4. 设备管理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4-1-I-O控制方式"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">4.1 I/O控制方式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#程序控制方式"><span class="post-toc-number">4.1.1.</span> <span class="post-toc-text">程序控制方式</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#中断驱动方式"><span class="post-toc-number">4.1.2.</span> <span class="post-toc-text">中断驱动方式</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#DMA方式"><span class="post-toc-number">4.1.3.</span> <span class="post-toc-text">DMA方式</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#I-O通道控制方式"><span class="post-toc-number">4.1.4.</span> <span class="post-toc-text">I/O通道控制方式</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4-2-缓冲管理"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">4.2 缓冲管理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#引入缓冲"><span class="post-toc-number">4.2.1.</span> <span class="post-toc-text">引入缓冲</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#单缓冲和双缓冲"><span class="post-toc-number">4.2.2.</span> <span class="post-toc-text">单缓冲和双缓冲</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#单缓冲"><span class="post-toc-number">4.2.2.1.</span> <span class="post-toc-text">单缓冲</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#双缓冲区"><span class="post-toc-number">4.2.2.2.</span> <span class="post-toc-text">双缓冲区</span></a></li></ol></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#循环缓冲"><span class="post-toc-number">4.2.3.</span> <span class="post-toc-text">循环缓冲</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#缓冲池"><span class="post-toc-number">4.2.4.</span> <span class="post-toc-text">缓冲池</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4-3-设备分配"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">4.3 设备分配</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#SPOOLing技术"><span class="post-toc-number">4.3.1.</span> <span class="post-toc-text">SPOOLing技术</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#基本方法"><span class="post-toc-number">4.3.1.1.</span> <span class="post-toc-text">基本方法</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#spooling-系统组成部分"><span class="post-toc-number">4.3.1.2.</span> <span class="post-toc-text">spooling 系统组成部分</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4-4-磁盘存储器管理"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">4.4 磁盘存储器管理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#磁盘调度算法"><span class="post-toc-number">4.4.1.</span> <span class="post-toc-text">磁盘调度算法</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-文件管理"><span class="post-toc-number">5.</span> <span class="post-toc-text">5. 文件管理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#5-1-文件逻辑结构"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">5.1 文件逻辑结构</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#文件逻辑结构的类型"><span class="post-toc-number">5.1.1.</span> <span class="post-toc-text">文件逻辑结构的类型</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#顺序文件"><span class="post-toc-number">5.1.2.</span> <span class="post-toc-text">顺序文件</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#索引文件"><span class="post-toc-number">5.1.3.</span> <span class="post-toc-text">索引文件</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#顺序索引文件"><span class="post-toc-number">5.1.4.</span> <span class="post-toc-text">顺序索引文件</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#直接文件和hash文件"><span class="post-toc-number">5.1.5.</span> <span class="post-toc-text">直接文件和hash文件</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#外存分配方式"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">外存分配方式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#连续分配方式"><span class="post-toc-number">5.2.1.</span> <span class="post-toc-text">连续分配方式</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#链接分配"><span class="post-toc-number">5.2.2.</span> <span class="post-toc-text">链接分配</span></a></li></ol></li></ol></li></ol>
-        </nav>
-    </aside>
-    
-<article id="post-操作系统/操作系统知识点"
-  class="post-article article-type-post fade" itemprop="blogPost">
+      <header class="post-header">
 
-    <div class="post-card">
-        <h1 class="post-card-title">操作系统知识点</h1>
+        
+        
+          <h1 class="post-title" itemprop="name headline">操作系统知识点</h1>
+        
+
         <div class="post-meta">
-            <time class="post-time" title="2017-05-13 17:32:50" datetime="2017-05-13T09:32:50.000Z"  itemprop="datePublished">2017-05-13</time>
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-13T17:32:50+08:00">
+                2017-05-13
+              </time>
+            
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/操作系统/">操作系统</a></li></ul>
-
-
 
             
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
-    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
-</span>
+          </span>
 
-
+          
+            <span class="post-category" >
             
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/操作系统/" itemprop="url" rel="index">
+                    <span itemprop="name">操作系统</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
 
         </div>
-        <div class="post-content" id="post-content" itemprop="postContent">
-            <h3 id="1-进程管理"><a href="#1-进程管理" class="headerlink" title="1. 进程管理"></a>1. 进程管理</h3><h4 id="1-1-进程基本概念"><a href="#1-1-进程基本概念" class="headerlink" title="1.1 进程基本概念"></a>1.1 进程基本概念</h4><h5 id="程序顺序执行的特征"><a href="#程序顺序执行的特征" class="headerlink" title="程序顺序执行的特征"></a>程序顺序执行的特征</h5><ul>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="1-进程管理"><a href="#1-进程管理" class="headerlink" title="1. 进程管理"></a>1. 进程管理</h3><h4 id="1-1-进程基本概念"><a href="#1-1-进程基本概念" class="headerlink" title="1.1 进程基本概念"></a>1.1 进程基本概念</h4><h5 id="程序顺序执行的特征"><a href="#程序顺序执行的特征" class="headerlink" title="程序顺序执行的特征"></a>程序顺序执行的特征</h5><ul>
 <li>顺序性：每一个操作必须在下一个操作开始之前结束</li>
 </ul>
 <ul>
@@ -400,13 +561,7 @@
 <li>把进程的逻辑地址空间分成若干大小相等的片，称之为页面或页，编号从0开始。</li>
 <li>把内存的存储空间也划分成与页相同大小的片，这些片称为物理块或页框，编号从0开始</li>
 </ul>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/05/13/操作系统/操作系统知识点/pic.png" alt="pic" title="">
-                </div>
-                <div class="image-caption">pic</div>
-            </figure>
+<p><img src="/2017/05/13/操作系统/操作系统知识点/pic.png" alt="pic"></p>
 <h4 id="3-4-基本分段存储管理方式"><a href="#3-4-基本分段存储管理方式" class="headerlink" title="3.4 基本分段存储管理方式"></a>3.4 基本分段存储管理方式</h4><h6 id="分页和分段的主要区别"><a href="#分页和分段的主要区别" class="headerlink" title="分页和分段的主要区别"></a>分页和分段的主要区别</h6><ul>
 <li>页是信息的物理单位，分页是为消减内存的碎片，提高内存的利用率。分页仅是由于系统管理的需要。 段则是信息的逻辑单位，它含有一组其意义相对完整的信息。分段的目的是为了能更好地满足用户的需要。 </li>
 </ul>
@@ -482,13 +637,7 @@
 <li>已装满数据的缓冲区<strong>G</strong></li>
 <li>计算进程正在使用的工作缓冲区<strong>C</strong></li>
 </ul>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/05/13/操作系统/操作系统知识点/pic1.png" alt="pic1" title="">
-                </div>
-                <div class="image-caption">pic1</div>
-            </figure>
+<p><img src="/2017/05/13/操作系统/操作系统知识点/pic1.png" alt="pic1"></p>
 <h5 id="缓冲池"><a href="#缓冲池" class="headerlink" title="缓冲池"></a>缓冲池</h5><p>公用缓冲池，池中设立多个缓冲区，为多个进程共享，以提高利用率</p>
 <h4 id="4-3-设备分配"><a href="#4-3-设备分配" class="headerlink" title="4.3 设备分配"></a>4.3 设备分配</h4><h5 id="SPOOLing技术"><a href="#SPOOLing技术" class="headerlink" title="SPOOLing技术"></a>SPOOLing技术</h5><ul>
 <li>脱机输入/输出技术是利用专门的外围控制机，将低速I/O设备上的数据传送到高速磁盘上，或者相反。</li>
@@ -551,278 +700,388 @@
 <h5 id="索引文件"><a href="#索引文件" class="headerlink" title="索引文件"></a>索引文件</h5><h5 id="顺序索引文件"><a href="#顺序索引文件" class="headerlink" title="顺序索引文件"></a>顺序索引文件</h5><h5 id="直接文件和hash文件"><a href="#直接文件和hash文件" class="headerlink" title="直接文件和hash文件"></a>直接文件和hash文件</h5><h4 id="外存分配方式"><a href="#外存分配方式" class="headerlink" title="外存分配方式"></a>外存分配方式</h4><h5 id="连续分配方式"><a href="#连续分配方式" class="headerlink" title="连续分配方式"></a>连续分配方式</h5><p>文件存储于连续的盘块上</p>
 <h5 id="链接分配"><a href="#链接分配" class="headerlink" title="链接分配"></a>链接分配</h5><p>通过盘块上的链接指针，把保存在不同盘块上的各文件部分链接起来</p>
 
-        </div>
-
-        <blockquote class="post-copyright">
-    <div class="content">
-        
-<span class="post-time">
-    最后更新时间：<time datetime="2017-05-13T13:29:14.000Z" itemprop="dateUpdated">2017-05-13 21:29:14</time>
-</span><br>
-
-
-        
-        原始链接：<a href="/2017/05/13/操作系统/操作系统知识点/" target="_blank" rel="external">https://huzhiming12.github.io/2017/05/13/操作系统/操作系统知识点/</a>
-        
+      
     </div>
-    <footer>
-        <a href="https://huzhiming12.github.io">
-            <img src="/img/head.jpeg" alt="Huzhiming">
-            Huzhiming
-        </a>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/进程/" rel="tag"># 进程</a>
+          
+            <a href="/tags/线程/" rel="tag"># 线程</a>
+          
+            <a href="/tags/存储管理/" rel="tag"># 存储管理</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/13/java/Java集合/" rel="next" title="Java集合（一）">
+                <i class="fa fa-chevron-left"></i> Java集合（一）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/13/hexo/hexo-文章中插入图片问题/" rel="prev" title="hexo 文章中插入图片问题">
+                hexo 文章中插入图片问题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
     </footer>
-</blockquote>
-
-        
-<div class="page-reward">
-    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
-</div>
+  </article>
 
 
 
-        <div class="post-footer">
-            
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/存储管理/">存储管理</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/线程/">线程</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/进程/">进程</a></li></ul>
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
-            
-<div class="page-share-wrap">
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
     
-
-<div class="page-share" id="pageShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://huzhiming12.github.io/2017/05/13/操作系统/操作系统知识点/&title=《操作系统知识点》 — huzhiming的博客&pic=https://huzhiming12.github.io/img/head.jpeg" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://huzhiming12.github.io/2017/05/13/操作系统/操作系统知识点/&title=《操作系统知识点》 — huzhiming的博客&source=" data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://huzhiming12.github.io/2017/05/13/操作系统/操作系统知识点/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《操作系统知识点》 — huzhiming的博客&url=https://huzhiming12.github.io/2017/05/13/操作系统/操作系统知识点/&via=https://huzhiming12.github.io" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://huzhiming12.github.io/2017/05/13/操作系统/操作系统知识点/" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-
-    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
-        <i class="icon icon-share-alt icon-lg"></i>
-    </a>
-</div>
-
+  </div>
 
 
         </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
     </div>
+  </div>
 
-    
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/2017/05/13/hexo/hexo-文章中插入图片问题/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">hexo 文章中插入图片问题</h4>
-      </a>
-    </div>
-  
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
 
-  
-    <div class="waves-block waves-effect next">
-      <a href="/2017/05/13/hexo/hexo-个人博客配置安装教程/" id="post-next" class="post-nav-link">
-        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">hexo-theme-indigo-card主题安装及常见问题解决</h4>
-      </a>
-    </div>
-  
-</nav>
+      
 
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Huzhiming" />
+          <p class="site-author-name" itemprop="name">Huzhiming</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
 
-    
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</article>
-
-<div id="reward" class="page-modal reward-lay">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <h3 class="reward-title">
-        <i class="icon icon-quote-left"></i>
-        谢谢大爷~
-        <i class="icon icon-quote-right"></i>
-    </h3>
-    <ul class="reward-items">
-        
-        <li>
-            <img src="/img/wechatimg.jpg" title="微信打赏二维码" alt="微信打赏二维码">
-            <p>微信</p>
-        </li>
-        
-
-        
-        <li>
-            <img src="/img/alipayimg.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
-            <p>支付宝</p>
-        </li>
-        
-    </ul>
-</div>
-
-
-
-</div>
-
-        <footer class="footer">
-    <div class="top">
-        
-<p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-        站点总访客数：<span id="busuanzi_value_site_uv"></span>
-    </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：<span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
-
-
-        <p>
+          
             
-            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
-        </p>
-    </div>
-    <div class="bottom">
-        <p>
-            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
-            <span>Huzhiming &copy; 2015 - 2017</span>
-        </p>
-    </div>
-</footer>
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
 
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-进程管理"><span class="nav-number">1.</span> <span class="nav-text">1. 进程管理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-进程基本概念"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 进程基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#程序顺序执行的特征"><span class="nav-number">1.1.1.</span> <span class="nav-text">程序顺序执行的特征</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#前趋图"><span class="nav-number">1.1.2.</span> <span class="nav-text">前趋图</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#并发执行时的特征"><span class="nav-number">1.1.3.</span> <span class="nav-text">并发执行时的特征</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#进程的定义与特征"><span class="nav-number">1.1.4.</span> <span class="nav-text">进程的定义与特征</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#进程的定义"><span class="nav-number">1.1.4.1.</span> <span class="nav-text">进程的定义</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#进程和程序的区别与联系"><span class="nav-number">1.1.4.2.</span> <span class="nav-text">进程和程序的区别与联系</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#进程的三种状态"><span class="nav-number">1.1.4.3.</span> <span class="nav-text">进程的三种状态</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-进程控制"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 进程控制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3进程图"><span class="nav-number">1.3.</span> <span class="nav-text">1.3进程图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-经典进程同步问题"><span class="nav-number">1.4.</span> <span class="nav-text">1.4 经典进程同步问题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#生产者消费者问题"><span class="nav-number">1.4.1.</span> <span class="nav-text">生产者消费者问题</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#记录型信号量方法"><span class="nav-number">1.4.1.1.</span> <span class="nav-text">记录型信号量方法</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#利用and信号量解决"><span class="nav-number">1.4.1.2.</span> <span class="nav-text">利用and信号量解决</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#哲学家进餐问题"><span class="nav-number">1.4.2.</span> <span class="nav-text">哲学家进餐问题</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#利用记录型信号量"><span class="nav-number">1.4.2.1.</span> <span class="nav-text">利用记录型信号量</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#and信号量"><span class="nav-number">1.4.2.2.</span> <span class="nav-text">and信号量</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-5-进程通信"><span class="nav-number">1.5.</span> <span class="nav-text">1.5 进程通信</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#进程通信类型"><span class="nav-number">1.5.1.</span> <span class="nav-text">进程通信类型</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-6-线程和进程的区别与联系"><span class="nav-number">1.6.</span> <span class="nav-text">1.6 线程和进程的区别与联系</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-处理机调度和死锁"><span class="nav-number">2.</span> <span class="nav-text">2. 处理机调度和死锁</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-调度算法"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 调度算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-实时调度"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 实时调度</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#实时调度算法"><span class="nav-number">2.2.1.</span> <span class="nav-text">实时调度算法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-产生死锁的原因和必要条件"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 产生死锁的原因和必要条件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-预防死锁的方法"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 预防死锁的方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-存储器管理"><span class="nav-number">3.</span> <span class="nav-text">3. 存储器管理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-程序的装入和链接"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 程序的装入和链接</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#程序装入"><span class="nav-number">3.1.1.</span> <span class="nav-text">程序装入</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#程序的链接"><span class="nav-number">3.1.2.</span> <span class="nav-text">程序的链接</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-连续分配方式"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 连续分配方式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#对换"><span class="nav-number">3.2.1.</span> <span class="nav-text">对换</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-基本分页存储管理方式"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 基本分页存储管理方式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#页面与页表"><span class="nav-number">3.3.1.</span> <span class="nav-text">页面与页表</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#页面与物理块"><span class="nav-number">3.3.1.1.</span> <span class="nav-text">页面与物理块</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-基本分段存储管理方式"><span class="nav-number">3.4.</span> <span class="nav-text">3.4 基本分段存储管理方式</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#分页和分段的主要区别"><span class="nav-number">3.4.0.1.</span> <span class="nav-text">分页和分段的主要区别</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-5-页面置换算法"><span class="nav-number">3.5.</span> <span class="nav-text">3.5 页面置换算法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#最佳置换算法"><span class="nav-number">3.5.1.</span> <span class="nav-text">最佳置换算法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#先进先出置换算法（FIFO）"><span class="nav-number">3.5.2.</span> <span class="nav-text">先进先出置换算法（FIFO）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#最近最久未使用置换算法（LRU）"><span class="nav-number">3.5.3.</span> <span class="nav-text">最近最久未使用置换算法（LRU）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-设备管理"><span class="nav-number">4.</span> <span class="nav-text">4. 设备管理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-I-O控制方式"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 I/O控制方式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#程序控制方式"><span class="nav-number">4.1.1.</span> <span class="nav-text">程序控制方式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#中断驱动方式"><span class="nav-number">4.1.2.</span> <span class="nav-text">中断驱动方式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#DMA方式"><span class="nav-number">4.1.3.</span> <span class="nav-text">DMA方式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#I-O通道控制方式"><span class="nav-number">4.1.4.</span> <span class="nav-text">I/O通道控制方式</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-缓冲管理"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 缓冲管理</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#引入缓冲"><span class="nav-number">4.2.1.</span> <span class="nav-text">引入缓冲</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#单缓冲和双缓冲"><span class="nav-number">4.2.2.</span> <span class="nav-text">单缓冲和双缓冲</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#单缓冲"><span class="nav-number">4.2.2.1.</span> <span class="nav-text">单缓冲</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#双缓冲区"><span class="nav-number">4.2.2.2.</span> <span class="nav-text">双缓冲区</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#循环缓冲"><span class="nav-number">4.2.3.</span> <span class="nav-text">循环缓冲</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#缓冲池"><span class="nav-number">4.2.4.</span> <span class="nav-text">缓冲池</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3-设备分配"><span class="nav-number">4.3.</span> <span class="nav-text">4.3 设备分配</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#SPOOLing技术"><span class="nav-number">4.3.1.</span> <span class="nav-text">SPOOLing技术</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#基本方法"><span class="nav-number">4.3.1.1.</span> <span class="nav-text">基本方法</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#spooling-系统组成部分"><span class="nav-number">4.3.1.2.</span> <span class="nav-text">spooling 系统组成部分</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-4-磁盘存储器管理"><span class="nav-number">4.4.</span> <span class="nav-text">4.4 磁盘存储器管理</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#磁盘调度算法"><span class="nav-number">4.4.1.</span> <span class="nav-text">磁盘调度算法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-文件管理"><span class="nav-number">5.</span> <span class="nav-text">5. 文件管理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-文件逻辑结构"><span class="nav-number">5.1.</span> <span class="nav-text">5.1 文件逻辑结构</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#文件逻辑结构的类型"><span class="nav-number">5.1.1.</span> <span class="nav-text">文件逻辑结构的类型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#顺序文件"><span class="nav-number">5.1.2.</span> <span class="nav-text">顺序文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#索引文件"><span class="nav-number">5.1.3.</span> <span class="nav-text">索引文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#顺序索引文件"><span class="nav-number">5.1.4.</span> <span class="nav-text">顺序索引文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#直接文件和hash文件"><span class="nav-number">5.1.5.</span> <span class="nav-text">直接文件和hash文件</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#外存分配方式"><span class="nav-number">5.2.</span> <span class="nav-text">外存分配方式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#连续分配方式"><span class="nav-number">5.2.1.</span> <span class="nav-text">连续分配方式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#链接分配"><span class="nav-number">5.2.2.</span> <span class="nav-text">链接分配</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
     </main>
-    <div class="mask" id="mask"></div>
-<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
-
-
-<div class="global-share" id="globalShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://huzhiming12.github.io/2017/05/13/操作系统/操作系统知识点/&title=《操作系统知识点》 — huzhiming的博客&pic=https://huzhiming12.github.io/img/head.jpeg" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://huzhiming12.github.io/2017/05/13/操作系统/操作系统知识点/&title=《操作系统知识点》 — huzhiming的博客&source=" data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://huzhiming12.github.io/2017/05/13/操作系统/操作系统知识点/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《操作系统知识点》 — huzhiming的博客&url=https://huzhiming12.github.io/2017/05/13/操作系统/操作系统知识点/&via=https://huzhiming12.github.io" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://huzhiming12.github.io/2017/05/13/操作系统/操作系统知识点/" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-<div class="page-modal wx-share" id="wxShare">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://huzhiming12.github.io/2017/05/13/操作系统/操作系统知识点/" alt="微信分享二维码">
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Huzhiming</span>
 </div>
 
 
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
 
 
-    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
-<script>
-var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+        
 
+        
+      </div>
+    </footer>
 
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
 
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
 </script>
 
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
-
-
-<div class="search-panel" id="search-panel">
-    <ul class="search-result" id="search-result"></ul>
-</div>
-<template id="search-tpl">
-<li class="item">
-    <a href="{path}" class="waves-block waves-effect">
-        <div class="title ellipsis" title="{title}">{title}</div>
-        <div class="flex-row flex-middle">
-            <div class="tags ellipsis">
-                {tags}
-            </div>
-            <time class="flex-col time">{date}</time>
-        </div>
-    </a>
-</li>
-</template>
-
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
 
 
 
 
 
 
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+  
 
 
 
 
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
 
 </body>
 </html>
