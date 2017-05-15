@@ -94,7 +94,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="HashSet,TreeSet," />
 
 
 
@@ -110,13 +110,17 @@
 
 
 
+<meta name="description" content="前面介绍了一些关于List、Map的相关知识，下面我们继续来看下集合中的set。set作为容器主要存储不重复的元素。  HashSet HashSet底层实现是通过HashMap实现的，set中每个元素对应Map中的每个EntrySet结点。存储元素时只用Map的key值存储，value值统一设置为new Object()。 ​">
+<meta name="keywords" content="HashSet,TreeSet">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java 集合(二)">
 <meta property="og:url" content="https://huzhiming12.github.io/2017/05/14/java/java-集合-二/index.html">
 <meta property="og:site_name" content="huzhiming的博客">
-<meta property="og:updated_time" content="2017-05-14T08:19:51.000Z">
+<meta property="og:description" content="前面介绍了一些关于List、Map的相关知识，下面我们继续来看下集合中的set。set作为容器主要存储不重复的元素。  HashSet HashSet底层实现是通过HashMap实现的，set中每个元素对应Map中的每个EntrySet结点。存储元素时只用Map的key值存储，value值统一设置为new Object()。 ​">
+<meta property="og:updated_time" content="2017-05-15T07:35:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java 集合(二)">
+<meta name="twitter:description" content="前面介绍了一些关于List、Map的相关知识，下面我们继续来看下集合中的set。set作为容器主要存储不重复的元素。  HashSet HashSet底层实现是通过HashMap实现的，set中每个元素对应Map中的每个EntrySet结点。存储元素时只用Map的key值存储，value值统一设置为new Object()。 ​">
 
 
 
@@ -411,7 +415,14 @@
       
 
       
-        
+        <blockquote>
+<p>前面介绍了一些关于List、Map的相关知识，下面我们继续来看下集合中的set。set作为容器主要存储不重复的元素。</p>
+</blockquote>
+<h4 id="HashSet"><a href="#HashSet" class="headerlink" title="HashSet"></a>HashSet</h4><ul>
+<li>HashSet底层实现是通过HashMap实现的，set中每个元素对应Map中的每个EntrySet结点。存储元素时只用Map的key值存储，value值统一设置为new Object()。</li>
+<li>​</li>
+</ul>
+
       
     </div>
 
@@ -459,6 +470,14 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/HashSet/" rel="tag"># HashSet</a>
+          
+            <a href="/tags/TreeSet/" rel="tag"># TreeSet</a>
+          
+        </div>
+      
 
       
         
@@ -468,8 +487,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/13/计算机网络/计算机网络复习/" rel="next" title="计算机网络知识点">
-                <i class="fa fa-chevron-left"></i> 计算机网络知识点
+              <a href="/2017/05/14/java/Java 线程池/" rel="next" title="java 线程池">
+                <i class="fa fa-chevron-left"></i> java 线程池
               </a>
             
           </div>
@@ -477,10 +496,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/05/14/java/Java 线程池/" rel="prev" title="java 线程池">
-                java 线程池 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -534,8 +549,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/head.jpeg"
@@ -572,7 +596,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-count">20</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -608,6 +632,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#HashSet"><span class="nav-number">1.</span> <span class="nav-text">HashSet</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -753,7 +793,7 @@
   
 
     
-      <script id="dsq-count-scr" src="https://huzhiming.disqus.com/count.js" async></script>
+      <script id="dsq-count-scr" src="https://https-huzhiming12-github-io.disqus.com/count.js" async></script>
     
 
     
@@ -764,7 +804,7 @@
           this.page.title = 'java 集合(二)';
         };
         var d = document, s = d.createElement('script');
-        s.src = 'https://huzhiming.disqus.com/embed.js';
+        s.src = 'https://https-huzhiming12-github-io.disqus.com/embed.js';
         s.setAttribute('data-timestamp', '' + +new Date());
         (d.head || d.body).appendChild(s);
       </script>
