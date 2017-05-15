@@ -94,7 +94,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="HashMap,TreeMap," />
+  <meta name="keywords" content="HashMap,TreeMap,HashTable," />
 
 
 
@@ -111,14 +111,16 @@
 
 
 <meta name="description" content="HashMap（非线程安全） HashMap底层由一个EntrySet数组构成，每个EntrySet都是一个链表 12345678910111213static class Entry&amp;lt;K,V&amp;gt; implements Map.Entry&amp;lt;K,V&amp;gt; &amp;#123;       final K key;       V value;       Entry&amp;lt;K,V&amp;gt;">
-<meta name="keywords" content="HashMap,TreeMap">
+<meta name="keywords" content="HashMap,TreeMap,HashTable">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java集合_Map介绍">
 <meta property="og:url" content="https://huzhiming12.github.io/2017/05/10/java/Java集合-Map介绍/index.html">
 <meta property="og:site_name" content="huzhiming的博客">
 <meta property="og:description" content="HashMap（非线程安全） HashMap底层由一个EntrySet数组构成，每个EntrySet都是一个链表 12345678910111213static class Entry&amp;lt;K,V&amp;gt; implements Map.Entry&amp;lt;K,V&amp;gt; &amp;#123;       final K key;       V value;       Entry&amp;lt;K,V&amp;gt;">
 <meta property="og:image" content="https://huzhiming12.github.io/2017/05/10/java/Java集合-Map介绍/pic16.png">
-<meta property="og:updated_time" content="2017-05-15T08:34:49.000Z">
+<meta property="og:image" content="https://huzhiming12.github.io/2017/05/10/java/Java集合-Map介绍/pic17.png">
+<meta property="og:image" content="https://huzhiming12.github.io/2017/05/10/java/Java集合-Map介绍/pic18.png">
+<meta property="og:updated_time" content="2017-05-15T11:29:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java集合_Map介绍">
 <meta name="twitter:description" content="HashMap（非线程安全） HashMap底层由一个EntrySet数组构成，每个EntrySet都是一个链表 12345678910111213static class Entry&amp;lt;K,V&amp;gt; implements Map.Entry&amp;lt;K,V&amp;gt; &amp;#123;       final K key;       V value;       Entry&amp;lt;K,V&amp;gt;">
@@ -417,7 +419,7 @@
       
 
       
-        <h4 id="HashMap（非线程安全）"><a href="#HashMap（非线程安全）" class="headerlink" title="HashMap（非线程安全）"></a>HashMap（非线程安全）</h4><ul>
+        <h3 id="HashMap（非线程安全）"><a href="#HashMap（非线程安全）" class="headerlink" title="HashMap（非线程安全）"></a>HashMap（非线程安全）</h3><ul>
 <li><p>HashMap底层由一个EntrySet数组构成，每个EntrySet都是一个链表</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Entry</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; <span class="keyword">implements</span> <span class="title">Map</span>.<span class="title">Entry</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; </span>&#123;</div><div class="line">       <span class="keyword">final</span> K key;</div><div class="line">       V value;</div><div class="line">       Entry&lt;K,V&gt; next;</div><div class="line">       <span class="keyword">int</span> hash;</div><div class="line">  		Entry(<span class="keyword">int</span> h, K k, V v, Entry&lt;K,V&gt; n) &#123;</div><div class="line">           value = v;</div><div class="line">           next = n;</div><div class="line">           key = k;</div><div class="line">           hash = h;</div><div class="line">       &#125;</div><div class="line">		 ……</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p><img src="/2017/05/10/java/Java集合-Map介绍/pic16.png" alt=""></p>
@@ -440,7 +442,9 @@
 <li><p>map扩容是原来table长度的2倍。扩容时，需要遍历原来的map，将每个元素重新计算hash值和在新table的中位置，再放入新的table中。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">transfer</span><span class="params">(Entry[] newTable, <span class="keyword">boolean</span> rehash)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> newCapacity = newTable.length;</div><div class="line">        <span class="keyword">for</span> (Entry&lt;K,V&gt; e : table) &#123;</div><div class="line">            <span class="keyword">while</span>(<span class="keyword">null</span> != e) &#123;</div><div class="line">                Entry&lt;K,V&gt; next = e.next;</div><div class="line">                <span class="keyword">if</span> (rehash) &#123;</div><div class="line">                    e.hash = <span class="keyword">null</span> == e.key ? <span class="number">0</span> : hash(e.key);</div><div class="line">                &#125;</div><div class="line">              	<span class="comment">//计算元素在新table中的位置</span></div><div class="line">                <span class="keyword">int</span> i = indexFor(e.hash, newCapacity);</div><div class="line">              	<span class="comment">//newTable[i]是其中一个链表的链表头</span></div><div class="line">                e.next = newTable[i];</div><div class="line">                newTable[i] = e;</div><div class="line">                e = next;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 </li>
-<li><h4 id="Hashtable-线程安全"><a href="#Hashtable-线程安全" class="headerlink" title="Hashtable(线程安全)"></a>Hashtable(线程安全)</h4><ul>
+</ul>
+<hr>
+<h3 id="Hashtable-线程安全"><a href="#Hashtable-线程安全" class="headerlink" title="Hashtable(线程安全)"></a>Hashtable(线程安全)</h3><ul>
 <li><p>HashTable是线程安全的容器，而HashMap是非线程安全的</p>
 </li>
 <li><p>HashTable 继承自Dictionary类，该类自Java1.0就已经存在；HashMap继承自<strong>AbstractMap</strong>,这个抽象类是是在1.2才加入的</p>
@@ -450,10 +454,8 @@
 <li><p>Hashtable的hash函数不同</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">hash</span><span class="params">(Object k)</span> </span>&#123;</div><div class="line">        <span class="comment">// hashSeed will be zero if alternative hashing is disabled.</span></div><div class="line">        <span class="keyword">return</span> hashSeed ^ k.hashCode();</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 </li>
-</ul>
-</li>
 <li><p>HashTable 默认初始容量是11，加载因子默认是0.75</p>
-<ul>
+</li>
 <li><p>HashTable计算index方法与HashTable不同</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//hashtable 计算index</span></div><div class="line"><span class="keyword">int</span> index = (hash &amp; <span class="number">0x7FFFFFFF</span>) % tab.length;</div><div class="line"><span class="comment">// HashMap 计算下标</span></div><div class="line"><span class="keyword">return</span> h &amp; (length-<span class="number">1</span>);</div></pre></td></tr></table></figure>
 </li>
@@ -461,8 +463,20 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> newCapacity = (oldCapacity &lt;&lt; <span class="number">1</span>) + <span class="number">1</span>;</div></pre></td></tr></table></figure>
 </li>
 </ul>
-</li>
-</ul>
+<hr>
+<h3 id="TreeMap-非线程安全"><a href="#TreeMap-非线程安全" class="headerlink" title="TreeMap(非线程安全)"></a>TreeMap(非线程安全)</h3><blockquote>
+<p>Treemap 底层是通过红黑树算法实现的，想要了解TreeMap的实现必须先对红黑树有一定了解，下面先介绍一下红黑树的相关概念</p>
+</blockquote>
+<h4 id="红黑树简介"><a href="#红黑树简介" class="headerlink" title="红黑树简介"></a>红黑树简介</h4><p>红黑树是一种自平衡的二叉查找树，具有二叉树的所有特性。红黑树具有如下五点性质</p>
+<ol>
+<li>结点要么是红色要么是黑色</li>
+<li>根节点是黑色</li>
+<li>每个叶子结点是黑色</li>
+<li>从根节点到叶子结点的所有路径上不能有两个连续的红色结点</li>
+<li>从任一结点到其每个叶子结点的所有路径都包含相同数目的黑色结点</li>
+</ol>
+<p><img src="/2017/05/10/java/Java集合-Map介绍/pic17.png" alt="红黑树"></p>
+<p><img src="/2017/05/10/java/Java集合-Map介绍/pic18.png" alt="普通二叉树"></p>
 
       
     </div>
@@ -516,6 +530,8 @@
             <a href="/tags/HashMap/" rel="tag"># HashMap</a>
           
             <a href="/tags/TreeMap/" rel="tag"># TreeMap</a>
+          
+            <a href="/tags/HashTable/" rel="tag"># HashTable</a>
           
         </div>
       
@@ -641,7 +657,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-count">25</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -687,7 +703,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#HashMap（非线程安全）"><span class="nav-number">1.</span> <span class="nav-text">HashMap（非线程安全）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Hashtable-线程安全"><span class="nav-number">2.</span> <span class="nav-text">Hashtable(线程安全)</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#HashMap（非线程安全）"><span class="nav-number">1.</span> <span class="nav-text">HashMap（非线程安全）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hashtable-线程安全"><span class="nav-number">2.</span> <span class="nav-text">Hashtable(线程安全)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TreeMap-非线程安全"><span class="nav-number">3.</span> <span class="nav-text">TreeMap(非线程安全)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#红黑树简介"><span class="nav-number">3.1.</span> <span class="nav-text">红黑树简介</span></a></li></ol></li></ol></div>
             
 
           </div>
