@@ -110,17 +110,19 @@
 
 
 
-<meta name="description" content="​    当处理大并发请求时，由于创建线程比较耗时，故引入线程池。线程池是存放线程的容器，用户请求到来前可以提前创建好线程，请求到来时便可以直接执行任务。 123456789101112131415161718192021public ThreadPoolExecutor(int corePoolSize,                              int maximumPoolS">
+<meta name="description" content="当处理大并发请求时，由于创建线程比较耗时，故引入线程池。线程池是存放线程的容器，用户请求到来前可以提前创建好线程，请求到来时便可以直接执行任务。  线程池示意图：  123456789101112131415161718192021public ThreadPoolExecutor(int corePoolSize,                              int maximu">
 <meta name="keywords" content="线程池">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java 线程池">
 <meta property="og:url" content="https://huzhiming12.github.io/2017/05/14/java/Java 线程池/index.html">
 <meta property="og:site_name" content="huzhiming的博客">
-<meta property="og:description" content="​    当处理大并发请求时，由于创建线程比较耗时，故引入线程池。线程池是存放线程的容器，用户请求到来前可以提前创建好线程，请求到来时便可以直接执行任务。 123456789101112131415161718192021public ThreadPoolExecutor(int corePoolSize,                              int maximumPoolS">
-<meta property="og:updated_time" content="2017-05-14T08:34:06.000Z">
+<meta property="og:description" content="当处理大并发请求时，由于创建线程比较耗时，故引入线程池。线程池是存放线程的容器，用户请求到来前可以提前创建好线程，请求到来时便可以直接执行任务。  线程池示意图：  123456789101112131415161718192021public ThreadPoolExecutor(int corePoolSize,                              int maximu">
+<meta property="og:image" content="https://huzhiming12.github.io/2017/05/14/java/Java%20线程池/pic1.png">
+<meta property="og:updated_time" content="2017-05-17T13:46:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java 线程池">
-<meta name="twitter:description" content="​    当处理大并发请求时，由于创建线程比较耗时，故引入线程池。线程池是存放线程的容器，用户请求到来前可以提前创建好线程，请求到来时便可以直接执行任务。 123456789101112131415161718192021public ThreadPoolExecutor(int corePoolSize,                              int maximumPoolS">
+<meta name="twitter:description" content="当处理大并发请求时，由于创建线程比较耗时，故引入线程池。线程池是存放线程的容器，用户请求到来前可以提前创建好线程，请求到来时便可以直接执行任务。  线程池示意图：  123456789101112131415161718192021public ThreadPoolExecutor(int corePoolSize,                              int maximu">
+<meta name="twitter:image" content="https://huzhiming12.github.io/2017/05/14/java/Java%20线程池/pic1.png">
 
 
 
@@ -415,7 +417,11 @@
       
 
       
-        <p>​    当处理大并发请求时，由于创建线程比较耗时，故引入线程池。线程池是存放线程的容器，用户请求到来前可以提前创建好线程，请求到来时便可以直接执行任务。</p>
+        <blockquote>
+<p>当处理大并发请求时，由于创建线程比较耗时，故引入线程池。线程池是存放线程的容器，用户请求到来前可以提前创建好线程，请求到来时便可以直接执行任务。</p>
+</blockquote>
+<p>线程池示意图：</p>
+<p><img src="/2017/05/14/java/Java 线程池/pic1.png" alt=""></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">ThreadPoolExecutor</span><span class="params">(<span class="keyword">int</span> corePoolSize,</span></span></div><div class="line">                              <span class="keyword">int</span> maximumPoolSize,</div><div class="line">                              <span class="keyword">long</span> keepAliveTime,</div><div class="line">                              TimeUnit unit,</div><div class="line">                              BlockingQueue&lt;Runnable&gt; workQueue,</div><div class="line">                              ThreadFactory threadFactory,</div><div class="line">                              RejectedExecutionHandler handler) &#123;</div><div class="line">        <span class="keyword">if</span> (corePoolSize &lt; <span class="number">0</span> ||</div><div class="line">            maximumPoolSize &lt;= <span class="number">0</span> ||</div><div class="line">            maximumPoolSize &lt; corePoolSize ||</div><div class="line">            keepAliveTime &lt; <span class="number">0</span>)</div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException();</div><div class="line">        <span class="keyword">if</span> (workQueue == <span class="keyword">null</span> || threadFactory == <span class="keyword">null</span> || handler == <span class="keyword">null</span>)</div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> NullPointerException();</div><div class="line">        <span class="keyword">this</span>.corePoolSize = corePoolSize;</div><div class="line">        <span class="keyword">this</span>.maximumPoolSize = maximumPoolSize;</div><div class="line">        <span class="keyword">this</span>.workQueue = workQueue;</div><div class="line">        <span class="keyword">this</span>.keepAliveTime = unit.toNanos(keepAliveTime);</div><div class="line">        <span class="keyword">this</span>.threadFactory = threadFactory;</div><div class="line">        <span class="keyword">this</span>.handler = handler;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 <p><strong>corePoolSize</strong>：线程池中保留的线程数（包括空线程），注意线程池中的线程数并不是一创建达到corePoolSize，而是在请求到达时逐步创建，最后数目达到corePoolSize。请求任务执行完毕后，若线程数&lt;corePoolSize，则会保持当前数目。</p>
 <p><strong>maximumPoolSize</strong>：线程池中可以容纳的最大线程数</p>
@@ -516,8 +522,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/13/计算机网络/计算机网络复习/" rel="next" title="计算机网络知识点">
-                <i class="fa fa-chevron-left"></i> 计算机网络知识点
+              <a href="/2017/05/14/java/java集合-Set介绍/" rel="next" title="java集合-Set介绍">
+                <i class="fa fa-chevron-left"></i> java集合-Set介绍
               </a>
             
           </div>
@@ -526,8 +532,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/05/14/java/java集合-Set介绍/" rel="prev" title="java集合-Set介绍">
-                java集合-Set介绍 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/05/17/java/Synchronized/" rel="prev" title="Synchronized">
+                Synchronized <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
