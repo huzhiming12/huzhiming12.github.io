@@ -113,13 +113,13 @@
 <meta name="description" content="ReentrantLock是一个可重入的互斥锁定 Lock，它具有与使用 synchronized 方法和语句所访问的隐式监视器锁定相同的一些基本行为和语义，但功能更强大。ReentrantLock 将由最近成功获得锁定，并且还没有释放该锁定的线程所拥有。当锁定没有被另一个线程所拥有时，调用 lock 的线程将成功获取该锁定并返回。如果当前线程已经拥有该锁定，此方法将立即返回。可以使用 isHe">
 <meta name="keywords" content="lock,并发">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ReentrantLock">
+<meta property="og:title" content="ReentrantLock简介">
 <meta property="og:url" content="https://huzhiming12.github.io/2017/05/18/java/ReentrantLock/index.html">
 <meta property="og:site_name" content="huzhiming的博客">
 <meta property="og:description" content="ReentrantLock是一个可重入的互斥锁定 Lock，它具有与使用 synchronized 方法和语句所访问的隐式监视器锁定相同的一些基本行为和语义，但功能更强大。ReentrantLock 将由最近成功获得锁定，并且还没有释放该锁定的线程所拥有。当锁定没有被另一个线程所拥有时，调用 lock 的线程将成功获取该锁定并返回。如果当前线程已经拥有该锁定，此方法将立即返回。可以使用 isHe">
-<meta property="og:updated_time" content="2017-05-18T13:38:47.000Z">
+<meta property="og:updated_time" content="2017-05-19T06:22:14.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ReentrantLock">
+<meta name="twitter:title" content="ReentrantLock简介">
 <meta name="twitter:description" content="ReentrantLock是一个可重入的互斥锁定 Lock，它具有与使用 synchronized 方法和语句所访问的隐式监视器锁定相同的一些基本行为和语义，但功能更强大。ReentrantLock 将由最近成功获得锁定，并且还没有释放该锁定的线程所拥有。当锁定没有被另一个线程所拥有时，调用 lock 的线程将成功获取该锁定并返回。如果当前线程已经拥有该锁定，此方法将立即返回。可以使用 isHe">
 
 
@@ -154,7 +154,7 @@
 
 
 
-  <title>ReentrantLock | huzhiming的博客</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>ReentrantLock简介 | huzhiming的博客</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -335,7 +335,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">ReentrantLock</h1>
+          <h1 class="post-title" itemprop="name headline">ReentrantLock简介</h1>
         
 
         <div class="post-meta">
@@ -475,7 +475,8 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">protected</span> Collection&lt;Thread&gt; <span class="title">getQueuedThreads</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> sync.getQueuedThreads();</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 </li>
 </ul>
-
+<p>ReentrantLock使用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.concurrent.locks.ReentrantLock;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> num = <span class="number">0</span>;</div><div class="line">	<span class="keyword">static</span> ReentrantLock lock = <span class="keyword">new</span> ReentrantLock();</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></div><div class="line">	&#123;</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++)</div><div class="line">			<span class="keyword">new</span> Thread(<span class="keyword">new</span> MyRunnable()).start();</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">lockBlock</span><span class="params">()</span></span></div><div class="line">	&#123;</div><div class="line">		<span class="keyword">try</span></div><div class="line">		&#123;</div><div class="line">			lock.lock();</div><div class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++)</div><div class="line">				System.out.println(Thread.currentThread().getName() + <span class="string">" "</span> + num++);</div><div class="line">			System.out.println();</div><div class="line">			Thread.sleep(<span class="number">500</span>);</div><div class="line"></div><div class="line">		&#125; <span class="keyword">catch</span> (InterruptedException e)</div><div class="line">		&#123;</div><div class="line">			e.printStackTrace();</div><div class="line">		&#125; <span class="keyword">finally</span></div><div class="line">		&#123;</div><div class="line">			lock.unlock();</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyRunnable</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span></div><div class="line">&#123;</div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span></div><div class="line">	&#123;</div><div class="line">		Test.lockBlock();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -858,7 +859,7 @@
         var disqus_config = function () {
           this.page.url = 'https://huzhiming12.github.io/2017/05/18/java/ReentrantLock/';
           this.page.identifier = '2017/05/18/java/ReentrantLock/';
-          this.page.title = 'ReentrantLock';
+          this.page.title = 'ReentrantLock简介';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://https-huzhiming12-github-io.disqus.com/embed.js';
