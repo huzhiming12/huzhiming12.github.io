@@ -117,7 +117,7 @@
 <meta property="og:url" content="https://huzhiming12.github.io/2017/05/19/java/ReentrantLock lock、unlock源码解读/index.html">
 <meta property="og:site_name" content="huzhiming的博客">
 <meta property="og:description" content="ReentrantLock 对于公平锁和非公平锁的加锁过程不同。对于公平锁加锁，如果前面没有比当前线程等候更久的线程的话，则当前线程直接获得锁，否则直接将当前线程插入等候队列中；对于非公平锁的加锁和前面不一样，如果前一个线程刚好结束state=0，此时无论当前线程前面是否有线程等候，当前线程都能直接抢占锁。如果前一个线程还没执行完毕，则当前线程便插入等候队列中。  等候队列ReentrantLo">
-<meta property="og:updated_time" content="2017-05-19T08:55:18.000Z">
+<meta property="og:updated_time" content="2017-05-21T12:44:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ReentrantLock lock、unlock源码解读">
 <meta name="twitter:description" content="ReentrantLock 对于公平锁和非公平锁的加锁过程不同。对于公平锁加锁，如果前面没有比当前线程等候更久的线程的话，则当前线程直接获得锁，否则直接将当前线程插入等候队列中；对于非公平锁的加锁和前面不一样，如果前一个线程刚好结束state=0，此时无论当前线程前面是否有线程等候，当前线程都能直接抢占锁。如果前一个线程还没执行完毕，则当前线程便插入等候队列中。  等候队列ReentrantLo">
@@ -370,8 +370,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
+                  <a href="/categories/Java并发/" itemprop="url" rel="index">
+                    <span itemprop="name">Java并发</span>
                   </a>
                 </span>
 
@@ -603,7 +603,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
