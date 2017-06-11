@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[Java设计模式——工厂模式]]></title>
-    <url>%2F2017%2F06%2F10%2Fjava%2FJava%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E2%80%94%E2%80%94%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F%2F</url>
-    <content type="text"><![CDATA[工厂模式是最常见的一种设计模式之一，这种类型的设计模式属于创建型模式，提供了一种创建对象的最佳方式 工厂模式又称静态工厂方法模式，构建一个创建对象实例的工厂方法，创建对象是不会向用户暴露创建逻辑，通过用户传入的具体参数创建不同的对象。 组成： 抽象产品类：它是具体产品类的父类或者实现接口 具体产品类：工厂类创建的对象就是这些具体的产品类 工厂类：负责具体产品的创建，是这个模式的核心。 具体实例： 您需要一辆汽车，可以直接从工厂里面提货，而不用去管这辆汽车是怎么做出来的，以及这个汽车里面的具体实现。 Hibernate 换数据库只需换方言和驱动就可以。 产品类： 123456789101112131415161718192021//shape接口interface Shape&#123; void draw();&#125;//具体的shape实现类Rectangleclass Rectangle implements Shape&#123; public void draw() &#123; System.out.println(this.getClass().getName() + ": draw method!"); &#125;&#125;//具体的shape实现类Circleclass Circle implements Shape&#123; public void draw() &#123; System.out.println(this.getClass().getName() + ": draw method!"); &#125;&#125; 工厂类： 12345678910111213141516//工厂类class Factory&#123; //工厂类中负责创建shape的工厂方法 public Shape createShap(String tag) &#123; if (tag.equals("Rectangle")) &#123; return new Rectangle(); &#125; else if (tag.equals("Circle")) &#123; return new Circle(); &#125; return null; &#125;&#125; 测试类： 123456789101112public class FactoryDemo&#123; public static void main(String[] args) &#123; Factory factory = new Factory(); //通过工厂方法创建一个shape实例 Rectangle Shape rectangle = factory.createShap("Rectangle"); Shape circle = factory.createShap("Circle"); rectangle.draw(); circle.draw(); &#125;&#125;]]></content>
+    <title><![CDATA[Java设计模式——简单工厂模式]]></title>
+    <url>%2F2017%2F06%2F10%2FJava%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%2FJava%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E2%80%94%E2%80%94%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F%2F</url>
+    <content type="text"><![CDATA[工厂模式是最常见的一种设计模式之一，这种类型的设计模式属于创建型模式，提供了一种创建对象的最佳方式 简单工厂模式又称静态工厂方法模式，构建一个创建对象实例的工厂方法，创建对象是不会向用户暴露创建逻辑，通过用户传入的具体参数创建不同的对象。 组成： 抽象产品类：它是具体产品类的父类或者实现接口 具体产品类：工厂类创建的对象就是这些具体的产品类 工厂类：负责具体产品的创建，是这个模式的核心。 具体实例： 您需要一辆汽车，可以直接从工厂里面提货，而不用去管这辆汽车是怎么做出来的，以及这个汽车里面的具体实现。 Hibernate 换数据库只需换方言和驱动就可以。 产品类： 123456789101112131415161718192021//shape接口interface Shape&#123; void draw();&#125;//具体的shape实现类Rectangleclass Rectangle implements Shape&#123; public void draw() &#123; System.out.println(this.getClass().getName() + ": draw method!"); &#125;&#125;//具体的shape实现类Circleclass Circle implements Shape&#123; public void draw() &#123; System.out.println(this.getClass().getName() + ": draw method!"); &#125;&#125; 工厂类： 12345678910111213141516//工厂类class Factory&#123; //工厂类中负责创建shape的工厂方法 public Shape createShap(String tag) &#123; if (tag.equals("Rectangle")) &#123; return new Rectangle(); &#125; else if (tag.equals("Circle")) &#123; return new Circle(); &#125; return null; &#125;&#125; 测试类： 123456789101112public class FactoryDemo&#123; public static void main(String[] args) &#123; Factory factory = new Factory(); //通过工厂方法创建一个shape实例 Rectangle Shape rectangle = factory.createShap("Rectangle"); Shape circle = factory.createShap("Circle"); rectangle.draw(); circle.draw(); &#125;&#125;]]></content>
       <categories>
         <category>Java设计模式</category>
       </categories>
       <tags>
-        <tag>工厂模式</tag>
+        <tag>简单工厂模式</tag>
       </tags>
   </entry>
   <entry>
@@ -72,8 +72,8 @@
         <category>Java并发</category>
       </categories>
       <tags>
-        <tag>并发</tag>
         <tag>threadLocal</tag>
+        <tag>并发</tag>
       </tags>
   </entry>
   <entry>
@@ -84,8 +84,8 @@
         <category>Java并发</category>
       </categories>
       <tags>
-        <tag>lock</tag>
         <tag>并发</tag>
+        <tag>lock</tag>
       </tags>
   </entry>
   <entry>
@@ -256,8 +256,8 @@
         <category>数据结构</category>
       </categories>
       <tags>
-        <tag>排序</tag>
         <tag>查找</tag>
+        <tag>排序</tag>
         <tag>二叉树</tag>
         <tag>链表</tag>
       </tags>
