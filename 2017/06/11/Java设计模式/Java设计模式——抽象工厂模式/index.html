@@ -94,7 +94,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="抽象工程模式," />
 
 
 
@@ -110,12 +110,17 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="huzhiming的博客">
-<meta property="og:url" content="https://huzhiming12.github.io/tags/并发/index.html">
+<meta name="description" content="现实生活中一个工厂可能生产多个产品，而工厂方法模式中一个具体的工厂类只负责生产一种产品，随着产品的逐渐增多工厂类也会随之增多，这显然是不合理的。 抽象工厂模式是在工厂方法模式的基础之上增强了工厂类，一个工厂类可以生产多个产品。 抽象工厂模式组成：  抽象工厂：这是工厂方法模式的核心，是具体工厂必须实现的接口或继承的父类。 具体工厂：负责生产具体的产品实例，实现了抽象工厂接口。 抽象产品：具体产品的">
+<meta name="keywords" content="抽象工程模式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java设计模式——抽象工厂模式">
+<meta property="og:url" content="https://huzhiming12.github.io/2017/06/11/Java设计模式/Java设计模式——抽象工厂模式/index.html">
 <meta property="og:site_name" content="huzhiming的博客">
+<meta property="og:description" content="现实生活中一个工厂可能生产多个产品，而工厂方法模式中一个具体的工厂类只负责生产一种产品，随着产品的逐渐增多工厂类也会随之增多，这显然是不合理的。 抽象工厂模式是在工厂方法模式的基础之上增强了工厂类，一个工厂类可以生产多个产品。 抽象工厂模式组成：  抽象工厂：这是工厂方法模式的核心，是具体工厂必须实现的接口或继承的父类。 具体工厂：负责生产具体的产品实例，实现了抽象工厂接口。 抽象产品：具体产品的">
+<meta property="og:updated_time" content="2017-06-11T07:28:10.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="huzhiming的博客">
+<meta name="twitter:title" content="Java设计模式——抽象工厂模式">
+<meta name="twitter:description" content="现实生活中一个工厂可能生产多个产品，而工厂方法模式中一个具体的工厂类只负责生产一种产品，随着产品的逐渐增多工厂类也会随之增多，这显然是不合理的。 抽象工厂模式是在工厂方法模式的基础之上增强了工厂类，一个工厂类可以生产多个产品。 抽象工厂模式组成：  抽象工厂：这是工厂方法模式的核心，是具体工厂必须实现的接口或继承的父类。 具体工厂：负责生产具体的产品实例，实现了抽象工厂接口。 抽象产品：具体产品的">
 
 
 
@@ -143,13 +148,13 @@
 
 
 
-  <link rel="canonical" href="https://huzhiming12.github.io/tags/并发/"/>
+  <link rel="canonical" href="https://huzhiming12.github.io/2017/06/11/Java设计模式/Java设计模式——抽象工厂模式/"/>
 
 
 
 
 
-  <title>标签: 并发 | huzhiming的博客</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>Java设计模式——抽象工厂模式 | huzhiming的博客</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -175,7 +180,7 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left  ">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -303,100 +308,224 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h1>并发<small>标签</small>
-      </h1>
-    </div>
-
+  <div id="posts" class="posts-expand">
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/05/19/java/ThreadLocal/" itemprop="url">
-              
-                <span itemprop="name">ThreadLocal</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-05-19T09:56:47+08:00"
-              content="2017-05-19" >
-          05-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/05/18/java/ReentrantLock/" itemprop="url">
-              
-                <span itemprop="name">ReentrantLock简介</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-05-18T14:06:47+08:00"
-              content="2017-05-18" >
-          05-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/05/17/java/Synchronized/" itemprop="url">
-              
-                <span itemprop="name">Synchronized</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-05-17T16:38:44+08:00"
-              content="2017-05-17" >
-          05-17
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-  </div>
 
   
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://huzhiming12.github.io/2017/06/11/Java设计模式/Java设计模式——抽象工厂模式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Huzhiming">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="huzhiming的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Java设计模式——抽象工厂模式</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-11T12:07:14+08:00">
+                2017-06-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java设计模式/" itemprop="url" rel="index">
+                    <span itemprop="name">Java设计模式</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/06/11/Java设计模式/Java设计模式——抽象工厂模式/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/06/11/Java设计模式/Java设计模式——抽象工厂模式/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>现实生活中一个工厂可能生产多个产品，而工厂方法模式中一个具体的工厂类只负责生产一种产品，随着产品的逐渐增多工厂类也会随之增多，这显然是不合理的。</p>
+<p>抽象工厂模式是在工厂方法模式的基础之上增强了工厂类，一个工厂类可以生产多个产品。</p>
+<p>抽象工厂模式组成：</p>
+<ol>
+<li>抽象工厂：这是工厂方法模式的核心，是具体工厂必须实现的接口或继承的父类。</li>
+<li>具体工厂：负责生产具体的产品实例，实现了抽象工厂接口。</li>
+<li>抽象产品：具体产品的父类或必须实现的接口，定义了产品必须含有的方法或属性</li>
+<li>具体产品类：这是具体工厂创建的实例。</li>
+</ol>
+<p>产品类：Button</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Button</span></span></div><div class="line">&#123;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">btnClick</span><span class="params">()</span></span>;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">WinButton</span> <span class="keyword">implements</span> <span class="title">Button</span></span></div><div class="line">&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">btnClick</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        System.out.println(<span class="string">"Windos button clicked!"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">LinuxButton</span> <span class="keyword">implements</span> <span class="title">Button</span></span></div><div class="line">&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">btnClick</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        System.out.println(<span class="string">"Linux button clicked!"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>产品类：Text</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Text</span></span></div><div class="line">&#123;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">textWrite</span><span class="params">()</span></span>;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">WinText</span> <span class="keyword">implements</span> <span class="title">Text</span></span></div><div class="line">&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">textWrite</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        System.out.println(<span class="string">"windows text written!"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">LinuxText</span> <span class="keyword">implements</span> <span class="title">Text</span></span></div><div class="line">&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">textWrite</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        System.out.println(<span class="string">"Linux text written!"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>工厂类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">ComponentFactory</span></span></div><div class="line">&#123;</div><div class="line">    <span class="function">Button <span class="title">createButton</span><span class="params">()</span></span>;</div><div class="line">    <span class="function">Text <span class="title">createText</span><span class="params">()</span></span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">//window组件制造工厂</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">WindowsFactory</span> <span class="keyword">implements</span> <span class="title">ComponentFactory</span></span></div><div class="line">&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> Button <span class="title">createButton</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> WinButton();</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> Text <span class="title">createText</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> WinText();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">//Linux组件制造工厂</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">LinuxFactory</span> <span class="keyword">implements</span> <span class="title">ComponentFactory</span></span></div><div class="line">&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> Button <span class="title">createButton</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> LinuxButton();</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> Text <span class="title">createText</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> LinuxText();</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>测试类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AbstractFactoryDemo</span></span></div><div class="line">&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></div><div class="line">    &#123;</div><div class="line">        ComponentFactory linuxFactory = <span class="keyword">new</span> LinuxFactory();</div><div class="line">        ComponentFactory windowsFactory = <span class="keyword">new</span> WindowsFactory();</div><div class="line">        Button winButton = windowsFactory.createButton();</div><div class="line">        Button linuxButton = linuxFactory.createButton();</div><div class="line">        winButton.btnClick();</div><div class="line">        linuxButton.btnClick();</div><div class="line">        Text winText = windowsFactory.createText();</div><div class="line">        Text linuxText = linuxFactory.createText();</div><div class="line">        winText.textWrite();</div><div class="line">        linuxText.textWrite();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>工厂方法模式和抽象工厂模式对比</strong></p>
+<ol>
+<li>首先两者都有抽象的工厂类、具体的工厂类、抽象的产品类和具体的产品类</li>
+<li>工厂方法模式只有一个产品类，而抽象工厂模式中有多个产品类</li>
+<li>工厂方法模式中一个具体的工厂类只能生产一个具体产品类；而在抽象工厂模式中，一个共产类可以生产出多个具体的产品类。</li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatimg.jpg" alt="Huzhiming WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipayimg.jpg" alt="Huzhiming Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/抽象工程模式/" rel="tag"># 抽象工程模式</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/11/Java设计模式/Java设计模式——工厂方法模式/" rel="next" title="Java设计模式——工厂方法模式">
+                <i class="fa fa-chevron-left"></i> Java设计模式——工厂方法模式
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -404,6 +533,17 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -624,6 +764,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
 
   
 
@@ -641,6 +785,18 @@
       <script id="dsq-count-scr" src="https://https-huzhiming12-github-io.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://huzhiming12.github.io/2017/06/11/Java设计模式/Java设计模式——抽象工厂模式/';
+          this.page.identifier = '2017/06/11/Java设计模式/Java设计模式——抽象工厂模式/';
+          this.page.title = 'Java设计模式——抽象工厂模式';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://https-huzhiming12-github-io.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   
