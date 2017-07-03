@@ -226,8 +226,8 @@
         <category>Java并发</category>
       </categories>
       <tags>
-        <tag>并发</tag>
         <tag>threadLocal</tag>
+        <tag>并发</tag>
       </tags>
   </entry>
   <entry>
