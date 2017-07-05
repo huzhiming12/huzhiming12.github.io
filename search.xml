@@ -234,8 +234,8 @@
         <category>Java并发</category>
       </categories>
       <tags>
-        <tag>threadLocal</tag>
         <tag>并发</tag>
+        <tag>threadLocal</tag>
       </tags>
   </entry>
   <entry>
@@ -429,8 +429,8 @@
         <category>数据结构</category>
       </categories>
       <tags>
-        <tag>查找</tag>
         <tag>排序</tag>
+        <tag>查找</tag>
         <tag>二叉树</tag>
         <tag>链表</tag>
       </tags>
