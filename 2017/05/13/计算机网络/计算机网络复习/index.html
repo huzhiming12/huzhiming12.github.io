@@ -1,0 +1,1447 @@
+<!doctype html>
+
+
+
+
+<html class="theme-next pisces" lang="zh-Hans">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+  
+  
+  <link rel="stylesheet" media="all" href="/lib/Han/dist/han.min.css?v=3.3">
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/head.jpeg?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="因特网组成（一）边缘部分 客户-服务器方式 对等连接方式（P2P）:两个主机通信时不区分哪个是服务请求方还是服务提供方。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机网络知识点">
+<meta property="og:url" content="https://huzhiming12.github.io/2017/05/13/计算机网络/计算机网络复习/index.html">
+<meta property="og:site_name" content="huzhiming的博客">
+<meta property="og:description" content="因特网组成（一）边缘部分 客户-服务器方式 对等连接方式（P2P）:两个主机通信时不区分哪个是服务请求方还是服务提供方。">
+<meta property="og:image" content="https://huzhiming12.github.io/2017/05/13/计算机网络/计算机网络复习/pic.png">
+<meta property="og:image" content="https://huzhiming12.github.io/2017/05/13/计算机网络/计算机网络复习/pic1.png">
+<meta property="og:image" content="https://huzhiming12.github.io/2017/05/13/计算机网络/计算机网络复习/pic2.png">
+<meta property="og:updated_time" content="2017-05-14T05:27:55.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="计算机网络知识点">
+<meta name="twitter:description" content="因特网组成（一）边缘部分 客户-服务器方式 对等连接方式（P2P）:两个主机通信时不区分哪个是服务请求方还是服务提供方。">
+<meta name="twitter:image" content="https://huzhiming12.github.io/2017/05/13/计算机网络/计算机网络复习/pic.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":true},
+    fancybox: true,
+    motion: false,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://huzhiming12.github.io/2017/05/13/计算机网络/计算机网络复习/"/>
+
+
+
+
+
+  <title>计算机网络知识点 | huzhiming的博客</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">huzhiming的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Everything is possible</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://huzhiming12.github.io/2017/05/13/计算机网络/计算机网络复习/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Huzhiming">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="huzhiming的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">计算机网络知识点</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-13T21:11:42+08:00">
+                2017-05-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/计算机网络/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机网络</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/05/13/计算机网络/计算机网络复习/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/05/13/计算机网络/计算机网络复习/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="因特网组成"><a href="#因特网组成" class="headerlink" title="因特网组成"></a>因特网组成</h3><h4 id="（一）边缘部分"><a href="#（一）边缘部分" class="headerlink" title="（一）边缘部分"></a>（一）边缘部分</h4><ul>
+<li>客户-服务器方式</li>
+<li>对等连接方式（P2P）:两个主机通信时不区分哪个是服务请求方还是服务提供方。</li>
+</ul>
+<a id="more"></a>
+<h4 id="（二）核心部分"><a href="#（二）核心部分" class="headerlink" title="（二）核心部分"></a>（二）核心部分</h4><ul>
+<li>路由器：实现分组交换的关键构建，其任务是转发收到的分组。<ul>
+<li>电路交换：建立连接（占用通信资源）——&gt;通话（占用通信资源）——&gt;释放链接（归还通信资源）</li>
+<li>分组交换：采用存储转发方式，把数据报文划分成等长的数据，每组数据前加上必要的控制信息组成的包头构成一组报文。单个分组传送到相邻结点，存储下来后查找转发表。转发到下一个结点。</li>
+<li>报文交换：整个报文先传到相邻的结点，全部信息存储下来后查找转发表，转发到下一个结点。</li>
+</ul>
+</li>
+</ul>
+<h3 id="计算机网络的分类"><a href="#计算机网络的分类" class="headerlink" title="计算机网络的分类"></a>计算机网络的分类</h3><h4 id="（一）按网络的作用范围划分"><a href="#（一）按网络的作用范围划分" class="headerlink" title="（一）按网络的作用范围划分"></a>（一）按网络的作用范围划分</h4><ul>
+<li>广域网</li>
+<li>城域网</li>
+<li>局域网</li>
+</ul>
+<h4 id="（二）按使用者划分"><a href="#（二）按使用者划分" class="headerlink" title="（二）按使用者划分"></a>（二）按使用者划分</h4><ul>
+<li>公用网</li>
+<li>专用网</li>
+</ul>
+<p>###计算机网络体系结构</p>
+<p>​    </p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">应用层</th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">表示层</td>
+<td style="text-align:center">应用层</td>
+<td style="text-align:center">应用层</td>
+</tr>
+<tr>
+<td style="text-align:center">回话层</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">运输层</td>
+<td style="text-align:center">运输层</td>
+<td style="text-align:center">运输层</td>
+</tr>
+<tr>
+<td style="text-align:center">网络层</td>
+<td style="text-align:center">网际层IP</td>
+<td style="text-align:center">网络层</td>
+</tr>
+<tr>
+<td style="text-align:center">数据链路层</td>
+<td style="text-align:center">网络接口层</td>
+<td style="text-align:center">数据链路层</td>
+</tr>
+<tr>
+<td style="text-align:center">物理层</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">物理层</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>OSI七层协议</strong></td>
+<td style="text-align:center"><strong>TCP/IP四层协议</strong></td>
+<td style="text-align:center"><strong>五层协议</strong></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="物理层"><a href="#物理层" class="headerlink" title="物理层"></a>物理层</h3><h5 id="信道与电路"><a href="#信道与电路" class="headerlink" title="信道与电路"></a>信道与电路</h5><p>信道一般表示某一个方向传送信息的媒体，而一条通信线路往往包含一条发送信道和一条接收信道。</p>
+<h5 id="通信的三种基本方式"><a href="#通信的三种基本方式" class="headerlink" title="通信的三种基本方式"></a>通信的三种基本方式</h5><ul>
+<li>单线通信（单工通信）：只能有一个方向的通信而没有反方向的交互。</li>
+<li>双向交替通信（半双工通信）：双方都可以发送信息，但不能双方同时发送（也不能同时接收）。</li>
+<li>双向同时通信（全双工通信）：双方可以同时发送和接收消息。</li>
+</ul>
+<h5 id="信道复用技术"><a href="#信道复用技术" class="headerlink" title="信道复用技术"></a>信道复用技术</h5><ul>
+<li>频分复用：频分复用的所有用户在同样的时间占用不同的带宽资源</li>
+<li>时分复用：时分复用的所用用户是在不同的时间占用同样的频带宽度</li>
+</ul>
+<hr>
+<h3 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h3><h4 id="三个基本问题"><a href="#三个基本问题" class="headerlink" title="三个基本问题"></a>三个基本问题</h4><ul>
+<li>封装成帧：在一段数据的前后分别添加首部和尾部构成数据帧。首部加SOH尾部加EOT</li>
+<li>透明传输：表示无论什么样的比特组合的数据都能通过这个数据链路层。如果数据中出现SOH和EOT就在前面加上转义字符“ESC”，如果数据中出现转义字符，就再前面再加一个转义字符。接收端看到有转义字符就将前面的转义字符删掉。</li>
+<li>差错检测：传输过程中容易发生错误，需要对数据进行检验。数据链路层广泛使用<strong>循环冗余检验</strong>（CRC）</li>
+</ul>
+<h5 id="循环冗余检验（CRC-cyclic-redundancy-check）"><a href="#循环冗余检验（CRC-cyclic-redundancy-check）" class="headerlink" title="循环冗余检验（CRC cyclic redundancy check）"></a>循环冗余检验（CRC cyclic redundancy check）</h5><ul>
+<li><p>数据M*2^n,即在数据M后面加上n个0。列如11001101，假设n=3 —》 11001101000。</p>
+</li>
+<li><p>对做乘法后的数据M除以事先商量的除数。除数长度是n+1.除数p(X)叫做生成多项式。常用的生成多项式有如下：</p>
+<ul>
+<li>CRC8=X^8+X^5+X^4+X^0</li>
+<li>CRC-CCITT=X^16+X^12+X^5+X^0</li>
+<li>CRC16=X^16+X^15+X^2+X^0</li>
+<li>CRC12=X^12+X^11+X^3+X^2+X^0</li>
+<li>CRC32=X^32+X^26+X^23+X^22+X^16+X^12+X^11+X^10+X^8+X^7+X^5+X^4+X^2+X^1+X^0</li>
+</ul>
+<p>如果数据M=10101001，多项式选用CRC8，则除数p=110001。除数选定之后长度是6位，所以n=6-1=5,即数据M后面加上5个0。</p>
+</li>
+<li><p>用数据M除以P，除的过程中采用模2运算。模2运算中的加减法都不考虑借位和进位列如：1111+1010=0101.</p>
+</li>
+<li><p>得到的余数R就作为冗余码拼接到数据M的后面发送出去。这种为了检错而添加的冗余码称为<strong>帧检验序列(FCS)</strong> </p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">    		 <span class="number">10001110</span></div><div class="line">      ----------------------</div><div class="line"><span class="number">110001</span>) <span class="number">1100110100000</span></div><div class="line">        <span class="number">110001</span></div><div class="line">       ------------</div><div class="line">         <span class="number">000100</span></div><div class="line">         <span class="number">000000</span></div><div class="line">       ------------</div><div class="line">          <span class="number">001001</span></div><div class="line">          <span class="number">000000</span></div><div class="line">       ------------</div><div class="line">           <span class="number">010010</span></div><div class="line">           <span class="number">000000</span></div><div class="line">       ------------</div><div class="line">            <span class="number">100100</span></div><div class="line">            <span class="number">110001</span></div><div class="line">       ------------</div><div class="line">             <span class="number">101010</span></div><div class="line">             <span class="number">110001</span></div><div class="line">       ------------</div><div class="line">              <span class="number">110110</span></div><div class="line">              <span class="number">110001</span></div><div class="line">       --------------</div><div class="line">               <span class="number">001110</span></div><div class="line">               <span class="number">000000</span></div><div class="line">        --------------</div><div class="line">                <span class="number">01110</span> &lt;---R(余数)，作为FCS</div></pre></td></tr></table></figure>
+<h5 id="循环冗余检验（CRC）和帧检验序列（FCS）的区别"><a href="#循环冗余检验（CRC）和帧检验序列（FCS）的区别" class="headerlink" title="循环冗余检验（CRC）和帧检验序列（FCS）的区别"></a>循环冗余检验（CRC）和帧检验序列（FCS）的区别</h5><p>CRC是一种检错方法，FCS是添加在数据后面的冗余码</p>
+<p>数据链路层如果仅采用循环冗余检验CRC差错检验技术的话，可以这么认为<strong>凡是接收端在数据链路层接收到的数据帧均无差错。</strong></p>
+<h4 id="点对点协议（PPP）"><a href="#点对点协议（PPP）" class="headerlink" title="点对点协议（PPP）"></a>点对点协议（PPP）</h4><h5 id="透明传输问题"><a href="#透明传输问题" class="headerlink" title="透明传输问题"></a>透明传输问题</h5><ul>
+<li>异步传输<ul>
+<li>将信息字段中出现的每一个 0x7E 字节转变成为 2 字节序列(0x7D, 0x5E)</li>
+<li>若信息字段中出现一个 0x7D 的字节, 则将其转变成为 2 字节序列(0x7D, 0x5D)<ul>
+<li>若信息字段中出现 ASCII 码的控制字符(0x0a，即数值小于 0x20 的字符)，则将其转变成为 2 字节序列(0x7D, 0x2a)，如0x03 变为 (0x7D, 0x23)    </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>同步传输<ul>
+<li>发送端，只要发现有 5 个连续 1，则立即填入一个 0。接收端对帧中的比特流进行扫描。每当发现 5 个连续1时，就把这 5 个连续 1 后的一个 0 删除</li>
+</ul>
+</li>
+</ul>
+<h4 id="使用广播信道的数据链路层"><a href="#使用广播信道的数据链路层" class="headerlink" title="使用广播信道的数据链路层"></a>使用广播信道的数据链路层</h4><h5 id="CSMA-CD（载波监听多点接入-碰撞检测）"><a href="#CSMA-CD（载波监听多点接入-碰撞检测）" class="headerlink" title="CSMA/CD（载波监听多点接入/碰撞检测）"></a>CSMA/CD（载波监听多点接入/碰撞检测）</h5><ul>
+<li>多点接入：表示许多计算机以多点接入的方式<br>连接在一根总线上</li>
+<li>载波监听：是指每一个站在发送数据之前先要检测一下总线上是否有其他计算机在发送数据，如果有，则暂时不要发送数据，以免发生碰撞。<ul>
+<li>碰撞检测：计算机边发送数据边检测信道上的信号电压大小    </li>
+</ul>
+</li>
+</ul>
+<h6 id="争用期"><a href="#争用期" class="headerlink" title="争用期"></a>争用期</h6><p>​    以太网的端到端往返时延 2τ 称为争用期，或碰撞窗口。经过争用期还没检测到碰撞，才能肯定这次发送不会发生碰撞</p>
+<h6 id="二进制指数类型退避算法"><a href="#二进制指数类型退避算法" class="headerlink" title="二进制指数类型退避算法"></a>二进制指数类型退避算法</h6><ul>
+<li>基本退避时间，2τ</li>
+<li>重传所需时延从{0，1，……，2^k^ -1}中选择。其中k=min{重传次数，10}，当重传次数大于10的时候，k=10;</li>
+<li>当重传次数达到16次仍然不能成功时，应丢弃该帧。</li>
+<li>例如重传次数=3，{0，1，2，3，4，5，6，7} 从这些数字中选择一个。</li>
+</ul>
+<h6 id="争用期长度"><a href="#争用期长度" class="headerlink" title="争用期长度"></a>争用期长度</h6><ul>
+<li>以太网取51.2    μs 为争用期的长度</li>
+<li>对于 10 Mb/s 以太网，在争用期内可发送512 bit，即 64 字节<ul>
+<li>以太网在发送数据时，若前 64 字节没有发生冲突，则后续的数据就不会发生冲突    </li>
+</ul>
+</li>
+</ul>
+<h6 id="最短有效帧长"><a href="#最短有效帧长" class="headerlink" title="最短有效帧长"></a>最短有效帧长</h6><p>以太网规定了最短有效帧长为 64 字节，凡长度小于 64 字节的帧都是由于冲突而异常中止的无效帧</p>
+<h6 id="强化碰撞"><a href="#强化碰撞" class="headerlink" title="强化碰撞"></a>强化碰撞</h6><p>当发送数据的站一旦发生碰撞，立即停止发送数据，再继续发送若干比特的人为干扰信号，强化碰撞</p>
+<hr>
+<h3 id="网络层（网际层IP）"><a href="#网络层（网际层IP）" class="headerlink" title="网络层（网际层IP）"></a>网络层（网际层IP）</h3><p>地址解析协议（ARP）、网际控制报文协议（ICMP）、网际组管理协议（IGMP）</p>
+<h4 id="IP地址的分类"><a href="#IP地址的分类" class="headerlink" title="IP地址的分类"></a>IP地址的分类</h4><p>A类地址：以0开头，第一个字节范围：0~127；网络号8位，主机号24位  子网掩码255.0.0.0</p>
+<p>B类地址：以10开头，第一个字节范围：128~191；网络号16位，主机号16位  子网掩码255.255.0.0</p>
+<p>C类地址：以110开头，第一个字节范围：192~223；网络号24位，主机号8位  子网掩码255.255.255.0</p>
+<p>D类地址：以1110开头，第一个字节范围为224~239；多播地址</p>
+<h4 id="无分类编址"><a href="#无分类编址" class="headerlink" title="无分类编址"></a>无分类编址</h4><p>192.168.34.256/16:表示前16位是网络前缀，后面16位是主机号。/后面表示网络前缀占的位数</p>
+<p>IP={《网络前缀》,《主机号》}</p>
+<p>子网掩码1的个数与网络前缀的个数相同。</p>
+<h4 id="IP数据报的格式"><a href="#IP数据报的格式" class="headerlink" title="IP数据报的格式"></a>IP数据报的格式</h4><ul>
+<li>一个IP数据报有首部和数据两部分组成</li>
+<li>首部的前一部分是固定长度，共20字节，是所有IP数据报必须具有的。</li>
+<li>在首部的固定部分的后面是一些可选字段，其长度是可变的。</li>
+</ul>
+<p><img src="/2017/05/13/计算机网络/计算机网络复习/pic.png" alt="pic"></p>
+<ul>
+<li>版本号4位，指IP协议的版本，目前是4（ipv4）</li>
+<li>首部长度4位，可表示的最大值是15，1个单位是4字节，因此首部最长可以是60字节</li>
+<li>区分服务8位，一般不使用</li>
+<li>总长度16位，值首部和数据的总长度，单位字节。最大长度是65535，但是不能超过最大传送单元MTU</li>
+<li>标识16位，用来产生数据报的标识</li>
+<li>标志3位，第一位没用；第二位DF，DF=0时才允许有分片；第三位MF，MF=1后面有分片，MF=0后面没有分片</li>
+<li>片偏移12位，该片在原数据段中的位置，以8字节为单位。</li>
+<li>生存时间8位，数据报在网络中可通过的路由器数</li>
+</ul>
+<h4 id="地址解析协议（ARP）"><a href="#地址解析协议（ARP）" class="headerlink" title="地址解析协议（ARP）"></a>地址解析协议（ARP）</h4><p>已知一个机器的IP地址，需要寻找其相应的硬件地址(Mac地址)。</p>
+<p><strong>ARP高速缓存</strong>：每一个主机都设有一个ARP高速缓存，里面存放了本局域网上的各个主机和路由器的IP地址到硬件地址的映射表。</p>
+<p>注意：ARP是解决同一个局域网上的主机或路由的IP地址和硬件地址的映射问题。</p>
+<h4 id="子网划分"><a href="#子网划分" class="headerlink" title="子网划分"></a>子网划分</h4><p>IP地址原先分为网络号和主机号</p>
+<p>子网划分就是将主机号划分为子网号和主机号。</p>
+<p>IP地址={《网络号》,《子网号》,《主机号》}；</p>
+<p><strong>子网掩码作用：</strong>把子网掩码和IP地址做与(AND)运算就得出该IP的网络地址。网络地址就是该设备所在网络中的唯一确定地址。</p>
+<p>例题：已知IP地址是141.14.72.24，子网掩码是255.255.192.0，求网络地址</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="number">141.1</span> <span class="number">4.01001000</span>.24</div><div class="line"><span class="number">255.255</span>.11000000.0</div><div class="line">------------------- 与运算</div><div class="line"><span class="number">141.1</span> <span class="number">4.01000000</span>.24  --&gt;<span class="number">141.14</span>.64.0(网络地址)</div><div class="line">这个IP是B类地址，网络号<span class="number">16</span>位、子网号<span class="number">2</span>位、主机号<span class="number">14</span>位。</div></pre></td></tr></table></figure>
+<h5 id="无分类编址CIDR"><a href="#无分类编址CIDR" class="headerlink" title="无分类编址CIDR"></a>无分类编址CIDR</h5><p>IP地址={&lt;网络前缀&gt;，&lt;主机号&gt;}</p>
+<p>CIDR还使用斜线记法，在IP地址后面加上“/”，同时后面接上网络前缀的所占位数。</p>
+<p>128.14.12.0/20—— 表示的地址块有2^12^个地址，斜线后面的20表示网络前缀的位数。</p>
+<h4 id="因特网路由选择协议"><a href="#因特网路由选择协议" class="headerlink" title="因特网路由选择协议"></a>因特网路由选择协议</h4><h5 id="内部网关协议RIP"><a href="#内部网关协议RIP" class="headerlink" title="内部网关协议RIP"></a>内部网关协议RIP</h5><h5 id="内部网关协议OSPF"><a href="#内部网关协议OSPF" class="headerlink" title="内部网关协议OSPF"></a>内部网关协议OSPF</h5><p>OSPF（open shortest path first）:开放最短路径优先</p>
+<hr>
+<h3 id="运输层"><a href="#运输层" class="headerlink" title="运输层"></a>运输层</h3><h4 id="用户数据报协议UDP"><a href="#用户数据报协议UDP" class="headerlink" title="用户数据报协议UDP"></a>用户数据报协议UDP</h4><h4 id="TCP传输控制协议"><a href="#TCP传输控制协议" class="headerlink" title="TCP传输控制协议"></a>TCP传输控制协议</h4><p>建立连接：</p>
+<p><img src="/2017/05/13/计算机网络/计算机网络复习/pic1.png" alt=""></p>
+<p>释放连接：</p>
+<p><img src="/2017/05/13/计算机网络/计算机网络复习/pic2.png" alt=""></p>
+<h4 id="linux下侦测主机到目的主机之前所经过的路由的命令。"><a href="#linux下侦测主机到目的主机之前所经过的路由的命令。" class="headerlink" title="linux下侦测主机到目的主机之前所经过的路由的命令。"></a>linux下侦测主机到目的主机之前所经过的路由的命令。</h4><ul>
+<li><strong>traceroute</strong> ：命令用来探测路由经过.. </li>
+<li><strong>ping</strong> ：命令用来检测两部主机之间的传输信道是否畅通，或远程主机是否正常.. </li>
+<li><strong>route</strong>：命令用来显示目前本机路由表的内容，并且还可以针对路由表中的记录来进行相应的添加、删除或修改等操作。 </li>
+<li><strong>ifconfig</strong>：命令用来来检测和设置本机的网络接口。</li>
+</ul>
+<h4 id="TCP和UDP的区别和应用场景"><a href="#TCP和UDP的区别和应用场景" class="headerlink" title="TCP和UDP的区别和应用场景"></a>TCP和UDP的区别和应用场景</h4><table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">TCP</th>
+<th style="text-align:center">UDP</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">连接性</td>
+<td style="text-align:center">面向连接的</td>
+<td style="text-align:center">无连接的</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">可靠性</td>
+<td style="text-align:center">可靠的</td>
+<td style="text-align:center">不可靠</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">报文</td>
+<td style="text-align:center">面向字节流</td>
+<td style="text-align:center">面向报文（保留报文边界）</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">效率</td>
+<td style="text-align:center">低</td>
+<td style="text-align:center">高</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">双工性</td>
+<td style="text-align:center">全双工</td>
+<td style="text-align:center">一对一、一对多、多对一、多对多</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">流量控制</td>
+<td style="text-align:center">有（滑动窗口）</td>
+<td style="text-align:center">无</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">拥塞控制</td>
+<td style="text-align:center">有（慢开始、拥塞避免、快重传、快恢复）</td>
+<td style="text-align:center">无</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">传输速度</td>
+<td style="text-align:center">慢</td>
+<td style="text-align:center">快</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">应用场合</td>
+<td style="text-align:center">对效率要求相对低的，但对准确性要求相对高；或者是要有连接的场景</td>
+<td style="text-align:center">对效率要求相对高，对准确性要求相对低的场景</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">应用示例</td>
+<td style="text-align:center">TCP一般用于文件传输（FTP、http对数据准确性要求高，速度可以相对慢）；发送接收邮件（pop，SMTP,IMAP 对数据准确性要求高，非紧急应用）；远程登录（Telnet，SSH 有连接）等等</td>
+<td style="text-align:center">UDP一般用于即时通信（QQ，对数据准确性和丢包要求比较低，但速度必须快）；在线视频（速度一定要快，保证视频的连续性，但是偶尔花了一个图像帧用户还是能接受的）；网络电话等</td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatimg.jpg" alt="Huzhiming WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipayimg.jpg" alt="Huzhiming Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/13/hexo/hexo-文章中插入图片问题/" rel="next" title="hexo 文章中插入图片问题">
+                <i class="fa fa-chevron-left"></i> hexo 文章中插入图片问题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/13/计算机网络/http和https的区别/" rel="prev" title="http和https的区别">
+                http和https的区别 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/head.jpeg"
+               alt="Huzhiming" />
+          <p class="site-author-name" itemprop="name">Huzhiming</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">39</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">48</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/huzhiming12" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#因特网组成"><span class="nav-number">1.</span> <span class="nav-text">因特网组成</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#（一）边缘部分"><span class="nav-number">1.1.</span> <span class="nav-text">（一）边缘部分</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#（二）核心部分"><span class="nav-number">1.2.</span> <span class="nav-text">（二）核心部分</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计算机网络的分类"><span class="nav-number">2.</span> <span class="nav-text">计算机网络的分类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#（一）按网络的作用范围划分"><span class="nav-number">2.1.</span> <span class="nav-text">（一）按网络的作用范围划分</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#（二）按使用者划分"><span class="nav-number">2.2.</span> <span class="nav-text">（二）按使用者划分</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#物理层"><span class="nav-number">3.</span> <span class="nav-text">物理层</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#信道与电路"><span class="nav-number">3.0.1.</span> <span class="nav-text">信道与电路</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#通信的三种基本方式"><span class="nav-number">3.0.2.</span> <span class="nav-text">通信的三种基本方式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#信道复用技术"><span class="nav-number">3.0.3.</span> <span class="nav-text">信道复用技术</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据链路层"><span class="nav-number">4.</span> <span class="nav-text">数据链路层</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#三个基本问题"><span class="nav-number">4.1.</span> <span class="nav-text">三个基本问题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#循环冗余检验（CRC-cyclic-redundancy-check）"><span class="nav-number">4.1.1.</span> <span class="nav-text">循环冗余检验（CRC cyclic redundancy check）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#循环冗余检验（CRC）和帧检验序列（FCS）的区别"><span class="nav-number">4.1.2.</span> <span class="nav-text">循环冗余检验（CRC）和帧检验序列（FCS）的区别</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#点对点协议（PPP）"><span class="nav-number">4.2.</span> <span class="nav-text">点对点协议（PPP）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#透明传输问题"><span class="nav-number">4.2.1.</span> <span class="nav-text">透明传输问题</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用广播信道的数据链路层"><span class="nav-number">4.3.</span> <span class="nav-text">使用广播信道的数据链路层</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#CSMA-CD（载波监听多点接入-碰撞检测）"><span class="nav-number">4.3.1.</span> <span class="nav-text">CSMA/CD（载波监听多点接入/碰撞检测）</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#争用期"><span class="nav-number">4.3.1.1.</span> <span class="nav-text">争用期</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#二进制指数类型退避算法"><span class="nav-number">4.3.1.2.</span> <span class="nav-text">二进制指数类型退避算法</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#争用期长度"><span class="nav-number">4.3.1.3.</span> <span class="nav-text">争用期长度</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#最短有效帧长"><span class="nav-number">4.3.1.4.</span> <span class="nav-text">最短有效帧长</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#强化碰撞"><span class="nav-number">4.3.1.5.</span> <span class="nav-text">强化碰撞</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网络层（网际层IP）"><span class="nav-number">5.</span> <span class="nav-text">网络层（网际层IP）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#IP地址的分类"><span class="nav-number">5.1.</span> <span class="nav-text">IP地址的分类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#无分类编址"><span class="nav-number">5.2.</span> <span class="nav-text">无分类编址</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IP数据报的格式"><span class="nav-number">5.3.</span> <span class="nav-text">IP数据报的格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#地址解析协议（ARP）"><span class="nav-number">5.4.</span> <span class="nav-text">地址解析协议（ARP）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#子网划分"><span class="nav-number">5.5.</span> <span class="nav-text">子网划分</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#无分类编址CIDR"><span class="nav-number">5.5.1.</span> <span class="nav-text">无分类编址CIDR</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#因特网路由选择协议"><span class="nav-number">5.6.</span> <span class="nav-text">因特网路由选择协议</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#内部网关协议RIP"><span class="nav-number">5.6.1.</span> <span class="nav-text">内部网关协议RIP</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#内部网关协议OSPF"><span class="nav-number">5.6.2.</span> <span class="nav-text">内部网关协议OSPF</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运输层"><span class="nav-number">6.</span> <span class="nav-text">运输层</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#用户数据报协议UDP"><span class="nav-number">6.1.</span> <span class="nav-text">用户数据报协议UDP</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP传输控制协议"><span class="nav-number">6.2.</span> <span class="nav-text">TCP传输控制协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#linux下侦测主机到目的主机之前所经过的路由的命令。"><span class="nav-number">6.3.</span> <span class="nav-text">linux下侦测主机到目的主机之前所经过的路由的命令。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP和UDP的区别和应用场景"><span class="nav-number">6.4.</span> <span class="nav-text">TCP和UDP的区别和应用场景</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Huzhiming</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://https-huzhiming12-github-io.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://huzhiming12.github.io/2017/05/13/计算机网络/计算机网络复习/';
+          this.page.identifier = '2017/05/13/计算机网络/计算机网络复习/';
+          this.page.title = '计算机网络知识点';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://https-huzhiming12-github-io.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (search_path.endsWith("json")) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

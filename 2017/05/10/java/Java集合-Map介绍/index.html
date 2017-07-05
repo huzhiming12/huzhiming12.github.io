@@ -1,0 +1,1270 @@
+<!doctype html>
+
+
+
+
+<html class="theme-next pisces" lang="zh-Hans">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+  
+  
+  <link rel="stylesheet" media="all" href="/lib/Han/dist/han.min.css?v=3.3">
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="HashMap,TreeMap,HashTable," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/head.jpeg?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="HashMap（非线程安全） HashMap底层由一个EntrySet数组构成，每个EntrySet都是一个链表 12345678910111213static class Entry&amp;lt;K,V&amp;gt; implements Map.Entry&amp;lt;K,V&amp;gt; &amp;#123;       final K key;       V value;       Entry&amp;lt;K,V&amp;gt;">
+<meta name="keywords" content="HashMap,TreeMap,HashTable">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java集合_Map介绍">
+<meta property="og:url" content="https://huzhiming12.github.io/2017/05/10/java/Java集合-Map介绍/index.html">
+<meta property="og:site_name" content="huzhiming的博客">
+<meta property="og:description" content="HashMap（非线程安全） HashMap底层由一个EntrySet数组构成，每个EntrySet都是一个链表 12345678910111213static class Entry&amp;lt;K,V&amp;gt; implements Map.Entry&amp;lt;K,V&amp;gt; &amp;#123;       final K key;       V value;       Entry&amp;lt;K,V&amp;gt;">
+<meta property="og:image" content="https://huzhiming12.github.io/2017/05/10/java/Java集合-Map介绍/pic16.png">
+<meta property="og:image" content="https://huzhiming12.github.io/2017/05/10/java/Java集合-Map介绍/pic17.png">
+<meta property="og:image" content="https://huzhiming12.github.io/2017/05/10/java/Java集合-Map介绍/pic18.png">
+<meta property="og:image" content="https://huzhiming12.github.io/2017/05/10/java/Java集合-Map介绍/pic15.png">
+<meta property="og:image" content="https://huzhiming12.github.io/2017/05/10/java/Java集合-Map介绍/pic13.png">
+<meta property="og:image" content="https://huzhiming12.github.io/2017/05/10/java/Java集合-Map介绍/pic14.png">
+<meta property="og:image" content="https://huzhiming12.github.io/2017/05/10/java/Java集合-Map介绍/pic22.png">
+<meta property="og:image" content="https://huzhiming12.github.io/2017/05/10/java/Java集合-Map介绍/pic23.png">
+<meta property="og:updated_time" content="2017-05-21T12:43:17.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java集合_Map介绍">
+<meta name="twitter:description" content="HashMap（非线程安全） HashMap底层由一个EntrySet数组构成，每个EntrySet都是一个链表 12345678910111213static class Entry&amp;lt;K,V&amp;gt; implements Map.Entry&amp;lt;K,V&amp;gt; &amp;#123;       final K key;       V value;       Entry&amp;lt;K,V&amp;gt;">
+<meta name="twitter:image" content="https://huzhiming12.github.io/2017/05/10/java/Java集合-Map介绍/pic16.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":true},
+    fancybox: true,
+    motion: false,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://huzhiming12.github.io/2017/05/10/java/Java集合-Map介绍/"/>
+
+
+
+
+
+  <title>Java集合_Map介绍 | huzhiming的博客</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">huzhiming的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Everything is possible</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://huzhiming12.github.io/2017/05/10/java/Java集合-Map介绍/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Huzhiming">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="huzhiming的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Java集合_Map介绍</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-10T16:22:14+08:00">
+                2017-05-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java基础/" itemprop="url" rel="index">
+                    <span itemprop="name">Java基础</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/05/10/java/Java集合-Map介绍/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/05/10/java/Java集合-Map介绍/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="HashMap（非线程安全）"><a href="#HashMap（非线程安全）" class="headerlink" title="HashMap（非线程安全）"></a>HashMap（非线程安全）</h3><ul>
+<li><p>HashMap底层由一个EntrySet数组构成，每个EntrySet都是一个链表</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Entry</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; <span class="keyword">implements</span> <span class="title">Map</span>.<span class="title">Entry</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; </span>&#123;</div><div class="line">       <span class="keyword">final</span> K key;</div><div class="line">       V value;</div><div class="line">       Entry&lt;K,V&gt; next;</div><div class="line">       <span class="keyword">int</span> hash;</div><div class="line">  		Entry(<span class="keyword">int</span> h, K k, V v, Entry&lt;K,V&gt; n) &#123;</div><div class="line">           value = v;</div><div class="line">           next = n;</div><div class="line">           key = k;</div><div class="line">           hash = h;</div><div class="line">       &#125;</div><div class="line">		 ……</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="/2017/05/10/java/Java集合-Map介绍/pic16.png" alt=""></p>
+</li>
+<li><p>loadFactor，加载因子，默认值是0.75。当map中的元素个数size&gt;=table.length*loadFactor时，hashMap 会进行扩容。如果loadFactor过小，则空间浪费比较严重；若loadFactor过大，则hashmap冲突的概率会加大，造成一些EntrySet链表过长。</p>
+</li>
+<li><p>创建hashMap时可以指定初始容量和加载因子，默认初始容量为16，加载因子为0.75</p>
+</li>
+<li><p>计算元素o 在table数组中的下标，其中h是根据o.key计算的hash值，length是指数组的长度</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">indexFor</span><span class="params">(<span class="keyword">int</span> h, <span class="keyword">int</span> length)</span> </span>&#123;</div><div class="line">      <span class="keyword">return</span> h &amp; (length-<span class="number">1</span>);</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>hashMap中的key和value都可以为null，当key==null时，该元素会放在table下标为0的位置上。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (key == <span class="keyword">null</span>)</div><div class="line">    <span class="keyword">return</span> putForNullKey(value);</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> V <span class="title">putForNullKey</span><span class="params">(V value)</span> </span>&#123;</div><div class="line">    <span class="keyword">for</span> (Entry&lt;K,V&gt; e = table[<span class="number">0</span>]; e != <span class="keyword">null</span>; e = e.next) &#123;</div><div class="line">      		<span class="comment">//如果map中原来已经存在key值为null的元素，则更新value值</span></div><div class="line">            <span class="keyword">if</span> (e.key == <span class="keyword">null</span>) &#123;</div><div class="line">                V oldValue = e.value;</div><div class="line">                e.value = value;</div><div class="line">                e.recordAccess(<span class="keyword">this</span>);</div><div class="line">                <span class="keyword">return</span> oldValue;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        modCount++;</div><div class="line">  		<span class="comment">// hash值为0，key=null  value=value  在table中位置index=0</span></div><div class="line">        addEntry(<span class="number">0</span>, <span class="keyword">null</span>, value, <span class="number">0</span>);</div><div class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>map中添加新元素时，是将元素添加在链表头。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">addEntry</span><span class="params">(<span class="keyword">int</span> hash, K key, V value, <span class="keyword">int</span> bucketIndex)</span> </span>&#123;</div><div class="line">     	<span class="comment">//threshold = table.length * loadFactor  判断是否需要扩容</span></div><div class="line">       <span class="keyword">if</span> ((size &gt;= threshold) &amp;&amp; (<span class="keyword">null</span> != table[bucketIndex])) &#123;</div><div class="line">           resize(<span class="number">2</span> * table.length);</div><div class="line">           hash = (<span class="keyword">null</span> != key) ? hash(key) : <span class="number">0</span>;</div><div class="line">           bucketIndex = indexFor(hash, table.length);</div><div class="line">       &#125;</div><div class="line">       createEntry(hash, key, value, bucketIndex);</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//创建一个新的结点，插入链表头。即创建新元素时是插入链表头的。</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">createEntry</span><span class="params">(<span class="keyword">int</span> hash, K key, V value, <span class="keyword">int</span> bucketIndex)</span> </span>&#123;</div><div class="line">       Entry&lt;K,V&gt; e = table[bucketIndex];</div><div class="line">     	<span class="comment">//table[bucketIndex]表示的是链表头，链表头指向了新建的结点，同时新节点的next指针指向			了原来的链表头结点。</span></div><div class="line">       table[bucketIndex] = <span class="keyword">new</span> Entry&lt;&gt;(hash, key, value, e);</div><div class="line">       size++;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>map扩容是原来table长度的2倍。扩容时，需要遍历原来的map，将每个元素重新计算hash值和在新table的中位置，再放入新的table中。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">transfer</span><span class="params">(Entry[] newTable, <span class="keyword">boolean</span> rehash)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> newCapacity = newTable.length;</div><div class="line">        <span class="keyword">for</span> (Entry&lt;K,V&gt; e : table) &#123;</div><div class="line">            <span class="keyword">while</span>(<span class="keyword">null</span> != e) &#123;</div><div class="line">                Entry&lt;K,V&gt; next = e.next;</div><div class="line">                <span class="keyword">if</span> (rehash) &#123;</div><div class="line">                    e.hash = <span class="keyword">null</span> == e.key ? <span class="number">0</span> : hash(e.key);</div><div class="line">                &#125;</div><div class="line">              	<span class="comment">//计算元素在新table中的位置</span></div><div class="line">                <span class="keyword">int</span> i = indexFor(e.hash, newCapacity);</div><div class="line">              	<span class="comment">//newTable[i]是其中一个链表的链表头</span></div><div class="line">                e.next = newTable[i];</div><div class="line">                newTable[i] = e;</div><div class="line">                e = next;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h3 id="Hashtable-线程安全"><a href="#Hashtable-线程安全" class="headerlink" title="Hashtable(线程安全)"></a>Hashtable(线程安全)</h3><ul>
+<li><p>HashTable是线程安全的容器，而HashMap是非线程安全的</p>
+</li>
+<li><p>HashTable 继承自Dictionary类，该类自Java1.0就已经存在；HashMap继承自<strong>AbstractMap</strong>,这个抽象类是是在1.2才加入的</p>
+</li>
+<li><p>Hashtable 不允许key和value为空值null；HashMap允许key和value为空值null。</p>
+</li>
+<li><p>Hashtable的hash函数不同</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">hash</span><span class="params">(Object k)</span> </span>&#123;</div><div class="line">        <span class="comment">// hashSeed will be zero if alternative hashing is disabled.</span></div><div class="line">        <span class="keyword">return</span> hashSeed ^ k.hashCode();</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>HashTable 默认初始容量是11，加载因子默认是0.75</p>
+</li>
+<li><p>HashTable计算index方法与HashTable不同</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//hashtable 计算index</span></div><div class="line"><span class="keyword">int</span> index = (hash &amp; <span class="number">0x7FFFFFFF</span>) % tab.length;</div><div class="line"><span class="comment">// HashMap 计算下标</span></div><div class="line"><span class="keyword">return</span> h &amp; (length-<span class="number">1</span>);</div></pre></td></tr></table></figure>
+</li>
+<li><p>HashTable扩容时原来table数组长度的两倍加1</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> newCapacity = (oldCapacity &lt;&lt; <span class="number">1</span>) + <span class="number">1</span>;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h3 id="TreeMap-非线程安全"><a href="#TreeMap-非线程安全" class="headerlink" title="TreeMap(非线程安全)"></a>TreeMap(非线程安全)</h3><blockquote>
+<p>Treemap 底层是通过红黑树算法实现的，想要了解TreeMap的实现必须先对红黑树有一定了解，下面先介绍一下红黑树的相关概念</p>
+</blockquote>
+<h4 id="红黑树简介"><a href="#红黑树简介" class="headerlink" title="红黑树简介"></a>红黑树简介</h4><p>红黑树是一种自平衡的二叉查找树，具有二叉树的所有特性。红黑树具有如下五点性质</p>
+<ol>
+<li>结点要么是红色要么是黑色</li>
+<li>根节点是黑色</li>
+<li>每个叶子结点是黑色</li>
+<li>从根节点到叶子结点的所有路径上不能有两个连续的红色结点</li>
+<li>从任一结点到其每个叶子结点的所有路径都包含相同数目的黑色结点</li>
+</ol>
+<p><img src="/2017/05/10/java/Java集合-Map介绍/pic17.png" alt=""></p>
+<p>​                                            红黑树</p>
+<p><img src="/2017/05/10/java/Java集合-Map介绍/pic18.png" alt=""></p>
+<p>​                                  普通二叉树，根节点的左右子树不平衡</p>
+<h4 id="TreeMap介绍"><a href="#TreeMap介绍" class="headerlink" title="TreeMap介绍"></a>TreeMap介绍</h4><h5 id="TreeMap相关定义"><a href="#TreeMap相关定义" class="headerlink" title="TreeMap相关定义"></a>TreeMap相关定义</h5><p>TreeMap中包含信息中比较重要的有如下这些</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//比较器，用于比较结点的大小</span></div><div class="line"><span class="keyword">private</span> <span class="keyword">final</span> Comparator&lt;? <span class="keyword">super</span> K&gt; comparator;</div><div class="line"><span class="comment">//根节点</span></div><div class="line"><span class="keyword">private</span> <span class="keyword">transient</span> Entry&lt;K,V&gt; root = <span class="keyword">null</span>;</div><div class="line"><span class="comment">//元素的个数</span></div><div class="line"><span class="keyword">private</span> <span class="keyword">transient</span> <span class="keyword">int</span> size = <span class="number">0</span>;</div><div class="line"><span class="comment">//map修改次数</span></div><div class="line"><span class="keyword">private</span> <span class="keyword">transient</span> <span class="keyword">int</span> modCount = <span class="number">0</span>;</div></pre></td></tr></table></figure>
+<p>对叶子结点的定义如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">Entry</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; <span class="keyword">implements</span> <span class="title">Map</span>.<span class="title">Entry</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; </span>&#123;</div><div class="line">        K key;</div><div class="line">        V value;</div><div class="line">        Entry&lt;K,V&gt; left = <span class="keyword">null</span>;</div><div class="line">        Entry&lt;K,V&gt; right = <span class="keyword">null</span>;</div><div class="line">        Entry&lt;K,V&gt; parent;</div><div class="line">  		<span class="comment">//新生成的结点都是黑色的</span></div><div class="line">        <span class="keyword">boolean</span> color = BLACK;</div><div class="line">  </div><div class="line">        Entry(K key, V value, Entry&lt;K,V&gt; parent) &#123;</div><div class="line">            <span class="keyword">this</span>.key = key;</div><div class="line">            <span class="keyword">this</span>.value = value;</div><div class="line">            <span class="keyword">this</span>.parent = parent;</div><div class="line">        &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="TreeMap添加元素方法put"><a href="#TreeMap添加元素方法put" class="headerlink" title="TreeMap添加元素方法put"></a>TreeMap添加元素方法put</h5><p>添加元素的时候首先判断root结点是否为空，如果是空直接创建新的结点作为map的根节点；如果不为空，则根据比较器（若创建TreeMap时未指定比价器，则以key的字典序作为比较器）找到元素的位置。寻找元素位置时是对二叉搜索树进行查找，key&gt;node 则查找右子树，key&lt;node查找左子树，key==node 直接更新node的value值。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> V <span class="title">put</span><span class="params">(K key, V value)</span> </span>&#123;</div><div class="line">        Entry&lt;K,V&gt; t = root;</div><div class="line">  		<span class="comment">//根节点为空</span></div><div class="line">        <span class="keyword">if</span> (t == <span class="keyword">null</span>) &#123;</div><div class="line">            compare(key, key); <span class="comment">// type (and possibly null) check</span></div><div class="line">            root = <span class="keyword">new</span> Entry&lt;&gt;(key, value, <span class="keyword">null</span>);</div><div class="line">            size = <span class="number">1</span>;</div><div class="line">            modCount++;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">int</span> cmp;</div><div class="line">        Entry&lt;K,V&gt; parent;</div><div class="line">        <span class="comment">// split comparator and comparable paths</span></div><div class="line">        Comparator&lt;? <span class="keyword">super</span> K&gt; cpr = comparator;</div><div class="line">  		<span class="comment">//创建TreeMap时已经指定比较器</span></div><div class="line">        <span class="keyword">if</span> (cpr != <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">do</span> &#123;</div><div class="line">                parent = t;</div><div class="line">                cmp = cpr.compare(key, t.key);</div><div class="line">              	<span class="comment">//父节点大于新加的结点，则遍历左子树</span></div><div class="line">                <span class="keyword">if</span> (cmp &lt; <span class="number">0</span>)</div><div class="line">                    t = t.left;</div><div class="line">              	<span class="comment">//父节点小于新加结点，则遍历右子树</span></div><div class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (cmp &gt; <span class="number">0</span>)</div><div class="line">                    t = t.right;</div><div class="line">                <span class="keyword">else</span></div><div class="line">               <span class="comment">//父节点等于新加结点，则直接更新父节点的value值</span></div><div class="line">                    <span class="keyword">return</span> t.setValue(value);</div><div class="line">            &#125; <span class="keyword">while</span> (t != <span class="keyword">null</span>); <span class="comment">//循环结束还没找到结点key和新节点key相等，此时parent指向了叶子结点</span></div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">if</span> (key == <span class="keyword">null</span>)</div><div class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> NullPointerException();</div><div class="line">          	<span class="comment">//未指定比较器，则比较器设为字典序</span></div><div class="line">            Comparable&lt;? <span class="keyword">super</span> K&gt; k = (Comparable&lt;? <span class="keyword">super</span> K&gt;) key;</div><div class="line">          	<span class="comment">//结点位置查找过程和上面一样</span></div><div class="line">            <span class="keyword">do</span> &#123;</div><div class="line">                parent = t;</div><div class="line">                cmp = k.compareTo(t.key);</div><div class="line">                <span class="keyword">if</span> (cmp &lt; <span class="number">0</span>)</div><div class="line">                    t = t.left;</div><div class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (cmp &gt; <span class="number">0</span>)</div><div class="line">                    t = t.right;</div><div class="line">                <span class="keyword">else</span></div><div class="line">                    <span class="keyword">return</span> t.setValue(value);</div><div class="line">            &#125; <span class="keyword">while</span> (t != <span class="keyword">null</span>);</div><div class="line">        &#125;</div><div class="line">  		<span class="comment">//如果遍历后还未找到key,则创建新节点，新节点的parent指向前面遍历后的最后一个叶子结点</span></div><div class="line">        Entry&lt;K,V&gt; e = <span class="keyword">new</span> Entry&lt;&gt;(key, value, parent);</div><div class="line">  		<span class="comment">//如果新节点的key小于parent的key,则新节点作为parent的左孩子，反之作为右孩子</span></div><div class="line">        <span class="keyword">if</span> (cmp &lt; <span class="number">0</span>)</div><div class="line">            parent.left = e;</div><div class="line">        <span class="keyword">else</span></div><div class="line">            parent.right = e;</div><div class="line">  		<span class="comment">// 添加完新节点后 需要对这棵树进行调整平衡</span></div><div class="line">        fixAfterInsertion(e);</div><div class="line">        size++;</div><div class="line">        modCount++;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>上面的put方法只是将新节点插入了适当的位置，保证了此时的二叉树是二叉搜树，但它不一是平衡二叉树。所以在插入新节点后有一个修正操作fixAfterInsertion(e)，修正操作就是保证二叉树是平衡二叉树。</p>
+<p><img src="/2017/05/10/java/Java集合-Map介绍/pic15.png" alt=""> 修改后 <img src="/2017/05/10/java/Java集合-Map介绍/pic13.png" alt=""></p>
+<p><img src="/2017/05/10/java/Java集合-Map介绍/pic14.png" alt=""> 修改后  <img src="/2017/05/10/java/Java集合-Map介绍/pic22.png" alt=""> </p>
+<p>最后修改成 <img src="/2017/05/10/java/Java集合-Map介绍/pic23.png" alt=""></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">fixAfterInsertion</span><span class="params">(Entry&lt;K,V&gt; x)</span> </span>&#123;</div><div class="line">  		<span class="comment">//将新插入的结点设为红色</span></div><div class="line">        x.color = RED;</div><div class="line">		<span class="comment">// 循环直到 x不是根结点，且x的父节点不为红色</span></div><div class="line">        <span class="keyword">while</span> (x != <span class="keyword">null</span> &amp;&amp; x != root &amp;&amp; x.parent.color == RED) &#123;</div><div class="line">          	<span class="comment">//如果结点x的父节点P  是P的父节点G的左子树</span></div><div class="line">            <span class="keyword">if</span> (parentOf(x) == leftOf(parentOf(parentOf(x)))) &#123;</div><div class="line">              	</div><div class="line">                Entry&lt;K,V&gt; y = rightOf(parentOf(parentOf(x)));</div><div class="line">                <span class="keyword">if</span> (colorOf(y) == RED) &#123;</div><div class="line">                    setColor(parentOf(x), BLACK);</div><div class="line">                    setColor(y, BLACK);</div><div class="line">                    setColor(parentOf(parentOf(x)), RED);</div><div class="line">                    x = parentOf(parentOf(x));</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    <span class="keyword">if</span> (x == rightOf(parentOf(x))) &#123;</div><div class="line">                        x = parentOf(x);</div><div class="line">                        rotateLeft(x);</div><div class="line">                    &#125;</div><div class="line">                    setColor(parentOf(x), BLACK);</div><div class="line">                    setColor(parentOf(parentOf(x)), RED);</div><div class="line">                    rotateRight(parentOf(parentOf(x)));</div><div class="line">                &#125;</div><div class="line">              <span class="comment">//否则结点x的父节点P  是P父节点G的右子树     G</span></div><div class="line">            &#125; <span class="keyword">else</span> &#123;                          <span class="comment">//    y   P</span></div><div class="line">              	<span class="comment">//                                        x   x可能是左子树也可能是右子树</span></div><div class="line">                Entry&lt;K,V&gt; y = leftOf(parentOf(parentOf(x)));</div><div class="line">                <span class="keyword">if</span> (colorOf(y) == RED) &#123;</div><div class="line">                    setColor(parentOf(x), BLACK);</div><div class="line">                    setColor(y, BLACK);</div><div class="line">                    setColor(parentOf(parentOf(x)), RED);</div><div class="line">                    x = parentOf(parentOf(x));</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                  	<span class="comment">//如果x是P的左孩子</span></div><div class="line">                    <span class="keyword">if</span> (x == leftOf(parentOf(x))) &#123;</div><div class="line">                        x = parentOf(x);</div><div class="line">                        rotateRight(x);</div><div class="line">                    &#125;</div><div class="line">                    setColor(parentOf(x), BLACK);</div><div class="line">                    setColor(parentOf(parentOf(x)), RED);</div><div class="line">                    rotateLeft(parentOf(parentOf(x)));</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        root.color = BLACK;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>TreeMap 查找复杂度是O(logN)，HashMap的查找复杂度是O(1)，查找效率来说HashMap 效率更高。但是TreeMap存储的数据是有序的，而HashMap存储的数据是无序的。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatimg.jpg" alt="Huzhiming WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipayimg.jpg" alt="Huzhiming Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/HashMap/" rel="tag"># HashMap</a>
+          
+            <a href="/tags/TreeMap/" rel="tag"># TreeMap</a>
+          
+            <a href="/tags/HashTable/" rel="tag"># HashTable</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/08/java/Java集合-List介绍/" rel="next" title="Java集合_List介绍">
+                <i class="fa fa-chevron-left"></i> Java集合_List介绍
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/13/布隆过滤器/" rel="prev" title="布隆过滤器">
+                布隆过滤器 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/head.jpeg"
+               alt="Huzhiming" />
+          <p class="site-author-name" itemprop="name">Huzhiming</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">39</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">48</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/huzhiming12" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#HashMap（非线程安全）"><span class="nav-number">1.</span> <span class="nav-text">HashMap（非线程安全）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hashtable-线程安全"><span class="nav-number">2.</span> <span class="nav-text">Hashtable(线程安全)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TreeMap-非线程安全"><span class="nav-number">3.</span> <span class="nav-text">TreeMap(非线程安全)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#红黑树简介"><span class="nav-number">3.1.</span> <span class="nav-text">红黑树简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TreeMap介绍"><span class="nav-number">3.2.</span> <span class="nav-text">TreeMap介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#TreeMap相关定义"><span class="nav-number">3.2.1.</span> <span class="nav-text">TreeMap相关定义</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#TreeMap添加元素方法put"><span class="nav-number">3.2.2.</span> <span class="nav-text">TreeMap添加元素方法put</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Huzhiming</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://https-huzhiming12-github-io.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://huzhiming12.github.io/2017/05/10/java/Java集合-Map介绍/';
+          this.page.identifier = '2017/05/10/java/Java集合-Map介绍/';
+          this.page.title = 'Java集合_Map介绍';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://https-huzhiming12-github-io.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (search_path.endsWith("json")) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
