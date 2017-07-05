@@ -416,8 +416,9 @@
       
         
           
-          Java基础HashMap底层实现hashMap底层存储是用一个Entry数组，数据中每个Entry都是一个链表，当新元素添加时，直接添加到链表头即可。
-hashMap可以设定初始容量，不设定的话初始容量为16，默认加载因子是loadFactor=0.75，当map中的元素个数n&gt;=table.length*0.75时，Map会发生扩容，扩容机制是原来数组长度的两倍：resize(2 * t
+          [TOC]
+Java基础容器HashMap底层实现hashMap底层存储是用一个Entry数组，数据中每个Entry都是一个链表，当新元素添加时，直接添加到链表头即可。
+hashMap可以设定初始容量，不设定的话初始容量为16，默认加载因子是loadFactor=0.75，当map中的元素个数n&gt;=table.length*0.75时，Map会发生扩容，扩容机制是原来数组长度的两倍：resi
           ...
           <!--noindex-->
           <div class="post-button text-center">
