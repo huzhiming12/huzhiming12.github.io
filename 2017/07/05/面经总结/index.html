@@ -117,7 +117,7 @@
 <meta property="og:site_name" content="huzhiming的博客">
 <meta property="og:description" content="[TOC] Java基础Java容器HashMap底层实现hashMap底层存储是用一个Entry数组，数据中每个Entry都是一个链表，当新元素添加时，直接添加到链表头即可。 hashMap可以设定初始容量，不设定的话初始容量为16，默认加载因子是loadFactor=0.75，当map中的元素个数n&amp;gt;=table.length*0.75时，Map会发生扩容，扩容机制是原来数组长度的两倍：">
 <meta property="og:image" content="https://huzhiming12.github.io/2017/07/05/面经总结/pic1.png">
-<meta property="og:updated_time" content="2017-07-05T06:15:23.000Z">
+<meta property="og:updated_time" content="2017-07-05T06:19:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面经总结">
 <meta name="twitter:description" content="[TOC] Java基础Java容器HashMap底层实现hashMap底层存储是用一个Entry数组，数据中每个Entry都是一个链表，当新元素添加时，直接添加到链表头即可。 hashMap可以设定初始容量，不设定的话初始容量为16，默认加载因子是loadFactor=0.75，当map中的元素个数n&amp;gt;=table.length*0.75时，Map会发生扩容，扩容机制是原来数组长度的两倍：">
@@ -482,10 +482,8 @@
 <p><strong>组合索引</strong>：对多个列同时添加索引</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">index</span> in_co <span class="keyword">on</span> tt(<span class="keyword">id</span>,<span class="keyword">name</span>);</div></pre></td></tr></table></figure>
 <p>详细介绍可参考：<a href="http://www.jb51.net/article/49346.htm" target="_blank" rel="external">http://www.jb51.net/article/49346.htm</a></p>
-<h5 id="索引的实现方式"><a href="#索引的实现方式" class="headerlink" title="索引的实现方式"></a>索引的实现方式</h5><ol>
-<li>B+树索引</li>
-<li>Hash索引</li>
-</ol>
+<h5 id="索引的实现方式"><a href="#索引的实现方式" class="headerlink" title="索引的实现方式"></a>索引的实现方式</h5><p>B+树索引</p>
+<p>Hash索引</p>
 <p>详细介绍可参考：<a href="http://www.cnblogs.com/heiming/p/5865101.html" target="_blank" rel="external">http://www.cnblogs.com/heiming/p/5865101.html</a></p>
 <h2 id="Spring框架"><a href="#Spring框架" class="headerlink" title="Spring框架"></a>Spring框架</h2><h3 id="SpringMVC"><a href="#SpringMVC" class="headerlink" title="SpringMVC"></a>SpringMVC</h3><h4 id="Spring-MVC运行原理"><a href="#Spring-MVC运行原理" class="headerlink" title="Spring MVC运行原理"></a>Spring MVC运行原理</h4><p><img src="/2017/07/05/面经总结/pic1.png" alt=""></p>
 <ol>
