@@ -119,7 +119,7 @@
 <meta property="og:image" content="https://huzhiming12.github.io/2017/07/05/面经总结/pic1.png">
 <meta property="og:image" content="https://huzhiming12.github.io/2017/07/05/面经总结/pic3.png">
 <meta property="og:image" content="https://huzhiming12.github.io/2017/07/05/面经总结/pic2.png">
-<meta property="og:updated_time" content="2017-07-05T08:51:42.000Z">
+<meta property="og:updated_time" content="2017-07-05T13:28:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面经总结">
 <meta name="twitter:description" content="[TOC] Java基础Java容器HashMap底层实现hashMap底层存储是用一个Entry数组，数据中每个Entry都是一个链表，当新元素添加时，直接添加到链表头即可。 hashMap可以设定初始容量，不设定的话初始容量为16，默认加载因子是loadFactor=0.75，当map中的元素个数n&amp;gt;=table.length*0.75时，Map会发生扩容，扩容机制是原来数组长度的两倍：">
@@ -435,7 +435,23 @@
 <p>详细请参考：<a href="https://huzhiming12.github.io/2017/05/08/java/Java%E9%9B%86%E5%90%88-List%E4%BB%8B%E7%BB%8D/">Java集合_List介绍</a></p>
 <h3 id="Java虚拟机"><a href="#Java虚拟机" class="headerlink" title="Java虚拟机"></a>Java虚拟机</h3><h4 id="Java内存管理"><a href="#Java内存管理" class="headerlink" title="Java内存管理"></a>Java内存管理</h4><p>Java虚拟机将内存分为：堆、方法区、虚拟机栈、本地方法栈、程序计数器 五块区域。其中虚拟机栈、本地方法栈和程序计数器是线程隔离的；堆和方法区是线程共享区域。</p>
 <p>详细参考:<a href="https://huzhiming12.github.io/2017/03/22/java/Java内存管理/">Java内存管理</a></p>
-<h4 id="Java垃圾回收机制"><a href="#Java垃圾回收机制" class="headerlink" title="Java垃圾回收机制"></a>Java垃圾回收机制</h4><h2 id="spring-框架"><a href="#spring-框架" class="headerlink" title="spring 框架"></a>spring 框架</h2><h3 id="SpringMVC"><a href="#SpringMVC" class="headerlink" title="SpringMVC"></a>SpringMVC</h3><h4 id="Spring-MVC运行原理"><a href="#Spring-MVC运行原理" class="headerlink" title="Spring MVC运行原理"></a>Spring MVC运行原理</h4><p><img src="/2017/07/05/面经总结/pic1.png" alt=""></p>
+<h4 id="Java垃圾回收机制"><a href="#Java垃圾回收机制" class="headerlink" title="Java垃圾回收机制"></a>Java垃圾回收机制</h4><p><strong>如何确定一个对象是否是垃圾？</strong></p>
+<ul>
+<li>引用计数法</li>
+<li>可达性分析</li>
+</ul>
+<p><strong>常见的垃圾回收算法</strong></p>
+<ul>
+<li>标记清除算法</li>
+<li>标记整理算法</li>
+<li>复制算法</li>
+<li>分代收集算法</li>
+</ul>
+<p><strong>典型的垃圾收集器</strong></p>
+<ul>
+<li>​</li>
+</ul>
+<h2 id="spring-框架"><a href="#spring-框架" class="headerlink" title="spring 框架"></a>spring 框架</h2><h3 id="SpringMVC"><a href="#SpringMVC" class="headerlink" title="SpringMVC"></a>SpringMVC</h3><h4 id="Spring-MVC运行原理"><a href="#Spring-MVC运行原理" class="headerlink" title="Spring MVC运行原理"></a>Spring MVC运行原理</h4><p><img src="/2017/07/05/面经总结/pic1.png" alt=""></p>
 <p>1.http请求：客户端请求提交到DispathcherServlet.</p>
 <p>2.寻找处理器：DispatcherServlet控制器查询一个或多个HandlerMaping，找到处理请求的Controller(我们俗称Controller，实际是Handler)。</p>
 <p>3.调用处理器：DispatcherServlet将请求提交到Controller中。</p>
@@ -534,7 +550,11 @@
 <p><img src="/2017/07/05/面经总结/pic2.png" alt=""></p>
 </li>
 </ul>
-<h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2>
+<h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><h3 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h3><ol>
+<li><a href="https://segmentfault.com/a/1190000003914228" target="_blank" rel="external">最长回文子串问题</a></li>
+<li>​</li>
+</ol>
+
       
     </div>
 
@@ -746,7 +766,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java基础"><span class="nav-number">1.</span> <span class="nav-text">Java基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Java容器"><span class="nav-number">1.1.</span> <span class="nav-text">Java容器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HashMap底层实现"><span class="nav-number">1.1.1.</span> <span class="nav-text">HashMap底层实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ArrayList和LinkedList区别"><span class="nav-number">1.1.2.</span> <span class="nav-text">ArrayList和LinkedList区别</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java虚拟机"><span class="nav-number">1.2.</span> <span class="nav-text">Java虚拟机</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Java内存管理"><span class="nav-number">1.2.1.</span> <span class="nav-text">Java内存管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Java垃圾回收机制"><span class="nav-number">1.2.2.</span> <span class="nav-text">Java垃圾回收机制</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spring-框架"><span class="nav-number">2.</span> <span class="nav-text">spring 框架</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SpringMVC"><span class="nav-number">2.1.</span> <span class="nav-text">SpringMVC</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Spring-MVC运行原理"><span class="nav-number">2.1.1.</span> <span class="nav-text">Spring MVC运行原理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库"><span class="nav-number">3.</span> <span class="nav-text">数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库相关知识点"><span class="nav-number">3.1.</span> <span class="nav-text">数据库相关知识点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数据库事务的理解"><span class="nav-number">3.1.1.</span> <span class="nav-text">数据库事务的理解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据库的隔离级别"><span class="nav-number">3.1.2.</span> <span class="nav-text">数据库的隔离级别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据库索引"><span class="nav-number">3.1.3.</span> <span class="nav-text">数据库索引</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据结构"><span class="nav-number">4.</span> <span class="nav-text">数据结构</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java基础"><span class="nav-number">1.</span> <span class="nav-text">Java基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Java容器"><span class="nav-number">1.1.</span> <span class="nav-text">Java容器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HashMap底层实现"><span class="nav-number">1.1.1.</span> <span class="nav-text">HashMap底层实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ArrayList和LinkedList区别"><span class="nav-number">1.1.2.</span> <span class="nav-text">ArrayList和LinkedList区别</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java虚拟机"><span class="nav-number">1.2.</span> <span class="nav-text">Java虚拟机</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Java内存管理"><span class="nav-number">1.2.1.</span> <span class="nav-text">Java内存管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Java垃圾回收机制"><span class="nav-number">1.2.2.</span> <span class="nav-text">Java垃圾回收机制</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spring-框架"><span class="nav-number">2.</span> <span class="nav-text">spring 框架</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SpringMVC"><span class="nav-number">2.1.</span> <span class="nav-text">SpringMVC</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Spring-MVC运行原理"><span class="nav-number">2.1.1.</span> <span class="nav-text">Spring MVC运行原理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库"><span class="nav-number">3.</span> <span class="nav-text">数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库相关知识点"><span class="nav-number">3.1.</span> <span class="nav-text">数据库相关知识点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数据库事务的理解"><span class="nav-number">3.1.1.</span> <span class="nav-text">数据库事务的理解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据库的隔离级别"><span class="nav-number">3.1.2.</span> <span class="nav-text">数据库的隔离级别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据库索引"><span class="nav-number">3.1.3.</span> <span class="nav-text">数据库索引</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法"><span class="nav-number">4.</span> <span class="nav-text">算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#动态规划"><span class="nav-number">4.1.</span> <span class="nav-text">动态规划</span></a></li></ol></li></ol></div>
             
 
           </div>
