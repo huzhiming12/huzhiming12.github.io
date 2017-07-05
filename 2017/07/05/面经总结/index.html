@@ -110,17 +110,17 @@
 
 
 
-<meta name="description" content="[TOC] Java基础容器HashMap底层实现hashMap底层存储是用一个Entry数组，数据中每个Entry都是一个链表，当新元素添加时，直接添加到链表头即可。 hashMap可以设定初始容量，不设定的话初始容量为16，默认加载因子是loadFactor=0.75，当map中的元素个数n&amp;gt;=table.length*0.75时，Map会发生扩容，扩容机制是原来数组长度的两倍：resi">
+<meta name="description" content="[TOC] Java基础Java容器HashMap底层实现hashMap底层存储是用一个Entry数组，数据中每个Entry都是一个链表，当新元素添加时，直接添加到链表头即可。 hashMap可以设定初始容量，不设定的话初始容量为16，默认加载因子是loadFactor=0.75，当map中的元素个数n&amp;gt;=table.length*0.75时，Map会发生扩容，扩容机制是原来数组长度的两倍：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="面经总结">
 <meta property="og:url" content="https://huzhiming12.github.io/2017/07/05/面经总结/index.html">
 <meta property="og:site_name" content="huzhiming的博客">
-<meta property="og:description" content="[TOC] Java基础容器HashMap底层实现hashMap底层存储是用一个Entry数组，数据中每个Entry都是一个链表，当新元素添加时，直接添加到链表头即可。 hashMap可以设定初始容量，不设定的话初始容量为16，默认加载因子是loadFactor=0.75，当map中的元素个数n&amp;gt;=table.length*0.75时，Map会发生扩容，扩容机制是原来数组长度的两倍：resi">
+<meta property="og:description" content="[TOC] Java基础Java容器HashMap底层实现hashMap底层存储是用一个Entry数组，数据中每个Entry都是一个链表，当新元素添加时，直接添加到链表头即可。 hashMap可以设定初始容量，不设定的话初始容量为16，默认加载因子是loadFactor=0.75，当map中的元素个数n&amp;gt;=table.length*0.75时，Map会发生扩容，扩容机制是原来数组长度的两倍：">
 <meta property="og:image" content="https://huzhiming12.github.io/2017/07/05/面经总结/pic1.png">
-<meta property="og:updated_time" content="2017-07-05T02:29:54.000Z">
+<meta property="og:updated_time" content="2017-07-05T05:15:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面经总结">
-<meta name="twitter:description" content="[TOC] Java基础容器HashMap底层实现hashMap底层存储是用一个Entry数组，数据中每个Entry都是一个链表，当新元素添加时，直接添加到链表头即可。 hashMap可以设定初始容量，不设定的话初始容量为16，默认加载因子是loadFactor=0.75，当map中的元素个数n&amp;gt;=table.length*0.75时，Map会发生扩容，扩容机制是原来数组长度的两倍：resi">
+<meta name="twitter:description" content="[TOC] Java基础Java容器HashMap底层实现hashMap底层存储是用一个Entry数组，数据中每个Entry都是一个链表，当新元素添加时，直接添加到链表头即可。 hashMap可以设定初始容量，不设定的话初始容量为16，默认加载因子是loadFactor=0.75，当map中的元素个数n&amp;gt;=table.length*0.75时，Map会发生扩容，扩容机制是原来数组长度的两倍：">
 <meta name="twitter:image" content="https://huzhiming12.github.io/2017/07/05/面经总结/pic1.png">
 
 
@@ -417,7 +417,7 @@
 
       
         <p>[TOC]</p>
-<h2 id="Java基础"><a href="#Java基础" class="headerlink" title="Java基础"></a>Java基础</h2><h3 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h3><h4 id="HashMap底层实现"><a href="#HashMap底层实现" class="headerlink" title="HashMap底层实现"></a>HashMap底层实现</h4><p>hashMap底层存储是用一个Entry<object,object>数组，数据中每个Entry都是一个链表，当新元素添加时，直接添加到链表头即可。</object,object></p>
+<h2 id="Java基础"><a href="#Java基础" class="headerlink" title="Java基础"></a>Java基础</h2><h3 id="Java容器"><a href="#Java容器" class="headerlink" title="Java容器"></a>Java容器</h3><h4 id="HashMap底层实现"><a href="#HashMap底层实现" class="headerlink" title="HashMap底层实现"></a>HashMap底层实现</h4><p>hashMap底层存储是用一个Entry<object,object>数组，数据中每个Entry都是一个链表，当新元素添加时，直接添加到链表头即可。</object,object></p>
 <p>hashMap可以设定初始容量，不设定的话初始容量为16，默认加载因子是<strong>loadFactor=0.75</strong>，当map中的元素个数n&gt;=table.length*0.75时，Map会发生扩容，扩容机制是原来数组长度的两倍：<strong>resize(2 * table.length)</strong>。</p>
 <p>hashMap 解决冲突的办法是将数组元素设计成一个链表，当同一个有多个元素映射到同一个数组元素中，直接将其添加到链表头，更好的解决冲突的办法是将链表设计成一颗红黑树。</p>
 <p>map详细介绍参照：</p>
@@ -478,8 +478,31 @@
 </tr>
 </tbody>
 </table>
-<h4 id="数据库索引"><a href="#数据库索引" class="headerlink" title="数据库索引"></a>数据库索引</h4><h2 id="spring"><a href="#spring" class="headerlink" title="spring"></a>spring</h2><p>Spring MVC运行原理：</p>
-<p><img src="/2017/07/05/面经总结/pic1.png" alt=""></p>
+<h4 id="数据库索引"><a href="#数据库索引" class="headerlink" title="数据库索引"></a>数据库索引</h4><p>索引的主要目的是加快检索表中数据。索引是对数据库表中的一列或者多列的值进行排序的结构。</p>
+<p><strong>索引的分类</strong>：</p>
+<ul>
+<li><p>普通索引：没有任何的限制，可以对表中的没一列添加索引</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">index</span> in_username <span class="keyword">on</span> student(<span class="keyword">name</span>);</div></pre></td></tr></table></figure>
+</li>
+<li><p>唯一索引：索引列的值必须唯一，但允许有空值</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">unique</span> <span class="keyword">index</span> in_username <span class="keyword">on</span> student(<span class="keyword">name</span>);</div></pre></td></tr></table></figure>
+</li>
+<li><p>主键索引：它是一种特殊的唯一索引，不允许有空值。一般是在建表的时候同时创建主键索引</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">table</span> tt (</div><div class="line">	<span class="keyword">id</span> <span class="built_in">int</span> auto_increment,</div><div class="line">	<span class="keyword">name</span> <span class="built_in">varchar</span>(<span class="number">16</span>),</div><div class="line">	address <span class="built_in">varchar</span>(<span class="number">20</span>),</div><div class="line">	primary <span class="keyword">key</span>(<span class="keyword">id</span>)</div><div class="line">);</div></pre></td></tr></table></figure>
+</li>
+<li><p>组合索引：对多个列同时添加索引</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">index</span> in_co <span class="keyword">on</span> tt(<span class="keyword">id</span>,<span class="keyword">name</span>);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>详细介绍可参考：<a href="http://www.jb51.net/article/49346.htm" target="_blank" rel="external">http://www.jb51.net/article/49346.htm</a></p>
+<p><strong>索引的实现方式</strong>：</p>
+<ul>
+<li>B+树索引</li>
+</ul>
+<ul>
+<li>Hash索引</li>
+</ul>
+<h2 id="spring"><a href="#spring" class="headerlink" title="spring"></a>spring</h2><h4 id="Spring-MVC运行原理"><a href="#Spring-MVC运行原理" class="headerlink" title="Spring MVC运行原理"></a>Spring MVC运行原理</h4><p><img src="/2017/07/05/面经总结/pic1.png" alt=""></p>
 <ol>
 <li>http请求：客户端请求提交到DispathcherServlet.</li>
 <li>寻找处理器：DispatcherServlet控制器查询一个或多个HandlerMaping，找到处理请求的Controller(我们俗称Controller，实际是Handler)。</li>
@@ -704,7 +727,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java基础"><span class="nav-number">1.</span> <span class="nav-text">Java基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#容器"><span class="nav-number">1.1.</span> <span class="nav-text">容器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HashMap底层实现"><span class="nav-number">1.1.1.</span> <span class="nav-text">HashMap底层实现</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库"><span class="nav-number">2.</span> <span class="nav-text">数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数据库事务的理解"><span class="nav-number">2.0.1.</span> <span class="nav-text">数据库事务的理解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据库的隔离级别"><span class="nav-number">2.0.2.</span> <span class="nav-text">数据库的隔离级别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据库索引"><span class="nav-number">2.0.3.</span> <span class="nav-text">数据库索引</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spring"><span class="nav-number">3.</span> <span class="nav-text">spring</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java基础"><span class="nav-number">1.</span> <span class="nav-text">Java基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Java容器"><span class="nav-number">1.1.</span> <span class="nav-text">Java容器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HashMap底层实现"><span class="nav-number">1.1.1.</span> <span class="nav-text">HashMap底层实现</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库"><span class="nav-number">2.</span> <span class="nav-text">数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数据库事务的理解"><span class="nav-number">2.0.1.</span> <span class="nav-text">数据库事务的理解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据库的隔离级别"><span class="nav-number">2.0.2.</span> <span class="nav-text">数据库的隔离级别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据库索引"><span class="nav-number">2.0.3.</span> <span class="nav-text">数据库索引</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spring"><span class="nav-number">3.</span> <span class="nav-text">spring</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Spring-MVC运行原理"><span class="nav-number">3.0.1.</span> <span class="nav-text">Spring MVC运行原理</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
