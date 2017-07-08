@@ -110,18 +110,18 @@
 
 
 
-<meta name="description" content="ThreadLocal 为每个线程提供一个变量的独立副本，每个线程对ThreadLocal变量的修改不会相互影响。这并不是解决了线程安全问题，它只是给每个线程提供一个获取存放变量的一个key  ThreadLocal类中定义了一个内部数据结构ThreadLoalMap，ThreadLocalMap是用来存放每个线程的ThreadLocal变量值Value。但是ThreadLocal中并没有定义T">
+<meta name="description" content="ThreadLocal 为每个线程提供一个变量的独立副本，每个线程对ThreadLocal变量的修改不会相互影响。它为给每个线程提供一个获取存放变量的一个key。  ThreadLocal类中定义了一个内部数据结构ThreadLoalMap，ThreadLocalMap是用来存放每个线程的ThreadLocal变量值Value。但是ThreadLocal中并没有定义ThreadLocalMap变">
 <meta name="keywords" content="并发,threadLocal">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ThreadLocal">
 <meta property="og:url" content="https://huzhiming12.github.io/2017/05/19/java/ThreadLocal/index.html">
 <meta property="og:site_name" content="huzhiming的博客">
-<meta property="og:description" content="ThreadLocal 为每个线程提供一个变量的独立副本，每个线程对ThreadLocal变量的修改不会相互影响。这并不是解决了线程安全问题，它只是给每个线程提供一个获取存放变量的一个key  ThreadLocal类中定义了一个内部数据结构ThreadLoalMap，ThreadLocalMap是用来存放每个线程的ThreadLocal变量值Value。但是ThreadLocal中并没有定义T">
+<meta property="og:description" content="ThreadLocal 为每个线程提供一个变量的独立副本，每个线程对ThreadLocal变量的修改不会相互影响。它为给每个线程提供一个获取存放变量的一个key。  ThreadLocal类中定义了一个内部数据结构ThreadLoalMap，ThreadLocalMap是用来存放每个线程的ThreadLocal变量值Value。但是ThreadLocal中并没有定义ThreadLocalMap变">
 <meta property="og:image" content="https://huzhiming12.github.io/2017/05/19/java/ThreadLocal/pic1.png">
-<meta property="og:updated_time" content="2017-05-21T12:44:12.000Z">
+<meta property="og:updated_time" content="2017-07-06T12:59:01.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ThreadLocal">
-<meta name="twitter:description" content="ThreadLocal 为每个线程提供一个变量的独立副本，每个线程对ThreadLocal变量的修改不会相互影响。这并不是解决了线程安全问题，它只是给每个线程提供一个获取存放变量的一个key  ThreadLocal类中定义了一个内部数据结构ThreadLoalMap，ThreadLocalMap是用来存放每个线程的ThreadLocal变量值Value。但是ThreadLocal中并没有定义T">
+<meta name="twitter:description" content="ThreadLocal 为每个线程提供一个变量的独立副本，每个线程对ThreadLocal变量的修改不会相互影响。它为给每个线程提供一个获取存放变量的一个key。  ThreadLocal类中定义了一个内部数据结构ThreadLoalMap，ThreadLocalMap是用来存放每个线程的ThreadLocal变量值Value。但是ThreadLocal中并没有定义ThreadLocalMap变">
 <meta name="twitter:image" content="https://huzhiming12.github.io/2017/05/19/java/ThreadLocal/pic1.png">
 
 
@@ -418,7 +418,7 @@
 
       
         <blockquote>
-<p>ThreadLocal 为每个线程提供一个变量的独立副本，每个线程对ThreadLocal变量的修改不会相互影响。这并不是解决了线程安全问题，它只是给每个线程提供一个获取存放变量的一个key</p>
+<p>ThreadLocal 为每个线程提供一个变量的独立副本，每个线程对ThreadLocal变量的修改不会相互影响。它为给每个线程提供一个获取存放变量的一个key。</p>
 </blockquote>
 <p>ThreadLocal类中定义了一个内部数据结构ThreadLoalMap，ThreadLocalMap是用来存放每个线程的ThreadLocal变量值Value。但是ThreadLocal中并没有定义ThreadLocalMap变量，ThreadLocalMap是在线程中定义的，用来存放每个线程中的多个ThreadLocal所对应的Value值。下面是Thread类中定义的ThreadLocalMap成员变量</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ThreadLocal.ThreadLocalMap threadLocals = <span class="keyword">null</span>;</div></pre></td></tr></table></figure>
