@@ -110,20 +110,20 @@
 
 
 
-<meta name="description" content="[TOC] Java基础基础Java反射机制Class类，通过Class类可以获取一个类中所有信息，包括构造函数、成员变量、方法等信息。同时通过Class类可以生成一个类的实例。 Java反射中主要涉及到到的类有Class、Constructor、Filed、Method。 Java强软弱虚引用 强引用：只要引用存在，垃圾回收机就不会回收，JVM宁愿报OutOfMemory错误 软引用：在内存溢出">
+<meta name="description" content="[TOC] Java基础基础面向对象的三大特性、六大原则特性：封装、继承、多态 六大原则：单一责任原则、开放封闭原则、里氏替换原则、依赖倒置原则、接口分离原则、组合聚合复用原则 参考：  面向对象基本原则 Java反射机制Class类，通过Class类可以获取一个类中所有信息，包括构造函数、成员变量、方法等信息。同时通过Class类可以生成一个类的实例。 Java反射中主要涉及到到的类有Class">
 <meta property="og:type" content="article">
 <meta property="og:title" content="面经总结">
 <meta property="og:url" content="https://huzhiming12.github.io/2017/07/05/面经总结/index.html">
 <meta property="og:site_name" content="huzhiming的博客">
-<meta property="og:description" content="[TOC] Java基础基础Java反射机制Class类，通过Class类可以获取一个类中所有信息，包括构造函数、成员变量、方法等信息。同时通过Class类可以生成一个类的实例。 Java反射中主要涉及到到的类有Class、Constructor、Filed、Method。 Java强软弱虚引用 强引用：只要引用存在，垃圾回收机就不会回收，JVM宁愿报OutOfMemory错误 软引用：在内存溢出">
+<meta property="og:description" content="[TOC] Java基础基础面向对象的三大特性、六大原则特性：封装、继承、多态 六大原则：单一责任原则、开放封闭原则、里氏替换原则、依赖倒置原则、接口分离原则、组合聚合复用原则 参考：  面向对象基本原则 Java反射机制Class类，通过Class类可以获取一个类中所有信息，包括构造函数、成员变量、方法等信息。同时通过Class类可以生成一个类的实例。 Java反射中主要涉及到到的类有Class">
 <meta property="og:image" content="https://huzhiming12.github.io/2017/07/05/面经总结/pic4.png">
 <meta property="og:image" content="https://huzhiming12.github.io/2017/07/05/面经总结/pic1.png">
 <meta property="og:image" content="https://huzhiming12.github.io/2017/07/05/面经总结/pic3.png">
 <meta property="og:image" content="https://huzhiming12.github.io/2017/07/05/面经总结/pic2.png">
-<meta property="og:updated_time" content="2017-07-08T08:24:04.000Z">
+<meta property="og:updated_time" content="2017-07-11T06:26:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面经总结">
-<meta name="twitter:description" content="[TOC] Java基础基础Java反射机制Class类，通过Class类可以获取一个类中所有信息，包括构造函数、成员变量、方法等信息。同时通过Class类可以生成一个类的实例。 Java反射中主要涉及到到的类有Class、Constructor、Filed、Method。 Java强软弱虚引用 强引用：只要引用存在，垃圾回收机就不会回收，JVM宁愿报OutOfMemory错误 软引用：在内存溢出">
+<meta name="twitter:description" content="[TOC] Java基础基础面向对象的三大特性、六大原则特性：封装、继承、多态 六大原则：单一责任原则、开放封闭原则、里氏替换原则、依赖倒置原则、接口分离原则、组合聚合复用原则 参考：  面向对象基本原则 Java反射机制Class类，通过Class类可以获取一个类中所有信息，包括构造函数、成员变量、方法等信息。同时通过Class类可以生成一个类的实例。 Java反射中主要涉及到到的类有Class">
 <meta name="twitter:image" content="https://huzhiming12.github.io/2017/07/05/面经总结/pic4.png">
 
 
@@ -420,13 +420,32 @@
 
       
         <p>[TOC]</p>
-<h2 id="Java基础"><a href="#Java基础" class="headerlink" title="Java基础"></a>Java基础</h2><h3 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h3><h4 id="Java反射机制"><a href="#Java反射机制" class="headerlink" title="Java反射机制"></a>Java反射机制</h4><p>Class类，通过Class类可以获取一个类中所有信息，包括构造函数、成员变量、方法等信息。同时通过Class类可以生成一个类的实例。</p>
+<h2 id="Java基础"><a href="#Java基础" class="headerlink" title="Java基础"></a>Java基础</h2><h3 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h3><h4 id="面向对象的三大特性、六大原则"><a href="#面向对象的三大特性、六大原则" class="headerlink" title="面向对象的三大特性、六大原则"></a>面向对象的三大特性、六大原则</h4><p>特性：封装、继承、多态</p>
+<p>六大原则：单一责任原则、开放封闭原则、里氏替换原则、依赖倒置原则、接口分离原则、组合聚合复用原则</p>
+<p>参考：  <a href="https://huzhiming12.github.io/2017/05/20/java/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99/">面向对象基本原则</a></p>
+<h4 id="Java反射机制"><a href="#Java反射机制" class="headerlink" title="Java反射机制"></a>Java反射机制</h4><p>Class类，通过Class类可以获取一个类中所有信息，包括构造函数、成员变量、方法等信息。同时通过Class类可以生成一个类的实例。</p>
 <p>Java反射中主要涉及到到的类有Class、Constructor、Filed、Method。</p>
 <h4 id="Java强软弱虚引用"><a href="#Java强软弱虚引用" class="headerlink" title="Java强软弱虚引用"></a>Java强软弱虚引用</h4><ul>
 <li>强引用：只要引用存在，垃圾回收机就不会回收，JVM宁愿报OutOfMemory错误</li>
 <li>软引用：在内存溢出之前回收，垃圾回收时扫描到这个对象会做上标记，但不会立即回收，当内存要溢出时才会进行垃圾回收</li>
 <li>弱引用：只要垃圾回收器扫描到就会立刻回收。</li>
 <li>虚引用：只是用来判断对象是否还在内存中，因为通过get方法无法获取到值</li>
+</ul>
+<h4 id="依赖、关联、组合、聚合"><a href="#依赖、关联、组合、聚合" class="headerlink" title="依赖、关联、组合、聚合"></a>依赖、关联、组合、聚合</h4><ul>
+<li><p>依赖</p>
+<p>可以简单的理解为一个类A使用了另一个类B，而这种使用关系是具有偶然性、临时性的，但是B类的变化会影响到A。在代码层面上就是B类作为一个参数被A类在某个方法中实现。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span></div><div class="line">&#123;</div><div class="line">  	<span class="function"><span class="keyword">void</span> <span class="title">dependMethod</span><span class="params">(B b)</span></span></div><div class="line">  	&#123;</div><div class="line">      ……</div><div class="line">  	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>关联</p>
+<p>它体现在两个类之间语义级别的一种强依赖关系。这种关系比依赖更强，不存在偶然性、临时性，一般指长期性的。在代码层面上，被关联的B以成员的形式出现在关联类A中。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span></div><div class="line">&#123;</div><div class="line">  	<span class="keyword">private</span> B b;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>聚合</p>
+<p>组合是关联关系的一种特例，它体现的是整体与部分、拥有关系，即has-a的关系。此时整体与部分之间是可分离的，他们可以具有各自的生命周期。比如雁群与大雁之间的关系，雁群是由很多大雁组成，但是大雁也可以和雁群分离。</p>
+</li>
+<li><p>组合</p>
+<p>组合也是关联关系的一种特例，它体现的是一种contains-a的关系，这种关系比聚合更强，也成为强聚合。它同样体现整体与部分间的关系，但此时整体与部分是不可分的，整体的生命周期借宿也就意味着部分的生命周期的结束；比如大雁的一对翅膀与大雁之间的关系，翅膀脱离了大雁无法单独存在。</p>
+</li>
 </ul>
 <h4 id="java8-新特性"><a href="#java8-新特性" class="headerlink" title="java8 新特性"></a>java8 新特性</h4><ul>
 <li><p>接口默认方法与静态方法</p>
@@ -554,6 +573,18 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//Thread类中对threadLocals的定义</span></div><div class="line">ThreadLocal.ThreadLocalMap threadLocals = <span class="keyword">null</span>;</div></pre></td></tr></table></figure>
 <p>ThreadLocal详细参考：<a href="https://huzhiming12.github.io/2017/05/19/java/ThreadLocal/">ThreadLocal</a></p>
 </li>
+</ul>
+<h4 id="Lock与synchronized比较"><a href="#Lock与synchronized比较" class="headerlink" title="Lock与synchronized比较"></a>Lock与synchronized比较</h4><p><strong>synchronized</strong></p>
+<ul>
+<li>获取锁的线程执行完代码，然后线程自动释放对锁的占有</li>
+<li>线程执行发生异常，此时JVM会让线程自动释放锁</li>
+</ul>
+<p><strong>Lock</strong></p>
+<ul>
+<li>Lock不是Java语言内置的，synchronized是Java语言的关键字，因此是内置特性。Lock是一个类，通过这个类可以实现同步访问；</li>
+<li>Lock和synchronized有一点非常大的不同，采用synchronized不需要用户去手动释放锁，当synchronized方法或者synchronized代码块执行完之后，系统会自动让线程释放对锁的占用；而Lock则必须要用户去手动释放锁，如果没有主动释放锁，就有可能导致出现死锁现象。</li>
+<li>当通过lockInterruptibly()方法获取某个锁时，如果不能获取到，只有进行等待的情况下，是可以响应中断的。而用synchronized修饰的话，当一个线程处于等待某个锁的状态，是无法被中断的，只有一直等待下去。</li>
+<li>tryLock()方法是有返回值的，它表示用来尝试获取锁，如果获取成功，则返回true，如果获取失败（即锁已被其他线程获取），则返回false，也就说这个方法无论如何都会立即返回。在拿不到锁时不会一直在那等待。</li>
 </ul>
 <h4 id="volatile关键字"><a href="#volatile关键字" class="headerlink" title="volatile关键字"></a>volatile关键字</h4><ul>
 <li>保证了线程对变量的修改是内存可见的，即一个线程对变量的修改，会立刻会更新到主内存中，其他线程想要读取变量值必须到主内存中读取，而不能在线程的工作内存中读，保证其他线程能够立刻看到修改值</li>
@@ -708,6 +739,60 @@
 <li>父节点的值大于左儿子结点的值，小于右儿子结点的值</li>
 <li>二叉搜索树中序遍历是一个递增序列</li>
 </ul>
+<h2 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h2><h3 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h3><h4 id="ping命令返回结果"><a href="#ping命令返回结果" class="headerlink" title="ping命令返回结果"></a>ping命令返回结果</h4><p>常见的三种错误：</p>
+<ul>
+<li>unknown host：不知名主机，主机名无法被DNS解析</li>
+<li>Destinationn host Unreachable：主机不可达，一般是线路中断。</li>
+<li>Request time out：在规定时间内没有返回结果，可能是防火墙阻隔。</li>
+</ul>
+<p>联通时返回结果：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">huzhimingdeMacBook-Air:~ huzhiming$ ping www.baidu.com</div><div class="line">PING www.a.shifen.com (119.75.216.20): 56 data bytes</div><div class="line">64 bytes from 119.75.216.20: icmp_seq=0 ttl=244 time=70.714 ms</div><div class="line">64 bytes from 119.75.216.20: icmp_seq=1 ttl=244 time=74.515 ms</div><div class="line">64 bytes from 119.75.216.20: icmp_seq=2 ttl=244 time=64.175 ms</div><div class="line">64 bytes from 119.75.216.20: icmp_seq=3 ttl=244 time=63.792 ms</div><div class="line">64 bytes from 119.75.216.20: icmp_seq=4 ttl=244 time=64.381 ms</div><div class="line">^C</div><div class="line">--- www.a.shifen.com ping statistics ---</div><div class="line">5 packets transmitted, 5 packets received, 0.0% packet loss</div><div class="line">round-trip min/avg/max/stddev = 63.792/67.515/74.515/4.338 ms</div></pre></td></tr></table></figure>
+<p>119.75.216.20：解析出的ping的IP地址</p>
+<p>64：返回数据包大小</p>
+<p>ttl:Time To LIve 生存时间，防止数据报在网络中形成广播风暴</p>
+<p>time：返回数据所耗费的时间</p>
+<p>参考： <a href="https://wenku.baidu.com/view/017fd52c647d27284b7351fe.html" target="_blank" rel="external">ping命令使用解析</a></p>
+<h2 id="操作系统："><a href="#操作系统：" class="headerlink" title="操作系统："></a>操作系统：</h2><h3 id="基础-1"><a href="#基础-1" class="headerlink" title="基础"></a>基础</h3><h4 id="进程与线程的区别与联系"><a href="#进程与线程的区别与联系" class="headerlink" title="进程与线程的区别与联系"></a>进程与线程的区别与联系</h4><p><strong>进程</strong>：进程是具有一定独立功能的程序关于某个数据集合上的一次运行活动，进程是系统进行资源分配和调度的基本单位</p>
+<p><strong>线程：</strong>是进程的一个实体，是CPU调度和分配的基本单位。它是比进程更小的能独立运行的基本单位，线程基本上不拥有系统资源，只拥有一点在运行中必不可杀的资源。</p>
+<p><strong>区别：</strong></p>
+<ol>
+<li>简而言之,一个程序至少有一个进程,一个进程至少有一个线程.</li>
+<li>线程的划分尺度小于进程，使得多线程程序的并发性高。</li>
+<li>另外，进程在执行过程中拥有独立的内存单元，而多个线程共享内存，从而极大地提高了程序的运行效率。</li>
+<li>线程在执行过程中与进程还是有区别的。每个独立的线程有一个程序运行的入口、顺序执行序列和程序的出口。但是线程不能够独立执行，必须依存在应用程序中，由应用程序提供多个线程执行控制。</li>
+<li>从逻辑角度来看，多线程的意义在于一个应用程序中，有多个执行部分可以同时执行。但操作系统并没有将多个线程看做多个独立的应用，来实现进程的调度和管理以及资源分配。<strong>这就是进程和线程的重要区别。</strong></li>
+</ol>
+<h4 id="进程间通信的方法"><a href="#进程间通信的方法" class="headerlink" title="进程间通信的方法"></a>进程间通信的方法</h4><ol>
+<li>无名管道：管道是一种半双工的通信方式，数据只能单向流动，而且只能在具有亲缘关系的进程间使用。进程的亲缘关系通常是指父子进程关系。</li>
+<li>高级管道：将另一个程序当做一个新的进程在当前程序进程中启动，则它算是当前程序的子进程，这种方式我们成为高级管道方式。</li>
+<li>有名管道：有名管道也是半双工的通信方式，但是它允许无亲缘关系进程间的通信。</li>
+<li>消息队列： 消息队列是由消息的链表，存放在内核中并由消息队列标识符标识。消息队列克服了信号传递信息少、管道只能承载无格式字节流以及缓冲区大小受限等缺点。</li>
+<li>信号量： 信号量是一个计数器，可以用来控制多个进程对共享资源的访问。它常作为一种锁机制，防止某进程正在访问共享资源时，其他进程也访问该资源。因此，主要作为进程间以及同一进程内不同线程之间的同步手段。</li>
+<li>信号：信号是一种比较复杂的通信方式，用于通知接收进程某个事件已经发生</li>
+<li>共享内存：共享内存就是映射一段能被其他进程所访问的内存，这段共享内存由一个进程创建，但多个进程都可以访问。</li>
+<li>套接字（socket）：套解口也是一种进程间通信机制，与其他通信机制不同的是，它可用于不同机器间的进程通信。</li>
+</ol>
+<h4 id="死锁的必要条件避免和解除方法"><a href="#死锁的必要条件避免和解除方法" class="headerlink" title="死锁的必要条件避免和解除方法"></a>死锁的必要条件避免和解除方法</h4><p><strong>必要条件</strong></p>
+<ol>
+<li>互斥条件：一个资源每次只能被一个进程使用</li>
+<li>请求保持条件：一个进程因请求资源二阻塞时，对已获得的资源保持不放</li>
+<li>不剥夺条件：进程已获得的资源，在未使用完之前，不能强行剥夺</li>
+<li>循环等待条件：若干进程之间形成一种头尾相接的循环等待资源关系</li>
+</ol>
+<p><strong>预防死锁的办法</strong>：</p>
+<ol>
+<li>摒弃请求保持条件，规定所有进程在开始之前，都必须一次性申请其在整个运行过程中所需的全部资源，只要有一种不够，便不分配</li>
+<li>摒弃不剥夺条件，进程可以逐个申请资源，一旦申请资源无法满足，立即释放已经保持的所有资源。</li>
+<li>摒弃环路等待条件</li>
+</ol>
+<p>避免死锁的算法：银行家算法</p>
+<p><strong>解决死锁的办法</strong>：</p>
+<ol>
+<li>剥夺资源</li>
+<li>撤销进程</li>
+</ol>
+<h4 id="自旋锁和互斥锁"><a href="#自旋锁和互斥锁" class="headerlink" title="自旋锁和互斥锁"></a>自旋锁和互斥锁</h4><p>自旋锁：但是自旋锁不会引起调用者睡眠，如果自旋锁已经被别的执行单元保持，调用者就一直循环在那里看是否该自旋锁的保持者已经释放了锁，”自旋”一词就是因此而得名。</p>
+<p>互斥锁：对于互斥锁，如果资源已经被占用，资源申请者只能进入睡眠状态。</p>
 <h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><h3 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h3><ol>
 <li><a href="https://segmentfault.com/a/1190000003914228" target="_blank" rel="external">最长回文子串问题</a></li>
 <li>​</li>
@@ -778,6 +863,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/11/面试知识点/" rel="prev" title="面经知识点">
+                面经知识点 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -856,7 +945,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">41</span>
+                <span class="site-state-item-count">43</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -924,7 +1013,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java基础"><span class="nav-number">1.</span> <span class="nav-text">Java基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基础"><span class="nav-number">1.1.</span> <span class="nav-text">基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Java反射机制"><span class="nav-number">1.1.1.</span> <span class="nav-text">Java反射机制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Java强软弱虚引用"><span class="nav-number">1.1.2.</span> <span class="nav-text">Java强软弱虚引用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#java8-新特性"><span class="nav-number">1.1.3.</span> <span class="nav-text">java8 新特性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java容器"><span class="nav-number">1.2.</span> <span class="nav-text">Java容器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HashMap底层实现"><span class="nav-number">1.2.1.</span> <span class="nav-text">HashMap底层实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ArrayList和LinkedList区别"><span class="nav-number">1.2.2.</span> <span class="nav-text">ArrayList和LinkedList区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TreeSet如何实现排序"><span class="nav-number">1.2.3.</span> <span class="nav-text">TreeSet如何实现排序</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java虚拟机"><span class="nav-number">1.3.</span> <span class="nav-text">Java虚拟机</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Java内存管理"><span class="nav-number">1.3.1.</span> <span class="nav-text">Java内存管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Java垃圾回收机制"><span class="nav-number">1.3.2.</span> <span class="nav-text">Java垃圾回收机制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Java内存模型"><span class="nav-number">1.3.3.</span> <span class="nav-text">Java内存模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JVM参数配置"><span class="nav-number">1.3.4.</span> <span class="nav-text">JVM参数配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JVM频繁FullGC及应对策略"><span class="nav-number">1.3.5.</span> <span class="nav-text">JVM频繁FullGC及应对策略</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JVM性能调优和监控工具"><span class="nav-number">1.3.6.</span> <span class="nav-text">JVM性能调优和监控工具</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java并发编程"><span class="nav-number">1.4.</span> <span class="nav-text">Java并发编程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#实现线程安全方式"><span class="nav-number">1.4.1.</span> <span class="nav-text">实现线程安全方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#volatile关键字"><span class="nav-number">1.4.2.</span> <span class="nav-text">volatile关键字</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#线程池"><span class="nav-number">1.4.3.</span> <span class="nav-text">线程池</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spring-框架"><span class="nav-number">2.</span> <span class="nav-text">spring 框架</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SpringMVC"><span class="nav-number">2.1.</span> <span class="nav-text">SpringMVC</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Spring-MVC运行原理"><span class="nav-number">2.1.1.</span> <span class="nav-text">Spring MVC运行原理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库"><span class="nav-number">3.</span> <span class="nav-text">数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库相关知识点"><span class="nav-number">3.1.</span> <span class="nav-text">数据库相关知识点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数据库事务的理解"><span class="nav-number">3.1.1.</span> <span class="nav-text">数据库事务的理解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据库的隔离级别"><span class="nav-number">3.1.2.</span> <span class="nav-text">数据库的隔离级别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据库索引"><span class="nav-number">3.1.3.</span> <span class="nav-text">数据库索引</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#乐观锁和悲观锁"><span class="nav-number">3.1.4.</span> <span class="nav-text">乐观锁和悲观锁</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#架构"><span class="nav-number">4.</span> <span class="nav-text">架构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#session"><span class="nav-number">4.1.</span> <span class="nav-text">session</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分布式部署架构下如何设计session"><span class="nav-number">4.1.1.</span> <span class="nav-text">分布式部署架构下如何设计session</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据结构"><span class="nav-number">5.</span> <span class="nav-text">数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#树"><span class="nav-number">5.1.</span> <span class="nav-text">树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#红黑树"><span class="nav-number">5.1.1.</span> <span class="nav-text">红黑树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二叉搜索树（B树）"><span class="nav-number">5.1.2.</span> <span class="nav-text">二叉搜索树（B树）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法"><span class="nav-number">6.</span> <span class="nav-text">算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#动态规划"><span class="nav-number">6.1.</span> <span class="nav-text">动态规划</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java基础"><span class="nav-number">1.</span> <span class="nav-text">Java基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基础"><span class="nav-number">1.1.</span> <span class="nav-text">基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#面向对象的三大特性、六大原则"><span class="nav-number">1.1.1.</span> <span class="nav-text">面向对象的三大特性、六大原则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Java反射机制"><span class="nav-number">1.1.2.</span> <span class="nav-text">Java反射机制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Java强软弱虚引用"><span class="nav-number">1.1.3.</span> <span class="nav-text">Java强软弱虚引用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#依赖、关联、组合、聚合"><span class="nav-number">1.1.4.</span> <span class="nav-text">依赖、关联、组合、聚合</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#java8-新特性"><span class="nav-number">1.1.5.</span> <span class="nav-text">java8 新特性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java容器"><span class="nav-number">1.2.</span> <span class="nav-text">Java容器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HashMap底层实现"><span class="nav-number">1.2.1.</span> <span class="nav-text">HashMap底层实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ArrayList和LinkedList区别"><span class="nav-number">1.2.2.</span> <span class="nav-text">ArrayList和LinkedList区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TreeSet如何实现排序"><span class="nav-number">1.2.3.</span> <span class="nav-text">TreeSet如何实现排序</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java虚拟机"><span class="nav-number">1.3.</span> <span class="nav-text">Java虚拟机</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Java内存管理"><span class="nav-number">1.3.1.</span> <span class="nav-text">Java内存管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Java垃圾回收机制"><span class="nav-number">1.3.2.</span> <span class="nav-text">Java垃圾回收机制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Java内存模型"><span class="nav-number">1.3.3.</span> <span class="nav-text">Java内存模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JVM参数配置"><span class="nav-number">1.3.4.</span> <span class="nav-text">JVM参数配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JVM频繁FullGC及应对策略"><span class="nav-number">1.3.5.</span> <span class="nav-text">JVM频繁FullGC及应对策略</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JVM性能调优和监控工具"><span class="nav-number">1.3.6.</span> <span class="nav-text">JVM性能调优和监控工具</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java并发编程"><span class="nav-number">1.4.</span> <span class="nav-text">Java并发编程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#实现线程安全方式"><span class="nav-number">1.4.1.</span> <span class="nav-text">实现线程安全方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Lock与synchronized比较"><span class="nav-number">1.4.2.</span> <span class="nav-text">Lock与synchronized比较</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#volatile关键字"><span class="nav-number">1.4.3.</span> <span class="nav-text">volatile关键字</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#线程池"><span class="nav-number">1.4.4.</span> <span class="nav-text">线程池</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spring-框架"><span class="nav-number">2.</span> <span class="nav-text">spring 框架</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SpringMVC"><span class="nav-number">2.1.</span> <span class="nav-text">SpringMVC</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Spring-MVC运行原理"><span class="nav-number">2.1.1.</span> <span class="nav-text">Spring MVC运行原理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库"><span class="nav-number">3.</span> <span class="nav-text">数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库相关知识点"><span class="nav-number">3.1.</span> <span class="nav-text">数据库相关知识点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数据库事务的理解"><span class="nav-number">3.1.1.</span> <span class="nav-text">数据库事务的理解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据库的隔离级别"><span class="nav-number">3.1.2.</span> <span class="nav-text">数据库的隔离级别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据库索引"><span class="nav-number">3.1.3.</span> <span class="nav-text">数据库索引</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#乐观锁和悲观锁"><span class="nav-number">3.1.4.</span> <span class="nav-text">乐观锁和悲观锁</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#架构"><span class="nav-number">4.</span> <span class="nav-text">架构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#session"><span class="nav-number">4.1.</span> <span class="nav-text">session</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分布式部署架构下如何设计session"><span class="nav-number">4.1.1.</span> <span class="nav-text">分布式部署架构下如何设计session</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据结构"><span class="nav-number">5.</span> <span class="nav-text">数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#树"><span class="nav-number">5.1.</span> <span class="nav-text">树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#红黑树"><span class="nav-number">5.1.1.</span> <span class="nav-text">红黑树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二叉搜索树（B树）"><span class="nav-number">5.1.2.</span> <span class="nav-text">二叉搜索树（B树）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网络"><span class="nav-number">6.</span> <span class="nav-text">网络</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#工具"><span class="nav-number">6.1.</span> <span class="nav-text">工具</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ping命令返回结果"><span class="nav-number">6.1.1.</span> <span class="nav-text">ping命令返回结果</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作系统："><span class="nav-number">7.</span> <span class="nav-text">操作系统：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基础-1"><span class="nav-number">7.1.</span> <span class="nav-text">基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#进程与线程的区别与联系"><span class="nav-number">7.1.1.</span> <span class="nav-text">进程与线程的区别与联系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#进程间通信的方法"><span class="nav-number">7.1.2.</span> <span class="nav-text">进程间通信的方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#死锁的必要条件避免和解除方法"><span class="nav-number">7.1.3.</span> <span class="nav-text">死锁的必要条件避免和解除方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自旋锁和互斥锁"><span class="nav-number">7.1.4.</span> <span class="nav-text">自旋锁和互斥锁</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法"><span class="nav-number">8.</span> <span class="nav-text">算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#动态规划"><span class="nav-number">8.1.</span> <span class="nav-text">动态规划</span></a></li></ol></li></ol></div>
             
 
           </div>
