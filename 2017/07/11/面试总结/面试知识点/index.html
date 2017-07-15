@@ -1,0 +1,1432 @@
+<!doctype html>
+
+
+
+
+<html class="theme-next pisces" lang="zh-Hans">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+  
+  
+  <link rel="stylesheet" media="all" href="/lib/Han/dist/han.min.css?v=3.3">
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/head.jpeg?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="作者：Xoper.ducky链接：https://www.nowcoder.com/discuss/3043?type=2&amp;amp;order=0&amp;amp;pos=5&amp;amp;page=2来源：牛客网 J2SE基础  九种基本数据类型的大小，以及他们的封装类。 byte（1）、short（2）、int（4）、long(8)、char(2)、boolean(1)、double（8）、float（4）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面经知识点">
+<meta property="og:url" content="https://huzhiming12.github.io/2017/07/11/面试总结/面试知识点/index.html">
+<meta property="og:site_name" content="huzhiming的博客">
+<meta property="og:description" content="作者：Xoper.ducky链接：https://www.nowcoder.com/discuss/3043?type=2&amp;amp;order=0&amp;amp;pos=5&amp;amp;page=2来源：牛客网 J2SE基础  九种基本数据类型的大小，以及他们的封装类。 byte（1）、short（2）、int（4）、long(8)、char(2)、boolean(1)、double（8）、float（4）">
+<meta property="og:updated_time" content="2017-07-13T00:59:53.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="面经知识点">
+<meta name="twitter:description" content="作者：Xoper.ducky链接：https://www.nowcoder.com/discuss/3043?type=2&amp;amp;order=0&amp;amp;pos=5&amp;amp;page=2来源：牛客网 J2SE基础  九种基本数据类型的大小，以及他们的封装类。 byte（1）、short（2）、int（4）、long(8)、char(2)、boolean(1)、double（8）、float（4）">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":true},
+    fancybox: true,
+    motion: false,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://huzhiming12.github.io/2017/07/11/面试总结/面试知识点/"/>
+
+
+
+
+
+  <title>面经知识点 | huzhiming的博客</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">huzhiming的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Everything is possible</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://huzhiming12.github.io/2017/07/11/面试总结/面试知识点/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Huzhiming">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="huzhiming的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">面经知识点</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-11T09:07:57+08:00">
+                2017-07-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/面经/" itemprop="url" rel="index">
+                    <span itemprop="name">面经</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/07/11/面试总结/面试知识点/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/07/11/面试总结/面试知识点/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>作者：Xoper.ducky<br>链接：<a href="https://www.nowcoder.com/discuss/3043?type=2&amp;order=0&amp;pos=5&amp;page=2" target="_blank" rel="external">https://www.nowcoder.com/discuss/3043?type=2&amp;order=0&amp;pos=5&amp;page=2</a><br>来源：牛客网</p>
+<p><strong>J2SE基础</strong></p>
+<ol>
+<li><p>九种基本数据类型的大小，以及他们的封装类。</p>
+<p>byte（1）、short（2）、int（4）、long(8)、char(2)、boolean(1)、double（8）、float（4） </p>
+</li>
+<li><p>Switch能否用string做参数？</p>
+<p>可以，可以用除浮点类型以外的任何基本类型，及其封装类型。包括String（JDK1.7及以后支持）</p>
+</li>
+<li><p>equals与==的区别。</p>
+<p>如果类中没有重写equals方法，则效果和==一样，Object类中equals方法就是通过==进行判断。String类中对equals方法进行了重写。重写equals方法时，必须重写hashCode方法，否则类似hashMap这种用到hashCode的类将会出现问题。</p>
+</li>
+<li><p>Object有哪些公用方法？</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">native</span> Class&lt;?&gt; getClass();</div><div class="line"><span class="comment">//返回hashCode</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">native</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span></span>;</div><div class="line"><span class="comment">//判断是否相等</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span> </span>&#123;<span class="keyword">return</span> (<span class="keyword">this</span> == obj);&#125;</div><div class="line"><span class="comment">//克隆方法</span></div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">native</span> Object <span class="title">clone</span><span class="params">()</span> <span class="keyword">throws</span> CloneNotSupportedException</span>;</div><div class="line"><span class="comment">//hashCode十六进制打印</span></div><div class="line"><span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;<span class="keyword">return</span> getClass().getName() + <span class="string">"@"</span> + Integer.toHexString(hashCode());&#125;</div><div class="line"><span class="comment">//唤醒通过wait函数阻塞的线程</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title">notify</span><span class="params">()</span></span>;</div><div class="line"><span class="comment">//唤醒所有通过wait函数阻塞的线程</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title">notifyAll</span><span class="params">()</span></span>;</div><div class="line"><span class="comment">//阻塞线程</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title">wait</span><span class="params">(<span class="keyword">long</span> timeout)</span> <span class="keyword">throws</span> InterruptedException</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">wait</span><span class="params">(<span class="keyword">long</span> timeout, <span class="keyword">int</span> nanos)</span> <span class="keyword">throws</span> InterruptedException</span>&#123;……&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">wait</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException</span>&#123;wait(<span class="number">0</span>);&#125;</div><div class="line"><span class="comment">//垃圾回收时调用此方法，必须重写这个方法垃圾回收时才会调用，但是重写之后不一定会调用</span></div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">finalize</span><span class="params">()</span> <span class="keyword">throws</span> Throwable </span>&#123; &#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Java的四种引用，强弱软虚，用到的场景。</p>
+<p>强引用：一般使用的都是强引用，JVM宁愿报OutOfMemory异常也不会进行垃圾回收</p>
+<p>软引用：当JVM内存快溢出时会进行垃圾回收</p>
+<p>弱引用：JVM垃圾收集器以扫描到就会进行垃圾回收，不管内存是否充足都会进行回收</p>
+<p>虚引用：虚引用不会决定对象的生命周期，通过get方法永远都无法获取其引用值，虚引用主要用来跟踪对象被垃圾回收器回收的活动。</p>
+</li>
+<li><p>Hashcode的作用。</p>
+<p>equals相等的两个对象，则hashCode也相等。反之hashCode相等的两个兑现equals方法不一定相等。hashCode方法应该保证同一次执行每次返回的结果都相等。</p>
+</li>
+<li><p>ArrayList、LinkedList、Vector的区别。</p>
+<p>ArrayList、Vector底层实现是通过数组，LinkedList是通过链表；Vector是线程安全的。ArrayList和LinkedList是非线程安全的。</p>
+</li>
+<li><p>String、StringBuffer与StringBuilder的区别。</p>
+<p>String是字符串常量，StringBuffer和StringBuilder是字符串变量；StringBuffer线程安全的、StringBuilder是非线程安全的。</p>
+</li>
+<li><p>Map、Set、List、Queue、Stack的特点与用法。</p>
+<p>​</p>
+</li>
+<li><p>HashMap和HashTable的区别。</p>
+<ul>
+<li>HashMap是非线程安全的，HashTable是线程安全的</li>
+<li>HashMap是继承自Map接口，HashTable是继承自Dictionary</li>
+<li>HashMapkey和Value都可以是null，HashTable不允许null</li>
+</ul>
+</li>
+<li><p>HashMap和ConcurrentHashMap的区别，HashMap的底层源码。</p>
+</li>
+<li><p>TreeMap、HashMap、LindedHashMap的区别。</p>
+</li>
+<li><p>Collection包结构，与Collections的区别。</p>
+</li>
+<li><p>try catch finally，try里有return，finally还执行么？</p>
+<p>try里面有return，finally中代码块依然会执行。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span></span></div><div class="line">&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></div><div class="line">    &#123;</div><div class="line">        System.out.println(test());</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">test</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">try</span>&#123;</div><div class="line">          <span class="keyword">return</span> <span class="number">12</span>;</div><div class="line">        &#125; <span class="keyword">catch</span> (Exception e)&#123;</div><div class="line">        &#125; <span class="keyword">finally</span>&#123;</div><div class="line">            System.out.println(<span class="string">"这是finally函数块"</span>);</div><div class="line">            <span class="keyword">return</span> <span class="number">13</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">输出：这是finally函数块</div><div class="line">	 13</div></pre></td></tr></table></figure>
+<p>如果try中直接返回变量，finally中对变量值进行修改，返回结果不会发生变化。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">test</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">      	<span class="keyword">int</span> x=<span class="number">12</span>;</div><div class="line">        <span class="keyword">try</span>&#123;</div><div class="line">          x++;</div><div class="line">          <span class="keyword">return</span> x;</div><div class="line">        &#125; <span class="keyword">catch</span> (Exception e)&#123;</div><div class="line">        &#125; <span class="keyword">finally</span>&#123;</div><div class="line">            System.out.println(<span class="string">"这是finally函数块"</span>);</div><div class="line">           	x++; <span class="comment">//x的修改对前面的返回值无效</span></div><div class="line">        &#125;</div><div class="line">      	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line"><span class="comment">///输出结果是13</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>Excption与Error包结构。OOM你遇到过哪些情况，SOF你遇到过哪些情况。</p>
+<p>Excption与Error继承自Throwable。Error和RuntimeException及其子类称为未检查异常，其他异常称为受检查异常。</p>
+<p><strong>Error与Exception的区别：</strong></p>
+<ul>
+<li>Error类一般是和虚拟机相关的问题，如系统崩溃，虚拟机错误、内存空间不足，方法调用栈溢出等。如StackOverFLowError、OutOfMemoryError等，对于这类错误，Java编译器不去检查他们，对于这类错误导致的应用程序中断，仅靠程序本省无法恢复和预防，遇到这类问题建议让程序终止。</li>
+<li>Exception：表示程序可以处理的异常，可以捕获且可能恢复。遇到这类异常应该尽可能处理异常，使程序恢复运行，而不应随意终止异常。</li>
+</ul>
+<p><strong>运行时异常和受检查的异常</strong></p>
+<ul>
+<li>RuntimeException：其特点是Java编译器不去检查它，也就是说，当程序中可能出现这类异常时，即使没有用try……catch捕获，也没有用throws抛出，还是会编译通过，如除数为零的ArithmeticException、错误的类型转换、数组越界访问和试图访问空指针等。处理RuntimeException的原则是：如果出现RuntimeException，那么一定是程序员的错误。</li>
+<li>受检查的异常（IOException等）：这类异常如果没有try……catch也没有throws抛出，编译是通不过的。这类异常一般是外部错误，例如文件找不到、试图从文件尾后读取数据等，这并不是程序本身的错误，而是在应用环境中出现的外部错误。</li>
+</ul>
+<p><strong>throw和throws的区别：</strong></p>
+<ul>
+<li>throw：用于抛出各种类型的异常，可以抛出任意Throwable，包括自定义的异常类对象。</li>
+<li>throws：总是出现在一个函数头，用来标识该成员函数可能抛出的各种类型异常。如果方法抛出异常，那么调用这个方法的时候就需要处理这个异常。</li>
+</ul>
+<p>常见的runtimeException：</p>
+<ul>
+<li>NullPointException：空指针异常</li>
+<li>ClassCastException：类型强制转换异常</li>
+<li>IllegalArgumentException：传递非法参数异常</li>
+<li>IndexOutOfBoundsException：数组越界</li>
+<li>arithmeticException：算术运算异常（被除数为0）</li>
+<li>SecurityException：安全异常</li>
+<li>ArrayStoreException：向数组中存放于声明类型不兼容对象异常。</li>
+</ul>
+</li>
+<li><p>Java面向对象的三个特征与含义。</p>
+<p>封装：类的设计者将类设计成一个黑匣子，使用者只能看见类中定义的公共方法和公共变量，而看不见具体的实现细节，也不能对垒中非公共的数据进行操作，这样防止了外部的干扰和误用。</p>
+<p>继承：继承是指从已有的类中派生出新类，新的类能吸收已有类的数据属性和行为，并能扩展新的功能。</p>
+<p>多态：是指同一行为具有多种表现形式。同一个方法根据调用的不同而产生多种结果。包括重载和重写。</p>
+</li>
+<li><p>Override和Overload的含义去区别。</p>
+<p>override是重写，子类覆盖父类中的方法。当通过父类引用子类时，调用父类方法执行的却是子类方法。</p>
+<p>overload是重载，方法名相同，通过传递的参数不能，调用不同的方法。</p>
+</li>
+<li><p>Interface与abstract类的区别。</p>
+<p><strong>interface</strong></p>
+<ul>
+<li>所有抽象方法必须是public的，并且是abstract的，如果方法没有修饰，默认是public abstract</li>
+<li>JDK8时，interface中可以有静态方法。</li>
+<li>不能有成员变量，但是可以有静态常量。final static int  a=3,常量必须初始话。</li>
+<li>一个类实现了某个接口，则必须要实现所有的抽象方法。</li>
+</ul>
+<p><strong>abstract class</strong></p>
+<ul>
+<li>抽象类中可以有变量，也可以成员方法（非抽象的）</li>
+<li>抽象类中也可以有抽象方法，也可以没有抽象方法。</li>
+<li>抽象类不能实例化</li>
+<li>一个类继承自抽象类，则必须重写所哟抽象方法。</li>
+</ul>
+<p>​</p>
+</li>
+<li><p>Static class 与non static class的区别。</p>
+<p>静态内部类：</p>
+<ul>
+<li><p>创建静态内部类时，不需要拥有外部类的引用，可以直接创建，如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">AA.B b = <span class="keyword">new</span> AA.B();  <span class="comment">//AA是外部类，B是AA的一个静态内部类</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>静态内部类只能调用外部类的静态变量或者静态方法。</p>
+</li>
+</ul>
+<p>非静态内部类：</p>
+<ul>
+<li><p>创建非静态内部类时，必须要有外部类的引用，不能直接创建内部类，必须先创建外部类，然后通过外部类的引用创建内部类，如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">AA aa = <span class="keyword">new</span> AA();  <span class="comment">//AA是外部类，A是AA的一个非静态内部类</span></div><div class="line">AA.A a = aa.new A();</div></pre></td></tr></table></figure>
+</li>
+<li><p>非静态内部类可以调用外部类的所有变量和方法</p>
+</li>
+</ul>
+</li>
+<li><p>java多态的实现原理。</p>
+</li>
+<li><p>实现多线程的两种方法：Thread与Runable。</p>
+<ul>
+<li><p>继承Thread类，实现run方法</p>
+</li>
+<li><p>实现Runable接口，实现run方法</p>
+</li>
+<li><p>实现Callable接口，实现call方法，创建FutureTask将callable参数传入，通过Thread类将FutureTask传入开启线程</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyCallable</span> <span class="keyword">implements</span> <span class="title">Callable</span>&lt;<span class="title">Integer</span>&gt;</span></div><div class="line">&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> Integer <span class="title">call</span><span class="params">()</span> <span class="keyword">throws</span> Exception</span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)</div><div class="line">        &#123;</div><div class="line">            System.out.println(i + <span class="string">" "</span> + Thread.currentThread().getName());</div><div class="line">            Thread.sleep(<span class="number">100</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="number">10</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span></span></div><div class="line">&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></div><div class="line">    &#123;</div><div class="line">        MyCallable callable1 = <span class="keyword">new</span> MyCallable();</div><div class="line">        FutureTask task1 = <span class="keyword">new</span> FutureTask(callable1);</div><div class="line">        <span class="keyword">new</span> Thread(task1).start();</div><div class="line">      	<span class="comment">//获取返回值</span></div><div class="line">      	System.out.println(task1.get());</div><div class="line">     &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>线程同步的方法：sychronized、lock、reentrantLock等。</p>
+</li>
+<li><p>锁的等级：方法锁、对象锁、类锁。</p>
+<p>方法锁和对象锁是相同的</p>
+<ul>
+<li>synchronized(this)，synchronized(obj)，public synchronized void method(){} 这两种是方法锁（对象锁）</li>
+<li>synchronized(Object.class),public static synchronized void method(){} 是类锁。</li>
+</ul>
+</li>
+<li><p>写出生产者消费者模式。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConsumerAndProducer</span></span></div><div class="line">&#123;	</div><div class="line">  	<span class="comment">//缓冲区的大小</span></div><div class="line">    <span class="keyword">int</span> len = <span class="number">10</span>;</div><div class="line">    <span class="comment">//模拟的缓冲区,用于存放生产的商品</span></div><div class="line">    <span class="keyword">int</span>[] buffer = <span class="keyword">new</span> <span class="keyword">int</span>[len];</div><div class="line">    <span class="comment">//in 表示生产放的位置, out表示即将消费的位置</span></div><div class="line">    <span class="keyword">int</span> in = <span class="number">0</span>, out = <span class="number">0</span>;</div><div class="line">    <span class="comment">//缓冲区中剩下的商品数量</span></div><div class="line">    Integer remain = <span class="number">0</span>;</div><div class="line">    <span class="comment">//即将生产的产品编号</span></div><div class="line">    <span class="keyword">int</span> productId = <span class="number">0</span>;</div><div class="line">    <span class="comment">//生产产品</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">produce</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span> (remain &lt; len)</div><div class="line">            <span class="keyword">synchronized</span> (remain)</div><div class="line">            &#123;</div><div class="line">                <span class="keyword">if</span> (remain &lt; len)</div><div class="line">                &#123;</div><div class="line">                    <span class="comment">//剩下产品数量加1</span></div><div class="line">                    remain++;</div><div class="line">                    buffer[in] = productId;</div><div class="line">                    System.out.println(<span class="string">"生产了产品:"</span>+productId+<span class="string">"剩余产品数量:"</span>+remain);</div><div class="line">                    <span class="comment">//下一个生产产品的位置向前加1</span></div><div class="line">                    in = (in + <span class="number">1</span>) % len;</div><div class="line">                    productId++;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//消费商品</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">consume</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span> (remain &gt; <span class="number">0</span>)</div><div class="line">            <span class="keyword">synchronized</span> (remain)</div><div class="line">            &#123;</div><div class="line">                <span class="keyword">if</span> (remain &gt; <span class="number">0</span>)</div><div class="line">                &#123;</div><div class="line">                    <span class="comment">//剩余数量减1</span></div><div class="line">                    remain--;</div><div class="line">                    System.out.println(<span class="string">"消费了产品:"</span>+buffer[out]+<span class="string">"剩余产品数量:"</span>+ remain);</div><div class="line">                    out = (out + <span class="number">1</span>) % len;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>ThreadLocal的设计理念与作用。</p>
+<p>ThreadLocal为每个线程提供一个变量的副本，这个变量副本存储在Thread中的ThreadLocalMap中。</p>
+</li>
+<li><p>ThreadPool用法与优势。</p>
+<p>主要包括这几个参数：corePoolSize, MaximumPoolSize, keepLiveTime, TimeUnit, BlockingQueue,  RejectedExecutionHandler 。</p>
+</li>
+<li><p>Concurrent包里的其他东西：ArrayBlockingQueue、CountDownLatch等等。</p>
+<p>​</p>
+</li>
+<li><p>wait()和sleep()的区别。</p>
+<p>wait使线程阻塞，同时会释放占用的资源锁；sleep使线程阻塞，但是会依然占用资源锁。</p>
+</li>
+<li><p>foreach与正常for循环效率对比。</p>
+</li>
+<li><p>Java IO与NIO</p>
+</li>
+<li><p>反射的作用于原理。</p>
+</li>
+<li><p>泛型常用特点，List<string>能否转为List<object>。</object></string></p>
+</li>
+<li><p>解析XML的几种方式的原理与特点：DOM、SAX、PULL。</p>
+</li>
+<li><p>Java与C++对比。</p>
+</li>
+<li><p>Java1.7与1.8新特性。</p>
+</li>
+<li><p>设计模式：单例、工厂、适配器、责任链、观察者等等。</p>
+</li>
+<li><p>JNI的使用。</p>
+</li>
+</ol>
+<p>Java里有很多很杂的东西，有时候需要你阅读源码，大多数可能书里面讲的不是太清楚，需要你在网上寻找答案。</p>
+<p>推荐书籍：《java核心技术卷I》《Thinking in java》《java并发编程》《effictive java》《大话设计模式》</p>
+<p>​    <strong>JVM</strong></p>
+<ol>
+<li>内存模型以及分区，需要详细到每个区放什么。</li>
+<li>堆里面的分区：Eden，survival from to，老年代，各自的特点。</li>
+<li>对象创建方法，对象的内存分配，对象的访问定位。</li>
+<li>GC的两种判定方法：引用计数与引用链。</li>
+<li>GC的三种收集方法：标记清除、标记整理、复制算法的原理与特点，分别用在什么地方，如果让你优化收集方法，有什么思路？</li>
+<li>GC收集器有哪些？CMS收集器与G1收集器的特点。</li>
+<li>Minor GC与Full GC分别在什么时候发生？</li>
+<li>几种常用的内存调试工具：jmap、jstack、jconsole。</li>
+<li>类加载的五个过程：加载、验证、准备、解析、初始化。</li>
+<li>双亲委派模型：Bootstrap ClassLoader、Extension ClassLoader、ApplicationClassLoader。</li>
+<li>分派：静态分派与动态分派。</li>
+</ol>
+<p>​    JVM过去过来就问了这么些问题，没怎么变，内存模型和GC算法这块问得比较多，可以在网上多找几篇博客来看看。</p>
+<p>​    推荐书籍：《深入理解java虚拟机》</p>
+<p>​    </p>
+<p>​    <strong>操作系统</strong></p>
+<ol>
+<li>进程和线程的区别。</li>
+<li>死锁的必要条件，怎么处理死锁。</li>
+<li>Window内存管理方式：段存储，页存储，段页存储。</li>
+<li>进程的几种状态。</li>
+<li>IPC几种通信方式。</li>
+<li>什么是虚拟内存。</li>
+<li>虚拟地址、逻辑地址、线性地址、物理地址的区别。</li>
+</ol>
+<p>​    因为是做android的这一块问得比较少一点，还有可能上我简历上没有写操作系统的原因。</p>
+<p>​    推荐书籍：《深入理解现代操作系统》</p>
+<p>​    </p>
+<p>​    TCP/IP</p>
+<ol>
+<li><p>OSI与TCP/IP各层的结构与功能，都有哪些协议。</p>
+<p>OSI：物理层、数据链路层、网络层、运输层、会话层、  表示层、应用层、</p>
+<p>TCP/IP：网络接口层、网际层IP、运输层、应用层</p>
+<p>5层协议：物理层、数据链路层、网络层、运输层、应用层</p>
+</li>
+<li><p>TCP与UDP的区别。</p>
+</li>
+</ol>
+<ol>
+<li><p>TCP报文结构。</p>
+</li>
+<li><p>TCP的三次握手与四次挥手过程，各个状态名称与含义，TIMEWAIT的作用。</p>
+</li>
+<li><p>TCP拥塞控制。</p>
+</li>
+<li><p>TCP滑动窗口与回退N针协议。</p>
+</li>
+<li><p>Http的报文结构。</p>
+</li>
+<li><p>Http的状态码含义。</p>
+</li>
+<li><p>Http request的几种类型。</p>
+</li>
+<li><p>Http1.1和Http1.0的区别</p>
+</li>
+<li><p>Http怎么处理长连接。</p>
+</li>
+<li><p>Cookie与Session的作用于原理。</p>
+</li>
+<li><p>电脑上访问一个网页，整个过程是怎么样的：DNS、HTTP、TCP、OSPF、IP、ARP。</p>
+</li>
+<li><p>Ping的整个过程。ICMP报文是什么。</p>
+</li>
+<li><p>C/S模式下使用socket通信，几个关键函数。</p>
+</li>
+<li><p>IP地址分类。</p>
+</li>
+<li><p>路由器与交换机区别。</p>
+</li>
+</ol>
+<p>​    网络其实大体分为两块，一个TCP协议，一个HTTP协议，只要把这两块以及相关协议搞清楚，一般问题不大。</p>
+<p>​    推荐书籍：《TCP/IP协议族》</p>
+<p>​    </p>
+<p>​    <strong>数据结构与算法</strong></p>
+<ol>
+<li>链表与数组。</li>
+<li>队列和栈，出栈与入栈。</li>
+<li>链表的删除、插入、反向。</li>
+<li>字符串操作。</li>
+<li>Hash表的hash函数，冲突解决方法有哪些。</li>
+<li>各种排序：冒泡、选择、插入、希尔、归并、快排、堆排、桶排、基数的原理、平均时间复杂度、最坏时间复杂度、空间复杂度、是否稳定。</li>
+<li>快排的partition函数与归并的Merge函数。</li>
+<li>对冒泡与快排的改进。</li>
+<li>二分查找，与变种二分查找。</li>
+<li>二叉树、B+树、AVL树、红黑树、哈夫曼树。</li>
+<li>二叉树的前中后续遍历：递归与非递归写法，层序遍历算法。</li>
+<li>图的BFS与DFS算法，最小生成树prim算法与最短路径Dijkstra算法。</li>
+<li>KMP算法。</li>
+<li>排列组合问题。</li>
+<li>动态规划、贪心算法、分治算法。（一般不会问到）</li>
+<li>大数据处理：类似10亿条数据找出最大的1000个数………等等</li>
+</ol>
+<p>​    算法的话其实是个重点，因为最后都是要你写代码，所以算法还是需要花不少时间准备，这里有太多算法题，写不全，我的建议是没事多在OJ上刷刷题（牛客网、leetcode等），剑指offer上的算法要能理解并自己写出来，编程之美也推荐看一看。</p>
+<p>​    推荐书籍：《大话数据结构》《剑指offer》《编程之美》</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatimg.jpg" alt="Huzhiming WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipayimg.jpg" alt="Huzhiming Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/05/面试总结/面经总结/" rel="next" title="面经总结">
+                <i class="fa fa-chevron-left"></i> 面经总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/13/计算机网络/计网5层模型/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/head.jpeg"
+               alt="Huzhiming" />
+          <p class="site-author-name" itemprop="name">Huzhiming</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">85</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">50</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/huzhiming12" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Huzhiming</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://https-huzhiming12-github-io.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://huzhiming12.github.io/2017/07/11/面试总结/面试知识点/';
+          this.page.identifier = '2017/07/11/面试总结/面试知识点/';
+          this.page.title = '面经知识点';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://https-huzhiming12-github-io.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (search_path.endsWith("json")) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
