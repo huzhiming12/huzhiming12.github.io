@@ -1,0 +1,50 @@
+<h1 id="Mac-redis-安装教程"><a href="#Mac-redis-安装教程" class="headerlink" title="Mac redis 安装教程"></a>Mac redis 安装教程</h1><h4 id="redis环境搭建"><a href="#redis环境搭建" class="headerlink" title="redis环境搭建"></a>redis环境搭建</h4><ol>
+<li><p>到官网下载最新版本的redis，本次下载的版本是redis-3.2.8</p>
+</li>
+<li><p>下载之后解压redis-3.2.8.tar.gz</p>
+</li>
+<li><p>进入解压后的文件夹redis-3.2.8</p>
+</li>
+<li><p>编译测试：sudo make test</p>
+<p><img src="/2017/04/22/软件安装教程/Mac redis 安装教程/pic11.png" alt=""></p>
+<p>编译成功！</p>
+</li>
+<li><p>redis安装：sudo make install</p>
+<p>redis默认安装在usr/local/bin 目录下，可以进入usr/local/bin目录下查看这些工具</p>
+<p><img src="/2017/04/22/软件安装教程/Mac redis 安装教程/pic12.png" alt=""></p>
+<p>主要包含以下几个工具：</p>
+<ul>
+<li>./redis-benchmark //用于进行redis性能测试的工具</li>
+<li>./redis-check-dump //用于修复出问题的dump.rdb文件</li>
+<li>./redis-cli //redis的客户端</li>
+<li>./redis-server //redis的服务端</li>
+<li>./redis-check-aof //用于修复出问题的AOF文件</li>
+<li>./redis-sentinel //用于集群管理</li>
+</ul>
+</li>
+<li><p>将文件夹中redis.conf配置文件复制到/etc/目录下面，对配置文件进行修改</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div></pre></td><td class="code"><pre><div class="line">#修改为守护模式</div><div class="line"> </div><div class="line">daemonize yes</div><div class="line"> </div><div class="line">#设置进程锁文件</div><div class="line"> </div><div class="line">pidfile /usr/local/redis/redis.pid</div><div class="line"> </div><div class="line">#端口</div><div class="line"> </div><div class="line">port 6379</div><div class="line"> </div><div class="line">#客户端超时时间</div><div class="line"> </div><div class="line">timeout 300</div><div class="line"> </div><div class="line">#日志级别</div><div class="line"> </div><div class="line">loglevel debug</div><div class="line"> </div><div class="line">#日志文件位置</div><div class="line"> </div><div class="line">logfile /usr/local/redis/log-redis.log</div><div class="line"> </div><div class="line">#设置数据库的数量，默认数据库为0，可以使用SELECT &lt;dbid&gt;命令在连接上指定数据库id</div><div class="line"> </div><div class="line">databases 8</div><div class="line"> </div><div class="line">##指定在多长时间内，有多少次更新操作，就将数据同步到数据文件，可以多个条件配合</div><div class="line"> </div><div class="line">#save &lt;seconds&gt; &lt;changes&gt;</div><div class="line"> </div><div class="line">#Redis默认配置文件中提供了三个条件：</div><div class="line"> </div><div class="line">save 900 1</div><div class="line"> </div><div class="line">save 300 10</div><div class="line"> </div><div class="line">save 60 10000</div><div class="line"> </div><div class="line">#指定存储至本地数据库时是否压缩数据，默认为yes，Redis采用LZF压缩，如果为了节省CPU时间，</div><div class="line"> </div><div class="line">#可以关闭该#选项，但会导致数据库文件变的巨大</div><div class="line"> </div><div class="line">rdbcompression yes</div><div class="line"> </div><div class="line">#指定本地数据库文件名</div><div class="line"> </div><div class="line">dbfilename dump.rdb</div><div class="line"> </div><div class="line">#指定本地数据库路径</div><div class="line"> </div><div class="line">dir /usr/local/redis/db/</div><div class="line"> </div><div class="line">#指定是否在每次更新操作后进行日志记录，Redis在默认情况下是异步的把数据写入磁盘，如果不开启，可能</div><div class="line"> </div><div class="line">#会在断电时导致一段时间内的数据丢失。因为 redis本身同步数据文件是按上面save条件来同步的，所以有</div><div class="line"> </div><div class="line">#的数据会在一段时间内只存在于内存中</div><div class="line"> </div><div class="line">appendonly no</div><div class="line"> </div><div class="line">#指定更新日志条件，共有3个可选值：</div><div class="line"> </div><div class="line">#no：表示等操作系统进行数据缓存同步到磁盘（快）</div><div class="line"> </div><div class="line">#always：表示每次更新操作后手动调用fsync()将数据写到磁盘（慢，安全）</div><div class="line"> </div><div class="line">#everysec：表示每秒同步一次（折衷，默认值）</div><div class="line"> </div><div class="line">appendfsync everysec</div></pre></td></tr></table></figure>
+</li>
+<li><p>启动redis：redis-server ,如果要加载我们修改后的配置文件则在后面加上配置文件路径</p>
+<blockquote>
+<p>redis-server  /etc/redis.conf</p>
+</blockquote>
+<p>启动后如图所示：</p>
+<p><img src="/2017/04/22/软件安装教程/Mac redis 安装教程/pic13.png" alt=""></p>
+</li>
+<li><p>启动redis客户端。另外打开一个终端，输入 </p>
+<blockquote>
+<p>redis-cli</p>
+</blockquote>
+<p><img src="/2017/04/22/软件安装教程/Mac redis 安装教程/pic14.png" alt=""></p>
+</li>
+<li><p>关闭redis服务器，在客户端中输入</p>
+<blockquote>
+<p>127.0.0.1:6379&gt; shutdown</p>
+</blockquote>
+</li>
+</ol>
+<h4 id="redis卸载删除"><a href="#redis卸载删除" class="headerlink" title="redis卸载删除"></a>redis卸载删除</h4><p>进入redis安装目录usr/local/bin。只需将redis安装文件删除即可。删除该目录下所有redis开头的文件</p>
+<blockquote>
+<p>sudo rm -f redis.*</p>
+</blockquote>

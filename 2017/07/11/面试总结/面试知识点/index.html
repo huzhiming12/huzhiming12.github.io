@@ -116,7 +116,7 @@
 <meta property="og:url" content="https://huzhiming12.github.io/2017/07/11/面试总结/面试知识点/index.html">
 <meta property="og:site_name" content="huzhiming的博客">
 <meta property="og:description" content="作者：Xoper.ducky链接：https://www.nowcoder.com/discuss/3043?type=2&amp;amp;order=0&amp;amp;pos=5&amp;amp;page=2来源：牛客网 J2SE基础  九种基本数据类型的大小，以及他们的封装类。 byte（1）、short（2）、int（4）、long(8)、char(2)、boolean(1)、double（8）、float（4）">
-<meta property="og:updated_time" content="2017-07-13T00:59:53.000Z">
+<meta property="og:updated_time" content="2017-07-17T06:12:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面经知识点">
 <meta name="twitter:description" content="作者：Xoper.ducky链接：https://www.nowcoder.com/discuss/3043?type=2&amp;amp;order=0&amp;amp;pos=5&amp;amp;page=2来源：牛客网 J2SE基础  九种基本数据类型的大小，以及他们的封装类。 byte（1）、short（2）、int（4）、long(8)、char(2)、boolean(1)、double（8）、float（4）">
@@ -448,12 +448,14 @@
 <p>​</p>
 </li>
 <li><p>HashMap和HashTable的区别。</p>
+</li>
+</ol>
 <ul>
 <li>HashMap是非线程安全的，HashTable是线程安全的</li>
 <li>HashMap是继承自Map接口，HashTable是继承自Dictionary</li>
 <li>HashMapkey和Value都可以是null，HashTable不允许null</li>
 </ul>
-</li>
+<ol>
 <li><p>HashMap和ConcurrentHashMap的区别，HashMap的底层源码。</p>
 </li>
 <li><p>TreeMap、HashMap、LindedHashMap的区别。</p>
@@ -616,13 +618,21 @@
 <p>​    </p>
 <p>​    <strong>操作系统</strong></p>
 <ol>
-<li>进程和线程的区别。</li>
-<li>死锁的必要条件，怎么处理死锁。</li>
-<li>Window内存管理方式：段存储，页存储，段页存储。</li>
-<li>进程的几种状态。</li>
-<li>IPC几种通信方式。</li>
-<li>什么是虚拟内存。</li>
-<li>虚拟地址、逻辑地址、线性地址、物理地址的区别。</li>
+<li><p>进程和线程的区别。</p>
+</li>
+<li><p>死锁的必要条件，怎么处理死锁。</p>
+<p>必要条件：互斥条件、请求保持条件、不剥夺条件、循环等待条件                                                                                                 </p>
+</li>
+<li><p>Window内存管理方式：段存储，页存储，段页存储。</p>
+</li>
+<li><p>进程的几种状态。</p>
+</li>
+<li><p>IPC几种通信方式。</p>
+</li>
+<li><p>什么是虚拟内存。</p>
+</li>
+<li><p>虚拟地址、逻辑地址、线性地址、物理地址的区别。</p>
+</li>
 </ol>
 <p>​    因为是做android的这一块问得比较少一点，还有可能上我简历上没有写操作系统的原因。</p>
 <p>​    推荐书籍：《深入理解现代操作系统》</p>
@@ -647,16 +657,50 @@
 <li><p>TCP滑动窗口与回退N针协议。</p>
 </li>
 <li><p>Http的报文结构。</p>
+<p>Http包括两种报文，一种是请求报文，一种是响应报文。无论是请求报文还是响应报文都包括三个部分：开始行、首部行、实体主体。两者的不同之处在于开始行，请求报文中开始行叫做<strong>请求行</strong>，响应报文中开始行叫做状态行</p>
+<ul>
+<li>请求报文<ul>
+<li>请求行：包括三个部分，分别是方法、请求资源的URL、Http版本</li>
+<li>首部行：用来说明浏览器、服务器或报文主体的一些信息，首部行包括很多字段，也可以没有</li>
+<li>实体主体：请求报文中一般不使用这个字段</li>
+</ul>
+</li>
+<li>响应报文<ul>
+<li>状态行：也包括三个部分，Http版本号、状态码、解释状态码的短语</li>
+<li>首部行：和请求报文类似</li>
+<li>实体主体：返回显示的主体部分。</li>
+</ul>
+</li>
+</ul>
 </li>
 <li><p>Http的状态码含义。</p>
+<ul>
+<li>1xx：表示通知信息，如请求收到了或者正在处理</li>
+<li>2xx：表示成功，如接受或知道了</li>
+<li>3xx：表示重定向，如要完成请求还必须采取进一步的行动</li>
+<li>4xx：表示客户端的差错，如请求中有错误的语法或不能完成</li>
+<li>5xx：表示服务器的差错，如服务器失效无法完成请求</li>
+</ul>
 </li>
 <li><p>Http request的几种类型。</p>
+<ul>
+<li>option：请求一些选项信息</li>
+<li>head：仅仅只是返回响应的头部</li>
+<li>get：向特定URL发出请求，从服务器取回数据</li>
+<li>post：向特定URL提交数据，例如表单提交或者文件上传。数据包含在请求体中。</li>
+<li>put：向指定字眼位置上传最新内容。一般用来更新一个已有的实体</li>
+<li>delete：用来删除服务器上已有的资源</li>
+<li>trace：用来进行回环测试的请求报文</li>
+<li>connect：主要用来建立一个对资源的网络连接</li>
+</ul>
 </li>
 <li><p>Http1.1和Http1.0的区别</p>
+<p>http1.1默认保持长连接，数据传输完成了保持TCP连接不断开。Connection：keep-alive</p>
 </li>
 <li><p>Http怎么处理长连接。</p>
+<p>​</p>
 </li>
-<li><p>Cookie与Session的作用于原理。</p>
+<li><p>Cookie与Session的作用与原理。</p>
 </li>
 <li><p>电脑上访问一个网页，整个过程是怎么样的：DNS、HTTP、TCP、OSPF、IP、ARP。</p>
 </li>
@@ -832,7 +876,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">67</span>
+                <span class="site-state-item-count">70</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
