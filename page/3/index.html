@@ -315,6 +315,163 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://huzhiming12.github.io/2017/06/11/Java设计模式/Java设计模式——抽象工厂模式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Huzhiming">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="huzhiming的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/06/11/Java设计模式/Java设计模式——抽象工厂模式/" itemprop="url">Java设计模式——抽象工厂模式</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-11T12:07:14+08:00">
+                2017-06-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java设计模式/" itemprop="url" rel="index">
+                    <span itemprop="name">Java设计模式</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/06/11/Java设计模式/Java设计模式——抽象工厂模式/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/06/11/Java设计模式/Java设计模式——抽象工厂模式/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          现实生活中一个工厂可能生产多个产品，而工厂方法模式中一个具体的工厂类只负责生产一种产品，随着产品的逐渐增多工厂类也会随之增多，这显然是不合理的。
+抽象工厂模式是在工厂方法模式的基础之上增强了工厂类，一个工厂类可以生产多个产品。
+抽象工厂模式组成：
+
+抽象工厂：这是工厂方法模式的核心，是具体工厂必须实现的接口或继承的父类。
+具体工厂：负责生产具体的产品实例，实现了抽象工厂接口。
+抽象产品：具体产品的
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/06/11/Java设计模式/Java设计模式——抽象工厂模式/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="https://huzhiming12.github.io/2017/06/11/Java设计模式/Java设计模式——工厂方法模式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1368,9 +1525,7 @@ Java实体类、Map
         
           
           
-ReentrantLock 对于公平锁和非公平锁的加锁过程不同。对于公平锁加锁，如果前面没有比当前线程等候更久的线程的话，则当前线程直接获得锁，否则直接将当前线程插入等候队列中；对于非公平锁的加锁和前面不一样，如果前一个线程刚好结束state=0，此时无论当前线程前面是否有线程等候，当前线程都能直接抢占锁。如果前一个线程还没执行完毕，则当前线程便插入等候队列中。
-
-等候队列ReentrantLo
+ReentrantLock 对于公平锁和非公平锁的加锁过程不同。对于公平锁加锁，如果前面没有比当前线程等候更久的线程的话，则当前线程直接获得锁，否则直接将当前线程插入等候队列中；对于非公平锁的加锁和前面不一样，如果前一个线程刚好结束state=0，此时无论当前线程前面是否有线程等候，当前线程都能直接抢占锁。如果前一个线程还没执行完毕，则当前线程便插入等候队列中。ReentrantLock默认是非
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1717,159 +1872,6 @@ ReentrantLock是一个可重入的互斥锁定 Lock，它具有与使用 synchro
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://huzhiming12.github.io/2017/05/17/java/blog/Synchronized/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Huzhiming">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/head.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="huzhiming的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/05/17/java/blog/Synchronized/" itemprop="url">Synchronized</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-17T16:38:44+08:00">
-                2017-05-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java并发/" itemprop="url" rel="index">
-                    <span itemprop="name">Java并发</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/05/17/java/blog/Synchronized/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/05/17/java/blog/Synchronized/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          
-Synchronized 是Java中的一种锁，主要用来给方法和代码块加锁。当某个方法或者代码块使用synchronized关键字时，那么同一时刻最多只能有一个线程执行该代码段。当多个线程同时访问时，只有一个线程执行，其他线程处于阻塞状态，当线程执行完毕后其他线程才能执行。
-synchronized 是Java虚拟机底层实现的锁机制，当synchronized方法或者代码块中发生异常时，会系统会
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/05/17/java/blog/Synchronized/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1919,7 +1921,7 @@ synchronized 是Java虚拟机底层实现的锁机制，当synchronized方法或
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">71</span>
+                <span class="site-state-item-count">72</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

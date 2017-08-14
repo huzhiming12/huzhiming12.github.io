@@ -117,7 +117,7 @@
 <meta property="og:url" content="https://huzhiming12.github.io/2017/05/13/计算机网络/http和https的区别/index.html">
 <meta property="og:site_name" content="huzhiming的博客">
 <meta property="og:description" content="Http和Https的区别http协议是未加密的传输，即采用明文的方式发送内容，如果攻击者截取了web浏览器和网站服务器之间的传输报文，就很容易直接读取其中的信息。https就是在http的基础之上加入了SSL协议，SSL用于对http协议传输的数据进行加密。  https协议需要到ca申请证书，一般需要一定的费用 http是超文本传输协议，信息是明文传输。https则是具有安全性的ssl加密协议">
-<meta property="og:updated_time" content="2017-07-19T02:59:43.000Z">
+<meta property="og:updated_time" content="2017-08-09T01:42:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="http和https的区别">
 <meta name="twitter:description" content="Http和Https的区别http协议是未加密的传输，即采用明文的方式发送内容，如果攻击者截取了web浏览器和网站服务器之间的传输报文，就很容易直接读取其中的信息。https就是在http的基础之上加入了SSL协议，SSL用于对http协议传输的数据进行加密。  https协议需要到ca申请证书，一般需要一定的费用 http是超文本传输协议，信息是明文传输。https则是具有安全性的ssl加密协议">
@@ -415,7 +415,7 @@
       
 
       
-        <h2 id="Http和Https的区别"><a href="#Http和Https的区别" class="headerlink" title="Http和Https的区别"></a>Http和Https的区别</h2><p>http协议是未加密的传输，即采用明文的方式发送内容，如果攻击者截取了web浏览器和网站服务器之间的传输报文，就很容易直接读取其中的信息。https就是在http的基础之上加入了SSL协议，SSL用于对http协议传输的数据进行加密。</p>
+        <h3 id="Http和Https的区别"><a href="#Http和Https的区别" class="headerlink" title="Http和Https的区别"></a>Http和Https的区别</h3><p>http协议是未加密的传输，即采用明文的方式发送内容，如果攻击者截取了web浏览器和网站服务器之间的传输报文，就很容易直接读取其中的信息。https就是在http的基础之上加入了SSL协议，SSL用于对http协议传输的数据进行加密。</p>
 <ul>
 <li>https协议需要到ca申请证书，一般需要一定的费用</li>
 <li>http是超文本传输协议，信息是明文传输。https则是具有安全性的ssl加密协议</li>
@@ -483,11 +483,13 @@
 <p><strong>8. 客户端解密信息</strong></p>
 <p>客户端用之前生成的私钥解密服务段传过来的信息，于是获取了解密后的内容。</p>
 <p>PS: 整个握手过程第三方即使监听到了数据，也束手无策。</p>
-<h4 id="HTTP1-0-与HTTP1-1的区别"><a href="#HTTP1-0-与HTTP1-1的区别" class="headerlink" title="HTTP1.0 与HTTP1.1的区别"></a>HTTP1.0 与HTTP1.1的区别</h4><ul>
+<h3 id="HTTP1-0-与HTTP1-1的区别"><a href="#HTTP1-0-与HTTP1-1的区别" class="headerlink" title="HTTP1.0 与HTTP1.1的区别"></a>HTTP1.0 与HTTP1.1的区别</h3><ul>
 <li>引入持久化连接，即TCP连接默认不关闭，可以被多个请求复用，不用声明<code>Connection: keep-alive</code>。</li>
 <li>引入管道机制，即在同一个TCP连接里面，客户端可以同时发送多个请求。这样就进一步改进了HTTP协议的效率。</li>
+<li>增加了Host头域，使多个Server同时共享一个IP地址和端口号</li>
+<li>增加状态码100，客户端先发送一个只有请求头的数据，测试地址是否可以访问，可以访问随后再发送含有包含body字段的请求</li>
 </ul>
-<h4 id="Http状态码："><a href="#Http状态码：" class="headerlink" title="Http状态码："></a>Http状态码：</h4><ul>
+<h3 id="Http状态码："><a href="#Http状态码：" class="headerlink" title="Http状态码："></a>Http状态码：</h3><ul>
 <li>1xx：指示信息，表示请求已经接收，继续处理</li>
 <li>2xx：成功，表示请求已经被成功接收、理解、接受</li>
 <li>3xx：重定向，表示完成请求必须进行更进一步的操作</li>
@@ -508,6 +510,7 @@
 <li>403：Forbidden——资源不可用，服务器收到请求，但是拒绝提供服务</li>
 <li>404：Not found——请求资源不存在  如URL输入错误</li>
 <li>500：Internal Server Error——服务器发生了不可预料的错误</li>
+<li>502：网关错误</li>
 <li>503：Server Unavailable——服务器当前不能处理客户端的请求，一段时间后可能恢复正常</li>
 </ul>
 <h4 id="Http-Request请求头常见字段："><a href="#Http-Request请求头常见字段：" class="headerlink" title="Http Request请求头常见字段："></a>Http Request请求头常见字段：</h4><ul>
@@ -701,7 +704,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">71</span>
+                <span class="site-state-item-count">72</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -769,7 +772,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Http和Https的区别"><span class="nav-number">1.</span> <span class="nav-text">Http和Https的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-什么是Http"><span class="nav-number">1.0.1.</span> <span class="nav-text">1.什么是Http</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-与http关系密切的协议-IP-TCP和DNS"><span class="nav-number">1.0.2.</span> <span class="nav-text">1.1 与http关系密切的协议: IP, TCP和DNS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#负责传输的IP协议"><span class="nav-number">1.0.3.</span> <span class="nav-text">负责传输的IP协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#确保可靠性的TCP协议"><span class="nav-number">1.0.4.</span> <span class="nav-text">确保可靠性的TCP协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#负责域名解析的DNS服务"><span class="nav-number">1.0.5.</span> <span class="nav-text">负责域名解析的DNS服务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-HTTP的缺点"><span class="nav-number">1.0.6.</span> <span class="nav-text">2. HTTP的缺点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-HTTP-加密-认证-完整性保护-HTTPS"><span class="nav-number">1.0.7.</span> <span class="nav-text">3.HTTP+加密+认证+完整性保护 = HTTPS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-SSL是如何加密的"><span class="nav-number">1.0.8.</span> <span class="nav-text">4.SSL是如何加密的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#共享密钥加密的困境"><span class="nav-number">1.0.9.</span> <span class="nav-text">共享密钥加密的困境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用两把密钥的公开密钥加密"><span class="nav-number">1.0.10.</span> <span class="nav-text">使用两把密钥的公开密钥加密</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTPS采用混合加密机制"><span class="nav-number">1.0.11.</span> <span class="nav-text">HTTPS采用混合加密机制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-证明公开密钥的正确性的证书"><span class="nav-number">1.0.12.</span> <span class="nav-text">5.证明公开密钥的正确性的证书</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-SSL速度慢吗"><span class="nav-number">1.0.13.</span> <span class="nav-text">6.SSL速度慢吗?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-为什么不一直使用HTTPS"><span class="nav-number">1.0.14.</span> <span class="nav-text">7.为什么不一直使用HTTPS</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Https握手过程"><span class="nav-number">1.1.</span> <span class="nav-text">Https握手过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP1-0-与HTTP1-1的区别"><span class="nav-number">1.1.1.</span> <span class="nav-text">HTTP1.0 与HTTP1.1的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Http状态码："><span class="nav-number">1.1.2.</span> <span class="nav-text">Http状态码：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Http-Request请求头常见字段："><span class="nav-number">1.1.3.</span> <span class="nav-text">Http Request请求头常见字段：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Http-Response响应头字段："><span class="nav-number">1.1.4.</span> <span class="nav-text">Http Response响应头字段：</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Http和Https的区别"><span class="nav-number">1.</span> <span class="nav-text">Http和Https的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-什么是Http"><span class="nav-number">1.1.</span> <span class="nav-text">1.什么是Http</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-与http关系密切的协议-IP-TCP和DNS"><span class="nav-number">1.2.</span> <span class="nav-text">1.1 与http关系密切的协议: IP, TCP和DNS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#负责传输的IP协议"><span class="nav-number">1.3.</span> <span class="nav-text">负责传输的IP协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#确保可靠性的TCP协议"><span class="nav-number">1.4.</span> <span class="nav-text">确保可靠性的TCP协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#负责域名解析的DNS服务"><span class="nav-number">1.5.</span> <span class="nav-text">负责域名解析的DNS服务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-HTTP的缺点"><span class="nav-number">1.6.</span> <span class="nav-text">2. HTTP的缺点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-HTTP-加密-认证-完整性保护-HTTPS"><span class="nav-number">1.7.</span> <span class="nav-text">3.HTTP+加密+认证+完整性保护 = HTTPS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-SSL是如何加密的"><span class="nav-number">1.8.</span> <span class="nav-text">4.SSL是如何加密的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#共享密钥加密的困境"><span class="nav-number">1.9.</span> <span class="nav-text">共享密钥加密的困境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用两把密钥的公开密钥加密"><span class="nav-number">1.10.</span> <span class="nav-text">使用两把密钥的公开密钥加密</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTPS采用混合加密机制"><span class="nav-number">1.11.</span> <span class="nav-text">HTTPS采用混合加密机制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-证明公开密钥的正确性的证书"><span class="nav-number">1.12.</span> <span class="nav-text">5.证明公开密钥的正确性的证书</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-SSL速度慢吗"><span class="nav-number">1.13.</span> <span class="nav-text">6.SSL速度慢吗?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-为什么不一直使用HTTPS"><span class="nav-number">1.14.</span> <span class="nav-text">7.为什么不一直使用HTTPS</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Https握手过程"><span class="nav-number">2.</span> <span class="nav-text">Https握手过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP1-0-与HTTP1-1的区别"><span class="nav-number">3.</span> <span class="nav-text">HTTP1.0 与HTTP1.1的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Http状态码："><span class="nav-number">4.</span> <span class="nav-text">Http状态码：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Http-Request请求头常见字段："><span class="nav-number">4.1.</span> <span class="nav-text">Http Request请求头常见字段：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Http-Response响应头字段："><span class="nav-number">4.2.</span> <span class="nav-text">Http Response响应头字段：</span></a></li></ol></li></ol></div>
             
 
           </div>
