@@ -120,7 +120,9 @@
 <meta property="og:image" content="https://huzhiming12.github.io/2017/07/05/面试总结/面经总结/pic1.png">
 <meta property="og:image" content="https://huzhiming12.github.io/2017/07/05/面试总结/面经总结/pic3.png">
 <meta property="og:image" content="https://huzhiming12.github.io/2017/07/05/面试总结/面经总结/pic2.png">
-<meta property="og:updated_time" content="2017-08-14T07:59:13.000Z">
+<meta property="og:image" content="https://huzhiming12.github.io/2017/07/05/面试总结/面经总结/pic5.png">
+<meta property="og:image" content="https://huzhiming12.github.io/2017/07/05/面试总结/面经总结/pic6.png">
+<meta property="og:updated_time" content="2017-08-30T12:58:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面经总结">
 <meta name="twitter:description" content="[TOC] Java基础基础面向对象的三大特性、六大原则特性：封装、继承、多态 六大原则：单一责任原则、开放封闭原则、里氏替换原则、依赖倒置原则、接口分离原则、组合聚合复用原则 参考：  面向对象基本原则 Object方法12345678910111213141516171819202122232425262728293031323334353637class Object&amp;#123;  	pri">
@@ -449,15 +451,18 @@
 </li>
 </ul>
 <h4 id="java8-新特性"><a href="#java8-新特性" class="headerlink" title="java8 新特性"></a>java8 新特性</h4><ul>
+<li>Lambda表达式</li>
+</ul>
+<ul>
 <li><p>接口默认方法与静态方法</p>
 <p>Java8允许给接口添加一个非抽象方法的实现，只需在方法前使用Default关键字即可</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Formula</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">double</span> <span class="title">calculate</span><span class="params">(<span class="keyword">int</span> a)</span></span>;</div><div class="line">    <span class="function"><span class="keyword">default</span> <span class="keyword">double</span> <span class="title">sqrt</span><span class="params">(<span class="keyword">int</span> a)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> Math.sqrt(a);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>还可以在接口中定义静态方法，只需在方法前添加Default关键字</p>
+<p>还可以在接口中定义静态方法，只需在方法前添加Static关键字</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">StaticFunctionInterface</span> </span></div><div class="line">&#123;</div><div class="line">	<span class="function"><span class="keyword">static</span> String <span class="title">staticFunction</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="string">"static function"</span>;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
-<li><p>Lambda表达式</p>
+<li><p>重复注解，注解本身需要添加@Repeatable元注解</p>
 </li>
-<li><p>​</p>
+<li><p>扩展了注解支持，几乎可以为任何东西添加注解</p>
 </li>
 </ul>
 <h4 id="java类加载器"><a href="#java类加载器" class="headerlink" title="java类加载器"></a>java类加载器</h4><h5 id="类加载过程"><a href="#类加载过程" class="headerlink" title="类加载过程"></a>类加载过程</h5><ol>
@@ -485,9 +490,18 @@
 <p><strong>不可查异常</strong>(编译器不要求强制处置的异常):包括运行时异常（RuntimeException与其子类）和错误（Error）。</p>
 <p><strong>运行时异常</strong>：都是RuntimeException类及其子类异常，如NullPointException、IndexOutOfBoundException等</p>
 <p><strong>编译时异常：</strong>是RuntimeException以外的异常，类型上都属于Exception类及其子类。从程序语法角度讲是必须进行处理的异常，如果不处理，程序就不能编译通过。如IOException、SQLException等</p>
+<h4 id="Java检测死锁"><a href="#Java检测死锁" class="headerlink" title="Java检测死锁"></a>Java检测死锁</h4><p>通过jstack命令导出线程堆栈信息。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span>#将进程2745 的线程堆栈信息导出到info.txt文件中</div><div class="line">jstack 2745 &gt; info.txt</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">Found one Java-level deadlock:</div><div class="line">=============================</div><div class="line">"Thread-1999":</div><div class="line">  waiting to lock monitor 0x00007fb92480b558 (object 0x00000007ecb88510, a java.lang.Integer),</div><div class="line">  which is held by "Thread-441"</div><div class="line">"Thread-441":</div><div class="line">  waiting to lock monitor 0x00007fb92480a0b8 (object 0x00000007ecb98068, a java.lang.Integer),</div><div class="line">  which is held by "Thread-444"</div><div class="line">"Thread-444":</div><div class="line">  waiting to lock monitor 0x00007fb92480b558 (object 0x00000007ecb88510, a java.lang.Integer),</div><div class="line">  which is held by "Thread-441"</div><div class="line"></div><div class="line">Java stack information for the threads listed above:</div><div class="line">===================================================</div><div class="line">"Thread-1999":</div><div class="line">	at pers.concurrent.DeadLock.run(DeadLock.java:23)</div><div class="line">	- waiting to lock &lt;0x00000007ecb88510&gt; (a java.lang.Integer)</div><div class="line">"Thread-441":</div><div class="line">	at pers.concurrent.DeadLock.run(DeadLock.java:25)</div><div class="line">	- waiting to lock &lt;0x00000007ecb98068&gt; (a java.lang.Integer)</div><div class="line">	- locked &lt;0x00000007ecb88510&gt; (a java.lang.Integer)</div><div class="line">"Thread-444":</div><div class="line">	at pers.concurrent.DeadLock.run(DeadLock.java:25)</div><div class="line">	- waiting to lock &lt;0x00000007ecb88510&gt; (a java.lang.Integer)</div><div class="line">	- locked &lt;0x00000007ecb98068&gt; (a java.lang.Integer)</div><div class="line"></div><div class="line">Found 1 deadlock.</div></pre></td></tr></table></figure>
+<p>死锁信息。</p>
+<h4 id="方法重写规则"><a href="#方法重写规则" class="headerlink" title="方法重写规则"></a>方法重写规则</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span></div><div class="line">&#123;</div><div class="line">    <span class="function"><span class="keyword">protected</span> A <span class="title">test</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span></span></div><div class="line">&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> B <span class="title">test</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>子类重写父类方法时，访问权限应该相同或者更大，返回类型应该相同或者是其子类.</p>
+<p>方法重写遵循 <strong>两同两小一大原则</strong>，方法名相同，形参列表相同，两小是，子类方法的返回值类型应当比父类方法的返回值类型更小或者相同，子类方法声明抛出的异常要比父类方法抛出的异常更小或者相等，一大是子类的方法访问权限要大于父类方法的访问权限。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line">        Integer i1 = <span class="number">0</span>;</div><div class="line">        Integer i2 = <span class="keyword">new</span> Integer(<span class="number">0</span>);</div><div class="line">        Integer i3 = <span class="number">0</span>;</div><div class="line">        System.out.println(i == i1); <span class="comment">//true</span></div><div class="line">        System.out.println(i == i2); <span class="comment">//true</span></div><div class="line">        System.out.println(i1 == i2); <span class="comment">//false</span></div><div class="line">        System.out.println(i1 == i3); <span class="comment">//true</span></div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 <h3 id="Java容器"><a href="#Java容器" class="headerlink" title="Java容器"></a>Java容器</h3><h4 id="HashMap底层实现"><a href="#HashMap底层实现" class="headerlink" title="HashMap底层实现"></a>HashMap底层实现</h4><p>hashMap底层存储是用一个Entry<object,object>数组，数据中每个Entry都是一个链表，当新元素添加时，直接添加到链表头即可。</object,object></p>
 <p>hashMap可以设定初始容量，不设定的话初始容量为16，默认加载因子是<strong>loadFactor=0.75</strong>，当map中的元素个数n&gt;=table.length*0.75时，Map会发生扩容，扩容机制是原来数组长度的两倍：<strong>resize(2 * table.length)</strong>。</p>
 <p>hashMap 解决冲突的办法是将数组元素设计成一个链表，当同一个有多个元素映射到同一个数组元素中，直接将其添加到链表头，更好的解决冲突的办法是将链表设计成一颗红黑树。</p>
+<h5 id="HashMap多线程下扩容问题"><a href="#HashMap多线程下扩容问题" class="headerlink" title="HashMap多线程下扩容问题"></a>HashMap多线程下扩容问题</h5><p>会出现死循环问题 <a href="http://coolshell.cn/articles/9606.html" target="_blank" rel="external">http://coolshell.cn/articles/9606.html</a></p>
 <p>详细参考： <a href="https://huzhiming12.github.io/2017/05/10/java/Java%E9%9B%86%E5%90%88-Map%E4%BB%8B%E7%BB%8D/">Java集合_Map介绍</a></p>
 <h4 id="ArrayList和LinkedList区别"><a href="#ArrayList和LinkedList区别" class="headerlink" title="ArrayList和LinkedList区别"></a>ArrayList和LinkedList区别</h4><ul>
 <li><p>arrrayList底层实现是用的数组，而LinkedList用的是链表。</p>
@@ -555,7 +569,15 @@
 <h4 id="Java内存模型"><a href="#Java内存模型" class="headerlink" title="Java内存模型"></a>Java内存模型</h4><p>Java内存模型规定所有变量都存储在主内存中（可以类比物理硬件中的内存），没条线程还有自己的工作内存（与处理器的高速缓存类似），线程的工作内存中保存了被该线程使用到的变量的主内存副本拷贝，线程对变量的所哟操作都必须在工作内存中进行，而不能直接读取内存中的变量。</p>
 <p>这里所说的主内存、工作内存与Java内存区域划分中的Java堆、栈、方法区不是同一个曾是的内存划分。</p>
 <p><img src="/2017/07/05/面试总结/面经总结/pic4.png" alt=""></p>
-<h4 id="JVM参数配置"><a href="#JVM参数配置" class="headerlink" title="JVM参数配置"></a>JVM参数配置</h4><p>参考：<a href="http://www.cnblogs.com/edwardlauxh/archive/2010/04/25/1918603.html" target="_blank" rel="external">JVM参数配置大全</a></p>
+<h4 id="JVM参数配置"><a href="#JVM参数配置" class="headerlink" title="JVM参数配置"></a>JVM参数配置</h4><ul>
+<li>-Xms：初始堆大小 </li>
+<li>-Xmx：最大堆大小</li>
+<li>-Xmn：年轻代大小</li>
+<li>-XX:PermSize：永久代大小</li>
+<li>-XX:NewRatio：年轻代和老年代的比例</li>
+<li>-XX:SurvivorRatio=4：设置Eden和survivor的大小比值</li>
+</ul>
+<p>参考：<a href="http://www.cnblogs.com/edwardlauxh/archive/2010/04/25/1918603.html" target="_blank" rel="external">JVM参数配置大全</a></p>
 <h4 id="JVM频繁FullGC及应对策略"><a href="#JVM频繁FullGC及应对策略" class="headerlink" title="JVM频繁FullGC及应对策略"></a>JVM频繁FullGC及应对策略</h4><p>参考：<a href="http://blog.csdn.net/endlu/article/details/51144918" target="_blank" rel="external">JVM频繁Full GC的情况及应对策略</a></p>
 <h4 id="JVM性能调优和监控工具"><a href="#JVM性能调优和监控工具" class="headerlink" title="JVM性能调优和监控工具"></a>JVM性能调优和监控工具</h4><ul>
 <li><p>jps 查看JVM中运行的进程状态信息</p>
@@ -648,7 +670,7 @@
 <li>Terminated：终止状态，run方法运行结束，或者线程发生异常</li>
 </ul>
 <h4 id="Thread中的方法"><a href="#Thread中的方法" class="headerlink" title="Thread中的方法"></a>Thread中的方法</h4><ul>
-<li>join():当某个程序执行流中调用其他线程的join()方法，调用其他线程的线程本身会被阻塞，知道被调用的线程执行完毕为止。如A线程中调用了B线程，B线程中执行了join()方法，则A线程会被阻塞，直到B线程执行完</li>
+<li>join():当某个程序执行流中调用其他线程的join()方法，调用其他线程的线程本身会被阻塞，直到被调用的线程执行完毕为止。如A线程中调用了B线程，B线程中执行了join()方法，则A线程会被阻塞，直到B线程执行完</li>
 <li>yield()：线程让步，yield会让出执行权限，让系统重新从优先级大于或等于当前线程的这些线程选择（包括当前线程），也就是说可能还会选择当前线程继续执行</li>
 <li>interrupt()：只是改变中断状态而已，interrupt()不会中断一个正在运行的线程。这一方法实际上完成的是，在线程受到阻塞时抛出一个中断信号，这样线程就得以退出阻塞的状态。更确切的说，如果线程被Object.wait, Thread.join和Thread.sleep三种方法之一阻塞，那么，它将接收到一个中断异常（InterruptedException），从而提早地终结被阻塞状态.如果线程没有被阻塞，这时调用interrupt()将不起作用；仅仅是设置中断标志位为true</li>
 <li>sleep()：睡眠</li>
@@ -664,7 +686,35 @@
 <li>doGet()\doPost()：具体的业务方法</li>
 <li>destroy()：servlet生命周期结束</li>
 </ul>
-<p>jsp中的</p>
+<h4 id="session-和Cookie的区别"><a href="#session-和Cookie的区别" class="headerlink" title="session 和Cookie的区别"></a>session 和Cookie的区别</h4><ul>
+<li>Cookie保存在本地，session保存在服务器端</li>
+<li>存取方式不同，Cookie中只能保存ASCALL字符串，Cookie中也不能之间存取java对象；而session中能够存取任何类型的数据，session中也能够直接保存java对象，相当于一个java容器。</li>
+<li>服务器压力的不同，session保存在服务端。每个用户都会产生一个session。假如并发访问的用户十分多，会产生很多的session，耗费大量的内存。而Cookie保存在客户端，不占用服务器资源，如果并发用户多的话。Cookie是很好的选择。</li>
+<li>浏览器支持上不同。Cookie需要客户端浏览器的支持，如果客户端禁用Cookie的话，Cookie回话跟踪会失效，需要使用session和URL重写。</li>
+</ul>
+<p>参考文章：<a href="http://www.lai18.com/content/407204.html" target="_blank" rel="external">http://www.lai18.com/content/407204.html</a></p>
+<h4 id="POST和GET的区别"><a href="#POST和GET的区别" class="headerlink" title="POST和GET的区别"></a>POST和GET的区别</h4><ul>
+<li>GET请求数据会附在URL之后，POST把提交数据放置在HTTP包的BODY里面</li>
+<li>GET方式提交的数据最多是1024字节，POST理论上是没有限制的，可以传送大量的数据</li>
+<li>POST的安全性要比GET高。</li>
+</ul>
+<h4 id="RESTful"><a href="#RESTful" class="headerlink" title="RESTful"></a>RESTful</h4><p>简单的定义：URL定位资源，用HTTP动词（GET、POST、DELETE、PUT）来描述操作。</p>
+<ul>
+<li>REST描述的是网络中Client客户端和Server的一种交互形式，REST本身没什么意义，只是提供了一种设计RESTful API(网络接口)的约束。</li>
+<li>Server提供的RESTful API中，URL中只能使用名词来指定资源，原则上不能使用动词。比如：<ul>
+<li><a href="http://api.qc.com/v1/newfriends" target="_blank" rel="external">http://api.qc.com/v1/newfriends</a>: 获取某人的新鲜; </li>
+<li><a href="http://api.qc.com/v1/friends：" target="_blank" rel="external">http://api.qc.com/v1/friends：</a> 获取某人的好友列表;</li>
+<li><a href="http://api.qc.com/v1/profile：" target="_blank" rel="external">http://api.qc.com/v1/profile：</a> 获取某人的详细信息;</li>
+</ul>
+</li>
+<li>通过http协议中的动词来添加、修改、删除资源<ul>
+<li>GET 用来获取资源</li>
+<li>POST 用来新建资源</li>
+<li>PUT 用来更新资源</li>
+<li>DELETE 用来删除资源</li>
+</ul>
+</li>
+</ul>
 <h2 id="SSH框架"><a href="#SSH框架" class="headerlink" title="SSH框架"></a>SSH框架</h2><h3 id="SpringMVC"><a href="#SpringMVC" class="headerlink" title="SpringMVC"></a>SpringMVC</h3><h4 id="Spring-MVC运行原理"><a href="#Spring-MVC运行原理" class="headerlink" title="Spring MVC运行原理"></a>Spring MVC运行原理</h4><p><img src="/2017/07/05/面试总结/面经总结/pic1.png" alt=""></p>
 <p>1.http请求：客户端请求提交到DispathcherServlet.</p>
 <p>2.寻找处理器：DispatcherServlet控制器查询一个或多个HandlerMaping，找到处理请求的Controller(我们俗称Controller，实际是Handler)。</p>
@@ -679,9 +729,42 @@
 <li>拦截器可以访问Action上下文，值栈里的对象，而过滤器不能访问</li>
 <li>在Action的生命周期中，拦截器可以多次调用，而过滤器只能在容器初始化时被调用一次</li>
 </ol>
+<h4 id="springMVC和Struts2的区别"><a href="#springMVC和Struts2的区别" class="headerlink" title="springMVC和Struts2的区别"></a>springMVC和Struts2的区别</h4><ol>
+<li>Struts2是类级别的拦截，一个类对应一个request上下文；springMVC是方法级别的拦截，一个方法对应一个request上下文。</li>
+<li>springMVC方法之间基本上是独立的，独享request和response数据，请求数据通过参数获取处理结果通过modelMap交回给框架，方法之间不共享变量。而Struts2比较混乱，虽然方法之间也是独立的，但其所有Action变量是共享的，</li>
+<li>拦截器实现机制上，Struts2有自己的interceptor机制；springMVC采用的是独立的AOP方式。</li>
+<li>springMVC的入口是servlet,而Struts2是Filter。</li>
+<li>springMVC和Spring是无缝的，从项目管理和安全上也比Struts2高</li>
+<li>springMVC开发效率和性能高于Struts2</li>
+</ol>
 <h3 id="Hibernate"><a href="#Hibernate" class="headerlink" title="Hibernate"></a>Hibernate</h3><h4 id="Hibernate缓存"><a href="#Hibernate缓存" class="headerlink" title="Hibernate缓存"></a>Hibernate缓存</h4><p>Hibernate缓存包括两大类：一级缓存和二级缓存</p>
 <p><strong>一级缓存</strong>：一级缓存又称为session缓存，session缓存是事务范围的缓存，只存在与session的生命周期中。当程序调用session接口的save、update、saveOrUpdate、get、load等方法时，如果session缓存中没有响应的对象，Hibernate就会把对象加入到一级缓存中，当session关闭时，该session所管理的一级缓存也会立即被清除。</p>
 <p><strong>二级缓存</strong>：二级缓存是sessionFactory级别的缓存，又称应用缓存，使用第三方插件，可插拔的。缓存的范围是所有session共享，缓存的生命周期依赖于应用的生命周期，应用结束了缓存也就结束了。</p>
+<h4 id="Hibernate的三态"><a href="#Hibernate的三态" class="headerlink" title="Hibernate的三态"></a>Hibernate的三态</h4><p><strong>瞬时态(临时态)</strong>：对象刚被创建但没有被持久化。</p>
+<p>特点：不和session实例关联；在数据库中没有和瞬时对象关联的记录</p>
+<p><strong>持久态</strong>：持久化对象就是已经保存进数据库的实体对象，并且这个实体对象现在还处于Hibernate的session缓存管理之中。这时对实体对象的任何修改，都会在清理缓存时同步到数据库中。</p>
+<p>特点：持久的实例在数据库中有对应的记录，并拥有一个持久化标识；和session相关联的对象</p>
+<p><strong>游离态</strong>：当一个持久化对象脱离Hibernate的缓存管理后，它就处于游离状态</p>
+<p>特点：本质上和瞬时对象相同；比瞬时对象多了一个数据库记录标识值ID</p>
+<h4 id="Hibernate与Mybatis的优缺点对比"><a href="#Hibernate与Mybatis的优缺点对比" class="headerlink" title="Hibernate与Mybatis的优缺点对比"></a>Hibernate与Mybatis的优缺点对比</h4><ol>
+<li>SQL优化方面，Hibernate的查询会将表中的所有字段查询出来，这一点会有性能消耗。Hibernate也可以自己写SQL来指定需要查询的字段，但这样就破坏了Hibernate开发的简洁性。而mybatis的SQL是手动表写的，所以可以按需求指定查询的字段</li>
+<li>扩展方面，Hibernate与具体的数据库无关，只需配置XML文件即可，所有的HQL语句与具体使用的数据库无关，移植性好。mybatis项目中的所有SQL语句都是依赖数据库的，所以不同的数据库类型支持不好</li>
+<li>开发工作量来说，mybatis需要手动编写SQL语句，以及ResultMap。而Hibernate有良好的映射机制，无需开发者关系SQL的生成与结果映射。</li>
+</ol>
+<p><strong>优势对比</strong></p>
+<p>mybatis优势：</p>
+<ol>
+<li>mybatis可以更为细致的SQL优化，可以减少查询字段</li>
+<li>mybatis容易掌握，而Hibernate门槛较高</li>
+</ol>
+<p>Hibernate优势：</p>
+<ol>
+<li>Hibernate的DAO层开发比mybatis简单，mybatis需要维护SQL和结果映射</li>
+<li>Hibernate对对象的维护和缓存比mybatis好，对增删改查的对象的维护要方便</li>
+<li>Hibernate数据库移植性很好，mybatis的数据库移植性不好，不同的数据库要写不同的SQL</li>
+</ol>
+<p><strong>应用场景</strong></p>
+<p>Hibernate：适用于</p>
 <h3 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h3><h4 id="Spring事务传播特性"><a href="#Spring事务传播特性" class="headerlink" title="Spring事务传播特性"></a>Spring事务传播特性</h4><table>
 <thead>
 <tr>
@@ -921,7 +1004,64 @@
 <li>父节点的值大于左儿子结点的值，小于右儿子结点的值</li>
 <li>二叉搜索树中序遍历是一个递增序列</li>
 </ul>
-<h4 id="B-树"><a href="#B-树" class="headerlink" title="B+树"></a>B+树</h4><h2 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h2><h3 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h3><h4 id="ping命令返回结果"><a href="#ping命令返回结果" class="headerlink" title="ping命令返回结果"></a>ping命令返回结果</h4><p>常见的三种错误：</p>
+<h4 id="B-树"><a href="#B-树" class="headerlink" title="B+树"></a>B+树</h4><h3 id="Hash"><a href="#Hash" class="headerlink" title="Hash"></a>Hash</h3><h4 id="解决冲突的办法"><a href="#解决冲突的办法" class="headerlink" title="解决冲突的办法"></a>解决冲突的办法</h4><ul>
+<li>开发定址法 f(x)= (H(x)+d)%m;当有冲突时，改变d的值</li>
+<li>再Hash法 </li>
+<li>链地址法  HashMap的实现方式</li>
+<li>建立一个公共溢出区</li>
+</ul>
+<h2 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h2><h3 id="基础-1"><a href="#基础-1" class="headerlink" title="基础"></a>基础</h3><h4 id="OSI七层模型协议"><a href="#OSI七层模型协议" class="headerlink" title="OSI七层模型协议"></a>OSI七层模型协议</h4><table>
+<thead>
+<tr>
+<th style="text-align:center">OSI分层</th>
+<th style="text-align:center">功能</th>
+<th style="text-align:center">相关协议</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">应用层</td>
+<td style="text-align:center">用户接口、应用程序</td>
+<td style="text-align:center">HTTP、Telnet、FTP、TFTP</td>
+</tr>
+<tr>
+<td style="text-align:center">表示层</td>
+<td style="text-align:center">数据表示、压缩和加密</td>
+<td style="text-align:center">JPEG、ASCALL、MPEG</td>
+</tr>
+<tr>
+<td style="text-align:center">会话层</td>
+<td style="text-align:center">回话的建立、管理、终止</td>
+<td style="text-align:center">SQL、NFS、RPC</td>
+</tr>
+<tr>
+<td style="text-align:center">传输层</td>
+<td style="text-align:center">提供端到端数据传输</td>
+<td style="text-align:center">TCP、UDP</td>
+</tr>
+<tr>
+<td style="text-align:center">网络层</td>
+<td style="text-align:center">负责数据包从源到宿的传递</td>
+<td style="text-align:center">IP、ARP、ICMP、IGMP</td>
+</tr>
+<tr>
+<td style="text-align:center">数据链路层</td>
+<td style="text-align:center">将比特组装成帧和点对点传输</td>
+<td style="text-align:center">PPP、MAC</td>
+</tr>
+<tr>
+<td style="text-align:center">物理层</td>
+<td style="text-align:center">传输比特流</td>
+<td style="text-align:center">V.35、X.21、RS-232、RS-449</td>
+</tr>
+</tbody>
+</table>
+<h4 id="GET和POST的区别"><a href="#GET和POST的区别" class="headerlink" title="GET和POST的区别"></a>GET和POST的区别</h4><ul>
+<li>get请求的数据会附在URL之后，而POST把提交的数据则放在Http包的包体中</li>
+<li>get方法提交数据最多是1024字节，理论上POST没有限制，可以上传大量数据。</li>
+<li>POST的安全性要比get安全性高</li>
+</ul>
+<h3 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h3><h4 id="ping命令返回结果"><a href="#ping命令返回结果" class="headerlink" title="ping命令返回结果"></a>ping命令返回结果</h4><p>常见的三种错误：</p>
 <ul>
 <li>unknown host：不知名主机，主机名无法被DNS解析</li>
 <li>Destinationn host Unreachable：主机不可达，一般是线路中断。</li>
@@ -954,16 +1094,18 @@
 <li>202：Accepted 请求已经接受，但尚未处理</li>
 <li>300： Multiple Choices 客户端请求的文档可以在多个位置找到，这些位置已经在返回的文档内列出</li>
 <li>301：Moved Permanently 客户端请求的文档在其他地方，新的URL在location中给出，浏览器应该自动访问新的URL</li>
+<li>304：服务器端内容未修改</li>
 <li>400：Bad request——客户端请求有语法错误，不能被服务器解析</li>
 <li>401：unauthorized——请求未经授权，这个状态代码必须和WWW-Authenticate报头域一起使用 </li>
-<li>403：Forbidden——资源不可用，服务器收到请求，但是拒绝提供服务</li>
+<li>403：Forbidden——服务器收到请求，但是拒绝提供服务</li>
 <li>404：Not found——请求资源不存在 如URL输入错误</li>
 <li>500：Internal Server Error——服务器发生了不可预料的错误</li>
 <li>502：网关错误</li>
 <li>503：Server Unavailable——服务器当前不能处理客户端的请求，一段时间后可能恢复正常</li>
 </ul>
+<h4 id="301与302的区别"><a href="#301与302的区别" class="headerlink" title="301与302的区别"></a>301与302的区别</h4><p>302重定向是暂时的重定向，搜索引擎会抓取新的内容而保留旧的网址。因为服务器返回302代码，搜索引擎认为新的网址只是暂时的。</p>
+<p>301重定向是永久的重定向，搜索引擎在抓取新内容的同时也将旧的网址替换为重定向之后的网址。</p>
 <h4 id="Request请求头常见字段："><a href="#Request请求头常见字段：" class="headerlink" title="Request请求头常见字段："></a>Request请求头常见字段：</h4><ul>
-<li>Http请求方式</li>
 <li>Host：请求的web服务器域名地址</li>
 <li>User-Agent：Http客户端浏览器类型的详细信息</li>
 <li>Accept：指定客户端能够接收的内容类型 text/xml、text/html</li>
@@ -985,6 +1127,18 @@
 <li>Expiers:告诉客户端在这个时间前可以直接访问缓冲副本，相应过期时间</li>
 <li>Last-Modifed:请求资源的最后修改时间</li>
 </ul>
+<h4 id="http缓存策略"><a href="#http缓存策略" class="headerlink" title="http缓存策略"></a>http缓存策略</h4><p><strong>强制缓存</strong></p>
+<p><img src="/2017/07/05/面试总结/面经总结/pic5.png" alt=""></p>
+<p><strong>对比缓存</strong></p>
+<p><img src="/2017/07/05/面试总结/面经总结/pic6.png" alt=""></p>
+<h5 id="expires"><a href="#expires" class="headerlink" title="expires"></a>expires</h5><p>expires值为缓存的到期时间，当前时间小于expires值时，会直接使用缓存。expires是http1.0里的内容，现在基本使用http1.1，故其作用基本可以忽略。</p>
+<h5 id="Cache-control"><a href="#Cache-control" class="headerlink" title="Cache-control"></a>Cache-control</h5><p>Cache-Control 是最重要的规则。常见的取值有private、public、no-cache、max-age，no-store，默认为private。<br><strong>private</strong>：客户端可以缓存<br><strong>public</strong>：客户端和代理服务器都可缓存（前端的同学，可以认为public和private是一样的）<br><strong>max-age=xxx</strong>：缓存的内容将在 xxx 秒后失效<br><strong>no-cache</strong>：强制将请求需要使用对比缓存来验证缓存数据<br><strong>no-store</strong>：所有内容都不会缓存，强制缓存，对比缓存都不会触发</p>
+<p>当使用max-age且未超出时间限制时，则使用强制缓存。</p>
+<p>当使用max-age且超出时间限制时，使用对比缓存</p>
+<p><strong>Etag  /  If-None-Match</strong></p>
+<p>使用对比缓存时，首先检测response的header中是否用Etag字段，Etag表示当前资源在服务器中的唯一标识符，再次请求服务器时，通过此字段通知服务器客户段缓存数据的唯一标识。服务器收到请求后发现有头If-None-Match 则与被请求资源的唯一标识进行比对，不同，说明资源又被改动过，则响应整片资源内容，返回状态码200；相同，说明资源无新修改，则响应HTTP 304，告知浏览器继续使用所保存的cache。</p>
+<p><strong>Last-Modified  /  If-Modified-Since</strong>（优先级比etag低）</p>
+<p>服务器在响应请求时，告诉浏览器资源的最后修改时间。再次请求服务器时，通过此字段通知服务器上次请求时，服务器返回的资源最后修改时间。服务器收到请求后发现有头If-Modified-Since 则与被请求资源的最后修改时间进行比对。若资源的最后修改时间大于If-Modified-Since，说明资源又被改动过，则响应整片资源内容，返回状态码200；若资源的最后修改时间小于或等于If-Modified-Since，说明资源无新修改，则响应HTTP 304，告知浏览器继续使用所保存的cache。</p>
 <h3 id="运输层"><a href="#运输层" class="headerlink" title="运输层"></a>运输层</h3><h4 id="TCP和UDP的区别"><a href="#TCP和UDP的区别" class="headerlink" title="TCP和UDP的区别"></a>TCP和UDP的区别</h4><h5 id="UDP（用户数据报协议）"><a href="#UDP（用户数据报协议）" class="headerlink" title="UDP（用户数据报协议）"></a>UDP（用户数据报协议）</h5><ul>
 <li>UDP无连接的</li>
 <li>最大努力交互，不保证可靠交互</li>
@@ -1000,7 +1154,7 @@
 <li>TCP提供全双工通信</li>
 <li>TCP是面向字节流的</li>
 </ul>
-<h2 id="操作系统："><a href="#操作系统：" class="headerlink" title="操作系统："></a>操作系统：</h2><h3 id="基础-1"><a href="#基础-1" class="headerlink" title="基础"></a>基础</h3><h4 id="进程与线程的区别与联系"><a href="#进程与线程的区别与联系" class="headerlink" title="进程与线程的区别与联系"></a>进程与线程的区别与联系</h4><p><strong>进程</strong>：进程是具有一定独立功能的程序关于某个数据集合上的一次运行活动，进程是系统进行资源分配和调度的基本单位</p>
+<h2 id="操作系统："><a href="#操作系统：" class="headerlink" title="操作系统："></a>操作系统：</h2><h3 id="进程管理"><a href="#进程管理" class="headerlink" title="进程管理"></a>进程管理</h3><h4 id="进程与线程的区别与联系"><a href="#进程与线程的区别与联系" class="headerlink" title="进程与线程的区别与联系"></a>进程与线程的区别与联系</h4><p><strong>进程</strong>：进程是具有一定独立功能的程序关于某个数据集合上的一次运行活动，进程是系统进行资源分配和调度的基本单位</p>
 <p><strong>线程：</strong>是进程的一个实体，是CPU调度和分配的基本单位。它是比进程更小的能独立运行的基本单位，线程基本上不拥有系统资源，只拥有一点在运行中必不可杀的资源。</p>
 <p><strong>区别：</strong></p>
 <ol>
@@ -1012,7 +1166,7 @@
 </ol>
 <h4 id="进程间通信的方法"><a href="#进程间通信的方法" class="headerlink" title="进程间通信的方法"></a>进程间通信的方法</h4><ol>
 <li>无名管道：管道是一种半双工的通信方式，数据只能单向流动，而且只能在具有亲缘关系的进程间使用。进程的亲缘关系通常是指父子进程关系。</li>
-<li>高级管道：将另一个程序当做一个新的进程在当前程序进程中启动，则它算是当前程序的子进程，这种方式我们成为高级管道方式。</li>
+<li>高级管道：将另一个程序当做一个新的进程在当前程序进程中启动，则它算是当前程序的子进程，这种方式我们称为高级管道方式。</li>
 <li>有名管道：有名管道也是半双工的通信方式，但是它允许无亲缘关系进程间的通信。</li>
 <li>消息队列： 消息队列是由消息的链表，存放在内核中并由消息队列标识符标识。消息队列克服了信号传递信息少、管道只能承载无格式字节流以及缓冲区大小受限等缺点。</li>
 <li>信号量： 信号量是一个计数器，可以用来控制多个进程对共享资源的访问。它常作为一种锁机制，防止某进程正在访问共享资源时，其他进程也访问该资源。因此，主要作为进程间以及同一进程内不同线程之间的同步手段。</li>
@@ -1041,6 +1195,16 @@
 </ol>
 <h4 id="自旋锁和互斥锁"><a href="#自旋锁和互斥锁" class="headerlink" title="自旋锁和互斥锁"></a>自旋锁和互斥锁</h4><p>自旋锁：但是自旋锁不会引起调用者睡眠，如果自旋锁已经被别的执行单元保持，调用者就一直循环在那里看是否该自旋锁的保持者已经释放了锁，”自旋”一词就是因此而得名。</p>
 <p>互斥锁：对于互斥锁，如果资源已经被占用，资源申请者只能进入睡眠状态。</p>
+<h3 id="存储管理"><a href="#存储管理" class="headerlink" title="存储管理"></a>存储管理</h3><h4 id="内存碎片"><a href="#内存碎片" class="headerlink" title="内存碎片"></a>内存碎片</h4><p>采用分区存储管理的系统，在存储分配过程中产生的不能供用户进程使用的小分区称为“内存碎片”，内存碎片分为内部碎片和外部碎片。</p>
+<h5 id="内部碎片"><a href="#内部碎片" class="headerlink" title="内部碎片"></a>内部碎片</h5><p>内部碎片就是已经分配出去（明确指出属于哪个进程）却不能被利用的内存空间。</p>
+<p>单道连续分配只有内部碎片，固定分区分配即有内部碎片也有外部碎片</p>
+<h5 id="外部碎片"><a href="#外部碎片" class="headerlink" title="外部碎片"></a>外部碎片</h5><p>外部碎片是指还没有被分配出去（不属于任何进程），但由于太小了无法分配给申请内存空间的新进程的内存空闲区域。</p>
+<p>动态分区分配只有外部碎片。</p>
+<h4 id="分页和分段的区别"><a href="#分页和分段的区别" class="headerlink" title="分页和分段的区别"></a>分页和分段的区别</h4><ul>
+<li>页是信息的物理单位，分页是为实现离散分配方式，以消减内存的外部碎片，提高内存的利用率。或者说分页只是由于系统管理的需要而不是用户的需要。而段是信息的逻辑单位，它含有一组意义相对完整的信息。分段的目的是为了更好的满足用户的需要</li>
+<li>页的大小固定且由系统决定，把逻辑地址划分为页号和页内地址两部分。而段的长度是不固定的，决定于用户所编写的程序。</li>
+<li>​</li>
+</ul>
 <h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><h3 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h3><ol>
 <li><a href="https://segmentfault.com/a/1190000003914228" target="_blank" rel="external">最长回文子串问题</a></li>
 <li>​</li>
@@ -1193,7 +1357,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">72</span>
+                <span class="site-state-item-count">73</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1215,7 +1379,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">50</span>
+                <span class="site-state-item-count">51</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1261,7 +1425,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java基础"><span class="nav-number">1.</span> <span class="nav-text">Java基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基础"><span class="nav-number">1.1.</span> <span class="nav-text">基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#面向对象的三大特性、六大原则"><span class="nav-number">1.1.1.</span> <span class="nav-text">面向对象的三大特性、六大原则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Object方法"><span class="nav-number">1.1.2.</span> <span class="nav-text">Object方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Java反射机制"><span class="nav-number">1.1.3.</span> <span class="nav-text">Java反射机制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Java强软弱虚引用"><span class="nav-number">1.1.4.</span> <span class="nav-text">Java强软弱虚引用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#依赖、关联、组合、聚合"><span class="nav-number">1.1.5.</span> <span class="nav-text">依赖、关联、组合、聚合</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#java8-新特性"><span class="nav-number">1.1.6.</span> <span class="nav-text">java8 新特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#java类加载器"><span class="nav-number">1.1.7.</span> <span class="nav-text">java类加载器</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#类加载过程"><span class="nav-number">1.1.7.1.</span> <span class="nav-text">类加载过程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#加载器"><span class="nav-number">1.1.7.2.</span> <span class="nav-text">加载器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#类加载器的双亲委派模型"><span class="nav-number">1.1.7.3.</span> <span class="nav-text">类加载器的双亲委派模型</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#java异常"><span class="nav-number">1.1.8.</span> <span class="nav-text">java异常</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java容器"><span class="nav-number">1.2.</span> <span class="nav-text">Java容器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HashMap底层实现"><span class="nav-number">1.2.1.</span> <span class="nav-text">HashMap底层实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ArrayList和LinkedList区别"><span class="nav-number">1.2.2.</span> <span class="nav-text">ArrayList和LinkedList区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TreeSet如何实现排序"><span class="nav-number">1.2.3.</span> <span class="nav-text">TreeSet如何实现排序</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java虚拟机"><span class="nav-number">1.3.</span> <span class="nav-text">Java虚拟机</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Java内存管理"><span class="nav-number">1.3.1.</span> <span class="nav-text">Java内存管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Java垃圾回收机制"><span class="nav-number">1.3.2.</span> <span class="nav-text">Java垃圾回收机制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Java内存模型"><span class="nav-number">1.3.3.</span> <span class="nav-text">Java内存模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JVM参数配置"><span class="nav-number">1.3.4.</span> <span class="nav-text">JVM参数配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JVM频繁FullGC及应对策略"><span class="nav-number">1.3.5.</span> <span class="nav-text">JVM频繁FullGC及应对策略</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JVM性能调优和监控工具"><span class="nav-number">1.3.6.</span> <span class="nav-text">JVM性能调优和监控工具</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JMM-java内存模型"><span class="nav-number">1.4.</span> <span class="nav-text">JMM(java内存模型)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java并发编程"><span class="nav-number">1.5.</span> <span class="nav-text">Java并发编程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建线程的三种方式"><span class="nav-number">1.5.1.</span> <span class="nav-text">创建线程的三种方式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Callable和Runnable的区别"><span class="nav-number">1.5.1.1.</span> <span class="nav-text">Callable和Runnable的区别</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现线程安全方式"><span class="nav-number">1.5.2.</span> <span class="nav-text">实现线程安全方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Lock与synchronized比较"><span class="nav-number">1.5.3.</span> <span class="nav-text">Lock与synchronized比较</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#volatile关键字"><span class="nav-number">1.5.4.</span> <span class="nav-text">volatile关键字</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Thread中的几种状态"><span class="nav-number">1.5.5.</span> <span class="nav-text">Thread中的几种状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Thread中的方法"><span class="nav-number">1.5.6.</span> <span class="nav-text">Thread中的方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#j2ee"><span class="nav-number">1.6.</span> <span class="nav-text">j2ee</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#servlet和jsp的区别"><span class="nav-number">1.6.1.</span> <span class="nav-text">servlet和jsp的区别</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SSH框架"><span class="nav-number">2.</span> <span class="nav-text">SSH框架</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SpringMVC"><span class="nav-number">2.1.</span> <span class="nav-text">SpringMVC</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Spring-MVC运行原理"><span class="nav-number">2.1.1.</span> <span class="nav-text">Spring MVC运行原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#拦截器与过滤器的区别"><span class="nav-number">2.1.2.</span> <span class="nav-text">拦截器与过滤器的区别</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hibernate"><span class="nav-number">2.2.</span> <span class="nav-text">Hibernate</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Hibernate缓存"><span class="nav-number">2.2.1.</span> <span class="nav-text">Hibernate缓存</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring"><span class="nav-number">2.3.</span> <span class="nav-text">Spring</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Spring事务传播特性"><span class="nav-number">2.3.1.</span> <span class="nav-text">Spring事务传播特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Spring自动注入的三种方式"><span class="nav-number">2.3.2.</span> <span class="nav-text">Spring自动注入的三种方式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库"><span class="nav-number">3.</span> <span class="nav-text">数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库相关知识点"><span class="nav-number">3.1.</span> <span class="nav-text">数据库相关知识点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数据库事务的理解"><span class="nav-number">3.1.1.</span> <span class="nav-text">数据库事务的理解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据库的隔离级别"><span class="nav-number">3.1.2.</span> <span class="nav-text">数据库的隔离级别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#脏读、幻读、不可重复读"><span class="nav-number">3.1.3.</span> <span class="nav-text">脏读、幻读、不可重复读</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据库索引"><span class="nav-number">3.1.4.</span> <span class="nav-text">数据库索引</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#乐观锁和悲观锁"><span class="nav-number">3.1.5.</span> <span class="nav-text">乐观锁和悲观锁</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#内连接和外连接"><span class="nav-number">3.1.6.</span> <span class="nav-text">内连接和外连接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Innodb与MyIASM引擎比较"><span class="nav-number">3.1.7.</span> <span class="nav-text">Innodb与MyIASM引擎比较</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#redis缓存"><span class="nav-number">3.2.</span> <span class="nav-text">redis缓存</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#redis数据类型"><span class="nav-number">3.2.1.</span> <span class="nav-text">redis数据类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#memcache和redis的区别"><span class="nav-number">3.2.2.</span> <span class="nav-text">memcache和redis的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#redis数据淘汰策略"><span class="nav-number">3.2.3.</span> <span class="nav-text">redis数据淘汰策略</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#redis常见性能问题和解决方案"><span class="nav-number">3.2.4.</span> <span class="nav-text">redis常见性能问题和解决方案</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#架构"><span class="nav-number">4.</span> <span class="nav-text">架构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#session"><span class="nav-number">4.1.</span> <span class="nav-text">session</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分布式部署架构下如何设计session"><span class="nav-number">4.1.1.</span> <span class="nav-text">分布式部署架构下如何设计session</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据结构"><span class="nav-number">5.</span> <span class="nav-text">数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#树"><span class="nav-number">5.1.</span> <span class="nav-text">树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#红黑树"><span class="nav-number">5.1.1.</span> <span class="nav-text">红黑树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二叉搜索树（B树）"><span class="nav-number">5.1.2.</span> <span class="nav-text">二叉搜索树（B树）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#B-树"><span class="nav-number">5.1.3.</span> <span class="nav-text">B+树</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网络"><span class="nav-number">6.</span> <span class="nav-text">网络</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#工具"><span class="nav-number">6.1.</span> <span class="nav-text">工具</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ping命令返回结果"><span class="nav-number">6.1.1.</span> <span class="nav-text">ping命令返回结果</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Http协议相关"><span class="nav-number">6.2.</span> <span class="nav-text">Http协议相关</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP1-0-与HTTP1-1的区别"><span class="nav-number">6.2.1.</span> <span class="nav-text">HTTP1.0 与HTTP1.1的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Http状态码"><span class="nav-number">6.2.2.</span> <span class="nav-text">Http状态码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Request请求头常见字段："><span class="nav-number">6.2.3.</span> <span class="nav-text">Request请求头常见字段：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Http-Response响应头字段："><span class="nav-number">6.2.4.</span> <span class="nav-text">Http Response响应头字段：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运输层"><span class="nav-number">6.3.</span> <span class="nav-text">运输层</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP和UDP的区别"><span class="nav-number">6.3.1.</span> <span class="nav-text">TCP和UDP的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#UDP（用户数据报协议）"><span class="nav-number">6.3.1.1.</span> <span class="nav-text">UDP（用户数据报协议）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#TCP传输控制协议"><span class="nav-number">6.3.1.2.</span> <span class="nav-text">TCP传输控制协议</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作系统："><span class="nav-number">7.</span> <span class="nav-text">操作系统：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基础-1"><span class="nav-number">7.1.</span> <span class="nav-text">基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#进程与线程的区别与联系"><span class="nav-number">7.1.1.</span> <span class="nav-text">进程与线程的区别与联系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#进程间通信的方法"><span class="nav-number">7.1.2.</span> <span class="nav-text">进程间通信的方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#死锁的必要条件避免和解除方法"><span class="nav-number">7.1.3.</span> <span class="nav-text">死锁的必要条件避免和解除方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自旋锁和互斥锁"><span class="nav-number">7.1.4.</span> <span class="nav-text">自旋锁和互斥锁</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法"><span class="nav-number">8.</span> <span class="nav-text">算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#动态规划"><span class="nav-number">8.1.</span> <span class="nav-text">动态规划</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java基础"><span class="nav-number">1.</span> <span class="nav-text">Java基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基础"><span class="nav-number">1.1.</span> <span class="nav-text">基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#面向对象的三大特性、六大原则"><span class="nav-number">1.1.1.</span> <span class="nav-text">面向对象的三大特性、六大原则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Object方法"><span class="nav-number">1.1.2.</span> <span class="nav-text">Object方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Java反射机制"><span class="nav-number">1.1.3.</span> <span class="nav-text">Java反射机制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Java强软弱虚引用"><span class="nav-number">1.1.4.</span> <span class="nav-text">Java强软弱虚引用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#依赖、关联、组合、聚合"><span class="nav-number">1.1.5.</span> <span class="nav-text">依赖、关联、组合、聚合</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#java8-新特性"><span class="nav-number">1.1.6.</span> <span class="nav-text">java8 新特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#java类加载器"><span class="nav-number">1.1.7.</span> <span class="nav-text">java类加载器</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#类加载过程"><span class="nav-number">1.1.7.1.</span> <span class="nav-text">类加载过程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#加载器"><span class="nav-number">1.1.7.2.</span> <span class="nav-text">加载器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#类加载器的双亲委派模型"><span class="nav-number">1.1.7.3.</span> <span class="nav-text">类加载器的双亲委派模型</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#java异常"><span class="nav-number">1.1.8.</span> <span class="nav-text">java异常</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Java检测死锁"><span class="nav-number">1.1.9.</span> <span class="nav-text">Java检测死锁</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法重写规则"><span class="nav-number">1.1.10.</span> <span class="nav-text">方法重写规则</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java容器"><span class="nav-number">1.2.</span> <span class="nav-text">Java容器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HashMap底层实现"><span class="nav-number">1.2.1.</span> <span class="nav-text">HashMap底层实现</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#HashMap多线程下扩容问题"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">HashMap多线程下扩容问题</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ArrayList和LinkedList区别"><span class="nav-number">1.2.2.</span> <span class="nav-text">ArrayList和LinkedList区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TreeSet如何实现排序"><span class="nav-number">1.2.3.</span> <span class="nav-text">TreeSet如何实现排序</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java虚拟机"><span class="nav-number">1.3.</span> <span class="nav-text">Java虚拟机</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Java内存管理"><span class="nav-number">1.3.1.</span> <span class="nav-text">Java内存管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Java垃圾回收机制"><span class="nav-number">1.3.2.</span> <span class="nav-text">Java垃圾回收机制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Java内存模型"><span class="nav-number">1.3.3.</span> <span class="nav-text">Java内存模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JVM参数配置"><span class="nav-number">1.3.4.</span> <span class="nav-text">JVM参数配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JVM频繁FullGC及应对策略"><span class="nav-number">1.3.5.</span> <span class="nav-text">JVM频繁FullGC及应对策略</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JVM性能调优和监控工具"><span class="nav-number">1.3.6.</span> <span class="nav-text">JVM性能调优和监控工具</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JMM-java内存模型"><span class="nav-number">1.4.</span> <span class="nav-text">JMM(java内存模型)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java并发编程"><span class="nav-number">1.5.</span> <span class="nav-text">Java并发编程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建线程的三种方式"><span class="nav-number">1.5.1.</span> <span class="nav-text">创建线程的三种方式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Callable和Runnable的区别"><span class="nav-number">1.5.1.1.</span> <span class="nav-text">Callable和Runnable的区别</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现线程安全方式"><span class="nav-number">1.5.2.</span> <span class="nav-text">实现线程安全方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Lock与synchronized比较"><span class="nav-number">1.5.3.</span> <span class="nav-text">Lock与synchronized比较</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#volatile关键字"><span class="nav-number">1.5.4.</span> <span class="nav-text">volatile关键字</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Thread中的几种状态"><span class="nav-number">1.5.5.</span> <span class="nav-text">Thread中的几种状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Thread中的方法"><span class="nav-number">1.5.6.</span> <span class="nav-text">Thread中的方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#j2ee"><span class="nav-number">1.6.</span> <span class="nav-text">j2ee</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#servlet和jsp的区别"><span class="nav-number">1.6.1.</span> <span class="nav-text">servlet和jsp的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#session-和Cookie的区别"><span class="nav-number">1.6.2.</span> <span class="nav-text">session 和Cookie的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#POST和GET的区别"><span class="nav-number">1.6.3.</span> <span class="nav-text">POST和GET的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RESTful"><span class="nav-number">1.6.4.</span> <span class="nav-text">RESTful</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SSH框架"><span class="nav-number">2.</span> <span class="nav-text">SSH框架</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SpringMVC"><span class="nav-number">2.1.</span> <span class="nav-text">SpringMVC</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Spring-MVC运行原理"><span class="nav-number">2.1.1.</span> <span class="nav-text">Spring MVC运行原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#拦截器与过滤器的区别"><span class="nav-number">2.1.2.</span> <span class="nav-text">拦截器与过滤器的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#springMVC和Struts2的区别"><span class="nav-number">2.1.3.</span> <span class="nav-text">springMVC和Struts2的区别</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hibernate"><span class="nav-number">2.2.</span> <span class="nav-text">Hibernate</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Hibernate缓存"><span class="nav-number">2.2.1.</span> <span class="nav-text">Hibernate缓存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Hibernate的三态"><span class="nav-number">2.2.2.</span> <span class="nav-text">Hibernate的三态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Hibernate与Mybatis的优缺点对比"><span class="nav-number">2.2.3.</span> <span class="nav-text">Hibernate与Mybatis的优缺点对比</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring"><span class="nav-number">2.3.</span> <span class="nav-text">Spring</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Spring事务传播特性"><span class="nav-number">2.3.1.</span> <span class="nav-text">Spring事务传播特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Spring自动注入的三种方式"><span class="nav-number">2.3.2.</span> <span class="nav-text">Spring自动注入的三种方式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库"><span class="nav-number">3.</span> <span class="nav-text">数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库相关知识点"><span class="nav-number">3.1.</span> <span class="nav-text">数据库相关知识点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数据库事务的理解"><span class="nav-number">3.1.1.</span> <span class="nav-text">数据库事务的理解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据库的隔离级别"><span class="nav-number">3.1.2.</span> <span class="nav-text">数据库的隔离级别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#脏读、幻读、不可重复读"><span class="nav-number">3.1.3.</span> <span class="nav-text">脏读、幻读、不可重复读</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据库索引"><span class="nav-number">3.1.4.</span> <span class="nav-text">数据库索引</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#乐观锁和悲观锁"><span class="nav-number">3.1.5.</span> <span class="nav-text">乐观锁和悲观锁</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#内连接和外连接"><span class="nav-number">3.1.6.</span> <span class="nav-text">内连接和外连接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Innodb与MyIASM引擎比较"><span class="nav-number">3.1.7.</span> <span class="nav-text">Innodb与MyIASM引擎比较</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#redis缓存"><span class="nav-number">3.2.</span> <span class="nav-text">redis缓存</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#redis数据类型"><span class="nav-number">3.2.1.</span> <span class="nav-text">redis数据类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#memcache和redis的区别"><span class="nav-number">3.2.2.</span> <span class="nav-text">memcache和redis的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#redis数据淘汰策略"><span class="nav-number">3.2.3.</span> <span class="nav-text">redis数据淘汰策略</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#redis常见性能问题和解决方案"><span class="nav-number">3.2.4.</span> <span class="nav-text">redis常见性能问题和解决方案</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#架构"><span class="nav-number">4.</span> <span class="nav-text">架构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#session"><span class="nav-number">4.1.</span> <span class="nav-text">session</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分布式部署架构下如何设计session"><span class="nav-number">4.1.1.</span> <span class="nav-text">分布式部署架构下如何设计session</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据结构"><span class="nav-number">5.</span> <span class="nav-text">数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#树"><span class="nav-number">5.1.</span> <span class="nav-text">树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#红黑树"><span class="nav-number">5.1.1.</span> <span class="nav-text">红黑树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二叉搜索树（B树）"><span class="nav-number">5.1.2.</span> <span class="nav-text">二叉搜索树（B树）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#B-树"><span class="nav-number">5.1.3.</span> <span class="nav-text">B+树</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hash"><span class="nav-number">5.2.</span> <span class="nav-text">Hash</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#解决冲突的办法"><span class="nav-number">5.2.1.</span> <span class="nav-text">解决冲突的办法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网络"><span class="nav-number">6.</span> <span class="nav-text">网络</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基础-1"><span class="nav-number">6.1.</span> <span class="nav-text">基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#OSI七层模型协议"><span class="nav-number">6.1.1.</span> <span class="nav-text">OSI七层模型协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#GET和POST的区别"><span class="nav-number">6.1.2.</span> <span class="nav-text">GET和POST的区别</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工具"><span class="nav-number">6.2.</span> <span class="nav-text">工具</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ping命令返回结果"><span class="nav-number">6.2.1.</span> <span class="nav-text">ping命令返回结果</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Http协议相关"><span class="nav-number">6.3.</span> <span class="nav-text">Http协议相关</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP1-0-与HTTP1-1的区别"><span class="nav-number">6.3.1.</span> <span class="nav-text">HTTP1.0 与HTTP1.1的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Http状态码"><span class="nav-number">6.3.2.</span> <span class="nav-text">Http状态码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#301与302的区别"><span class="nav-number">6.3.3.</span> <span class="nav-text">301与302的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Request请求头常见字段："><span class="nav-number">6.3.4.</span> <span class="nav-text">Request请求头常见字段：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Http-Response响应头字段："><span class="nav-number">6.3.5.</span> <span class="nav-text">Http Response响应头字段：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#http缓存策略"><span class="nav-number">6.3.6.</span> <span class="nav-text">http缓存策略</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#expires"><span class="nav-number">6.3.6.1.</span> <span class="nav-text">expires</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Cache-control"><span class="nav-number">6.3.6.2.</span> <span class="nav-text">Cache-control</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运输层"><span class="nav-number">6.4.</span> <span class="nav-text">运输层</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP和UDP的区别"><span class="nav-number">6.4.1.</span> <span class="nav-text">TCP和UDP的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#UDP（用户数据报协议）"><span class="nav-number">6.4.1.1.</span> <span class="nav-text">UDP（用户数据报协议）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#TCP传输控制协议"><span class="nav-number">6.4.1.2.</span> <span class="nav-text">TCP传输控制协议</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作系统："><span class="nav-number">7.</span> <span class="nav-text">操作系统：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#进程管理"><span class="nav-number">7.1.</span> <span class="nav-text">进程管理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#进程与线程的区别与联系"><span class="nav-number">7.1.1.</span> <span class="nav-text">进程与线程的区别与联系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#进程间通信的方法"><span class="nav-number">7.1.2.</span> <span class="nav-text">进程间通信的方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#死锁的必要条件避免和解除方法"><span class="nav-number">7.1.3.</span> <span class="nav-text">死锁的必要条件避免和解除方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自旋锁和互斥锁"><span class="nav-number">7.1.4.</span> <span class="nav-text">自旋锁和互斥锁</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#存储管理"><span class="nav-number">7.2.</span> <span class="nav-text">存储管理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#内存碎片"><span class="nav-number">7.2.1.</span> <span class="nav-text">内存碎片</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#内部碎片"><span class="nav-number">7.2.1.1.</span> <span class="nav-text">内部碎片</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#外部碎片"><span class="nav-number">7.2.1.2.</span> <span class="nav-text">外部碎片</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分页和分段的区别"><span class="nav-number">7.2.2.</span> <span class="nav-text">分页和分段的区别</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法"><span class="nav-number">8.</span> <span class="nav-text">算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#动态规划"><span class="nav-number">8.1.</span> <span class="nav-text">动态规划</span></a></li></ol></li></ol></div>
             
 
           </div>

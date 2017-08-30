@@ -117,7 +117,7 @@
 <meta property="og:url" content="https://huzhiming12.github.io/2017/05/19/java/blog/ReentrantLock lock、unlock源码解读/index.html">
 <meta property="og:site_name" content="huzhiming的博客">
 <meta property="og:description" content="ReentrantLock 对于公平锁和非公平锁的加锁过程不同。对于公平锁加锁，如果前面没有比当前线程等候更久的线程的话，则当前线程直接获得锁，否则直接将当前线程插入等候队列中；对于非公平锁的加锁和前面不一样，如果前一个线程刚好结束state=0，此时无论当前线程前面是否有线程等候，当前线程都能直接抢占锁。如果前一个线程还没执行完毕，则当前线程便插入等候队列中。ReentrantLock默认是非">
-<meta property="og:updated_time" content="2017-08-14T12:25:28.000Z">
+<meta property="og:updated_time" content="2017-08-14T13:04:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ReentrantLock lock、unlock源码解读">
 <meta name="twitter:description" content="ReentrantLock 对于公平锁和非公平锁的加锁过程不同。对于公平锁加锁，如果前面没有比当前线程等候更久的线程的话，则当前线程直接获得锁，否则直接将当前线程插入等候队列中；对于非公平锁的加锁和前面不一样，如果前一个线程刚好结束state=0，此时无论当前线程前面是否有线程等候，当前线程都能直接抢占锁。如果前一个线程还没执行完毕，则当前线程便插入等候队列中。ReentrantLock默认是非">
@@ -531,8 +531,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/19/java/blog/ThreadLocal/" rel="next" title="ThreadLocal">
-                <i class="fa fa-chevron-left"></i> ThreadLocal
+              <a href="/2017/05/19/java/blog/CountDownLatch源码解读/" rel="next" title="CountDownLatch源码解读">
+                <i class="fa fa-chevron-left"></i> CountDownLatch源码解读
               </a>
             
           </div>
@@ -622,7 +622,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">72</span>
+                <span class="site-state-item-count">73</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -644,7 +644,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">50</span>
+                <span class="site-state-item-count">51</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

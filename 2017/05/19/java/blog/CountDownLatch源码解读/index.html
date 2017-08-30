@@ -94,7 +94,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="内存管理," />
+  <meta name="keywords" content="countDownLatch," />
 
 
 
@@ -110,19 +110,17 @@
 
 
 
-<meta name="description" content="Java虚拟机在运行的过程中会把他管理的内存划分为不同的数据区域，每个区域都有自己用途，而且创建和销毁的时间都不同。主要包括以下几大块内容   程序计数器 ​    程序计数器是一块比较小的内存空间，它的作用可以看做是当前线程所执行的字节码的行号指示器。Java虚拟机的多线程是通过为每个线程轮流分配处理器的时间片实现的，在任何时刻一个处理器（单核的）只能执行一条程序指令。因此为了线程切换后能回到原">
-<meta name="keywords" content="内存管理">
+<meta name="description" content="CountDownLatch的是干什么的当一项任务分给多个线程去完成，每个线程的完成时间不确定，当所有线程完成任务后需要对这些任务进行整合。这样就有一个问题，每个线程完成时间不固定，该何时进行任务的整合呢。这就可以通过CountDownLatch这个工具来实现 使用场景：多任务下载下载一般是将需要下载的文件分块，定义多个线程，每个线程负责去下载对应的数据块。当所有数据块都下载下来之后对所有数据块进">
+<meta name="keywords" content="countDownLatch">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java内存管理">
-<meta property="og:url" content="https://huzhiming12.github.io/2017/03/22/java/blog/Java内存管理/index.html">
+<meta property="og:title" content="CountDownLatch源码解读">
+<meta property="og:url" content="https://huzhiming12.github.io/2017/05/19/java/blog/CountDownLatch源码解读/index.html">
 <meta property="og:site_name" content="huzhiming的博客">
-<meta property="og:description" content="Java虚拟机在运行的过程中会把他管理的内存划分为不同的数据区域，每个区域都有自己用途，而且创建和销毁的时间都不同。主要包括以下几大块内容   程序计数器 ​    程序计数器是一块比较小的内存空间，它的作用可以看做是当前线程所执行的字节码的行号指示器。Java虚拟机的多线程是通过为每个线程轮流分配处理器的时间片实现的，在任何时刻一个处理器（单核的）只能执行一条程序指令。因此为了线程切换后能回到原">
-<meta property="og:image" content="https://huzhiming12.github.io/2017/03/22/java/blog/Java内存管理/pic8.png">
-<meta property="og:updated_time" content="2017-07-05T08:21:36.000Z">
+<meta property="og:description" content="CountDownLatch的是干什么的当一项任务分给多个线程去完成，每个线程的完成时间不确定，当所有线程完成任务后需要对这些任务进行整合。这样就有一个问题，每个线程完成时间不固定，该何时进行任务的整合呢。这就可以通过CountDownLatch这个工具来实现 使用场景：多任务下载下载一般是将需要下载的文件分块，定义多个线程，每个线程负责去下载对应的数据块。当所有数据块都下载下来之后对所有数据块进">
+<meta property="og:updated_time" content="2017-08-16T08:12:49.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java内存管理">
-<meta name="twitter:description" content="Java虚拟机在运行的过程中会把他管理的内存划分为不同的数据区域，每个区域都有自己用途，而且创建和销毁的时间都不同。主要包括以下几大块内容   程序计数器 ​    程序计数器是一块比较小的内存空间，它的作用可以看做是当前线程所执行的字节码的行号指示器。Java虚拟机的多线程是通过为每个线程轮流分配处理器的时间片实现的，在任何时刻一个处理器（单核的）只能执行一条程序指令。因此为了线程切换后能回到原">
-<meta name="twitter:image" content="https://huzhiming12.github.io/2017/03/22/java/blog/Java内存管理/pic8.png">
+<meta name="twitter:title" content="CountDownLatch源码解读">
+<meta name="twitter:description" content="CountDownLatch的是干什么的当一项任务分给多个线程去完成，每个线程的完成时间不确定，当所有线程完成任务后需要对这些任务进行整合。这样就有一个问题，每个线程完成时间不固定，该何时进行任务的整合呢。这就可以通过CountDownLatch这个工具来实现 使用场景：多任务下载下载一般是将需要下载的文件分块，定义多个线程，每个线程负责去下载对应的数据块。当所有数据块都下载下来之后对所有数据块进">
 
 
 
@@ -150,13 +148,13 @@
 
 
 
-  <link rel="canonical" href="https://huzhiming12.github.io/2017/03/22/java/blog/Java内存管理/"/>
+  <link rel="canonical" href="https://huzhiming12.github.io/2017/05/19/java/blog/CountDownLatch源码解读/"/>
 
 
 
 
 
-  <title>Java内存管理 | huzhiming的博客</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>CountDownLatch源码解读 | huzhiming的博客</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -320,7 +318,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://huzhiming12.github.io/2017/03/22/java/blog/Java内存管理/">
+    <link itemprop="mainEntityOfPage" href="https://huzhiming12.github.io/2017/05/19/java/blog/CountDownLatch源码解读/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Huzhiming">
@@ -337,7 +335,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Java内存管理</h1>
+          <h1 class="post-title" itemprop="name headline">CountDownLatch源码解读</h1>
         
 
         <div class="post-meta">
@@ -349,8 +347,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-22T14:32:23+08:00">
-                2017-03-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-19T15:34:47+08:00">
+                2017-05-19
               </time>
             
 
@@ -372,8 +370,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java基础/" itemprop="url" rel="index">
-                    <span itemprop="name">Java基础</span>
+                  <a href="/categories/Java并发/" itemprop="url" rel="index">
+                    <span itemprop="name">Java并发</span>
                   </a>
                 </span>
 
@@ -390,9 +388,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/03/22/java/blog/Java内存管理/#comments" itemprop="discussionUrl">
+                <a href="/2017/05/19/java/blog/CountDownLatch源码解读/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/03/22/java/blog/Java内存管理/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/05/19/java/blog/CountDownLatch源码解读/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -417,36 +415,29 @@
       
 
       
-        <p>Java虚拟机在运行的过程中会把他管理的内存划分为不同的数据区域，每个区域都有自己用途，而且创建和销毁的时间都不同。主要包括以下几大块内容</p>
-<p><img src="/2017/03/22/java/blog/Java内存管理/pic8.png" alt="pic8"></p>
-<ul>
-<li><p>程序计数器</p>
-<p>​    程序计数器是一块比较小的内存空间，它的作用可以看做是当前线程所执行的字节码的行号指示器。Java虚拟机的多线程是通过为每个线程轮流分配处理器的时间片实现的，在任何时刻一个处理器（单核的）只能执行一条程序指令。因此为了线程切换后能回到原来的执行位置，每条线程都需要一个独立的线程计数器，每个线程之间的计数器互不影响。</p>
+        <h3 id="CountDownLatch的是干什么的"><a href="#CountDownLatch的是干什么的" class="headerlink" title="CountDownLatch的是干什么的"></a>CountDownLatch的是干什么的</h3><p>当一项任务分给多个线程去完成，每个线程的完成时间不确定，当所有线程完成任务后需要对这些任务进行整合。这样就有一个问题，每个线程完成时间不固定，该何时进行任务的整合呢。这就可以通过CountDownLatch这个工具来实现</p>
+<h4 id="使用场景：多任务下载"><a href="#使用场景：多任务下载" class="headerlink" title="使用场景：多任务下载"></a>使用场景：多任务下载</h4><p>下载一般是将需要下载的文件分块，定义多个线程，每个线程负责去下载对应的数据块。当所有数据块都下载下来之后对所有数据块进行合并。</p>
+<h4 id="CountDownLatch实现原理"><a href="#CountDownLatch实现原理" class="headerlink" title="CountDownLatch实现原理"></a>CountDownLatch实现原理</h4><p>CountDownLatch通过设定任务数即线程数count，当线程任务执行完毕后会将count减1。当count等于0时，调用CountDownLatch的线程才会接着继续执行。</p>
+<h4 id="CountDownLatch的简单使用样例"><a href="#CountDownLatch的简单使用样例" class="headerlink" title="CountDownLatch的简单使用样例"></a>CountDownLatch的简单使用样例</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Worker</span> <span class="keyword">extends</span> <span class="title">Thread</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">private</span> CountDownLatch latch;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Worker</span><span class="params">(CountDownLatch latch)</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">this</span>.latch = latch;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">super</span>.run();</div><div class="line">        System.out.println(Thread.currentThread().getName() + <span class="string">" begin work!"</span>);</div><div class="line">        <span class="keyword">try</span></div><div class="line">        &#123;</div><div class="line">            sleep(<span class="keyword">new</span> Random().nextInt(<span class="number">10000</span>));</div><div class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e)</div><div class="line">        &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">        System.out.println(Thread.currentThread().getName() + <span class="string">" work over!"</span>);</div><div class="line">        <span class="comment">//线程任务执行完毕，count减1</span></div><div class="line">        latch.countDown();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CountDownLatchDemo</span></span></div><div class="line">&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException</span></div><div class="line">    &#123;</div><div class="line">      	<span class="comment">//设定初始计算</span></div><div class="line">        CountDownLatch latch = <span class="keyword">new</span> CountDownLatch(<span class="number">3</span>);</div><div class="line">        Worker worker1 = <span class="keyword">new</span> Worker(latch);</div><div class="line">        worker1.start();</div><div class="line">        Worker worker2 = <span class="keyword">new</span> Worker(latch);</div><div class="line">        worker2.start();</div><div class="line">        Worker worker3 = <span class="keyword">new</span> Worker(latch);</div><div class="line">        worker3.start();</div><div class="line">        latch.await();</div><div class="line">        System.out.println(<span class="string">"works is over, begin Main Work!"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="CountDownLatch源码解读"><a href="#CountDownLatch源码解读" class="headerlink" title="CountDownLatch源码解读"></a>CountDownLatch源码解读</h3><p>CountDownLatch底层实现是通过AQS(AbstractQueuedSynchronizer)，实现方式和ReentrantLock很类似</p>
+<ol>
+<li><p>通过构造函数传入count，即要开启的线程任务数。注意count值只能通过构造函数传入，其他时候不能对count进行修改，除了线程执行完毕。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">CountDownLatch</span><span class="params">(<span class="keyword">int</span> count)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (count &lt; <span class="number">0</span>) <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"count &lt; 0"</span>);</div><div class="line">        <span class="keyword">this</span>.sync = <span class="keyword">new</span> Sync(count);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Sync(int count) &#123;</div><div class="line">            setState(count);</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
+<p>调用AQS的方法，设置state值</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">setState</span><span class="params">(<span class="keyword">int</span> newState)</span> </span>&#123;</div><div class="line">        state = newState;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 </li>
-<li><p>虚拟机栈</p>
-<p>​    Java虚拟机栈也是线程私有的，它的生命中周期与线程相同。虚拟机栈描述的是Java方法执行的内存模型，每个方法执行的时候都会同时创建一个栈帧，用于存储局<strong>部变量表</strong>、<strong>操作栈</strong>、<strong>动态链接</strong>、<strong>方法出口</strong>等信息。每一个方法被调用直至执行完成的过程，就对应着一个栈帧在虚拟机栈中从入栈道出栈的过程。</p>
-<p>​    局部变量表存放了编译期可知的各种基本数据类型（boolean、byte、char、short、int、float、long、double）、对象引用（reference类型），它不等同于对象本身，根据不同的虚拟机实现，它可能是一个指向对象起始地址的引用指针，也可能指向一个代表对象的句柄或者其他与此对象相关的位置）和returnAddress类型（指向了一条字节码指令的地址）。</p>
-</li>
-<li><p>本地方法栈</p>
-<p>本地方法栈和虚拟机栈很类似，区别就是虚拟机栈是为Java方法服务，而本地方法栈是为虚拟机使用的<strong>Native</strong>方法服务。</p>
-</li>
-<li><p>java 堆</p>
-<p>​    对于大多数的应用来说，Java堆是Java虚拟机锁管理的内存中最大的一块。Java堆是被所有线程共享的一块内存区域，在虚拟机启动时创建。此内存区域的唯一目的就是存放对象实例，几乎所有对象实例都在这里分配内存。所有对象和数组都要在堆上分配。</p>
-</li>
-<li><p>方法区</p>
-<p>方法区和Java堆一样，是各个线程共享的内存区域，它用于存储已被虚拟机加载的类信息、常量、静态变量、即时编译器编译后的代码等数据。</p>
+<li><p>await()方法，阻塞当前调用CountDownLatch的线程</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">await</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</div><div class="line">        sync.acquireSharedInterruptibly(<span class="number">1</span>);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>AQS方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">acquireSharedInterruptibly</span><span class="params">(<span class="keyword">int</span> arg)</span></span></div><div class="line">            <span class="keyword">throws</span> InterruptedException &#123;</div><div class="line">  		<span class="comment">//如果线程已经被阻塞，报出异常</span></div><div class="line">        <span class="keyword">if</span> (Thread.interrupted())</div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> InterruptedException();</div><div class="line">  		<span class="comment">//尝试去获取锁，如果已经被占用，则阻塞自身线程</span></div><div class="line">        <span class="keyword">if</span> (tryAcquireShared(arg) &lt; <span class="number">0</span>)</div><div class="line">            doAcquireSharedInterruptibly(arg);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>调用Aync内部类中的重写方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">int</span> <span class="title">tryAcquireShared</span><span class="params">(<span class="keyword">int</span> acquires)</span> </span>&#123;</div><div class="line">  			<span class="comment">//如果当前锁已经被占用，则返回负值，如果没有被占用就返回正值</span></div><div class="line">            <span class="keyword">return</span> (getState() == <span class="number">0</span>) ? <span class="number">1</span> : -<span class="number">1</span>;</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
+<p>AQS中的方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">doAcquireSharedInterruptibly</span><span class="params">(<span class="keyword">int</span> arg)</span></span></div><div class="line">        <span class="keyword">throws</span> InterruptedException &#123;</div><div class="line">  		<span class="comment">//将当前线程插入等候队列中</span></div><div class="line">        <span class="keyword">final</span> Node node = addWaiter(Node.SHARED);</div><div class="line">        <span class="keyword">boolean</span> failed = <span class="keyword">true</span>;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            <span class="keyword">for</span> (;;) &#123;</div><div class="line">                <span class="keyword">final</span> Node p = node.predecessor();</div><div class="line">              	<span class="comment">//如果队列中除了head结点外只有一个结点。</span></div><div class="line">                <span class="keyword">if</span> (p == head) &#123;</div><div class="line">                  	<span class="comment">//尝试去获取锁</span></div><div class="line">                    <span class="keyword">int</span> r = tryAcquireShared(arg);</div><div class="line">                  	<span class="comment">// 锁未被占用</span></div><div class="line">                    <span class="keyword">if</span> (r &gt;= <span class="number">0</span>) &#123;</div><div class="line">                        setHeadAndPropagate(node, r);</div><div class="line">                        p.next = <span class="keyword">null</span>; <span class="comment">// help GC</span></div><div class="line">                        failed = <span class="keyword">false</span>;</div><div class="line">                        <span class="keyword">return</span>;</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">if</span> (shouldParkAfterFailedAcquire(p, node) &amp;&amp;</div><div class="line">                    parkAndCheckInterrupt())</div><div class="line">                    <span class="keyword">throw</span> <span class="keyword">new</span> InterruptedException();</div><div class="line">            &#125;</div><div class="line">        &#125; <span class="keyword">finally</span> &#123;</div><div class="line">            <span class="keyword">if</span> (failed)</div><div class="line">                cancelAcquire(node);</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 <p>​</p>
-<p>​</p>
 </li>
-</ul>
-<p>JVM 配置：</p>
-<p>-Xms:初始堆的大小  默认：物理内存的1/64</p>
-<p>-Xmx:最大堆的大小  默认：物理内存的1/4</p>
-<p>-Xmn:新生代大小      默认：物理内存的1/64</p>
-<p>-Xss    :每个线程的堆栈大小    默认：1.5之后默认是1M   之前是256K</p>
-<p>-XX:PermSize:  永久代的大小    默认：物理内存1/64</p>
-<p>-XX:MaxPermSize：永久代的最大值   默认：物理内存的1/4</p>
-<p>-XX:SurvivorRadio：Eden和survivor的比例  默认：8：1</p>
+</ol>
 
       
     </div>
@@ -497,7 +488,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/内存管理/" rel="tag"># 内存管理</a>
+            <a href="/tags/countDownLatch/" rel="tag"># countDownLatch</a>
           
         </div>
       
@@ -510,8 +501,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/22/java/blog/Java垃圾回收机制/" rel="next" title="Java垃圾回收机制">
-                <i class="fa fa-chevron-left"></i> Java垃圾回收机制
+              <a href="/2017/05/19/java/blog/ThreadLocal/" rel="next" title="ThreadLocal">
+                <i class="fa fa-chevron-left"></i> ThreadLocal
               </a>
             
           </div>
@@ -520,8 +511,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/03/27/java/note/struts2 知识点/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/05/19/java/blog/ReentrantLock lock、unlock源码解读/" rel="prev" title="ReentrantLock lock、unlock源码解读">
+                ReentrantLock lock、unlock源码解读 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -576,8 +567,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/head.jpeg"
@@ -650,6 +650,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#CountDownLatch的是干什么的"><span class="nav-number">1.</span> <span class="nav-text">CountDownLatch的是干什么的</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用场景：多任务下载"><span class="nav-number">1.1.</span> <span class="nav-text">使用场景：多任务下载</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CountDownLatch实现原理"><span class="nav-number">1.2.</span> <span class="nav-text">CountDownLatch实现原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CountDownLatch的简单使用样例"><span class="nav-number">1.3.</span> <span class="nav-text">CountDownLatch的简单使用样例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CountDownLatch源码解读"><span class="nav-number">2.</span> <span class="nav-text">CountDownLatch源码解读</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -801,9 +817,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'https://huzhiming12.github.io/2017/03/22/java/blog/Java内存管理/';
-          this.page.identifier = '2017/03/22/java/blog/Java内存管理/';
-          this.page.title = 'Java内存管理';
+          this.page.url = 'https://huzhiming12.github.io/2017/05/19/java/blog/CountDownLatch源码解读/';
+          this.page.identifier = '2017/05/19/java/blog/CountDownLatch源码解读/';
+          this.page.title = 'CountDownLatch源码解读';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://https-huzhiming12-github-io.disqus.com/embed.js';

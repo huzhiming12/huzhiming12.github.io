@@ -118,7 +118,7 @@
 <meta property="og:site_name" content="huzhiming的博客">
 <meta property="og:description" content="当处理大并发请求时，由于创建线程比较耗时，故引入线程池。线程池是存放线程的容器，用户请求到来前可以提前创建好线程，请求到来时便可以直接执行任务。  线程池示意图：  123456789101112131415161718192021public ThreadPoolExecutor(int corePoolSize,                              int maximu">
 <meta property="og:image" content="https://huzhiming12.github.io/2017/05/14/java/blog/Java%20线程池/pic1.png">
-<meta property="og:updated_time" content="2017-05-21T12:43:43.000Z">
+<meta property="og:updated_time" content="2017-08-22T02:55:29.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java 线程池">
 <meta name="twitter:description" content="当处理大并发请求时，由于创建线程比较耗时，故引入线程池。线程池是存放线程的容器，用户请求到来前可以提前创建好线程，请求到来时便可以直接执行任务。  线程池示意图：  123456789101112131415161718192021public ThreadPoolExecutor(int corePoolSize,                              int maximu">
@@ -459,6 +459,20 @@
 <li><p>Executors.newScheduledThreadPool();</p>
 </li>
 </ul>
+<h5 id="newFixedThreadPool"><a href="#newFixedThreadPool" class="headerlink" title="newFixedThreadPool"></a>newFixedThreadPool</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ExecutorService <span class="title">newFixedThreadPool</span><span class="params">(<span class="keyword">int</span> nThreads)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ThreadPoolExecutor(nThreads, nThreads,</div><div class="line">                                      <span class="number">0L</span>, TimeUnit.MILLISECONDS,</div><div class="line">                                      <span class="keyword">new</span> LinkedBlockingQueue&lt;Runnable&gt;());</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>阻塞队列使用的是LinkedBlockingQUeue，阻塞队列的最大长度默认是Integer.MAX_VALUE。其中corePoolSize和maximumPoolSize相等。</p>
+<h5 id="newSingleThreadExecutor"><a href="#newSingleThreadExecutor" class="headerlink" title="newSingleThreadExecutor"></a>newSingleThreadExecutor</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ExecutorService <span class="title">newSingleThreadExecutor</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> FinalizableDelegatedExecutorService</div><div class="line">            (<span class="keyword">new</span> ThreadPoolExecutor(<span class="number">1</span>, <span class="number">1</span>,</div><div class="line">                                    <span class="number">0L</span>, TimeUnit.MILLISECONDS,</div><div class="line">                                    <span class="keyword">new</span> LinkedBlockingQueue&lt;Runnable&gt;()));</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>单个线程的线程池，同样调用LinkedBlockingQueue</p>
+<h5 id="newCachedThreadPool"><a href="#newCachedThreadPool" class="headerlink" title="newCachedThreadPool"></a>newCachedThreadPool</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ExecutorService <span class="title">newCachedThreadPool</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ThreadPoolExecutor(<span class="number">0</span>, Integer.MAX_VALUE,</div><div class="line">                                      <span class="number">60L</span>, TimeUnit.SECONDS,</div><div class="line">                                      <span class="keyword">new</span> SynchronousQueue&lt;Runnable&gt;());</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>缓存线程池，缓存线程池里面并没有常驻的线程。</p>
+<h5 id="newSingleThreadScheduledExecutor"><a href="#newSingleThreadScheduledExecutor" class="headerlink" title="newSingleThreadScheduledExecutor"></a>newSingleThreadScheduledExecutor</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ScheduledExecutorService <span class="title">newSingleThreadScheduledExecutor</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> DelegatedScheduledExecutorService</div><div class="line">            (<span class="keyword">new</span> ScheduledThreadPoolExecutor(<span class="number">1</span>));</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>##### </p>
+<p>##### </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">public static ExecutorService newSingleThreadExecutor() &#123;</div><div class="line">        return new FinalizableDelegatedExecutorService</div><div class="line">            (new ThreadPoolExecutor(1, 1,</div><div class="line">                                    0L, TimeUnit.MILLISECONDS,</div><div class="line">                                    new LinkedBlockingQueue&lt;Runnable&gt;()));</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>##### </p>
+<p>##### </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">public static ExecutorService newSingleThreadExecutor() &#123;</div><div class="line">        return new FinalizableDelegatedExecutorService</div><div class="line">            (new ThreadPoolExecutor(1, 1,</div><div class="line">                                    0L, TimeUnit.MILLISECONDS,</div><div class="line">                                    new LinkedBlockingQueue&lt;Runnable&gt;()));</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>##### </p>
 
       
     </div>
@@ -613,7 +627,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">72</span>
+                <span class="site-state-item-count">73</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -635,7 +649,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">50</span>
+                <span class="site-state-item-count">51</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -681,7 +695,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#请求任务执行策略"><span class="nav-number">1.</span> <span class="nav-text">请求任务执行策略</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#线程池饱和策略"><span class="nav-number">2.</span> <span class="nav-text">线程池饱和策略</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建线程池的其他方法"><span class="nav-number">3.</span> <span class="nav-text">创建线程池的其他方法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#请求任务执行策略"><span class="nav-number">1.</span> <span class="nav-text">请求任务执行策略</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#线程池饱和策略"><span class="nav-number">2.</span> <span class="nav-text">线程池饱和策略</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建线程池的其他方法"><span class="nav-number">3.</span> <span class="nav-text">创建线程池的其他方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#newFixedThreadPool"><span class="nav-number">3.1.</span> <span class="nav-text">newFixedThreadPool</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#newSingleThreadExecutor"><span class="nav-number">3.2.</span> <span class="nav-text">newSingleThreadExecutor</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#newCachedThreadPool"><span class="nav-number">3.3.</span> <span class="nav-text">newCachedThreadPool</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#newSingleThreadScheduledExecutor"><span class="nav-number">3.4.</span> <span class="nav-text">newSingleThreadScheduledExecutor</span></a></li></ol></li></ol></div>
             
 
           </div>
